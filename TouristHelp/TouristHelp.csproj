@@ -80,9 +80,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\User.mdf" />
-    <Content Include="App_Data\User_log.ldf">
-      <DependentUpon>User.mdf</DependentUpon>
+    <Content Include="App_Data\TouristHelp.mdf" />
+    <Content Include="App_Data\TouristHelp_log.ldf">
+      <DependentUpon>TouristHelp.mdf</DependentUpon>
     </Content>
     <Content Include="fonts\flaticon\backup.txt" />
     <Content Include="fonts\flaticon\font\flaticon.css" />
@@ -93,6 +93,7 @@
     <Content Include="fonts\ionicons\fonts\ionicons.svg" />
     <Content Include="fonts\open-iconic\open-iconic.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Hotel.aspx" />
     <Content Include="Images\about.jpg" />
     <Content Include="Images\bg_1.jpg" />
     <Content Include="Images\destination-1.jpg" />
@@ -132,6 +133,7 @@
     <Content Include="Images\room-5.jpg" />
     <Content Include="Images\room-6.jpg" />
     <Content Include="Main.aspx" />
+    <Content Include="Planner.aspx" />
     <Content Include="Scripts\aos.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -170,6 +172,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Hotel.aspx.cs">
+      <DependentUpon>Hotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Hotel.aspx.designer.cs">
+      <DependentUpon>Hotel.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -186,6 +195,13 @@
     </Compile>
     <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Planner.aspx.cs">
+      <DependentUpon>Planner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Planner.aspx.designer.cs">
+      <DependentUpon>Planner.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TourGuideListPage.aspx.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
