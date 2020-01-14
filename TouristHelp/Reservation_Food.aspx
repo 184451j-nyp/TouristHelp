@@ -6,7 +6,7 @@
     <table class="table">
         <tr>
             <td class="auto-style1">
-                <p>Make Reservation: Placeholder</p>
+                <p>Make Reservation: <asp:Label runat="server" ID="lbName"></asp:Label></p>
                 <div class="one-half img" style="background-image: url(images/about.jpg);"></div>
                 <div>
                     <div>At: Place</div>

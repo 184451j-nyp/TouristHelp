@@ -93,6 +93,7 @@
     <Content Include="fonts\ionicons\fonts\ionicons.svg" />
     <Content Include="fonts\open-iconic\open-iconic.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Guidebook.aspx" />
     <Content Include="Hotel.aspx" />
     <Content Include="Images\about.jpg" />
     <Content Include="Images\bg_1.jpg" />
@@ -132,8 +133,10 @@
     <Content Include="Images\room-4.jpg" />
     <Content Include="Images\room-5.jpg" />
     <Content Include="Images\room-6.jpg" />
+    <Content Include="InterestSelect.aspx" />
     <Content Include="Main.aspx" />
     <Content Include="Planner.aspx" />
+    <Content Include="Reservation_Food.aspx" />
     <Content Include="RewardPage.aspx" />
     <Content Include="Scripts\aos.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
@@ -170,8 +173,17 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\Attraction.cs" />
+    <Compile Include="DAL\AttractionDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Guidebook.aspx.cs">
+      <DependentUpon>Guidebook.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guidebook.aspx.designer.cs">
+      <DependentUpon>Guidebook.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hotel.aspx.cs">
       <DependentUpon>Hotel.aspx</DependentUpon>
@@ -179,6 +191,13 @@
     </Compile>
     <Compile Include="Hotel.aspx.designer.cs">
       <DependentUpon>Hotel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InterestSelect.aspx.cs">
+      <DependentUpon>InterestSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterestSelect.aspx.designer.cs">
+      <DependentUpon>InterestSelect.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
@@ -205,6 +224,13 @@
       <DependentUpon>Planner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservation_Food.aspx.cs">
+      <DependentUpon>Reservation_Food.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservation_Food.aspx.designer.cs">
+      <DependentUpon>Reservation_Food.aspx</DependentUpon>
+    </Compile>
     <Compile Include="RewardPage.aspx.cs">
       <DependentUpon>RewardPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -249,10 +275,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
