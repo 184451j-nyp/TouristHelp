@@ -152,6 +152,7 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\range.js" />
     <Content Include="Scripts\scrollax.min.js" />
+    <Content Include="Shop.aspx" />
     <Content Include="Styles\ajax-loader.gif" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\aos.css" />
@@ -211,6 +212,13 @@
     </Compile>
     <Compile Include="RewardPage.aspx.designer.cs">
       <DependentUpon>RewardPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Shop.aspx.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Shop.aspx.designer.cs">
+      <DependentUpon>Shop.aspx</DependentUpon>
     </Compile>
     <Compile Include="TourGuideListPage.aspx.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
