@@ -80,9 +80,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\User.mdf" />
-    <Content Include="App_Data\User_log.ldf">
-      <DependentUpon>User.mdf</DependentUpon>
+    <Content Include="App_Data\TouristHelp.mdf" />
+    <Content Include="App_Data\TouristHelp_log.ldf">
+      <DependentUpon>TouristHelp.mdf</DependentUpon>
     </Content>
     <Content Include="fonts\flaticon\backup.txt" />
     <Content Include="fonts\flaticon\font\flaticon.css" />
@@ -132,6 +132,7 @@
     <Content Include="Images\room-5.jpg" />
     <Content Include="Images\room-6.jpg" />
     <Content Include="Main.aspx" />
+    <Content Include="Planner.aspx" />
     <Content Include="Scripts\aos.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Planner.aspx.cs">
+      <DependentUpon>Planner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Planner.aspx.designer.cs">
+      <DependentUpon>Planner.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
