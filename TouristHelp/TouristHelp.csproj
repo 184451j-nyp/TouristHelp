@@ -131,6 +131,7 @@
     <Content Include="Images\room-4.jpg" />
     <Content Include="Images\room-5.jpg" />
     <Content Include="Images\room-6.jpg" />
+    <Content Include="InterestSelect.aspx" />
     <Content Include="Main.aspx" />
     <Content Include="Scripts\aos.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
@@ -168,6 +169,13 @@
   <ItemGroup>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="InterestSelect.aspx.cs">
+      <DependentUpon>InterestSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterestSelect.aspx.designer.cs">
+      <DependentUpon>InterestSelect.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
