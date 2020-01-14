@@ -3,70 +3,63 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="col-sm col-md-6 col-lg-4 ftco-animate fadeInUp ftco-animated">
+    <br />
+    <br />
+    
+    <div class="col-sm col-md-6 col-lg-12 ftco-animate fadeInUp ftco-animated">
         <div class="destination">
-            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
-                <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="icon-link"></span>
-                </div>
+            <a>
+                <img border="0" width="160" height="150" alt="Private tour guide Walter" class="lazy" src="https://www.toursbylocals.com/images/guides/7/7385/2013094184902530.jpg" style="display: block;">
             </a>
             <div class="text p-3">
                 <div class="d-flex">
                     <div class="one">
-                        <h3><a href="#">Paris, Italy</a></h3>
+                        <h3><a href="#">Jonathan Chew</a></h3>
                         <p class="rate">
                             <i class="icon-star"></i>
                             <i class="icon-star"></i>
                             <i class="icon-star"></i>
                             <i class="icon-star"></i>
                             <i class="icon-star-o"></i>
-                            <span>8 Rating</span>
+                            <span>87 Rating</span>
                         </p>
                     </div>
-                    <div class="two">
-                        <span class="price">$200</span>
-                    </div>
+                    
                 </div>
-                <p>Far far away, behind the word mountains, far from the countries</p>
-                <p class="days"><span>2 days 3 nights</span></p>
+                <p>Languages: English (Fluent), Chinese (Fluent)</p>
                 <hr>
                 <p class="bottom-area d-flex">
-                    <span><i class="icon-map-o"></i>San Franciso, CA</span>
-                    <span class="ml-auto"><a href="#">Discover</a></span>
+                    <span><i class="icon-map-o"></i>Singapore, Pasir Ris</span>
+                    <span class="ml-auto"><a href="TourGuideDetails.aspx">Learn More</a></span>
                 </p>
             </div>
         </div>
     </div>
-    <div class="col-sm col-md-6 col-lg-4 ftco-animate fadeInUp ftco-animated">
+    <div class="col-sm col-md-6 col-lg-12 ftco-animate fadeInUp ftco-animated">
         <div class="destination">
-            <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-4.jpg);">
-                <div class="icon d-flex justify-content-center align-items-center">
-                    <span class="icon-link"></span>
-                </div>
+            <a>
+              <img border="0" width="160" height="150" alt="Private tour guide Chintana" class="lazy" src="https://www.toursbylocals.com/images/guides/5/5360/2019156012901578.jpg" style="display: block;">
             </a>
             <div class="text p-3">
                 <div class="d-flex">
                     <div class="one">
-                        <h3><a href="#">Paris, Italy</a></h3>
+                        <h3><a href="#">Stephanie Song</a></h3>
                         <p class="rate">
                             <i class="icon-star"></i>
                             <i class="icon-star"></i>
                             <i class="icon-star"></i>
-                            <i class="icon-star"></i>
                             <i class="icon-star-o"></i>
-                            <span>8 Rating</span>
+                            <i class="icon-star-o"></i>
+                            <span>15 Rating</span>
                         </p>
                     </div>
-                    <div class="two">
-                        <span class="price">$200</span>
-                    </div>
+                    
                 </div>
-                <p>Far far away, behind the word mountains, far from the countries</p>
-                <p class="days"><span>2 days 3 nights</span></p>
+                <p>Languages: English (Fluent), Chinese (Conversational)</p>
                 <hr>
                 <p class="bottom-area d-flex">
-                    <span><i class="icon-map-o"></i>San Franciso, CA</span>
-                    <span class="ml-auto"><a href="#">Discover</a></span>
+                    <span><i class="icon-map-o"></i>Singapore, Punggol</span>
+                    <span class="ml-auto"><a href="#">Learn More</a></span>
                 </p>
             </div>
         </div>
