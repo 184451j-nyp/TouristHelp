@@ -34,6 +34,7 @@
     <link rel="stylesheet" href="Styles/style.css">
 </head>
 <body>
+    <header>
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
             <a class="navbar-brand" href="index.html">Adventure</a>
@@ -46,26 +47,28 @@
                     <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="places.html" class="nav-link">Places</a></li>
-                    <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
-                    <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+                    <li class="nav-item"><a href="Hotel.aspx" class="nav-link">Hotels</a></li>
+                    <li class="nav-item"><a href="InterestSelect.aspx" class="nav-link">Interests</a></li>
                     <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
     <!-- END nav -->
+
+    </header>
     <div>
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>
 
-    <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <%--<footer class="ftco-footer ftco-bg-dark ftco-section">
         <div class="container">
             <div class="row mb-5">
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Adventure</h2>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <h2 class="ftco-heading-2">adventure</h2>
+                        <p>far far away, behind the word mountains, far from the countries vokalia and consonantia, there live the blind texts.</p>
                         <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
                             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
                             <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
@@ -75,37 +78,37 @@
                 </div>
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4 ml-md-4">
-                        <h2 class="ftco-heading-2">Information</h2>
+                        <h2 class="ftco-heading-2">information</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">About Us</a></li>
-                            <li><a href="#" class="py-2 d-block">Online enquiry</a></li>
-                            <li><a href="#" class="py-2 d-block">Call Us</a></li>
-                            <li><a href="#" class="py-2 d-block">General enquiries</a></li>
-                            <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                            <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                            <li><a href="#" class="py-2 d-block">Refund policy</a></li>
+                            <li><a href="#" class="py-2 d-block">about us</a></li>
+                            <li><a href="#" class="py-2 d-block">online enquiry</a></li>
+                            <li><a href="#" class="py-2 d-block">call us</a></li>
+                            <li><a href="#" class="py-2 d-block">general enquiries</a></li>
+                            <li><a href="#" class="py-2 d-block">booking conditions</a></li>
+                            <li><a href="#" class="py-2 d-block">privacy and policy</a></li>
+                            <li><a href="#" class="py-2 d-block">refund policy</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Experience</h2>
+                        <h2 class="ftco-heading-2">experience</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#" class="py-2 d-block">Beach</a></li>
-                            <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                            <li><a href="#" class="py-2 d-block">Wildlife</a></li>
-                            <li><a href="#" class="py-2 d-block">Honeymoon</a></li>
-                            <li><a href="#" class="py-2 d-block">Nature</a></li>
-                            <li><a href="#" class="py-2 d-block">Party</a></li>
+                            <li><a href="#" class="py-2 d-block">beach</a></li>
+                            <li><a href="#" class="py-2 d-block">adventure</a></li>
+                            <li><a href="#" class="py-2 d-block">wildlife</a></li>
+                            <li><a href="#" class="py-2 d-block">honeymoon</a></li>
+                            <li><a href="#" class="py-2 d-block">nature</a></li>
+                            <li><a href="#" class="py-2 d-block">party</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4">
-                        <h2 class="ftco-heading-2">Have a Questions?</h2>
+                        <h2 class="ftco-heading-2">have a questions?</h2>
                         <div class="block-23 mb-3">
                             <ul>
-                                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                                <li><span class="icon icon-map-marker"></span><span class="text">203 fake st. mountain view, san francisco, california, usa</span></li>
                                 <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
                                 <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
                             </ul>
@@ -117,15 +120,15 @@
                 <div class="col-md-12 text-center">
 
                     <p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                        All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i>by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <!-- link back to colorlib can't be removed. template is licensed under cc by 3.0. -->
+                        copyright &copy;<script>document.write(new date().getfullyear());</script>
+                        all rights reserved | this template is made with <i class="icon-heart" aria-hidden="true"></i>by <a href="https://colorlib.com" target="_blank">colorlib</a>
+                        <!-- link back to colorlib can't be removed. template is licensed under cc by 3.0. -->
                     </p>
                 </div>
             </div>
         </div>
-    </footer>
+    </footer>--%>
 
     <!-- loader -->
     <div id="ftco-loader" class="show fullscreen">
