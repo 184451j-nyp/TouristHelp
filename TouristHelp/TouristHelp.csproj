@@ -137,6 +137,7 @@
     <Content Include="Main.aspx" />
     <Content Include="Planner.aspx" />
     <Content Include="Reservation_Food.aspx" />
+    <Content Include="Reservation_Food_Confirmed.aspx" />
     <Content Include="RewardPage.aspx" />
     <Content Include="Scripts\aos.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
@@ -170,7 +171,9 @@
     <Content Include="Styles\owl.theme.default.min.css" />
     <Content Include="Styles\style.css" />
     <Content Include="TourGuideListPage.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Attraction.cs" />
@@ -230,6 +233,13 @@
     </Compile>
     <Compile Include="Reservation_Food.aspx.designer.cs">
       <DependentUpon>Reservation_Food.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation_Food_Confirmed.aspx.cs">
+      <DependentUpon>Reservation_Food_Confirmed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservation_Food_Confirmed.aspx.designer.cs">
+      <DependentUpon>Reservation_Food_Confirmed.aspx</DependentUpon>
     </Compile>
     <Compile Include="RewardPage.aspx.cs">
       <DependentUpon>RewardPage.aspx</DependentUpon>

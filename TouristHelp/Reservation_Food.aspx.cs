@@ -20,5 +20,11 @@ namespace TouristHelp
 
             lbName.Text = td.Name;
         }
+
+        protected void BtnConfirm_Click(object sender, EventArgs e)
+        {
+            Session["AttractionName"] = lbName.Text.ToString();
+            Response.Redirect("Reservation_Food_Confirmed.aspx");
+        }
     }
 }
