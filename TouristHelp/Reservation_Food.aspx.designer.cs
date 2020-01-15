@@ -22,6 +22,15 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.Label lbName;
         
         /// <summary>
+        /// BtnConfirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnConfirm;
+        
+        /// <summary>
         /// LblCustId control.
         /// </summary>
         /// <remarks>
