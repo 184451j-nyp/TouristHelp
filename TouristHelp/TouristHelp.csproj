@@ -181,8 +181,11 @@
     <Compile Include="BLL\Reward.cs" />
     <Compile Include="BLL\Shop.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
+    <Compile Include="DAL\DirectionDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
     <Compile Include="DAL\ShopDAO.cs" />
+    <Compile Include="DAL\SqlAdapter.cs" />
+    <Compile Include="DAL\UserDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
