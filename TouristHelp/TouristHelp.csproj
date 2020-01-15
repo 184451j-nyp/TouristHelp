@@ -171,6 +171,8 @@
     <Content Include="Styles\owl.carousel.min.css" />
     <Content Include="Styles\owl.theme.default.min.css" />
     <Content Include="Styles\style.css" />
+    <Content Include="TourDetailsPage.aspx" />
+    <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -261,6 +263,20 @@
     </Compile>
     <Compile Include="Shop.aspx.designer.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourDetailsPage.aspx.cs">
+      <DependentUpon>TourDetailsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourDetailsPage.aspx.designer.cs">
+      <DependentUpon>TourDetailsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuideDetails.aspx.cs">
+      <DependentUpon>TourGuideDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideDetails.aspx.designer.cs">
+      <DependentUpon>TourGuideDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="TourGuideListPage.aspx.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
