@@ -103,12 +103,14 @@
     <Content Include="Images\destination-4.jpg" />
     <Content Include="Images\destination-5.jpg" />
     <Content Include="Images\destination-6.jpg" />
+    <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\hotel-1.jpg" />
     <Content Include="Images\hotel-2.jpg" />
     <Content Include="Images\hotel-3.jpg" />
     <Content Include="Images\hotel-4.jpg" />
     <Content Include="Images\hotel-5.jpg" />
     <Content Include="Images\hotel-6.jpg" />
+    <Content Include="Images\iconicFood.jpg" />
     <Content Include="Images\image_1.jpg" />
     <Content Include="Images\image_2.jpg" />
     <Content Include="Images\image_3.jpg" />
@@ -132,6 +134,8 @@
     <Content Include="Images\room-4.jpg" />
     <Content Include="Images\room-5.jpg" />
     <Content Include="Images\room-6.jpg" />
+    <Content Include="Images\uss.jpg" />
+    <Content Include="InterestSelect.aspx" />
     <Content Include="Main.aspx" />
     <Content Include="Planner.aspx" />
     <Content Include="Scripts\aos.js" />
@@ -165,10 +169,15 @@
     <Content Include="Styles\owl.carousel.min.css" />
     <Content Include="Styles\owl.theme.default.min.css" />
     <Content Include="Styles\style.css" />
+    <Content Include="Ticketing.aspx" />
     <Content Include="TourGuideListPage.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BLL\Interest.cs" />
+    <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -178,6 +187,13 @@
     </Compile>
     <Compile Include="Hotel.aspx.designer.cs">
       <DependentUpon>Hotel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InterestSelect.aspx.cs">
+      <DependentUpon>InterestSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InterestSelect.aspx.designer.cs">
+      <DependentUpon>InterestSelect.aspx</DependentUpon>
     </Compile>
     <Compile Include="Main.aspx.cs">
       <DependentUpon>Main.aspx</DependentUpon>
@@ -203,6 +219,13 @@
       <DependentUpon>Planner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ticketing.aspx.cs">
+      <DependentUpon>Ticketing.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ticketing.aspx.designer.cs">
+      <DependentUpon>Ticketing.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TourGuideListPage.aspx.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -240,10 +263,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BLL\" />
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
