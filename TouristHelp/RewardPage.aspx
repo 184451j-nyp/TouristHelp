@@ -18,142 +18,119 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
-    <table class="table">
-        <tr>
-            <td class="auto-style1">
+   
+        
                 
 
 
             <form id="frm" runat="server">
 
                 <span>
-                <asp:TextBox id="creditBalance" runat="server" Enabled="False">Your Credit Balance: </asp:TextBox>
+                <asp:Label ID="creditBalanceTB" runat="server" Text="Your Credit Balance:"></asp:Label>
+                <asp:TextBox id="creditBalance" runat="server" Enabled="False" ></asp:TextBox>
 
-                <div>
+
+                    
+               <asp:Label ID="loginCountTB" runat="server" Text="Total Days Login:"></asp:Label>
+
+               <asp:TextBox id="loginCount" runat="server" Enabled="False"></asp:TextBox>
+
+               <asp:Label ID="loginStreakTB" runat="server" Text="Login Streak:"></asp:Label>
+
+               <asp:TextBox id="loginStreak" runat="server" Enabled="False"></asp:TextBox>
+                                        </span>
+
+              
+
+                       <div>
+
+                            <asp:Label ID="remainBonusDaysTB" runat="server" Text="Next Login Day Credit Bonus:"></asp:Label>
+
+                        <asp:TextBox ID="remainBonusDays" runat="server" Enabled="False" Width="100"></asp:TextBox>
+
+
+
+
+                        <asp:TextBox ID="bonusCredits" runat="server" Width="50" Enabled="False"></asp:TextBox>
+                            
+
+                         <asp:Label ID="bonusCreditsTB" runat="server" Text="Credits"></asp:Label>
+
+                       </div>
+
+                     <div class="position">
+
+                 <asp:Label ID="membershipTierTB" runat="server" Text="Membership Type:"></asp:Label>
                 <asp:TextBox id="membershipTier" runat="server" Enabled="False">Membership: </asp:TextBox>
-                <asp:TextBox id="totalDiscount" runat="server" Enabled="False">Total Discount:  </asp:TextBox>
 
 
-                    </div>
+                <asp:Label ID="totalDiscountTB" runat="server" Text="Total Discount:  "></asp:Label>
 
-               <asp:TextBox id="loginCount" runat="server" Enabled="False">Total Days Login:  </asp:TextBox>
-               <asp:TextBox id="loginStreak" runat="server" Enabled="False">Login Streak:  </asp:TextBox>
+                <asp:TextBox id="totalDiscount" runat="server" Enabled="False"></asp:TextBox>
 
-                     <div>
-                <asp:TextBox id="creditDays" runat="server" Enabled="False" Width="500">Days to Next Login Credit Bonus:  </asp:TextBox>
-                <asp:TextBox id="bonusCredits" runat="server" Enabled="False">               Credits</asp:TextBox>
+                       </div>
 
 
-                    </div>
 
-                    </span>
+                       
+
                                 
             </form>
 
-                <table>
+               
 
             <div class="menu">
         <ul>
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#">Lorem</a></li>
-          <li><a href="#">Ipsum</a></li>
-          <li><a href="#">Dolor</a></li>
+          <li class="active"><a href="index.html">How It Works</a></li>
+          <li><a href="Shop.aspx">Shop</a></li>
+          <li><a href="Transaction.aspx">My Transaction</a></li>
         </ul>
 
-                </table>
 
 
                     
       </div>
 
-
-                 <section class="ftco-section testimony-section">
+<table>
+               <section class="ftco-section services-section bg-light">
       <div class="container">
-        <div class="row justify-content-center mb-5 pb-3">
-          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-            <h2 class="mb-4">Our satisfied customer says</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+        <div class="row d-flex">
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon"><span class="flaticon-yatch"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Be Active!</h3>
+                <p>Credits can be earned via daily logins, booking hottels and joining activities and attractions</p>
+              </div>
+            </div>      
           </div>
-        </div>
-        <div class="row ftco-animate">
-          <div class="col-md-12">
-            <div class="carousel-testimony owl-carousel ftco-owl">
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Marketing Manager</span>
-                  </div>
-                </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon"><span class="flaticon-around"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Get rewarded</h3>
+                <p>Credits can be used to bouchers and membership to get special offers and discounts</p>
               </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_2.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Interface Designer</span>
-                  </div>
-                </div>
+            </div>    
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block">
+              <div class="icon"><span class="flaticon-compass"></span></div>
+              <div class="media-body">
+                <h3 class="heading mb-3">Loyalty pays!</h3>
+                <p>Get PERMANANT discount by simply logging in everyday to reach higher loyalty tier</p>
               </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_3.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">UI Designer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">Web Developer</span>
-                  </div>
-                </div>
-              </div>
-              <div class="item">
-                <div class="testimony-wrap p-4 pb-5">
-                  <div class="user-img mb-5" style="background-image: url(images/person_1.jpg)">
-                    <span class="quote d-flex align-items-center justify-content-center">
-                      <i class="icon-quote-left"></i>
-                    </span>
-                  </div>
-                  <div class="text">
-                    <p class="mb-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <p class="name">Mark Web</p>
-                    <span class="position">System Analyst</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+                
           </div>
         </div>
       </div>
+
+
     </section>
+                  
 
 
     </table>
@@ -178,6 +155,29 @@ div.menu a {
 
 }
 
+
+span {
+
+width:200px;
+
+text-align:right;
+}
+
+div.position{
+
+    width:200px;
+    text-align:right;
+}
+
+.form-group{
+   display: inline-block;
+   margin-right: 10px;
+   float:left;
+}
+
+.form-group label{
+   display: block;
+}
        </style>
 
 

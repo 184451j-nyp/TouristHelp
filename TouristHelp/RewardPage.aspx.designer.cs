@@ -22,6 +22,15 @@ namespace TouristHelp {
         protected global::System.Web.UI.HtmlControls.HtmlForm frm;
         
         /// <summary>
+        /// creditBalanceTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label creditBalanceTB;
+        
+        /// <summary>
         /// creditBalance control.
         /// </summary>
         /// <remarks>
@@ -31,22 +40,13 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox creditBalance;
         
         /// <summary>
-        /// membershipTier control.
+        /// loginCountTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox membershipTier;
-        
-        /// <summary>
-        /// totalDiscount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox totalDiscount;
+        protected global::System.Web.UI.WebControls.Label loginCountTB;
         
         /// <summary>
         /// loginCount control.
@@ -58,6 +58,15 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox loginCount;
         
         /// <summary>
+        /// loginStreakTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label loginStreakTB;
+        
+        /// <summary>
         /// loginStreak control.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,22 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox loginStreak;
         
         /// <summary>
-        /// creditDays control.
+        /// remainBonusDaysTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox creditDays;
+        protected global::System.Web.UI.WebControls.Label remainBonusDaysTB;
+        
+        /// <summary>
+        /// remainBonusDays control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox remainBonusDays;
         
         /// <summary>
         /// bonusCredits control.
@@ -83,5 +101,50 @@ namespace TouristHelp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox bonusCredits;
+        
+        /// <summary>
+        /// bonusCreditsTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label bonusCreditsTB;
+        
+        /// <summary>
+        /// membershipTierTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label membershipTierTB;
+        
+        /// <summary>
+        /// membershipTier control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox membershipTier;
+        
+        /// <summary>
+        /// totalDiscountTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label totalDiscountTB;
+        
+        /// <summary>
+        /// totalDiscount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox totalDiscount;
     }
 }

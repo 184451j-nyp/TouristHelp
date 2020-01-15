@@ -175,7 +175,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Attraction.cs" />
+    <Compile Include="BLL\Reward.cs" />
+    <Compile Include="BLL\Shop.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
+    <Compile Include="DAL\RewardDAO.cs" />
+    <Compile Include="DAL\ShopDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -215,7 +219,6 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\Direction.cs" />
-    <Compile Include="Models\Reward.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Planner.aspx.cs">
       <DependentUpon>Planner.aspx</DependentUpon>
