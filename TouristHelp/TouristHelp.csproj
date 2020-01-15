@@ -93,7 +93,6 @@
     <Content Include="fonts\ionicons\fonts\ionicons.svg" />
     <Content Include="fonts\open-iconic\open-iconic.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Guidebook.aspx" />
     <Content Include="Hotel.aspx" />
     <Content Include="Images\about.jpg" />
     <Content Include="Images\bg_1.jpg" />
@@ -104,12 +103,14 @@
     <Content Include="Images\destination-4.jpg" />
     <Content Include="Images\destination-5.jpg" />
     <Content Include="Images\destination-6.jpg" />
+    <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\hotel-1.jpg" />
     <Content Include="Images\hotel-2.jpg" />
     <Content Include="Images\hotel-3.jpg" />
     <Content Include="Images\hotel-4.jpg" />
     <Content Include="Images\hotel-5.jpg" />
     <Content Include="Images\hotel-6.jpg" />
+    <Content Include="Images\iconicFood.jpg" />
     <Content Include="Images\image_1.jpg" />
     <Content Include="Images\image_2.jpg" />
     <Content Include="Images\image_3.jpg" />
@@ -133,12 +134,10 @@
     <Content Include="Images\room-4.jpg" />
     <Content Include="Images\room-5.jpg" />
     <Content Include="Images\room-6.jpg" />
+    <Content Include="Images\uss.jpg" />
     <Content Include="InterestSelect.aspx" />
     <Content Include="Main.aspx" />
     <Content Include="Planner.aspx" />
-    <Content Include="Reservation_Food.aspx" />
-    <Content Include="Reservation_Food_Confirmed.aspx" />
-    <Content Include="RewardPage.aspx" />
     <Content Include="Scripts\aos.js" />
     <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -156,7 +155,6 @@
     <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\range.js" />
     <Content Include="Scripts\scrollax.min.js" />
-    <Content Include="Shop.aspx" />
     <Content Include="Styles\ajax-loader.gif" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\aos.css" />
@@ -171,32 +169,17 @@
     <Content Include="Styles\owl.carousel.min.css" />
     <Content Include="Styles\owl.theme.default.min.css" />
     <Content Include="Styles\style.css" />
-    <Content Include="TourDetailsPage.aspx" />
-    <Content Include="TourGuideDetails.aspx" />
+    <Content Include="Ticketing.aspx" />
     <Content Include="TourGuideListPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\Attraction.cs" />
-    <Compile Include="BLL\Reward.cs" />
-    <Compile Include="BLL\Shop.cs" />
-    <Compile Include="DAL\AttractionDAO.cs" />
-    <Compile Include="DAL\DirectionDAO.cs" />
-    <Compile Include="DAL\RewardDAO.cs" />
-    <Compile Include="DAL\ShopDAO.cs" />
-    <Compile Include="DAL\SqlAdapter.cs" />
-    <Compile Include="DAL\UserDAO.cs" />
+    <Compile Include="BLL\Interest.cs" />
+    <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Guidebook.aspx.cs">
-      <DependentUpon>Guidebook.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Guidebook.aspx.designer.cs">
-      <DependentUpon>Guidebook.aspx</DependentUpon>
     </Compile>
     <Compile Include="Hotel.aspx.cs">
       <DependentUpon>Hotel.aspx</DependentUpon>
@@ -236,47 +219,12 @@
       <DependentUpon>Planner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Reservation_Food.aspx.cs">
-      <DependentUpon>Reservation_Food.aspx</DependentUpon>
+    <Compile Include="Ticketing.aspx.cs">
+      <DependentUpon>Ticketing.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Reservation_Food.aspx.designer.cs">
-      <DependentUpon>Reservation_Food.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reservation_Food_Confirmed.aspx.cs">
-      <DependentUpon>Reservation_Food_Confirmed.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Reservation_Food_Confirmed.aspx.designer.cs">
-      <DependentUpon>Reservation_Food_Confirmed.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="RewardPage.aspx.cs">
-      <DependentUpon>RewardPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="RewardPage.aspx.designer.cs">
-      <DependentUpon>RewardPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Shop.aspx.cs">
-      <DependentUpon>Shop.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Shop.aspx.designer.cs">
-      <DependentUpon>Shop.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TourDetailsPage.aspx.cs">
-      <DependentUpon>TourDetailsPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TourDetailsPage.aspx.designer.cs">
-      <DependentUpon>TourDetailsPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TourGuideDetails.aspx.cs">
-      <DependentUpon>TourGuideDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TourGuideDetails.aspx.designer.cs">
-      <DependentUpon>TourGuideDetails.aspx</DependentUpon>
+    <Compile Include="Ticketing.aspx.designer.cs">
+      <DependentUpon>Ticketing.aspx</DependentUpon>
     </Compile>
     <Compile Include="TourGuideListPage.aspx.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>

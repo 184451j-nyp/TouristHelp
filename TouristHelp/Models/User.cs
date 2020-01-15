@@ -7,11 +7,17 @@ namespace TouristHelp.Models
 {
     public class User
     {
-        public int userId { get; }
+        public int? userId { get; }
         public string name { get; set; }
         public string email { get; set; }
         public string password { get; set; }
 
+        public User(string name, string email, string pswd)
+        {
+            userId = null;
+            this.name = name;
+
+        }
         public User(int id, string name, string email, string pswd)
         {
             userId = id;
@@ -25,9 +31,14 @@ namespace TouristHelp.Models
     {
         public double rating { get; set; }
         public string description { get; set; }
-        public List<string> languages { get; set; }
+        public string languages { get; set; }
 
-        public TourGuide(int id, string name, string email, string pswd, double rating, string description, List<string> languages):base(id, name, email, pswd)
+        public TourGuide(string name, string email, string pswd, double rating, string description, string languages):base(name, email, pswd)
+        {
+            this.rating = rating;
+            this.description = description;
+        }
+        public TourGuide(int id, string name, string email, string pswd, double rating, string description, string languages):base(id, name, email, pswd)
         {
             this.rating = rating;
             this.description = description;
@@ -39,6 +50,10 @@ namespace TouristHelp.Models
     {
         public string nationality { get; set; }
 
+        public Tourist(string name, string email, string pswd, string nationality):base(name, email, pswd)
+        {
+            this.nationality = nationality;
+        }
         public Tourist(int id, string name, string email, string pswd, string nationality):base(id, name, email, pswd)
         {
             this.nationality = nationality;
