@@ -13,5 +13,12 @@ namespace TouristHelp
         {
 
         }
+
+
+        protected void BtnAction_Click(object sender, EventArgs e)
+        {
+            Session["AttractionId"] = "1";
+            Response.Redirect("Reservation_Food.aspx");
+        }
     }
 }

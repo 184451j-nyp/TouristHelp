@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TouristHelp.BLL;
 
 namespace TouristHelp
 {
@@ -11,7 +12,13 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            string attractId = Session["AttractionId"].ToString();
 
+            // Retrieve TDMaster records by account
+            Attraction td = new Attraction();
+            td = td.GetAttractionDataById(attractId);
+
+            lbName.Text = td.Name;
         }
     }
 }
