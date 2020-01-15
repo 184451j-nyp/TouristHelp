@@ -47,10 +47,20 @@
                     <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="places.html" class="nav-link">Places</a></li>
-                    <li class="nav-item"><a href="hotel.html" class="nav-link">Hotels</a></li>
+                    <li class="nav-item"><a href="Hotel.aspx" class="nav-link">Hotels</a></li>
                     <li class="nav-item"><a href="InterestSelect.aspx" class="nav-link">Interests</a></li>
-                    <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                </ul>
+<li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Reward
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="RewardPage.aspx">Reward Page</a>
+          <a class="dropdown-item" href="Shop.aspx">Shop Vouchers</a>
+           <a class="dropdown-item" href="Transaction.aspx">Transaction</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>                </ul>
             </div>
         </div>
     </nav>
