@@ -11,9 +11,9 @@ namespace TouristHelp.DAL
 {
     public class SqlHelper
     {
+        public string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
         public DataSet Query(string sqlStmt)
         {
-            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
@@ -22,6 +22,13 @@ namespace TouristHelp.DAL
             da.Fill(ds);
 
             return ds;
+        }
+
+        public SqlCommand Insert(string sqlStmt)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            return new SqlCommand(sqlStmt, myConn);
         }
     }
 }
