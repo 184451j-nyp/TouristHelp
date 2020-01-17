@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="InterestSelect.aspx.cs" Inherits="TouristHelp.InterestSelect" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/test.Master" AutoEventWireup="true" CodeBehind="InterestSelect.aspx.cs" Inherits="TouristHelp.InterestSelect" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -70,7 +70,7 @@
 		    						<p class="bottom-area d-flex">
 		    							<asp:Button ID="BtnAddAP" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" BackColor="Green" />
                                         <asp:Button ID="BtnRemAP" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" BackColor="Red" Visible="False" />
-		    						</p>
+		    						    `</p>
 		    					</div>
 		    				</div>
 		    			</div>

@@ -20,70 +20,85 @@
 
    
         
-                
-
+      
 
             <form id="frm" runat="server">
-
-                <span>
-                <asp:Label ID="creditBalanceTB" runat="server" Text="Your Credit Balance:"></asp:Label>
-                <asp:TextBox id="creditBalance" runat="server" Enabled="False" ></asp:TextBox>
+                <div>
+                <div class="row">
+                <asp:Label ID="creditBalanceTB" CssClass="col-2" runat="server" Text="Your Credit Balance:"></asp:Label>
+                <asp:TextBox id="creditBalance" CssClass="col-2" runat="server" Enabled="False" ></asp:TextBox>
 
 
                     
-               <asp:Label ID="loginCountTB" runat="server" Text="Total Days Login:"></asp:Label>
+               <asp:Label ID="loginCountTB" CssClass="col-2" runat="server" Text="Total Days Login:"></asp:Label>
 
-               <asp:TextBox id="loginCount" runat="server" Enabled="False"></asp:TextBox>
+               <asp:TextBox id="loginCount" CssClass="col-2" runat="server" Enabled="False"></asp:TextBox>
 
-               <asp:Label ID="loginStreakTB" runat="server" Text="Login Streak:"></asp:Label>
+                    </div>
 
-               <asp:TextBox id="loginStreak" runat="server" Enabled="False"></asp:TextBox>
-                                        </span>
+
+
+                                    <div class="row">
+                                        <asp:Label ID="membershipTierTB" CssClass="col-2" runat="server" Text="Membership Type:"></asp:Label>
+                                        <asp:TextBox ID="membershipTier" CssClass="col-2" runat="server" Enabled="False">Membership: </asp:TextBox>
+
+
+                                        <asp:Label ID="loginStreakTB" CssClass="col-2" runat="server" Text="Login Streak:"></asp:Label>
+
+                                        <asp:TextBox ID="loginStreak" CssClass="col-2" runat="server" Enabled="False"></asp:TextBox>
+              
+                                                            </div>
 
               
+                                                    <div class="row">
+                                                        <asp:Label ID="totalDiscountTB" CssClass="col-2" runat="server" Text="Total Discount:  "></asp:Label>
 
-                       <div>
-
-                            <asp:Label ID="remainBonusDaysTB" runat="server" Text="Next Login Day Credit Bonus:"></asp:Label>
-
-                        <asp:TextBox ID="remainBonusDays" runat="server" Enabled="False" Width="100"></asp:TextBox>
+                                                        <asp:TextBox ID="totalDiscount" runat="server" CssClass="col-2" Enabled="False"></asp:TextBox>
 
 
 
 
-                        <asp:TextBox ID="bonusCredits" runat="server" Width="50" Enabled="False"></asp:TextBox>
-                            
 
-                         <asp:Label ID="bonusCreditsTB" runat="server" Text="Credits"></asp:Label>
+                                                        <asp:Label ID="remainBonusDaysTB" CssClass="col-2" runat="server" Text="Days before Credit Bonus:"></asp:Label>
 
-                       </div>
+                                                        <asp:TextBox ID="remainBonusDays" CssClass="col-2" runat="server" Enabled="False" Width="100"></asp:TextBox>
 
-                     <div class="position">
+                                                        
+                                                       <asp:Label ID="bonusCreditsTB" CssClass="col-1" runat="server" Text="Bonus Credits:"></asp:Label>
 
-                 <asp:Label ID="membershipTierTB" runat="server" Text="Membership Type:"></asp:Label>
-                <asp:TextBox id="membershipTier" runat="server" Enabled="False">Membership: </asp:TextBox>
-
-
-                <asp:Label ID="totalDiscountTB" runat="server" Text="Total Discount:  "></asp:Label>
-
-                <asp:TextBox id="totalDiscount" runat="server" Enabled="False"></asp:TextBox>
-
-                       </div>
+                                                        <asp:TextBox ID="bonusCredits" CssClass="col-2" runat="server" Enabled="False"></asp:TextBox>
 
 
 
-                       
 
-                                
+
+
+                                                      
+
+                                                                                        </div>
+
+
+
+                  
+
+
+                    </div>
+
+
+
+
+
+
+
             </form>
 
                
 
             <div class="menu">
         <ul>
-          <li class="active"><a href="index.html">How It Works</a></li>
+          <li class="active"><a href="RewardPage.aspx">How It Works</a></li>
           <li><a href="Shop.aspx">Shop</a></li>
-          <li><a href="Transaction.aspx">My Transaction</a></li>
+          <li><a href="TransactionPage.aspx">My Transaction</a></li>
         </ul>
 
 
@@ -148,6 +163,7 @@ div.menu a {
   text-decoration: none;
   position: relative;
   top: 50%;
+  margin-top:100px;
   transform: translateY(-50%);
   display: inline-block;
   vertical-align: middle;
@@ -156,12 +172,7 @@ div.menu a {
 }
 
 
-span {
 
-width:200px;
-
-text-align:right;
-}
 
 div.position{
 
@@ -178,6 +189,14 @@ div.position{
 .form-group label{
    display: block;
 }
+
+
+div.row {
+
+    margin-top:30px;
+}
+
+
        </style>
 
 

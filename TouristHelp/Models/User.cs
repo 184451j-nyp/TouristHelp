@@ -37,6 +37,7 @@ namespace TouristHelp.Models
         {
             this.rating = rating;
             this.description = description;
+            this.languages = languages;
         }
         public TourGuide(int id, string name, string email, string pswd, double rating, string description, string languages):base(id, name, email, pswd)
         {
