@@ -22,6 +22,12 @@ namespace TouristHelp.BLL
         {
         }
 
+        public Reward(int id, int creditbalance)
+        {
+            this.Id = id;
+            this.creditBalance = creditbalance;
+        }
+
         public Reward(int id, int logincount, int loginstreak, string loyaltytier, int totaldiscount, int bonuscredits, string membershiptier, int creditbalance, int remainbonusdays)
         {
             this.Id = id;
@@ -42,5 +48,23 @@ namespace TouristHelp.BLL
 
 
         }
+
+
+        public void nextLogin()
+        {
+
+            RewardDAO dao = new RewardDAO();
+          
+            
+        }
+
+        public int UpdateAccount(Reward emp)
+        {
+            RewardDAO dao = new RewardDAO();
+            int result = dao.UpdateCredit(emp);
+            return result;
+        }
+
+
     }
 }

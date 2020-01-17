@@ -9,22 +9,22 @@ namespace TouristHelp.DAL
 {
     public class DirectionDAO
     {
-        private SqlQuery sql = new SqlQuery();
+        private SqlHelper helper = new SqlHelper();
         public List<Direction> SelectAll()
         {
-            DataSet ds = sql.Query("Select * from Directions");
+            DataSet ds = helper.Query("Select * from Directions");
             return convertToObj(ds);
         } 
 
-        public List<Direction> GetDirectionsByGrp(int group)
+        public List<Direction> GetDirectionsByGrp(int grp)
         {
-            DataSet ds = sql.Query("Select * From Directions Where group = " + group.ToString() + " Order By group");
+            DataSet ds = helper.Query("Select * From Directions Where group = "+ grp.ToString() + " Order By group");
             return convertToObj(ds);
         }
 
         public List<int> GetDirGrpByUser(int user_id)
         {
-            DataSet ds = sql.Query("Select Distinct group As DistinctGrps From (Select * From Directions Where user = " + user_id.ToString() + "))");
+            DataSet ds = helper.Query("Select Distinct group As DistinctGrps From (Select * From Directions Where user = " + user_id.ToString() + "))");
             
             List<int> list = new List<int>();
             int rec_cnt = ds.Tables[0].Rows.Count;
@@ -36,11 +36,6 @@ namespace TouristHelp.DAL
             }
 
             return list;
-        }
-
-        public void insertUser(User user)
-        {
-
         }
 
         private List<Direction> convertToObj(DataSet ds)
