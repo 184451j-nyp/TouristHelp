@@ -27,7 +27,8 @@ namespace TouristHelp.DAL
                 double rating = double.Parse(row["rating"].ToString());
                 string desc = row["desc"].ToString();
                 string languages = row["languages"].ToString();
-                TourGuide obj = new TourGuide(id, name, email, password, rating, desc, languages);
+                string credentials = row["credentials"].ToString();
+                TourGuide obj = new TourGuide(id, name, email, password, rating, desc, languages, credentials);
                 userList.Add(obj);
             }
             return userList;
@@ -46,7 +47,8 @@ namespace TouristHelp.DAL
                 double rating = double.Parse(row["rating"].ToString());
                 string desc = row["desc"].ToString();
                 string languages = row["languages"].ToString();
-                TourGuide obj = new TourGuide(id, name, email, password, rating, desc, languages);
+                string credentials = row["credentials"].ToString();
+                TourGuide obj = new TourGuide(id, name, email, password, rating, desc, languages, credentials);
                 return obj;
             }
             else
