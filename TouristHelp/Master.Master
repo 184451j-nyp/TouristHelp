@@ -56,7 +56,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="RewardPage.aspx">Reward Page</a>
           <a class="dropdown-item" href="Shop.aspx">Shop Vouchers</a>
-           <a class="dropdown-item" href="Transaction.aspx">Transaction</a>
+           <a class="dropdown-item" href="TransactionPage.aspx">Transaction</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>

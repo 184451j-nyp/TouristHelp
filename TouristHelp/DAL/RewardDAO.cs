@@ -44,5 +44,70 @@ namespace TouristHelp.DAL
             }
             return td;
         }
+
+
+        //public int Insert(Reward td)
+        //{
+        //    string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        //    SqlConnection myConn = new SqlConnection(DBConnect);
+
+        //    string sqlStmt = "INSERT INTO Reward (user_id, loginCount, loginStreak, loyaltyTier, " +
+        //                            "totalDiscount, bonusCredits,membershipTier,creditBalance,remainBonusDays)" +
+        //                     "VALUES (@paraAccount,@paraLoginCount,@paraLoginStreak,@paraLoyaltyTier," +
+        //                            "@paraTotalDiscount,@paraBonusCredits,@paraMembershipTier,@paraCreditBalance,@paraRemainBonusDays)";
+
+        //    int result = 0;    // Execute NonQuery return an integer value
+        //    SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+        //    sqlCmd.Parameters.AddWithValue("@paraAccount", td.Id);
+        //    sqlCmd.Parameters.AddWithValue("@paraLoginCount", td.loginCount);
+        //    sqlCmd.Parameters.AddWithValue("@paraLoginStreak", td.loginStreak);
+        //    sqlCmd.Parameters.AddWithValue("@paraLoyaltyTier", td.loyaltyTier);
+        //    sqlCmd.Parameters.AddWithValue("@paraTotalDiscount", td.totalDiscount);
+        //    sqlCmd.Parameters.AddWithValue("@paraBonusCredits", td.bonusCredits);
+        //    sqlCmd.Parameters.AddWithValue("@paraMembershipTier", td.membershipTier);
+        //    sqlCmd.Parameters.AddWithValue("@paraCreditBalance", td.creditBalance);
+        //    sqlCmd.Parameters.AddWithValue("@paraRemainBonusDays", td.remainBonusDays);
+       
+
+        //    myConn.Open();
+        //    result = sqlCmd.ExecuteNonQuery();
+
+        //    myConn.Close();
+
+        //    return result;
+        //}
+
+
+        public int UpdateCredit(Reward credit)
+        {
+            int result = 0;
+            SqlCommand sqlCmd = new SqlCommand();
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Instantiate SqlCommand instance to add record 
+            //          with INSERT statement
+            string sqlStmt = "UPDATE Reward SET creditBalance = @paraCreditBalance " +
+                "where user_id = @paraAccount ";
+
+            sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@paraCreditBalance", credit.creditBalance);
+            sqlCmd.Parameters.AddWithValue("@paraAccount", credit.Id);
+
+            // Step 4 Open connection the execute NonQuery of sql command   
+            myConn.Open();
+            result = sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+            return result;
+        }
+
+
     }
 }

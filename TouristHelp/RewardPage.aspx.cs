@@ -14,7 +14,7 @@ namespace TouristHelp
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            Session["user_id"] = "1";
+            Session["user_id"] = "2";
 
             string user_id = Session["user_id"].ToString();
 

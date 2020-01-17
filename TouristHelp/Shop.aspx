@@ -16,40 +16,102 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    <form id="frm" runat="server">
 
-                <span>
-                <asp:TextBox id="creditBalance" runat="server" Enabled="False">Your Credit Balance: </asp:TextBox>
+            <asp:Label ID="LblMsg" CssClass="lblMsgCss" runat="server" Text="Text"></asp:Label>
 
+
+
+
+
+  <form id="frm" runat="server">
                 <div>
-                <asp:TextBox id="membershipTier" runat="server" Enabled="False">Membership: </asp:TextBox>
-                <asp:TextBox id="totalDiscount" runat="server" Enabled="False">Total Discount:  </asp:TextBox>
+                <div class="row">
+                <asp:Label ID="creditBalanceTB" CssClass="col-2" runat="server" Text="Your Credit Balance:"></asp:Label>
+                <asp:TextBox id="creditBalance" CssClass="col-2" runat="server" Enabled="False" ></asp:TextBox>
+
+
+                    
+               <asp:Label ID="loginCountTB" CssClass="col-2" runat="server" Text="Total Days Login:"></asp:Label>
+
+               <asp:TextBox id="loginCount" CssClass="col-2" runat="server" Enabled="False"></asp:TextBox>
+
+                 <asp:Button ID="addCreditBtn" CssClass="buttonPosition" runat="server" Text="Add Credits" OnClick="addCreditBtn_Click" />
+
+                    </div>
+
+
+
+                                    <div class="row">
+                                        <asp:Label ID="membershipTierTB" CssClass="col-2" runat="server" Text="Membership Type:"></asp:Label>
+                                        <asp:TextBox ID="membershipTier" CssClass="col-2" runat="server" Enabled="False">Membership: </asp:TextBox>
+
+
+                                        <asp:Label ID="loginStreakTB" CssClass="col-2" runat="server" Text="Login Streak:"></asp:Label>
+
+                                        <asp:TextBox ID="loginStreak" CssClass="col-2" runat="server" Enabled="False"></asp:TextBox>
+              
+                                                            </div>
+
+              
+                                                     <div class="row">
+                                                        <asp:Label ID="totalDiscountTB" CssClass="col-2" runat="server" Text="Total Discount:  "></asp:Label>
+
+                                                        <asp:TextBox ID="totalDiscount" runat="server" CssClass="col-2" Enabled="False"></asp:TextBox>
+
+
+
+
+
+                                                        <asp:Label ID="remainBonusDaysTB" CssClass="col-2" runat="server" Text="Days before Credit Bonus:"></asp:Label>
+
+                                                        <asp:TextBox ID="remainBonusDays" CssClass="col-2" runat="server" Enabled="False" Width="100"></asp:TextBox>
+
+                                                        
+                                                    <asp:Label ID="bonusCreditsTB" CssClass="col-1" runat="server" Text="Bonus Credits:"></asp:Label>
+
+                                                        <asp:TextBox ID="bonusCredits" CssClass="col-2" runat="server" Enabled="False"></asp:TextBox>
+                                                      
+
+                                                                                        </div>
+
+
+                    
+                                                     <div class="row">
+                                                        <asp:Label ID="loyaltyTierLabel" CssClass="col-2" runat="server" Text="Loyalty Tier: "></asp:Label>
+
+                                                        <asp:TextBox ID="loyaltyTier" runat="server" CssClass="col-2" Enabled="False"></asp:TextBox>
+
+
+
+
+
+                                                                                        </div>
+
+                  
+
+                  
+
 
 
                     </div>
 
-               <asp:TextBox id="loginCount" runat="server" Enabled="False">Total Days Login:  </asp:TextBox>
-               <asp:TextBox id="loginStreak" runat="server" Enabled="False">Login Streak:  </asp:TextBox>
-
-                     <div>
-                <asp:TextBox id="creditDays" runat="server" Enabled="False" Width="500">Days to Next Login Credit Bonus:  </asp:TextBox>
-                <asp:TextBox id="bonusCredits" runat="server" Enabled="False">               Credits</asp:TextBox>
 
 
-                    </div>
 
-                    </span>
-                                
-            </form>
+
+
+
 
 
     <section>
 
+
+
         <div class="menu">
         <ul>
-          <li class="active"><a href="index.html">How It Works</a></li>
+          <li class="active"><a href="RewardPage.aspx">How It Works</a></li>
           <li><a href="Shop.aspx">Shop</a></li>
-          <li><a href="Transaction.aspx">My Transaction</a></li>
+          <li><a href="TransactionPage.aspx">My Transaction</a></li>
         </ul>
 
 
@@ -73,7 +135,7 @@
 		              <div class="form-group">
 		                <div class="select-wrap one-third">
 	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control" placeholder="Keyword search">
+	                    <select name="" id="" class="form-control" >
 	                      <option value="">Search By Category</option>
 	                      <option value="">Popular</option>
 	                      <option value="">Newest</option>
@@ -99,7 +161,42 @@
           	<div class="row">
           		<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/silverMember.png);">
+
+
+
+                                    
+		    						<div class="icon d-flex justify-content-center align-items-center">
+		    							<span class="icon-link"></span>
+		    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<div class="d-flex">
+		    							<div class="one">
+				    					
+				    				<h3> <asp:Label ID="voucherName" runat="server"></asp:Label> </h3>
+			    						</div>
+			    						<div class="two">
+			    							<asp:Label class="price" runat="server" ID="voucherCost"></asp:Label>
+                                            <asp:Label ID="creditLabel" runat="server" Text="Credits"></asp:Label>
+		    							</div>
+		    						</div>
+                                  <asp:Label ID="voucherDesc" runat="server"></asp:Label> 
+		    						<p class="days" id="voucherWarning"><span></span></p>
+		    						<hr>
+		    						
+                                    	<p class="bottom-area d-flex">
+
+                                            <asp:Button ID="BtnSubmit"  CssClass="ml-auto" runat="server" Text="Purchase" OnClick="BtnSubmit_Click" />
+
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
+		    				<div class="destination">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/);">
+
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-link"></span>
 		    						</div>
@@ -108,56 +205,27 @@
 		    						<div class="d-flex">
 		    							<div class="one">
 				    						<h3><a href="#"></a></h3>
-				    				 <asp:Label ID="voucherName" runat="server"></asp:Label>
+				    					
 			    						</div>
 			    						<div class="two">
-			    							<span class="price" ID="voucherPrice"></span>
-		    							</div>
-		    						</div>
-                                 <p>    <asp:Label ID="voucherDesc" runat="server"></asp:Label> </p>
-		    						<p class="days" id="voucherWarning"><span></span></p>
-		    						<hr>
-		    						
-		    					</div>
-		    				</div>
-		    			</div>
-		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-4.jpg);">
-		    						<div class="icon d-flex justify-content-center align-items-center">
-		    							<span class="icon-link"></span>
-		    						</div>
-		    					</a>
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
-			    						</div>
-			    						<div class="two">
-			    							<span class="price">$200</span>
+
+
+
 		    							</div>
 		    						</div>
 		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
+
+
+
 		    						</p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-1.jpg);">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-link"></span>
 		    						</div>
@@ -165,33 +233,29 @@
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
+				    						<h3><a href="#"></a></h3>
+				    						
 			    						</div>
 			    						<div class="two">
-			    							<span class="price">$200</span>
+
+
 		    							</div>
 		    						</div>
 		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
+
+
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
+
+
+
 		    						</p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-2.jpg);">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-link"></span>
 		    						</div>
@@ -199,33 +263,29 @@
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
+				    						<h3><a href="#"></a></h3>
+				    					
+
+
 			    						</div>
 			    						<div class="two">
-			    							<span class="price">$200</span>
+			    							<span class="price"></span>
 		    							</div>
 		    						</div>
 		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
+
+
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
+
+
 		    						</p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-5.jpg);">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-link"></span>
 		    						</div>
@@ -233,33 +293,32 @@
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
+				    						<h3><a href="#"></a></h3>
+				    					
+
+
 			    						</div>
 			    						<div class="two">
-			    							<span class="price">$200</span>
+			    							<span class="price"></span>
 		    							</div>
 		    						</div>
 		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
+
+
+
+
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
+
+
+
 		    						</p>
 		    					</div>
 		    				</div>
 		    			</div>
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-6.jpg);">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/);">
 		    						<div class="icon d-flex justify-content-center align-items-center">
 		    							<span class="icon-link"></span>
 		    						</div>
@@ -267,26 +326,27 @@
 		    					<div class="text p-3">
 		    						<div class="d-flex">
 		    							<div class="one">
-				    						<h3><a href="#">Paris, Italy</a></h3>
-				    						<p class="rate">
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star"></i>
-				    							<i class="icon-star-o"></i>
-				    							<span>8 Rating</span>
-				    						</p>
+				    						<h3><a href="#"></a></h3>
+                                           <%-- <p class="rate">
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star"></i>
+                                                <i class="icon-star-o"></i>
+                                                <span>8 Rating</span>
+                                            </p>--%>
 			    						</div>
 			    						<div class="two">
-			    							<span class="price">$200</span>
+			    							<span class="price"></span>
 		    							</div>
 		    						</div>
 		    						<p>Far far away, behind the word mountains, far from the countries</p>
-		    						<p class="days"><span>2 days 3 nights</span></p>
+
+
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
-		    							<span class="ml-auto"><a href="#">Discover</a></span>
+
+
 		    						</p>
 		    					</div>
 		    				</div>
@@ -335,6 +395,9 @@
       </div>
     </section>
 
+                  </form>
+
+
 
 
     
@@ -351,11 +414,34 @@ div.menu a {
   text-decoration: none;
   position: relative;
   top: 50%;
+  margin-top:100px;
   transform: translateY(-50%);
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
 
+}
+
+div.row {
+
+    margin-top:30px;
+}
+
+#creditLabel{
+
+    margin-left:40px;
+}
+
+.lblMsgCss
+{
+    font-size:20px;
+    text-align: center;
+
+}
+
+.buttonPosition{
+
+    margin-left:100px;
 }
 
        </style>
