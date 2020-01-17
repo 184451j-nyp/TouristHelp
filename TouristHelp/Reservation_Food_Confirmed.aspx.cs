@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TouristHelp
 {
-    public partial class Reservation_Food_Confirmed : System.Web.UI.Page
+    public partial class Reservation_Food_Confirmed1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

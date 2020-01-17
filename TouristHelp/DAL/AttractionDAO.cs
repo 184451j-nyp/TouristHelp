@@ -42,7 +42,7 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO ReservationFood (Name)" +
+            string sqlStmt = "INSERT INTO ReservationFood (reservationName)" +
                              "VALUES (@paraName)";
 
             

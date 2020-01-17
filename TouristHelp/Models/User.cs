@@ -32,18 +32,21 @@ namespace TouristHelp.Models
         public double rating { get; set; }
         public string description { get; set; }
         public string languages { get; set; }
+        public string credentials { get; set; }
 
-        public TourGuide(string name, string email, string pswd, double rating, string description, string languages):base(name, email, pswd)
+        public TourGuide(string name, string email, string pswd, double rating, string description, string languages, string credentials):base(name, email, pswd)
         {
             this.rating = rating;
             this.description = description;
             this.languages = languages;
+            this.credentials = credentials;
         }
-        public TourGuide(int id, string name, string email, string pswd, double rating, string description, string languages):base(id, name, email, pswd)
+        public TourGuide(int id, string name, string email, string pswd, double rating, string description, string languages, string credentials):base(id, name, email, pswd)
         {
             this.rating = rating;
             this.description = description;
             this.languages = languages;
+            this.credentials = credentials;
         }
     }
 
