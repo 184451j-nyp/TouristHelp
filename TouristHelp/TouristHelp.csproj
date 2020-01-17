@@ -208,9 +208,11 @@
     <Content Include="Styles\style.css" />
     <Content Include="Styles\themify-icons.css" />
     <Content Include="Ticketing.aspx" />
+    <Content Include="TicketList.aspx" />
     <Content Include="TourDetailsPage.aspx" />
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
+    <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -219,13 +221,17 @@
     <Compile Include="BLL\Attraction.cs" />
     <Compile Include="BLL\Interest.cs" />
     <Compile Include="BLL\Reward.cs" />
-    <Compile Include="BLL\Shop.cs" />
+    <Compile Include="BLL\ShopVoucher.cs" />
+    <Compile Include="BLL\Ticket.cs" />
+    <Compile Include="BLL\Transactions.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
     <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
-    <Compile Include="DAL\ShopDAO.cs" />
+    <Compile Include="DAL\ShopVoucherDAO.cs" />
     <Compile Include="DAL\SqlAdapter.cs" />
+    <Compile Include="DAL\TicketDAO.cs" />
+    <Compile Include="DAL\TransactionDAO.cs" />
     <Compile Include="DAL\UserDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -317,6 +323,13 @@
     <Compile Include="Ticketing.aspx.designer.cs">
       <DependentUpon>Ticketing.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TicketList.aspx.cs">
+      <DependentUpon>TicketList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketList.aspx.designer.cs">
+      <DependentUpon>TicketList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TourDetailsPage.aspx.cs">
       <DependentUpon>TourDetailsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -337,6 +350,13 @@
     </Compile>
     <Compile Include="TourGuideListPage.aspx.designer.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionPage.aspx.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionPage.aspx.designer.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
