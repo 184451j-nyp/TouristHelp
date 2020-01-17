@@ -13,14 +13,14 @@ namespace TouristHelp.DAL
     {
         public string Name { get; set; }
 
-        public Attraction SelectByAccount(string attId)
+        public Attraction SelectById(string attId) //get the attraction info by Id
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlstmt = "Select * from Attraction where attractionId = @paraAcc";
+            string sqlstmt = "Select * from Attraction where attractionId = @paraId";
             SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
-            da.SelectCommand.Parameters.AddWithValue("@paraAcc", attId);
+            da.SelectCommand.Parameters.AddWithValue("@paraId", attId);
 
             DataSet ds = new DataSet();
             da.Fill(ds);
@@ -35,6 +35,24 @@ namespace TouristHelp.DAL
                 td = new Attraction(name);
             }
             return td;
+        }
+
+        public void InsertReservation(String Name) //Insert the reservation details into db
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO ReservationFood (Name)" +
+                             "VALUES (@paraName)";
+
+            
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraName", Name);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+            myConn.Close();
         }
     }
 }

@@ -22,7 +22,13 @@ namespace TouristHelp.BLL
         public Attraction GetAttractionDataById(string attId)
         {
             AttractionDAO dao = new AttractionDAO();
-            return dao.SelectByAccount(attId);
+            return dao.SelectById(attId);
+        }
+
+        public void InsertReservation(String nameTemp)
+        {
+            AttractionDAO dao = new AttractionDAO();
+            dao.InsertReservation(nameTemp);
         }
     }
 }

@@ -9,11 +9,11 @@ using TouristHelp.Models;
 
 namespace TouristHelp.DAL
 {
-    public class SqlQuery
+    public class SqlHelper
     {
+        public string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
         public DataSet Query(string sqlStmt)
         {
-            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
@@ -23,17 +23,12 @@ namespace TouristHelp.DAL
 
             return ds;
         }
-    }
 
-    public class SqlInsert
-    {
-        public void insertUser(User user)
+        public SqlCommand Insert(string sqlStmt)
         {
+            SqlConnection myConn = new SqlConnection(DBConnect);
 
-        }
-        public void insertDirection(Direction direction)
-        {
-
+            return new SqlCommand(sqlStmt, myConn);
         }
     }
 }

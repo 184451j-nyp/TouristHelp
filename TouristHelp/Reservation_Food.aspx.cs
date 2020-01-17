@@ -14,7 +14,7 @@ namespace TouristHelp
         {
             string attractId = Session["AttractionId"].ToString();
 
-            // Retrieve TDMaster records by account
+            // Retrieve TDMaster records by Id
             Attraction td = new Attraction();
             td = td.GetAttractionDataById(attractId);
 
@@ -24,7 +24,10 @@ namespace TouristHelp
         protected void BtnConfirm_Click(object sender, EventArgs e)
         {
             Session["AttractionName"] = lbName.Text.ToString();
+            Attraction td = new Attraction();
+            td.InsertReservation(lbName.Text);
             Response.Redirect("Reservation_Food_Confirmed.aspx");
+            
         }
     }
 }
