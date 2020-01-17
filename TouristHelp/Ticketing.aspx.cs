@@ -13,5 +13,25 @@ namespace TouristHelp
         {
 
         }
+        protected void Btn_TypeSel(object sender, EventArgs e)
+        {
+          
+        }
+        protected void Btn_DecreaseQ(object sender, EventArgs e)
+        {
+
+        }
+        protected void Btn_IncreaseQ(object sender, EventArgs e)
+        {
+
+        }
+        protected void Btn_Buy(object sender, EventArgs e)
+        {
+
+        }
+        protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

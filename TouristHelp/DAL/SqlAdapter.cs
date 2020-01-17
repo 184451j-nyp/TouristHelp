@@ -37,7 +37,7 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraPswd", user.password);
             sqlCmd.Parameters.AddWithValue("@paraName", user.name);
             sqlCmd.Parameters.AddWithValue("@paraEmail", user.email);
-            sqlCmd.Parameters.AddWithValue("@paraNation", )
+            //sqlCmd.Parameters.AddWithValue("@paraNation", )
         }
         public void insertDirection(Direction direction)
         {
