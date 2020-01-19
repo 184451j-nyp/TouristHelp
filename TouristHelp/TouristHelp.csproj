@@ -93,16 +93,13 @@
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
     <Content Include="Hotel.aspx" />
-    <Content Include="Images\gbtb.jpg" />
-    <Content Include="Images\iconicFood.jpg" />
-    <Content Include="Images\uss.jpg" />
     <Content Include="InterestSelect.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Main.aspx" />
     <Content Include="Planner.aspx" />
     <Content Include="Reservation_Food.aspx" />
     <Content Include="Reservation_Food_Confirmed.aspx" />
     <Content Include="RewardPage.aspx" />
+    <Content Include="Scripts\animsition.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -132,10 +129,12 @@
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <Content Include="Scripts\login.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
     <Content Include="Scripts\src\methods\destroy.js" />
@@ -206,16 +205,23 @@
     <Content Include="Shop.aspx" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\liner_icon.css" />
+    <Content Include="Styles\Login\animate.css" />
+    <Content Include="Styles\Login\animsition.min.css" />
+    <Content Include="Styles\Login\daterangepicker.css" />
+    <Content Include="Styles\Login\font-awesome.min.css" />
+    <Content Include="Styles\Login\hamburgers.min.css" />
+    <Content Include="Styles\Login\icon-font.min.css" />
+    <Content Include="Styles\Login\main.css" />
+    <Content Include="Styles\Login\select2.min.css" />
+    <Content Include="Styles\Login\util.css" />
     <Content Include="Styles\owl.carousel.min.css" />
     <Content Include="Styles\search.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Styles\themify-icons.css" />
     <Content Include="Ticketing.aspx" />
-    <Content Include="TicketList.aspx" />
     <Content Include="TourDetailsPage.aspx" />
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
-    <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -226,6 +232,7 @@
     <Compile Include="BLL\Reward.cs" />
     <Compile Include="BLL\ShopVoucher.cs" />
     <Compile Include="BLL\Ticket.cs" />
+    <Compile Include="BLL\TourGuide.cs" />
     <Compile Include="BLL\Transactions.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
@@ -266,13 +273,6 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Main.aspx.cs">
-      <DependentUpon>Main.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Main.aspx.designer.cs">
-      <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\User.cs" />
@@ -326,13 +326,6 @@
     <Compile Include="Ticketing.aspx.designer.cs">
       <DependentUpon>Ticketing.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TicketList.aspx.cs">
-      <DependentUpon>TicketList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TicketList.aspx.designer.cs">
-      <DependentUpon>TicketList.aspx</DependentUpon>
-    </Compile>
     <Compile Include="TourDetailsPage.aspx.cs">
       <DependentUpon>TourDetailsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -353,13 +346,6 @@
     </Compile>
     <Compile Include="TourGuideListPage.aspx.designer.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TransactionPage.aspx.cs">
-      <DependentUpon>TransactionPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TransactionPage.aspx.designer.cs">
-      <DependentUpon>TransactionPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -390,7 +376,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
