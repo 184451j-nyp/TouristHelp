@@ -97,6 +97,12 @@
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
     <Content Include="Hotel.aspx" />
+    <Content Include="Images\gbtb.jpg" />
+    <Content Include="Images\iconicFood.jpg" />
+    <Content Include="Images\signin-image.jpg" />
+    <Content Include="Images\signup-image.jpg" />
+    <Content Include="Images\silverMember.png" />
+    <Content Include="Images\uss.jpg" />
     <Content Include="InterestSelect.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Planner.aspx" />
@@ -207,13 +213,11 @@
     <Content Include="Shop.aspx" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\liner_icon.css" />
-    <Content Include="Styles\material-design-iconic-font.min.css" />
     <Content Include="Styles\login.css" />
     <Content Include="Styles\owl.carousel.min.css" />
     <Content Include="Styles\search.css" />
     <Content Include="Styles\navbar.css" />
     <Content Include="Styles\themify-icons.css" />
-    <Content Include="Styles\Ticketing\bootstrap.min.css" />
     <Content Include="Styles\Ticketing\style.css" />
     <Content Include="Ticketing.aspx" />
     <Content Include="TicketList.aspx" />
