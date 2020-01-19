@@ -11,17 +11,17 @@ namespace TouristHelp
 {
 
 
-    public partial class Login
+    public partial class Register
     {
 
         /// <summary>
-        /// FormSignIn control.
+        /// FormRegister control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm FormSignIn;
+        protected global::System.Web.UI.HtmlControls.HtmlForm FormRegister;
 
         /// <summary>
         /// tbName control.
@@ -33,6 +33,15 @@ namespace TouristHelp
         protected global::System.Web.UI.WebControls.TextBox tbName;
 
         /// <summary>
+        /// tbEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbEmail;
+
+        /// <summary>
         /// tbPassword control.
         /// </summary>
         /// <remarks>
@@ -42,12 +51,21 @@ namespace TouristHelp
         protected global::System.Web.UI.WebControls.TextBox tbPassword;
 
         /// <summary>
-        /// btnLogin control.
+        /// tbRepeatPass control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::System.Web.UI.WebControls.TextBox tbRepeatPass;
+
+        /// <summary>
+        /// btnSignup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSignup;
     }
 }
