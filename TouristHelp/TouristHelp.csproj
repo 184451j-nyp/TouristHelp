@@ -58,6 +58,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Users\Vincent\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -93,6 +97,10 @@
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
     <Content Include="Hotel.aspx" />
+    <Content Include="Images\gbtb.jpg" />
+    <Content Include="Images\iconicFood.jpg" />
+    <Content Include="Images\silverMember.png" />
+    <Content Include="Images\uss.jpg" />
     <Content Include="InterestSelect.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Planner.aspx" />
@@ -218,10 +226,14 @@
     <Content Include="Styles\search.css" />
     <Content Include="Styles\style.css" />
     <Content Include="Styles\themify-icons.css" />
+    <Content Include="Styles\Ticketing\bootstrap.min.css" />
+    <Content Include="Styles\Ticketing\style.css" />
     <Content Include="Ticketing.aspx" />
+    <Content Include="TicketList.aspx" />
     <Content Include="TourDetailsPage.aspx" />
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
+    <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -326,6 +338,13 @@
     <Compile Include="Ticketing.aspx.designer.cs">
       <DependentUpon>Ticketing.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TicketList.aspx.cs">
+      <DependentUpon>TicketList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketList.aspx.designer.cs">
+      <DependentUpon>TicketList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TourDetailsPage.aspx.cs">
       <DependentUpon>TourDetailsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -346,6 +365,13 @@
     </Compile>
     <Compile Include="TourGuideListPage.aspx.designer.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionPage.aspx.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionPage.aspx.designer.cs">
+      <DependentUpon>TransactionPage.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -376,9 +402,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

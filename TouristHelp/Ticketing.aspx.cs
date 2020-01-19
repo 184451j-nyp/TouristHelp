@@ -33,5 +33,20 @@ namespace TouristHelp
         {
 
         }
+
+        protected void Package_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Calendar1_SelectionChanged1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Calendar1_SelectionChanged2(object sender, EventArgs e)
+        {
+            tbDate_PopupControlExtender.Commit(Calendar1.SelectedDate.ToShortDateString());
+        }
     }
 }

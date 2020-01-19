@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ticketing.aspx.cs" Inherits="TouristHelp.Ticketing" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -17,30 +18,58 @@
        <section class="ftco-section">
          <div class="container">
            <div class="row">
-               <div class="col-lg-12">
-                   <div class="col-lg-12 ftco-animate">
-                       <h1>1-Day package</h1>
-                       <h3>Select Ticket Type:</h3>
-                       <asp:Button ID="BtnType" runat="server" class="ml-auto" Text="Sentosa Package" OnClick="Btn_TypeSel" />
-                       <h3>Pick a date:</h3>
-                       <asp:TextBox ID="TbDate" runat="server" CssClass="form-control" Text="Click to pick a date"></asp:TextBox>
-                       <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
-                       <h3>Select Quantity</h3>
-                       <div class="row">
-                           <div class="col-lg-6">
-                               <h4>Adult</h4>
-                           </div>
-                           <div class="col-lg-6">
-                               <asp:Button ID="BtnDec" runat="server" class="ml-auto" Text="-" OnClick="Btn_DecreaseQ" />
-                               <asp:TextBox ID="tbQuantityAdult" runat="server" CssClass="form-control" Text="0"></asp:TextBox>
-                               <asp:Button ID="BtnInc" runat="server" class="ml-auto" Text="+" OnClick="Btn_IncreaseQ" />
-                           </div>
-                       </div>
-                        <asp:Button ID="Button1" runat="server" class="ml-auto" Text="Buy Now" OnClick="Btn_Buy" />
-                   </div>
-               </div>
-         </div>
+             <div class="col-lg-12 ftco-animate">
+                       
+                 <asp:ScriptManager ID="ScriptManager1" runat="server">
+                 </asp:ScriptManager>
+                       
+                 <asp:Label ID="lbTicketName" runat="server" Font-Size="XX-Large" Text="Name Placeholder"></asp:Label>
+                       
+                 <br />
+                 <asp:Label ID="lbTicketDesc" runat="server" Font-Size="Large" Text="Description Placeholder"></asp:Label>
+
+                         <br />
+                         <br />
+
+                         <asp:Label ID="Label2" runat="server" Text="Select a Package:" Font-Size="X-Large"></asp:Label>
+                         <br />
+                         <asp:Button ID="BtnPack1" runat="server" OnClick="Package_Click" Text="Package Placeholder 1" />
+                         <br />
+                         <br />
+                         <asp:Label ID="Label3" runat="server" Font-Size="X-Large" Text="Date:"></asp:Label>
+                         <br />
+                         <asp:TextBox ID="tbDate" runat="server">Click to pick a date</asp:TextBox>
+                          
+                         <ajaxToolkit:PopupControlExtender ID="tbDate_PopupControlExtender" runat="server" BehaviorID="tbDate_PopupControlExtender" DynamicServicePath="" ExtenderControlID="" PopupControlID="Panel1" Position="Bottom" TargetControlID="tbDate">
+                 </ajaxToolkit:PopupControlExtender>
+                          
+                         <br />
+                         <asp:Panel ID="Panel1" runat="server">
+                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                 <ContentTemplate>
+                                     <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged2"></asp:Calendar>
+                                 </ContentTemplate>
+                             </asp:UpdatePanel>
+                 </asp:Panel>
+                         <br />
+                         <asp:Label ID="Label4" runat="server" Font-Size="X-Large" Text="Quantity"></asp:Label>
+                         <br />
+                         <br />
+                         <br />
+                         <br />
+                         <%--place repeater past here--%>
+                         <div class="row">
+                             <div class="col-lg-6">
+                                   <asp:Label ID="lblCategory" runat="server" Font-Size="Medium" Text="Date:"></asp:Label>
+                             </div>
+                             <div class="col-lg-3">
+                                   <asp:Label ID="lblPrice" runat="server" Font-Size="Medium" Text="Date:"></asp:Label>
+                             </div>
+                         </div>
+                         
              </div>
+           </div>
+         </div>
        </section>
     </form>
 </asp:Content>
