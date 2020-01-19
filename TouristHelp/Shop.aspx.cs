@@ -92,7 +92,7 @@ namespace TouristHelp
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
 
-            Transaction emp = new Transaction();
+            Transactions emp = new Transactions();
 
            if (validatePurchase())
             {

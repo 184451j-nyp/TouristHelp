@@ -5,8 +5,7 @@
 <html>
 <head runat="server">
     <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    
     <link href="Content/bootstrap.min.css" rel="stylesheet" />
     <link href="Styles/animate.css" rel="stylesheet" />
     <link href="Styles/liner_icon.css" rel="stylesheet" />
@@ -14,6 +13,14 @@
     <link href="Styles/search.css" rel="stylesheet" />
     <link href="Styles/style.css" rel="stylesheet" />
     <link href="Styles/themify-icons.css" rel="stylesheet" />
+
+    <script src="Scripts/jquery-3.4.1.min.js"></script>
+    <script src="Scripts/popper.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <!--<script src="Scripts/custom.js"></script>-->
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
 </head>
 <body>
     <!--::header part start::-->
@@ -53,35 +60,6 @@
                                         <a class="dropdown-item" href="elements.html">elements</a>
                                     </div>
                                 </li>
-
-
-                                <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Reward
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="RewardPage.aspx">Reward Page</a>
-          <a class="dropdown-item" href="Shop.aspx">Shop Vouchers</a>
-           <a class="dropdown-item" href="TransactionPage.aspx">Transaction</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>     
-                            </ul>
-                        </div>
-                        <div class="header_social_icon d-none d-lg-block">
-                            <ul>
-                                <li>
-                                    <div id="wrap">
-                                        <form action="#" autocomplete="on">
-                                            <input id="search" name="search" type="text" placeholder="Search here"><span class="ti-search"></span> 
-                                        </form>
-                                    </div>
-                                </li>
-                                <li><a href="#" class="d-none d-lg-block"><i class="ti-facebook"></i></a></li>
-                                <li><a href="#" class="d-none d-lg-block"> <i class="ti-twitter-alt"></i></a></li>
-                                <li><a href="#" class="d-none d-lg-block"><i class="ti-instagram"></i></a></li>
-                                <li><a href="#" class="d-none d-lg-block"><i class="ti-skype"></i></a></li>
                             </ul>
                         </div>
                     </nav>
@@ -90,14 +68,9 @@
         </div>
     </header>
     <!-- Header part end-->
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
-
-    <script src="Scripts/jquery-3.4.1.min.js"></script>
-    <script src="Scripts/popper.min.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/custom.js"></script>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
 </body>
 </html>

@@ -2,6 +2,7 @@
 using System.Data;
 using TouristHelp.Models;
 using System.Data.SqlClient;
+using System;
 
 namespace TouristHelp.DAL
 {
@@ -54,6 +55,41 @@ namespace TouristHelp.DAL
             else
             {
                 return null;
+            }
+        }
+
+        public void InsertTourGuide(TourGuide tg)
+        {
+            SqlConnection myConn = new SqlConnection(helper.DBConnect);
+
+            string sqlStmt = "Insert into Users (password, name, email) Values (@paraPswd, @paraName, @paraEmail); " +
+                "Select Cast(scope_identity() as int)";
+
+            SqlCommand cmdUsers = new SqlCommand(sqlStmt, myConn);
+
+            cmdUsers.Parameters.AddWithValue("@paraPswd", tg.password);
+            cmdUsers.Parameters.AddWithValue("@paraName", tg.name);
+            cmdUsers.Parameters.AddWithValue("@paraEmail", tg.email);
+
+            try
+            {
+                myConn.Open();
+                int user_id = (int)cmdUsers.ExecuteScalar();
+                string newStmt = "Insert into Tourists (user_id, rating, description, languages, credentials) Values (@paraUser, @paraRate, @paraDesc, @paraLang, @paraCred);";
+
+                SqlCommand cmdTG = new SqlCommand(newStmt, myConn);
+
+                cmdTG.Parameters.AddWithValue("@paraUser", user_id);
+                cmdTG.Parameters.AddWithValue("@paraRate", tg.rating);
+                cmdTG.Parameters.AddWithValue("@paraDesc", tg.description);
+                cmdTG.Parameters.AddWithValue("@paraLang", tg.languages);
+                cmdTG.Parameters.AddWithValue("@paraCred", tg.credentials);
+
+                cmdTG.ExecuteNonQuery();
+            }
+            catch
+            {
+
             }
         }
     }
@@ -132,7 +168,7 @@ namespace TouristHelp.DAL
             }
             catch
             {
-
+                
             }
         }
     }
