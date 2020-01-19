@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="TransactionPage.aspx.cs" Inherits="TouristHelp.Transaction" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TransactionPage.aspx.cs" Inherits="TouristHelp.Transaction" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
          <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
