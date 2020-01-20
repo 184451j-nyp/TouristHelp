@@ -20,14 +20,14 @@
                         <form id="FormSignIn" class="register-form" runat="server">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <asp:TextBox ID="tbName" runat="server" placeholder="Name"></asp:TextBox>
+                                <asp:TextBox ID="tbEmail" runat="server" placeholder="Email Address"></asp:TextBox>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
                                 <asp:TextBox ID="tbPassword" runat="server" placeholder="Password"></asp:TextBox>
                             </div>
                             <div class="form-group form-button">
-                                <asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="form-submit" />
+                                <asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="form-submit" OnClick="btnLogin_Click" />
                             </div>
                         </form>
                     </div>

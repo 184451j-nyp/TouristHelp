@@ -13,5 +13,12 @@ namespace TouristHelp
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            string email = tbEmail.Text;
+            string password = tbPassword.Text;
+
+        }
     }
 }

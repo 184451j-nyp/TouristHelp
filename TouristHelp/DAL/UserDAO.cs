@@ -12,7 +12,7 @@ namespace TouristHelp.DAL
 
         public List<TourGuide> SelectAllTourGuides()
         {
-            DataSet ds = helper.Query("Select TourGuides.tourguide_id, Users.name, Users.password, Users.email, TourGuides.rating, TourGuides.desc, TourGuides.languages " +
+            DataSet ds = helper.Query("Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.rating, TourGuides.description, TourGuides.languages " +
                 "From TourGuides " +
                 "Inner Join Users On TourGuides.user_id = Users.user_id");
 
@@ -21,35 +21,64 @@ namespace TouristHelp.DAL
             for (int i = 0; i < rec_cnt; i++)
             {
                 DataRow row = ds.Tables[0].Rows[i];
-                int id = int.Parse(row["tourguide_id"].ToString());
-                string name = row["name"].ToString();
-                string password = row["password"].ToString();
-                string email = row["email"].ToString();
-                double rating = double.Parse(row["rating"].ToString());
-                string desc = row["desc"].ToString();
+                int id = int.Parse(row["TourGuides.tourguide_id"].ToString());
+                int user_id = int.Parse(row["TourGuides.user_id"].ToString());
+                string name = row["Users.name"].ToString();
+                string password = row["Users.password"].ToString();
+                string email = row["Users.email"].ToString();
+                double rating = double.Parse(row["TourGuides.rating"].ToString());
+                string desc = row["TourGuides.description"].ToString();
                 string languages = row["languages"].ToString();
                 string credentials = row["credentials"].ToString();
-                TourGuide obj = new TourGuide(id, name, email, password, rating, desc, languages, credentials);
+                TourGuide obj = new TourGuide(id, user_id, name, email, password, rating, desc, languages, credentials);
                 userList.Add(obj);
             }
             return userList;
         }
 
-        public TourGuide SelectTourGuideById(int user_id)
+        public TourGuide SelectTourGuideById(int id)
         {
-            DataSet ds = helper.Query("Select * From TourGuides Where tourguide_id = " + user_id.ToString());
-            if (ds.Tables[0].Rows.Count > 0)
+            DataSet ds = helper.Query("Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.rating, TourGuides.description, TourGuides.languages " +
+                "From TourGuides " +
+                "Inner Join Users On TourGuides.user_id = Users.user_id Where TourGuides.tourguide_id = " + id.ToString());
+            if (ds.Tables[0].Rows.Count == 0)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                int id = int.Parse(row["tourguide_id"].ToString());
-                string name = row["name"].ToString();
-                string password = row["password"].ToString();
-                string email = row["email"].ToString();
-                double rating = double.Parse(row["rating"].ToString());
-                string desc = row["desc"].ToString();
-                string languages = row["languages"].ToString();
-                string credentials = row["credentials"].ToString();
-                TourGuide obj = new TourGuide(id, name, email, password, rating, desc, languages, credentials);
+                int user_id = int.Parse(row["TourGuides.user_id"].ToString());
+                string name = row["Users.name"].ToString();
+                string password = row["Users.password"].ToString();
+                string email = row["Users.email"].ToString();
+                double rating = double.Parse(row["TourGuides.rating"].ToString());
+                string desc = row["TourGuides.description"].ToString();
+                string languages = row["TourGuides.languages"].ToString();
+                string credentials = row["TourGuides.credentials"].ToString();
+                TourGuide obj = new TourGuide(id, user_id, name, email, password, rating, desc, languages, credentials);
+                return obj;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public TourGuide SelectTourGuideByEmail(string email)
+        {
+            DataSet ds = helper.Query("Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.rating, TourGuides.description, TourGuides.languages " +
+                "From TourGuides " +
+                "Inner Join Users On TourGuides.user_id = Users.user_id Where Users.email = " + email);
+
+            if (ds.Tables[0].Rows.Count == 0)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                int id = int.Parse(row["TourGuides.tourguide_id"].ToString());
+                int user_id = int.Parse(row["TourGuides.user_id"].ToString());
+                string name = row["Users.name"].ToString();
+                string password = row["Users.password"].ToString();
+                double rating = double.Parse(row["TourGuides.rating"].ToString());
+                string desc = row["TourGuides.description"].ToString();
+                string languages = row["TourGuides.languages"].ToString();
+                string credentials = row["TourGuides.credentials"].ToString();
+                TourGuide obj = new TourGuide(id, user_id, name, email, password, rating, desc, languages, credentials);
                 return obj;
             }
             else
@@ -67,9 +96,9 @@ namespace TouristHelp.DAL
 
             SqlCommand cmdUsers = new SqlCommand(sqlStmt, myConn);
 
-            cmdUsers.Parameters.AddWithValue("@paraPswd", tg.password);
-            cmdUsers.Parameters.AddWithValue("@paraName", tg.name);
-            cmdUsers.Parameters.AddWithValue("@paraEmail", tg.email);
+            cmdUsers.Parameters.AddWithValue("@paraPswd", tg.Password);
+            cmdUsers.Parameters.AddWithValue("@paraName", tg.Name);
+            cmdUsers.Parameters.AddWithValue("@paraEmail", tg.Email);
 
             try
             {
@@ -80,10 +109,10 @@ namespace TouristHelp.DAL
                 SqlCommand cmdTG = new SqlCommand(newStmt, myConn);
 
                 cmdTG.Parameters.AddWithValue("@paraUser", user_id);
-                cmdTG.Parameters.AddWithValue("@paraRate", tg.rating);
-                cmdTG.Parameters.AddWithValue("@paraDesc", tg.description);
-                cmdTG.Parameters.AddWithValue("@paraLang", tg.languages);
-                cmdTG.Parameters.AddWithValue("@paraCred", tg.credentials);
+                cmdTG.Parameters.AddWithValue("@paraRate", tg.Rating);
+                cmdTG.Parameters.AddWithValue("@paraDesc", tg.Description);
+                cmdTG.Parameters.AddWithValue("@paraLang", tg.Languages);
+                cmdTG.Parameters.AddWithValue("@paraCred", tg.Credentials);
 
                 cmdTG.ExecuteNonQuery();
             }
@@ -100,7 +129,7 @@ namespace TouristHelp.DAL
 
         public List<Tourist> SelectAllTourists()
         {
-            DataSet ds = helper.Query("Select Tourists.tourist_id, Users.name, Users.password, Users.email, Tourists.nationality" +
+            DataSet ds = helper.Query("Select Tourists.tourist_id, Tourists.user_id, Users.name, Users.password, Users.email, Tourists.nationality" +
                 "From Tourists " +
                 "Inner Join Users On Tourists.user_id = Users.user_id");
 
@@ -109,29 +138,33 @@ namespace TouristHelp.DAL
             for (int i = 0; i < rec_cnt; i++)
             {
                 DataRow row = ds.Tables[0].Rows[i];
-                int id = int.Parse(row["tourist_id"].ToString());
+                int id = int.Parse(row["Tourists.tourist_id"].ToString());
+                int user_id = int.Parse(row["Tourists.user_id"].ToString());
                 string name = row["name"].ToString();
                 string password = row["password"].ToString();
                 string email = row["email"].ToString();
                 string nationality = row["nationality"].ToString();
-                Tourist obj = new Tourist(id, name, email, password, nationality);
+                Tourist obj = new Tourist(id, user_id, name, email, password, nationality);
                 userList.Add(obj);
             }
             return userList;
         }
 
-        public Tourist SelectTouristById(int user_id)
+        public Tourist SelectTouristById(int id)
         {
-            DataSet ds = helper.Query("Select * From Tourists Where tourist_id = " + user_id.ToString());
-            if (ds.Tables[0].Rows.Count > 0)
+            DataSet ds = helper.Query("Select Tourists.tourist_id, Tourists.user_id, Users.name, Users.password, Users.email, Tourists.nationality" +
+                "From Tourists " +
+                "Inner Join Users On Tourists.user_id = Users.user_id Where Tourists.user_id = " + id);
+
+            if (ds.Tables[0].Rows.Count == 0)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                int id = int.Parse(row["tourist_id"].ToString());
+                int user_id = int.Parse(row["Tourists.user_id"].ToString());
                 string name = row["name"].ToString();
                 string password = row["password"].ToString();
                 string email = row["email"].ToString();
                 string nationality = row["nationality"].ToString();
-                Tourist obj = new Tourist(id, name, email, password, nationality);
+                Tourist obj = new Tourist(id, user_id, name, email, password, nationality);
                 return obj;
             }
             else
@@ -149,9 +182,9 @@ namespace TouristHelp.DAL
 
             SqlCommand cmdUsers = new SqlCommand(sqlStmt, myConn);
 
-            cmdUsers.Parameters.AddWithValue("@paraPswd", tourist.password);
-            cmdUsers.Parameters.AddWithValue("@paraName", tourist.name);
-            cmdUsers.Parameters.AddWithValue("@paraEmail", tourist.email);
+            cmdUsers.Parameters.AddWithValue("@paraPswd", tourist.Password);
+            cmdUsers.Parameters.AddWithValue("@paraName", tourist.Name);
+            cmdUsers.Parameters.AddWithValue("@paraEmail", tourist.Email);
 
             try
             {
@@ -161,7 +194,7 @@ namespace TouristHelp.DAL
 
                 SqlCommand cmdTourists = new SqlCommand(newStmt, myConn);
 
-                cmdTourists.Parameters.AddWithValue("@paraNation", tourist.nationality);
+                cmdTourists.Parameters.AddWithValue("@paraNation", tourist.Nationality);
                 cmdTourists.Parameters.AddWithValue("@paraUser", user_id);
 
                 cmdTourists.ExecuteNonQuery();
