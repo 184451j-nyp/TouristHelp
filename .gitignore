@@ -1,4 +1,8 @@
 
 .vs/
-TouristHelp/bin/
-TouristHelp/obj/
+/TouristHelp/bin/
+/TouristHelp/obj/
+/TouristHelp/bin/*
+/TouristHelp/obj/*
+/packages/*
+/packages/
