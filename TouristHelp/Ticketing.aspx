@@ -54,19 +54,24 @@
                          <br />
                          <asp:Label ID="Label4" runat="server" Font-Size="X-Large" Text="Quantity"></asp:Label>
                          <br />
-                         <br />
-                         <br />
-                         <br />
-                         <%--place repeater past here--%>
                          <div class="row">
-                             <div class="col-lg-6">
-                                   <asp:Label ID="lblCategory" runat="server" Font-Size="Medium" Text="Date:"></asp:Label>
-                             </div>
-                             <div class="col-lg-3">
-                                   <asp:Label ID="lblPrice" runat="server" Font-Size="Medium" Text="Date:"></asp:Label>
-                             </div>
+                             <span class="col-lg-6">
+                                   <asp:Label ID="lblCategory" runat="server" Font-Size="Medium" Text="Adult/Person/Child"></asp:Label>
+                             </span>
+                             <span class="col-lg-3">
+                                   <asp:Label ID="lblPrice" runat="server" Font-Size="Medium" Text="Price Placeholder"></asp:Label>
+                             </span>
+                             <span class="col-lg-1">
+                                   <asp:Button ID="BtnMinQ" runat="server" class="ml-auto" Text="-" OnClick="Btn_MinQ" />
+                                   <asp:TextBox ID="tbQuantity" runat="server" Width="18px">0</asp:TextBox>
+                                   <asp:Button ID="BtnAddQ" runat="server" class="ml-auto" Text="+" OnClick="Btn_AddQ" />
+                             </span>
                          </div>
-                         
+                         <br />
+                         <br />
+                         <asp:Button ID="BtnBuy" runat="server" Text="Add to Shopping Cart" style="float:right"/>
+                         <br />
+                 <%--place repeater past here--%>
              </div>
            </div>
          </div>

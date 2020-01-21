@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Guidebook.aspx.cs" Inherits="TouristHelp.Guidebook" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Guidebook.aspx.cs" Inherits="TouristHelp.Guidebook" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -28,7 +28,7 @@
                             <h3><a href="#">Singapore Zoo</a></h3>
                         </div>
                         <div class="two">
-                            <span class="price">$31.20</span>
+                            <div class="price">$31.20</div>
                         </div>
                     </div>
                     <p>Discover the world's best rainforest zoo</p>
@@ -55,7 +55,7 @@
                             <h3><a href="#">Ding Tai Fung</a></h3>
                         </div>
                         <div class="two">
-                            <span class="price">$31.20</span>
+                            <div class="price">$31.20</div>
                         </div>
                     </div>
                     <p>Enjoy good Chinese food like our award winning fried rice</p>
