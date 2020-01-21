@@ -96,6 +96,7 @@
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
     <Content Include="Hotel.aspx" />
+    <Content Include="Images\breadcrumb_bg.png" />
     <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\iconicFood.jpg" />
     <Content Include="Images\signin-image.jpg" />
