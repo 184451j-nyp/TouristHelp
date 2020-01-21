@@ -34,7 +34,7 @@
                     </div>
                     <div class="signup-image">
                         <figure><img src="Images/signup-image.jpg" alt="sign up image"></figure>
-                        <a href="#" class="signup-image-link">I am already member</a>
+                        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="signup-image-link" NavigateUrl="~/Login.aspx">I am already a user</asp:HyperLink>
                     </div>
                 </div>
             </div>

@@ -29,13 +29,14 @@ namespace TouristHelp
             string pass2 = tbRepeatPass.Text;
             string nation = ddlNation.SelectedValue;
             Tourist obj = new Tourist(name, email, pass1, nation);
-            TouristDAO touristDAO = new TouristDAO();
-            touristDAO.InsertTourist(obj);
+            TouristDAO.InsertTourist(obj);
+
+            Response.Redirect("Login.aspx");
         }
 
         private static List<string> CountryList()
         {
-            List<string> list = new List<String>();
+            List<string> list = new List<string>();
 
             CultureInfo[] getCultureInfo = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
 

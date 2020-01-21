@@ -1,31 +1,53 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using TouristHelp.Models;
 
 namespace TouristHelp.DAL
 {
-    public class DirectionDAO
+    public static class DirectionDAO
     {
-        private SqlHelper helper = new SqlHelper();
-        public List<Direction> SelectAll()
+        public static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+
+        public static List<Direction> SelectAll()
         {
-            DataSet ds = helper.Query("Select * from Directions");
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            string sqlStmt = "Select * from Directions";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
             return convertToObj(ds);
         } 
 
-        public List<Direction> GetDirectionsByGrp(int grp)
+        public static List<Direction> GetDirectionsByGrp(int grp)
         {
-            DataSet ds = helper.Query("Select * From Directions Where group = "+ grp.ToString() + " Order By group");
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            string sqlStmt = "Select * From Directions Where group = @paraGrp Order By group";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraGrp", grp.ToString());
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
             return convertToObj(ds);
         }
 
-        public List<int> GetDirGrpByUser(int user_id)
+        public static List<int> GetDirGrpByUser(int user_id)
         {
-            DataSet ds = helper.Query("Select Distinct group As DistinctGrps From (Select * From Directions Where user = " + user_id.ToString() + "))");
-            
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            string sqlStmt = "Select Distinct group As DistinctGrps From (Select * From Directions Where user = @paraId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraId", user_id.ToString());
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
             List<int> list = new List<int>();
             int rec_cnt = ds.Tables[0].Rows.Count;
             for (int i = 0; i < rec_cnt; i++)
@@ -38,7 +60,7 @@ namespace TouristHelp.DAL
             return list;
         }
 
-        private List<Direction> convertToObj(DataSet ds)
+        private static List<Direction> convertToObj(DataSet ds)
         {
             List<Direction> dirList = new List<Direction>();
             int rec_cnt = ds.Tables[0].Rows.Count;

@@ -241,7 +241,6 @@
     <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
     <Compile Include="DAL\ShopVoucherDAO.cs" />
-    <Compile Include="DAL\SqlAdapter.cs" />
     <Compile Include="DAL\TicketDAO.cs" />
     <Compile Include="DAL\TransactionDAO.cs" />
     <Compile Include="DAL\UserDAO.cs" />

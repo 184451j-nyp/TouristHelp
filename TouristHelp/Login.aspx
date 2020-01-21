@@ -12,23 +12,23 @@
                         <figure>
                             <img src="Images/signin-image.jpg" alt="sing up image">
                         </figure>
-                        <a href="#" class="signup-image-link">Create an account</a>
+                        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="signup-image-link" NavigateUrl="~/Register.aspx">Create an account</asp:HyperLink>
                     </div>
 
                     <div class="signin-form">
                         <h2 class="form-title">Sign in</h2>
                         <form id="FormSignIn" class="register-form" runat="server">
                             <div class="form-group">
-                                <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <asp:TextBox ID="tbEmail" runat="server" placeholder="Email Address"></asp:TextBox>
                             </div>
                             <div class="form-group">
-                                <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <asp:TextBox ID="tbPassword" runat="server" placeholder="Password"></asp:TextBox>
+                                <asp:TextBox ID="tbPassword" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
                             </div>
                             <div class="form-group form-button">
                                 <asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="form-submit" OnClick="btnLogin_Click" />
                             </div>
+                            <br />
+                            <asp:Label ID="lblErr" runat="server" ForeColor="Red"></asp:Label>
                         </form>
                     </div>
                 </div>

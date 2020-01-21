@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TouristHelp.DAL;
+using TouristHelp.Models;
 
 namespace TouristHelp
 {
@@ -19,6 +21,11 @@ namespace TouristHelp
             string email = tbEmail.Text;
             string password = tbPassword.Text;
 
+            Tourist tourist = TouristDAO.SelectTouristByEmail(email);
+            if (tourist != null)
+            {
+                lblErr.Text = tourist.Nationality;
+            }
         }
     }
 }
