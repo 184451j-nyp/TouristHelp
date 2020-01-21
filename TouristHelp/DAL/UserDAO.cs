@@ -7,6 +7,30 @@ using System.Configuration;
 
 namespace TouristHelp.DAL
 {
+    public static class UserDAO
+    {
+        public static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+
+        public static bool UserWithEmailExists(string email)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * From Users Where email = @paraEmail";
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraEmail", myConn);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            if(ds.Tables[0].Rows.Count == 1)
+            {
+                return true;
+            }
+
+            return false;
+        }
+    }
     public static class TourGuideDAO
     {
         public static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
@@ -144,6 +168,29 @@ namespace TouristHelp.DAL
 
             }
         }
+
+        public static void UpdateTourGuide(TourGuide tg)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Update TourGuides Set tours = @paraTours, description = @paraDesc, languages = @paraLang, credentials = @paraCred Where tourguide_id = @paraTG; " +
+                "Update Users Set name = @paraName, password = @paraPswd, email = @paraEmail Where user_id = @paraUser;";
+
+            SqlCommand cmd = new SqlCommand(sqlStmt, myConn);
+            cmd.Parameters.AddWithValue("@paraTours", tg.Tours);
+            cmd.Parameters.AddWithValue("@paraDesc", tg.Description);
+            cmd.Parameters.AddWithValue("@paraLang", tg.Languages);
+            cmd.Parameters.AddWithValue("@paraCred", tg.Credentials);
+            cmd.Parameters.AddWithValue("@paraTG", tg.TourGuideId);
+            cmd.Parameters.AddWithValue("@paraName", tg.Name);
+            cmd.Parameters.AddWithValue("@paraPswd", tg.Password);
+            cmd.Parameters.AddWithValue("@paraEmail", tg.Email);
+            cmd.Parameters.AddWithValue("@paraUser", tg.UserId);
+
+            myConn.Open();
+            cmd.ExecuteNonQuery();
+            myConn.Close();
+        }
     }
 
     public static class TouristDAO
@@ -268,6 +315,26 @@ namespace TouristHelp.DAL
             {
                 
             }
+        }
+
+        public static void UpdateTourist(Tourist t)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Update Tourists Set nationality = @paraNation Where tourist_id = @paraT; " +
+                "Update Users Set name = @paraName, password = @paraPswd, email = @paraEmail Where user_id = @paraUser;";
+
+            SqlCommand cmd = new SqlCommand(sqlStmt, myConn);
+            cmd.Parameters.AddWithValue("@paraNation", t.Nationality);
+            cmd.Parameters.AddWithValue("@paraT", t.TouristId);
+            cmd.Parameters.AddWithValue("@paraName", t.Name);
+            cmd.Parameters.AddWithValue("@paraPswd", t.Password);
+            cmd.Parameters.AddWithValue("@paraEmail", t.Email);
+            cmd.Parameters.AddWithValue("@paraUser", t.UserId);
+
+            myConn.Open();
+            cmd.ExecuteNonQuery();
+            myConn.Close();
         }
     }
 }
