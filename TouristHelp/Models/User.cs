@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TouristHelp.DAL;
 
 namespace TouristHelp.Models
 {
@@ -51,6 +52,11 @@ namespace TouristHelp.Models
             Description = description;
             Languages = languages;
             Credentials = credentials;
+        }
+
+        public static List<TourGuide> GetAllTourGuide()
+        {
+            return TourGuideDAO.SelectAllTourGuides();
         }
     }
 
