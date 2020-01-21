@@ -96,6 +96,7 @@
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
     <Content Include="Hotel.aspx" />
+    <Content Include="Images\breadcrumb_bg.png" />
     <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\iconicFood.jpg" />
     <Content Include="Images\signin-image.jpg" />
@@ -210,6 +211,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Shop.aspx" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\liner_icon.css" />
     <Content Include="Styles\login.css" />
@@ -319,6 +321,13 @@
     </Compile>
     <Compile Include="Shop.aspx.designer.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

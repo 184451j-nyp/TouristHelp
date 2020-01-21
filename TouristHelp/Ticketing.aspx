@@ -1,75 +1,80 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ticketing.aspx.cs" Inherits="TouristHelp.Ticketing" %>
-
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-                <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
-                    <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="Main.aspx">Home</a></span> <span>Tickets</span></p>
-                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tickets</h1>
-                </div>
-            </div>
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="Main.aspx">Home</a></span> <span>Tickets</span></p>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Tickets</h1>
+          </div>
         </div>
+      </div>
     </div>
     <form runat="server">
-        <section class="ftco-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 ftco-animate">
+       <section class="ftco-section">
+         <div class="container">
+           <div class="row">
+             <div class="col-lg-12 ftco-animate">
+                       
+                 <asp:ScriptManager ID="ScriptManager1" runat="server">
+                 </asp:ScriptManager>
+                       
+                 <asp:Label ID="lbTicketName" runat="server" Font-Size="XX-Large" Text="Name Placeholder"></asp:Label>
+                       
+                 <br />
+                 <asp:Label ID="lbTicketDesc" runat="server" Font-Size="Large" Text="Description Placeholder"></asp:Label>
 
-                        <asp:ScriptManager ID="ScriptManager1" runat="server">
-                        </asp:ScriptManager>
+                         <br />
+                         <br />
 
-                        <asp:Label ID="lbTicketName" runat="server" Font-Size="XX-Large" Text="Name Placeholder"></asp:Label>
-
-                        <br />
-                        <asp:Label ID="lbTicketDesc" runat="server" Font-Size="Large" Text="Description Placeholder"></asp:Label>
-
-                        <br />
-                        <br />
-
-                        <asp:Label ID="Label2" runat="server" Text="Select a Package:" Font-Size="X-Large"></asp:Label>
-                        <br />
-                        <asp:Button ID="BtnPack1" runat="server" OnClick="Package_Click" Text="Package Placeholder 1" />
-                        <br />
-                        <br />
-                        <asp:Label ID="Label3" runat="server" Font-Size="X-Large" Text="Date:"></asp:Label>
-                        <br />
-                        <asp:TextBox ID="tbDate" runat="server">Click to pick a date</asp:TextBox>
-
-                        <ajaxToolkit:PopupControlExtender ID="tbDate_PopupControlExtender" runat="server" BehaviorID="tbDate_PopupControlExtender" DynamicServicePath="" ExtenderControlID="" PopupControlID="Panel1" Position="Bottom" TargetControlID="tbDate">
-                        </ajaxToolkit:PopupControlExtender>
-
-                        <br />
-                        <asp:Panel ID="Panel1" runat="server">
-                            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                                <ContentTemplate>
-                                    <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged2"></asp:Calendar>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-                        </asp:Panel>
-                        <br />
-                        <asp:Label ID="Label4" runat="server" Font-Size="X-Large" Text="Quantity"></asp:Label>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <%--place repeater past here--%>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <asp:Label ID="lblCategory" runat="server" Font-Size="Medium" Text="Date:"></asp:Label>
-                            </div>
-                            <div class="col-lg-3">
-                                <asp:Label ID="lblPrice" runat="server" Font-Size="Medium" Text="Date:"></asp:Label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+                         <asp:Label ID="Label2" runat="server" Text="Select a Package:" Font-Size="X-Large"></asp:Label>
+                         <br />
+                         <asp:Button ID="BtnPack1" runat="server" OnClick="Package_Click" Text="Package Placeholder 1" />
+                         <br />
+                         <br />
+                         <asp:Label ID="Label3" runat="server" Font-Size="X-Large" Text="Date:"></asp:Label>
+                         <br />
+                         <asp:TextBox ID="tbDate" runat="server">Click to pick a date</asp:TextBox>
+                          
+                         <ajaxToolkit:PopupControlExtender ID="tbDate_PopupControlExtender" runat="server" BehaviorID="tbDate_PopupControlExtender" DynamicServicePath="" ExtenderControlID="" PopupControlID="Panel1" Position="Bottom" TargetControlID="tbDate">
+                 </ajaxToolkit:PopupControlExtender>
+                          
+                         <br />
+                         <asp:Panel ID="Panel1" runat="server">
+                             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                 <ContentTemplate>
+                                     <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged2"></asp:Calendar>
+                                 </ContentTemplate>
+                             </asp:UpdatePanel>
+                 </asp:Panel>
+                         <br />
+                         <asp:Label ID="Label4" runat="server" Font-Size="X-Large" Text="Quantity"></asp:Label>
+                         <br />
+                         <div class="row">
+                             <span class="col-lg-6">
+                                   <asp:Label ID="lblCategory" runat="server" Font-Size="Medium" Text="Adult/Person/Child"></asp:Label>
+                             </span>
+                             <span class="col-lg-3">
+                                   <asp:Label ID="lblPrice" runat="server" Font-Size="Medium" Text="Price Placeholder"></asp:Label>
+                             </span>
+                             <span class="col-lg-1">
+                                   <asp:Button ID="BtnMinQ" runat="server" class="ml-auto" Text="-" OnClick="Btn_MinQ" />
+                                   <asp:TextBox ID="tbQuantity" runat="server" Width="18px">0</asp:TextBox>
+                                   <asp:Button ID="BtnAddQ" runat="server" class="ml-auto" Text="+" OnClick="Btn_AddQ" />
+                             </span>
+                         </div>
+                         <br />
+                         <br />
+                         <asp:Button ID="BtnBuy" runat="server" Text="Add to Shopping Cart" style="float:right"/>
+                         <br />
+                 <%--place repeater past here--%>
+             </div>
+           </div>
+         </div>
+       </section>
     </form>
 </asp:Content>
