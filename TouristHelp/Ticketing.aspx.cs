@@ -48,5 +48,15 @@ namespace TouristHelp
         {
             tbDate_PopupControlExtender.Commit(Calendar1.SelectedDate.ToShortDateString());
         }
+
+        protected void Btn_MinQ(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Btn_AddQ(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -11,7 +11,7 @@
     <form id="form1" runat="server">
         <div style="text-align: center">
             <header>
-                <a href="Main.aspx" style="float:left" class="btn-primary" >Go Back</a>
+            <asp:Button ID="ButtonBack" runat="server" Text="Go Back" Style="float:left" OnClick="ButtonBack_Click"/>
             </header>
             <br />
             <br />

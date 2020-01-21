@@ -1,21 +1,29 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Shop.aspx.cs" Inherits="TouristHelp.Shop" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-       <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '50%' }">
 
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Shop</h1>
-          </div>
-        </div>
-      </div>
-    </div>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-
+    
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg align-items-center">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-sm-6">
+                    <div class="breadcrumb_tittle text-left">
+                        <h2>Shop</h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="breadcrumb_content text-right">
+                        <p>Reward<span>/</span>Shop</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
 
             <asp:Label ID="LblMsg" CssClass="lblMsgCss" runat="server" Text="Text"></asp:Label>
 
@@ -107,7 +115,7 @@
 
 
 
-        <div class="menu">
+        <span class="menu">
         <ul>
           <li class="active"><a href="RewardPage.aspx">How It Works</a></li>
           <li><a href="Shop.aspx">Shop</a></li>
@@ -117,7 +125,7 @@
 
 
                     
-      </div>
+      </span>
     </section>
 
 
@@ -157,11 +165,120 @@
 							</form>
         		</div>
           </div><!-- END-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+              <div class="row">
+          <div class="col-lg-12">
+          	<div class="row">
+          		<div class="col-sm col-md-6 col-lg-4 ftco-animate">
+		    				<div class="destination">
+                                <img class="img img-2 d-flex justify-content-center align-items-center" style="height:300px; width:350px;" src="Images/iconicFood.jpg"/>
+		    					<div class="text p-3">
+		    						<div class="d-flex">
+		    							<div class="one">
+				    						<asp:Label ID="IntFood" Text="Food" ForeColor="Black" runat="server"></asp:Label>
+			    						</div>
+		    						</div>
+		    						<p>Find out what local cuisines are left to be discovered, waiting to be savoured.</p>
+		    						<hr>
+		    						<p class="bottom-area d-flex">
+		    							<asp:Button ID="BtnAddFood" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" />
+                                        <asp:Button ID="BtnRemFood" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" Visible="False" />
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
+		    				<div class="destination">
+                                <img class="img img-2 d-flex justify-content-center align-items-center" style="height:300px; width:350px;" src="Images/gbtb.jpg" />
+		    					<div class="text p-3">
+		    						<div class="d-flex">
+		    							<div class="one">
+				    						<asp:Label ID="IntNature" Text="Nature" ForeColor="Black" runat="server"></asp:Label>
+			    						</div>
+		    						</div>
+		    						<p>Experience the greenery and have a refreshing take on Singapore.</p>
+		    						<hr>
+		    						<p class="bottom-area d-flex">
+		    							<asp:Button ID="BtnAddNature" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" />
+                                        <asp:Button ID="BtnRemNature" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" Visible="False" />
+		    						</p>
+		    					</div>
+		    				</div>
+		    			</div>
+		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
+		    				<div class="destination">
+		    					<img class="img img-2 d-flex justify-content-center align-items-center" style="height:300px; width:350px;" src="Images/uss.jpg" />
+		    					<div class="text p-3">
+		    						<div class="d-flex">
+		    							<div class="one">
+				    						<asp:Label ID="IntAmusementPark" Text="Amusement Parks" ForeColor="Black" runat="server"></asp:Label>
+			    						</div>
+		    						</div>
+		    						<p>Rediscover the definition of fun and thrill in our iconic amusement parks.</p>
+		    						<hr>
+		    						<p class="bottom-area d-flex">
+		    							<asp:Button ID="BtnAddAP" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" BackColor="Green" />
+                                        <asp:Button ID="BtnRemAP" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" BackColor="Red" Visible="False" />
+		    						    `</p>
+		    					</div>
+		    				</div>
+		    			</div>
+          	</div>
+          </div> <!-- .col-md-8 -->
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <div class="col-lg-9">
           	<div class="row">
           		<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="destination">
-		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/silverMember.png);">
+		    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(../Images/silverMember.png);">
 
 
 
@@ -352,48 +469,16 @@
 		    				</div>
 		    			</div>
           	</div>
-          	<div class="row mt-5">
-		          <div class="col text-center">
-		            <div class="block-27">
-		              <ul>
-		                <li><a href="#">&lt;</a></li>
-		                <li class="active"><span>1</span></li>
-		                <li><a href="#">2</a></li>
-		                <li><a href="#">3</a></li>
-		                <li><a href="#">4</a></li>
-		                <li><a href="#">5</a></li>
-		                <li><a href="#">&gt;</a></li>
-		              </ul>
-		            </div>
-		          </div>
-		        </div>
+        
+
+
+
           </div> <!-- .col-md-8 -->
         </div>
       </div>
     </section> <!-- .section -->
 
-		<section class="ftco-section-parallax">
-      <div class="parallax-img d-flex align-items-center">
-        <div class="container">
-          <div class="row d-flex justify-content-center">
-            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
-              <h2>Subcribe to our Newsletter</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
-              <div class="row d-flex justify-content-center mt-5">
-                <div class="col-md-8">
-                  <form action="#" class="subscribe-form">
-                    <div class="form-group d-flex">
-                      <input type="text" class="form-control" placeholder="Enter email address">
-                      <input type="submit" value="Subscribe" class="submit px-3">
-                    </div>
-                  </form>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+	
 
                   </form>
 
@@ -402,19 +487,22 @@
 
     
    <style>
-    div.menu ul li {
+    span.menu ul li {
   display: inline-block;
   height:100%;
   padding: 0 1rem;
+  margin-left:300px;
   text-align: center;
+  margin-top:200px;
+
 
 }
 
-div.menu a {
+span.menu a {
   text-decoration: none;
   position: relative;
   top: 50%;
-  margin-top:100px;
+  text-align:center;
   transform: translateY(-50%);
   display: inline-block;
   vertical-align: middle;
