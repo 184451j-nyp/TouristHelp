@@ -7,60 +7,66 @@ namespace TouristHelp.Models
 {
     public class User
     {
-        public int? userId { get; }
-        public string name { get; set; }
-        public string email { get; set; }
-        public string password { get; set; }
+        public int? UserId { get; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Password { get; set; }
 
         public User(string name, string email, string pswd)
         {
-            userId = null;
-            this.name = name;
-
+            UserId = null;
+            Name = name;
+            Email = email;
+            Password = pswd;
         }
         public User(int id, string name, string email, string pswd)
         {
-            userId = id;
-            this.name = name;
-            this.email = email;
-            password = pswd;
+            UserId = id;
+            Name = name;
+            Email = email;
+            Password = pswd;
         }
     }
 
     public class TourGuide : User
     {
-        public double rating { get; set; }
-        public string description { get; set; }
-        public string languages { get; set; }
-        public string credentials { get; set; }
+        public int? TourGuideId { get; set; }
+        public double Rating { get; set; }
+        public string Description { get; set; }
+        public string Languages { get; set; }
+        public string Credentials { get; set; }
 
         public TourGuide(string name, string email, string pswd, double rating, string description, string languages, string credentials):base(name, email, pswd)
         {
-            this.rating = rating;
-            this.description = description;
-            this.languages = languages;
-            this.credentials = credentials;
+            TourGuideId = null;
+            Rating = rating;
+            Description = description;
+            Languages = languages;
+            Credentials = credentials;
         }
-        public TourGuide(int id, string name, string email, string pswd, double rating, string description, string languages, string credentials):base(id, name, email, pswd)
+        public TourGuide(int tourguide_id, int user_id, string name, string email, string pswd, double rating, string description, string languages, string credentials):base(user_id, name, email, pswd)
         {
-            this.rating = rating;
-            this.description = description;
-            this.languages = languages;
-            this.credentials = credentials;
+            TourGuideId = tourguide_id;
+            Rating = rating;
+            Description = description;
+            Languages = languages;
+            Credentials = credentials;
         }
     }
 
     public class Tourist : User
     {
-        public string nationality { get; set; }
+        public int? TouristId { get; set; }
+        public string Nationality { get; set; }
 
         public Tourist(string name, string email, string pswd, string nationality):base(name, email, pswd)
         {
-            this.nationality = nationality;
+            Nationality = nationality;
         }
-        public Tourist(int id, string name, string email, string pswd, string nationality):base(id, name, email, pswd)
+        public Tourist(int touristId, int user, string name, string email, string pswd, string nationality):base(user, name, email, pswd)
         {
-            this.nationality = nationality;
+            TouristId = touristId;
+            Nationality = nationality;
         }
     }
 }

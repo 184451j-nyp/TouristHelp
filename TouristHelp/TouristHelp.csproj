@@ -58,8 +58,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit">
-      <HintPath>..\..\..\..\Downloads\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.19.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -241,7 +241,6 @@
     <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
     <Compile Include="DAL\ShopVoucherDAO.cs" />
-    <Compile Include="DAL\SqlAdapter.cs" />
     <Compile Include="DAL\TicketDAO.cs" />
     <Compile Include="DAL\TransactionDAO.cs" />
     <Compile Include="DAL\UserDAO.cs" />
