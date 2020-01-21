@@ -59,8 +59,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\Vincent\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\packages\AjaxControlToolkit.19.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -99,20 +98,21 @@
     <Content Include="Hotel.aspx" />
     <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\iconicFood.jpg" />
+    <Content Include="Images\signin-image.jpg" />
+    <Content Include="Images\signup-image.jpg" />
     <Content Include="Images\silverMember.png" />
     <Content Include="Images\uss.jpg" />
     <Content Include="InterestSelect.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Planner.aspx" />
+    <Content Include="Register.aspx" />
     <Content Include="Reservation_Food.aspx" />
     <Content Include="Reservation_Food_Confirmed.aspx" />
     <Content Include="RewardPage.aspx" />
-    <Content Include="Scripts\animsition.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -142,7 +142,6 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\src\index.js" />
     <Content Include="Scripts\src\methods\defaults.js" />
     <Content Include="Scripts\src\methods\destroy.js" />
@@ -214,20 +213,11 @@
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\liner_icon.css" />
-    <Content Include="Styles\Login\animate.css" />
-    <Content Include="Styles\Login\animsition.min.css" />
-    <Content Include="Styles\Login\daterangepicker.css" />
-    <Content Include="Styles\Login\font-awesome.min.css" />
-    <Content Include="Styles\Login\hamburgers.min.css" />
-    <Content Include="Styles\Login\icon-font.min.css" />
-    <Content Include="Styles\Login\main.css" />
-    <Content Include="Styles\Login\select2.min.css" />
-    <Content Include="Styles\Login\util.css" />
+    <Content Include="Styles\login.css" />
     <Content Include="Styles\owl.carousel.min.css" />
     <Content Include="Styles\search.css" />
-    <Content Include="Styles\style.css" />
+    <Content Include="Styles\navbar.css" />
     <Content Include="Styles\themify-icons.css" />
-    <Content Include="Styles\Ticketing\bootstrap.min.css" />
     <Content Include="Styles\Ticketing\style.css" />
     <Content Include="Ticketing.aspx" />
     <Content Include="TicketList.aspx" />
@@ -252,7 +242,6 @@
     <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
     <Compile Include="DAL\ShopVoucherDAO.cs" />
-    <Compile Include="DAL\SqlAdapter.cs" />
     <Compile Include="DAL\TicketDAO.cs" />
     <Compile Include="DAL\TransactionDAO.cs" />
     <Compile Include="DAL\UserDAO.cs" />
@@ -297,6 +286,13 @@
       <DependentUpon>Planner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reservation_Food.aspx.cs">
       <DependentUpon>Reservation_Food.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
