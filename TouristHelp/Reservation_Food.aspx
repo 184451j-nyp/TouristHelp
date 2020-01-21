@@ -7,18 +7,26 @@
         <table class="table">
             <tr>
                 <td class="auto-style1">
-                    <p>Make Reservation:
-                        <asp:Label runat="server" ID="lbName"></asp:Label></p>
+                    <p>
+                        Make Reservation: 
+                        <asp:Label runat="server" ID="lbName"></asp:Label>
+                    </p>
+                    <p>
+                        <asp:Label runat="server" ID="lbDesc"></asp:Label>
+                    </p>
                     <div class="one-half img" style="background-image: url(images/about.jpg);"></div>
                     <div>
-                        <div>At: Place</div>
-                        <div>Time: 
+                        <div>At: <asp:Label runat="server" ID="lbPlace"></asp:Label></div>
+                        <div>
+                            Time:
                             <asp:TextBox ID="TextBoxTime" runat="server"></asp:TextBox>
                         </div>
-                        <div>Pax:
+                        <div>
+                            Pax:
                             <asp:TextBox ID="TextBoxPax" runat="server"></asp:TextBox>
                         </div>
-                        <asp:Button ID="BtnConfirm" runat="server" CssClass="btn btn-default" style="float:right" Text="Confirm Reservation" OnClick="BtnConfirm_Click" /> <%-- temporary button rename later --%>
+                        <asp:Button ID="BtnConfirm" runat="server" CssClass="btn btn-default" Style="float: right" Text="Confirm Reservation" OnClick="BtnConfirm_Click" />
+                        <%-- temporary button rename later --%>
                     </div>
                 </td>
                 <td>

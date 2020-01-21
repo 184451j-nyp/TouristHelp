@@ -12,16 +12,20 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["AttractionId"] != null) { 
-            string attractId = Session["AttractionId"].ToString();
+            if (Session["AttractionId"] != null)
+            {
+                string attractId = Session["AttractionId"].ToString();
 
-            // Retrieve TDMaster records by Id
-            Attraction td = new Attraction();
-            td = td.GetAttractionDataById(attractId);
+                // Retrieve TDMaster records by Id
+                Attraction td = new Attraction();
+                td = td.GetAttractionDataById(attractId);
 
-            lbName.Text = td.Name;
+                lbName.Text = td.Name;
+                lbDesc.Text = td.Description;
+                lbPlace.Text = td.Location;
             }
-            else {
+            else
+            {
                 Response.Redirect("Guidebook.aspx");
             }
         }
@@ -33,7 +37,7 @@ namespace TouristHelp
             Attraction td = new Attraction();
             td.InsertReservation(lbName.Text);
             Response.Redirect("Reservation_Food_Confirmed.aspx");
-            
+
         }
     }
 }
