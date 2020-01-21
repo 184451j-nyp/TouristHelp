@@ -12,6 +12,7 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["AttractionId"] != null) { 
             string attractId = Session["AttractionId"].ToString();
 
             // Retrieve TDMaster records by Id
@@ -19,10 +20,15 @@ namespace TouristHelp
             td = td.GetAttractionDataById(attractId);
 
             lbName.Text = td.Name;
+            }
+            else {
+                Response.Redirect("Guidebook.aspx");
+            }
         }
 
         protected void BtnConfirm_Click(object sender, EventArgs e)
         {
+
             Session["AttractionName"] = lbName.Text.ToString();
             Attraction td = new Attraction();
             td.InsertReservation(lbName.Text);

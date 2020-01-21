@@ -22,6 +22,24 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.Label lbName;
         
         /// <summary>
+        /// TextBoxTime control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxTime;
+        
+        /// <summary>
+        /// TextBoxPax control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPax;
+        
+        /// <summary>
         /// BtnConfirm control.
         /// </summary>
         /// <remarks>

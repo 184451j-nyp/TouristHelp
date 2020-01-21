@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Reservation_Food.aspx.cs" Inherits="TouristHelp.Reservation_Food" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site.Master" AutoEventWireup="true" CodeBehind="Reservation_Food.aspx.cs" Inherits="TouristHelp.Reservation_Food" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -12,9 +12,13 @@
                     <div class="one-half img" style="background-image: url(images/about.jpg);"></div>
                     <div>
                         <div>At: Place</div>
-                        <div>Time: 9pm : 18/1/2020</div>
-                        <div>Pax: 4</div>
-                        <asp:Button ID="BtnConfirm" runat="server" CssClass="btn btn-default" Text="Confirm Reservation" OnClick="BtnConfirm_Click" /> <%-- temporary button rename later --%>
+                        <div>Time: 
+                            <asp:TextBox ID="TextBoxTime" runat="server"></asp:TextBox>
+                        </div>
+                        <div>Pax:
+                            <asp:TextBox ID="TextBoxPax" runat="server"></asp:TextBox>
+                        </div>
+                        <asp:Button ID="BtnConfirm" runat="server" CssClass="btn btn-default" style="float:right" Text="Confirm Reservation" OnClick="BtnConfirm_Click" /> <%-- temporary button rename later --%>
                     </div>
                 </td>
                 <td>
