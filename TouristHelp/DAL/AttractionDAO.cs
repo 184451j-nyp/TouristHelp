@@ -42,7 +42,7 @@ namespace TouristHelp.DAL
             return td;
         }
 
-        public List<Attraction> SelectAll()
+        public List<Attraction> SelectAll() //get all from attraction db and put into list
         {
             //Step 1 -  Define a connection to the database by getting
             //          the connection string from web.config
@@ -77,18 +77,20 @@ namespace TouristHelp.DAL
             return empList;
         }
 
-        public void InsertReservation(String Name) //Insert the reservation details into db
+        public void InsertReservation(string Name, string Time, int Pax) //Insert the reservation details into db
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO ReservationFood (reservationName)" +
-                             "VALUES (@paraName)";
+            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationTime, reservationPax)" +
+                             "VALUES (@paraName, @paraTime, @paraPax)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
+            sqlCmd.Parameters.AddWithValue("@paraTime", Time);
+            sqlCmd.Parameters.AddWithValue("@paraPax", Pax);
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();

@@ -19,11 +19,11 @@
                         <div>At: <asp:Label runat="server" ID="lbPlace"></asp:Label></div>
                         <div>
                             Time:
-                            <asp:TextBox ID="TextBoxTime" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TbTime" runat="server"></asp:TextBox>
                         </div>
                         <div>
                             Pax:
-                            <asp:TextBox ID="TextBoxPax" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TbPax" runat="server"></asp:TextBox>
                         </div>
                         <asp:Button ID="BtnConfirm" runat="server" CssClass="btn btn-default" Style="float: right" Text="Confirm Reservation" OnClick="BtnConfirm_Click" />
                         <%-- temporary button rename later --%>
