@@ -20,11 +20,5 @@ namespace TouristHelp.BLL
         }
 
         
-
-        public void InsertReservation(String nameTemp)
-        {
-            AttractionDAO dao = new AttractionDAO();
-            dao.InsertReservation(nameTemp);
-        }
     }
 }

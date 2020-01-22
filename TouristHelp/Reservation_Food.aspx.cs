@@ -33,9 +33,12 @@ namespace TouristHelp
         protected void BtnConfirm_Click(object sender, EventArgs e)
         {
 
-            Session["AttractionName"] = lbName.Text.ToString();
+            Session["ResName"] = lbName.Text.ToString();
+            Session["ResLoc"] = lbPlace.Text.ToString();
+            Session["ResTime"] = TbTime.Text.ToString();
+            Session["ResPax"] = TbPax.Text.ToString();
             Attraction td = new Attraction();
-            td.InsertReservation(lbName.Text);
+            td.InsertReservation(lbName.Text, TbTime.Text, int.Parse(TbPax.Text));
             Response.Redirect("Reservation_Food_Confirmed.aspx");
 
         }

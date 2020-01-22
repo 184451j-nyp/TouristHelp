@@ -11,12 +11,12 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["AttractionName"] != null)
+            if (Session["ResName"] != null)
             {
-                lbName.Text = Session["AttractionName"].ToString();
-                lbPlace.Text = "placeholderPlace";
-                lbDateTime.Text = "placeholderTime";
-                lbPax.Text = "placeholderText";
+                lbName.Text = Session["ResName"].ToString();
+                lbPlace.Text = Session["ResLoc"].ToString();
+                lbDateTime.Text = Session["ResTime"].ToString();
+                lbPax.Text = Session["ResPax"].ToString();
             }
             else
             {
