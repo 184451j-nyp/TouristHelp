@@ -6,7 +6,7 @@
     <br />
     <br />
 
-
+        <form id="form1" runat="server">
     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
         <ItemTemplate>
             <div class="col-sm col-md-6 col-lg-12 ftco-animate fadeInUp ftco-animated">
@@ -29,12 +29,15 @@
                         <p class="bottom-area d-flex">
                             <td>
                                 <asp:Label ID="LbPassword" runat="server" Text='<%#Eval("Password") %>'></asp:Label></td>
-                            <span class="ml-auto"><a href="TourGuideDetails.aspx">Learn More</a></span>
+                            <td>
+                                <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
+                            </td>
                         </p>
                     </div>
                 </div>
             </div>
         </ItemTemplate>
     </asp:Repeater>
-
+            </form>
 </asp:Content>
+
