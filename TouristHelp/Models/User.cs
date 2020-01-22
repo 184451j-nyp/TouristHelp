@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TouristHelp.DAL;
 
 namespace TouristHelp.Models
 {
@@ -31,26 +32,31 @@ namespace TouristHelp.Models
     public class TourGuide : User
     {
         public int? TourGuideId { get; set; }
-        public double Rating { get; set; }
+        public string Tours { get; set; }
         public string Description { get; set; }
         public string Languages { get; set; }
         public string Credentials { get; set; }
 
-        public TourGuide(string name, string email, string pswd, double rating, string description, string languages, string credentials):base(name, email, pswd)
+        public TourGuide(string name, string email, string pswd, string tours, string description, string languages, string credentials):base(name, email, pswd)
         {
             TourGuideId = null;
-            Rating = rating;
+            Tours = tours;
             Description = description;
             Languages = languages;
             Credentials = credentials;
         }
-        public TourGuide(int tourguide_id, int user_id, string name, string email, string pswd, double rating, string description, string languages, string credentials):base(user_id, name, email, pswd)
+        public TourGuide(int tourguide_id, int user_id, string name, string email, string pswd, string tours, string description, string languages, string credentials):base(user_id, name, email, pswd)
         {
             TourGuideId = tourguide_id;
-            Rating = rating;
+            Tours = tours;
             Description = description;
             Languages = languages;
             Credentials = credentials;
+        }
+
+        public static List<TourGuide> GetAllTourGuide()
+        {
+            return TourGuideDAO.SelectAllTourGuides();
         }
     }
 

@@ -96,6 +96,7 @@
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
     <Content Include="Hotel.aspx" />
+    <Content Include="Images\breadcrumb_bg.png" />
     <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\iconicFood.jpg" />
     <Content Include="Images\signin-image.jpg" />
@@ -224,6 +225,7 @@
     <Content Include="TourDetailsPage.aspx" />
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
+    <Content Include="TourGuideUpdateDetails.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -235,7 +237,6 @@
     <Compile Include="BLL\Reward.cs" />
     <Compile Include="BLL\ShopVoucher.cs" />
     <Compile Include="BLL\Ticket.cs" />
-    <Compile Include="BLL\TourGuide.cs" />
     <Compile Include="BLL\Transactions.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
@@ -369,6 +370,13 @@
     </Compile>
     <Compile Include="TourGuideListPage.aspx.designer.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuideUpdateDetails.aspx.cs">
+      <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideUpdateDetails.aspx.designer.cs">
+      <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransactionPage.aspx.cs">
       <DependentUpon>TransactionPage.aspx</DependentUpon>

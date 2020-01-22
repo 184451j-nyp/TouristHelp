@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Globalization;
+using System.Text;
 using TouristHelp.DAL;
 using TouristHelp.Models;
 
@@ -18,6 +15,7 @@ namespace TouristHelp
             {
                 ddlNation.DataSource = CountryList();
                 ddlNation.DataBind();
+                ddlNation.Items.Insert(0, "-- Select --");
             }
         }
 
@@ -28,10 +26,13 @@ namespace TouristHelp
             string pass1 = tbPassword.Text;
             string pass2 = tbRepeatPass.Text;
             string nation = ddlNation.SelectedValue;
-            Tourist obj = new Tourist(name, email, pass1, nation);
-            TouristDAO.InsertTourist(obj);
+            if (pass1 == pass2 && name != "" && email != "" && pass1 != "" && nation != "-- Select --")
+            {
+                Tourist obj = new Tourist(name, email, pass1, nation);
+                TouristDAO.InsertTourist(obj);
 
-            Response.Redirect("Login.aspx");
+                Response.Redirect("Login.aspx");
+            }
         }
 
         private static List<string> CountryList()
@@ -40,7 +41,7 @@ namespace TouristHelp
 
             CultureInfo[] getCultureInfo = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
 
-            foreach(CultureInfo getCulture in getCultureInfo)
+            foreach (CultureInfo getCulture in getCultureInfo)
             {
                 RegionInfo regionInfo = new RegionInfo(getCulture.LCID);
                 if (!(list.Contains(regionInfo.EnglishName)))
