@@ -103,6 +103,7 @@
     <Content Include="Images\signup-image.jpg" />
     <Content Include="Images\silverMember.png" />
     <Content Include="Images\uss.jpg" />
+    <Content Include="Index.aspx" />
     <Content Include="InterestSelect.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Planner.aspx" />
@@ -263,6 +264,13 @@
     </Compile>
     <Compile Include="Hotel.aspx.designer.cs">
       <DependentUpon>Hotel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="InterestSelect.aspx.cs">
       <DependentUpon>InterestSelect.aspx</DependentUpon>

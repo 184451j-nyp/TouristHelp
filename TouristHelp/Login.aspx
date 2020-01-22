@@ -12,7 +12,7 @@
                         <figure>
                             <img src="Images/signin-image.jpg" alt="sing up image">
                         </figure>
-                        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="signup-image-link" NavigateUrl="~/Register.aspx">Create an account</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLink1" runat="server" CssClass="signup-image-link" NavigateUrl="~/RegisterTourist.aspx">Create an account</asp:HyperLink>
                     </div>
 
                     <div class="signin-form">

@@ -39,11 +39,11 @@ namespace TouristHelp
         {
             if (UserDAO.UserWithEmailExists(args.Value))
             {
-                args.IsValid = false;
+                args.IsValid = true;
             }
             else
             {
-                args.IsValid = true;
+                args.IsValid = false;
             }
         }
                 
