@@ -35,6 +35,7 @@ namespace TouristHelp
             Session["SSId"] = theName.Text;
             Session["SSName"] = theEmail.Text;
             Session["SSDept"] = thePassword.Text;
+            Response.Redirect("TourGuideUpdateDetails.aspx");
         }
 
     }

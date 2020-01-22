@@ -12,7 +12,12 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                tourguidenameTextBox.Text = (string)Session["SSName"];
+                tourguidedescriptionTextBox.Text = (string)Session["SSDept"];
+                tourguidelanguagesTextBox.Text = (string)Session["SSId"];
+            }
         }
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
