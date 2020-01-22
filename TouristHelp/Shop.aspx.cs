@@ -7,13 +7,28 @@ using System.Web.UI.WebControls;
 using TouristHelp.BLL;
 using System.Drawing;
 using TouristHelp.DAL;
+using System.Data.SqlClient;
 
 namespace TouristHelp
 {
     public partial class Shop : System.Web.UI.Page
     {
+        List<ShopVoucher> shopList;
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (!Page.IsPostBack)
+
+            {
+
+                loadRepeater();
+
+
+
+            }
+
+
 
             Session["user_id"] = "1";
 
@@ -32,6 +47,7 @@ namespace TouristHelp
             remainBonusDays.Text = td.remainBonusDays.ToString();
             bonusCredits.Text = td.bonusCredits.ToString();
 
+
             Session["voucher_id"] = "1";
 
             string shop_id = Session["voucher_id"].ToString();
@@ -40,14 +56,39 @@ namespace TouristHelp
 
             ts = ts.GetShopById(shop_id);
 
-            voucherName.Text = ts.voucherName.ToString();
-            voucherCost.Text = ts.voucherCost.ToString();
-            voucherDesc.Text = ts.shopDesc.ToString();
+            int voucher_Qty = ts.voucher_Qty;
+
+
+
+        }
 
 
 
 
+        private void loadRepeater()
+        {
+            ShopVoucher shop = new ShopVoucher();
+            shopList = shop.GetAllShop();
 
+            Repeat1.DataSource = shopList;
+            Repeat1.DataBind();
+        }
+
+
+        protected void NextPage(object sender, EventArgs e)
+        {
+            Session["user_id"] = "7"; // change to name we have the actual name here arady
+        }
+
+
+
+        protected void NextPage(object source, RepeaterCommandEventArgs e)
+        {
+            RepeaterItem item1 = e.Item;
+            Label voucherQuantity = (Label)item1.FindControl("voucher_Qty");
+
+            Session["voucher_Qty"] = voucherQuantity.Text;
+            Response.Redirect("Reservation_Food.aspx");
         }
 
         protected bool validatePurchase()
@@ -65,6 +106,7 @@ namespace TouristHelp
             Session["voucher_id"] = "1";
 
             string shop_id = Session["voucher_id"].ToString();
+
             // Retrieve ShopVoucher records by account
             ShopVoucher ts = new ShopVoucher();
 
@@ -92,29 +134,275 @@ namespace TouristHelp
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
 
-            Transactions emp = new Transactions();
+            //string ProductSelected;
 
-           if (validatePurchase())
-            {
-                //emp = new Transactions(vouch);
-                //int result = emp.AddEmployee();
-                //if (result == 1)
-                //{
-                //    LblMsg.Text = "Record added successfully!";
-                //    LblMsg.ForeColor = Color.Green;
-                }
-            }
+
+            //Session["user_id"] = "1";
+            //string user_id = Session["user_id"].ToString();
+            //// Retrieve ShopVoucher records by account
+
+            //Reward td = new Reward();
+            //td = td.GetRewardById(user_id);
+
+            //int creditBalance = Convert.ToInt32(td.creditBalance);
+
+
+
+            //Session["voucher_id"] = "1";
+
+            //string shop_id = Session["voucher_id"].ToString();
+            //// Retrieve ShopVoucher records by account
+            //ShopVoucher ts = new ShopVoucher();
+
+            //ts = ts.GetShopById(shop_id);
+
+            //string voucherName = ts.voucherName;
+            //int cost = Convert.ToInt32(ts.voucherCost);
+
+
+
+
+
+            ////int quantity = Convert.ToInt32(DDLquantity);
+
+            ////int quantity = Convert.ToInt32(voucherQty.SelectedValue);
+
+            //int quantity;
+
+            //if (validatePurchase() == true)
+            //{
+            //    foreach (RepeaterItem dataItem in Repeat1.Items)
+            //    {
+            //        ProductSelected = ((DropDownList)dataItem.FindControl("voucher_Qty")).SelectedItem.Text; //No error
+
+            //        quantity = Convert.ToInt32(ProductSelected);
+
+
+            //        int totalcost = cost * quantity;
+
+
+            //        int credit = creditBalance - totalcost;
+
+
+
+            //        Reward emp = new Reward(1, credit);
+            //        int result = emp.UpdateAccount(emp);
+
+
+            //        //Insert transaction into Transation Table
+
+
+
+
+
+            //        int genId = new Random().Next(100000, 999999);
+
+            //        string stats = "Available";
+
+            //        DateTime date = DateTime.Now;
+            //        TimeSpan duration = new TimeSpan(30, 0, 0, 0);
+            //        DateTime expiry = date.Add(duration);
+
+            //        int confirmcode = new Random().Next(100000, 999999);
+
+            //        int userId = Convert.ToInt32(user_id);
+
+            //        string name = voucherName;
+
+            //        Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name);
+
+
+            //        trans.insertTrans();
+
+
+            //        Response.Redirect("Shop.aspx");
+            //        return;
+            //    }
+
+
+
+
+
+
+            //    Response.Redirect("Shop.aspx");
+            //    notifyLabel.Text = "Purchase successful";
+            //    notifyLabel.Visible = true;
+            //    notifyLabel.ForeColor = Color.Green;
+            //}
+
+            //else
+            //{
+            //    notifyLabel.Text = "Insufficent credits";
+            //    notifyLabel.Visible = true;
+            //    notifyLabel.ForeColor = Color.Red;
+            //}
+        }
 
         protected void addCreditBtn_Click(object sender, EventArgs e)
         {
-            int credit = 1000;
+            Session["user_id"] = "1";
+
+            string user_id = Session["user_id"].ToString();
+
+            // Retrieve Reward records by account
+            Reward td = new Reward();
+            td = td.GetRewardById(user_id);
+
+            int creditBalance = Convert.ToInt32(td.creditBalance);
+
+            int credit = creditBalance + 1000;
 
 
-            Reward emp = new Reward(1,credit);
+            Reward emp = new Reward(1, credit);
             int result = emp.UpdateAccount(emp);
 
 
 
+            Response.Redirect("Shop.Aspx", false);
+
+
+        }
+
+
+        protected void GvEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DropDownList quantity = (DropDownList)sender;
+            quantity.DataSource = shopList;
+            quantity.DataBind();
+        }
+
+        protected void Repeat1_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
+            RepeaterItem item1 = e.Item;
+
+            int voucher_id;
+
+            int quantity;
+
+            int voucherStock;
+
+            string voucherStatus;
+
+            int voucherCost;
+
+            string voucherName;
+
+            int genId;
+
+
+            Session["user_id"] = "1";
+            string user_id = Session["user_id"].ToString();
+            // Retrieve ShopVoucher records by account
+
+            Reward td = new Reward();
+            td = td.GetRewardById(user_id);
+
+            int creditBalance = Convert.ToInt32(td.creditBalance);
+
+            HiddenField getId = (HiddenField)item1.FindControl("shop_Id");
+            Session["voucher_id"] = getId.Value;
+            voucher_id = Convert.ToInt32(getId.Value);
+
+            DropDownList getDropDown = (DropDownList)item1.FindControl("voucherQuantity");
+            Session["voucherQuantity"] = getDropDown.SelectedValue;
+            quantity = Convert.ToInt32(getDropDown.SelectedValue);
+
+            Label getVoucherCost = (Label)item1.FindControl("voucherCost");
+            Session["voucherCost"] = getVoucherCost.Text;
+            voucherCost = Convert.ToInt32(getVoucherCost.Text);
+
+            Label getVoucherName = (Label)item1.FindControl("voucherName");
+            Session["voucherName"] = getVoucherName.Text;
+            voucherName = getVoucherName.Text;
+
+
+
+            HiddenField getVoucherStock = (HiddenField)item1.FindControl("voucherQty");
+            Session["voucherName"] = getVoucherStock.Value;
+            voucherStock = Convert.ToInt32(getVoucherStock.Value);
+
+            Label getVoucherStatus = (Label)item1.FindControl("voucherStatus");
+            Session["voucherStatus"] = getVoucherStatus.Text;
+            voucherStatus = getVoucherStatus.Text;
+
+
+            if (validatePurchase() == true && voucherStatus == "Available")
+            {
+
+
+
+
+
+                int totalcost = voucherCost * quantity;
+
+
+                int credit = creditBalance - totalcost;
+
+
+
+                Reward emp = new Reward(1, credit);
+                int result = emp.UpdateAccount(emp);
+
+
+                //Insert transaction into Transation Table
+
+
+
+
+              
+                genId = new Random().Next(100000, 999999);
+
+                
+
+
+
+                string stats = "Available";
+
+                DateTime date = DateTime.Now;
+                TimeSpan duration = new TimeSpan(30, 0, 0, 0);
+                DateTime expiry = date.Add(duration);
+
+                int confirmcode = new Random().Next(100000, 999999);
+
+                int userId = Convert.ToInt32(user_id);
+
+                string name = voucherName;
+
+                Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name);
+
+
+                trans.insertTrans();
+
+                notifyLabel.Text = "Purchase successful";
+                notifyLabel.Visible = true;
+                notifyLabel.ForeColor = Color.Green;
+                Response.Redirect("Shop.aspx");
+                return;
+
+
+
+
+
+
+
+
+            }
+
+            else
+            {
+                notifyLabel.Text = "Purchased has failed";
+                notifyLabel.Visible = true;
+                notifyLabel.ForeColor = Color.Red;
+            }
+
+
+
+
+
+
+
+            Response.Redirect("Shop.aspx");
         }
     }
-    }
+}

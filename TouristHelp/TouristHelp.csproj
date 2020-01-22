@@ -99,9 +99,11 @@
     <Content Include="Images\breadcrumb_bg.png" />
     <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\iconicFood.jpg" />
+    <Content Include="Images\marinaBay.png" />
     <Content Include="Images\signin-image.jpg" />
     <Content Include="Images\signup-image.jpg" />
     <Content Include="Images\silverMember.png" />
+    <Content Include="Images\starbucks.jpg" />
     <Content Include="Images\uss.jpg" />
     <Content Include="InterestSelect.aspx" />
     <Content Include="Login.aspx" />

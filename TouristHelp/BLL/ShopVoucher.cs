@@ -53,19 +53,17 @@ namespace TouristHelp.BLL
 
         }
 
-        public void insertTransaction(String transId)
+       
+        public List<ShopVoucher> GetAllShop()
         {
-            TransactionDAO dao = new TransactionDAO();
-            dao.insertTransaction(transId);
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.SelectAll();
         }
 
 
 
 
-      
 
 
-
-       
     }
 }
