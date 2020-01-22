@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TouristHelp.DAL;
@@ -13,23 +10,25 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void btnSignupTG_Click(object sender, EventArgs e)
         {
-            string name = tbNameTG.Text;
-            string email = tbEmailTG.Text;
-            string pass1 = tbPasswordTG.Text;
-            string pass2 = tbRepeatPassTG.Text;
-            string desc = tbDesc.Text;
-            string lang = tbLang.Text;
-            if (pass1 == pass2 && name != "" && email != "" && pass1 != "")
+            if (Page.IsValid)
             {
-                TourGuide obj = new TourGuide(name, email, pass1, "", desc, lang, "");
-                TourGuideDAO.InsertTourGuide(obj);
+                string name = tbNameTG.Text;
+                string email = tbEmailTG.Text;
+                string pass1 = tbPasswordTG.Text;
+                string pass2 = tbRepeatPassTG.Text;
+                string desc = tbDesc.Text;
+                string lang = tbLang.Text;
+                if (pass1 == pass2 && name != "" && email != "" && pass1 != "")
+                {
+                    TourGuide obj = new TourGuide(name, email, pass1, "", desc, lang, "");
+                    TourGuideDAO.InsertTourGuide(obj);
 
-                Response.Redirect("Login.aspx");
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 
