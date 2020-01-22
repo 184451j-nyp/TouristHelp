@@ -87,6 +87,7 @@
     <Content Include="App_Data\TouristHelp_log.ldf">
       <DependentUpon>TouristHelp.mdf</DependentUpon>
     </Content>
+    <Content Include="blank.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -105,10 +106,12 @@
     <Content Include="Images\silverMember.png" />
     <Content Include="Images\starbucks.jpg" />
     <Content Include="Images\uss.jpg" />
+    <Content Include="Index.aspx" />
     <Content Include="InterestSelect.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Planner.aspx" />
-    <Content Include="Register.aspx" />
+    <Content Include="RegisterTG.aspx" />
+    <Content Include="RegisterTourist.aspx" />
     <Content Include="Reservation_Food.aspx" />
     <Content Include="Reservation_Food_Confirmed.aspx" />
     <Content Include="RewardPage.aspx" />
@@ -135,6 +138,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="LoginRegister.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -227,18 +231,25 @@
     <Content Include="TourDetailsPage.aspx" />
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
+    <Content Include="TourGuideUpdateDetails.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="blank.aspx.cs">
+      <DependentUpon>blank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="blank.aspx.designer.cs">
+      <DependentUpon>blank.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BLL\Attraction.cs" />
     <Compile Include="BLL\Interest.cs" />
     <Compile Include="BLL\Reward.cs" />
     <Compile Include="BLL\ShopVoucher.cs" />
     <Compile Include="BLL\Ticket.cs" />
-    <Compile Include="BLL\TourGuide.cs" />
     <Compile Include="BLL\Transactions.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
@@ -265,6 +276,13 @@
     <Compile Include="Hotel.aspx.designer.cs">
       <DependentUpon>Hotel.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InterestSelect.aspx.cs">
       <DependentUpon>InterestSelect.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -279,6 +297,13 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LoginRegister.Master.cs">
+      <DependentUpon>LoginRegister.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginRegister.Master.designer.cs">
+      <DependentUpon>LoginRegister.Master</DependentUpon>
+    </Compile>
     <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Planner.aspx.cs">
@@ -289,12 +314,19 @@
       <DependentUpon>Planner.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Register.aspx.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="RegisterTG.aspx.cs">
+      <DependentUpon>RegisterTG.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Register.aspx.designer.cs">
-      <DependentUpon>Register.aspx</DependentUpon>
+    <Compile Include="RegisterTG.aspx.designer.cs">
+      <DependentUpon>RegisterTG.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterTourist.aspx.cs">
+      <DependentUpon>RegisterTourist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterTourist.aspx.designer.cs">
+      <DependentUpon>RegisterTourist.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservation_Food.aspx.cs">
       <DependentUpon>Reservation_Food.aspx</DependentUpon>
@@ -372,6 +404,13 @@
     </Compile>
     <Compile Include="TourGuideListPage.aspx.designer.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuideUpdateDetails.aspx.cs">
+      <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideUpdateDetails.aspx.designer.cs">
+      <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransactionPage.aspx.cs">
       <DependentUpon>TransactionPage.aspx</DependentUpon>

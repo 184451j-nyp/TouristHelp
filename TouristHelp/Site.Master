@@ -67,7 +67,7 @@
         </div>
     </header>
     <!-- Header part end-->
-    <div>
+    <div class="container-fluid">
         <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
         </asp:ContentPlaceHolder>
     </div>

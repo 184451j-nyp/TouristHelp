@@ -7,92 +7,81 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TouristHelp
-{
-
-
-    public partial class Register
-    {
-
+namespace TouristHelp {
+    
+    
+    public partial class TourGuideUpdateDetails {
+        
         /// <summary>
-        /// FormRegister control.
+        /// form control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm FormRegister;
-
+        protected global::System.Web.UI.HtmlControls.HtmlForm form;
+        
         /// <summary>
-        /// tbName control.
+        /// tourguidenameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbName;
-
+        protected global::System.Web.UI.WebControls.Label tourguidenameLabel;
+        
         /// <summary>
-        /// tbEmail control.
+        /// tourguidenameTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbEmail;
-
+        protected global::System.Web.UI.WebControls.TextBox tourguidenameTextBox;
+        
         /// <summary>
-        /// lblNation control.
+        /// tourguidedescriptionLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNation;
-
+        protected global::System.Web.UI.WebControls.Label tourguidedescriptionLabel;
+        
         /// <summary>
-        /// ddlNation control.
+        /// tourguidedescriptionTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNation;
-
+        protected global::System.Web.UI.WebControls.TextBox tourguidedescriptionTextBox;
+        
         /// <summary>
-        /// tbPassword control.
+        /// tourguidelanguagesLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbPassword;
-
+        protected global::System.Web.UI.WebControls.Label tourguidelanguagesLabel;
+        
         /// <summary>
-        /// tbRepeatPass control.
+        /// tourguidelanguagesTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbRepeatPass;
-
+        protected global::System.Web.UI.WebControls.TextBox tourguidelanguagesTextBox;
+        
         /// <summary>
-        /// btnSignup control.
+        /// BtnSubmit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSignup;
-
-        /// <summary>
-        /// HyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Button BtnSubmit;
     }
 }

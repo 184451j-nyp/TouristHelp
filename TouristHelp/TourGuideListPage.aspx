@@ -5,63 +5,39 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <br />
-    
-    <div class="col-sm col-md-6 col-lg-12 ftco-animate fadeInUp ftco-animated">
-        <div class="destination">
-            <a>
-                <img border="0" width="160" height="150" alt="Private tour guide Walter" class="lazy" src="https://www.toursbylocals.com/images/guides/7/7385/2013094184902530.jpg" style="display: block;">
-            </a>
-            <div class="text p-3">
-                <div class="d-flex">
-                    <div class="one">
-                        <h3><a href="#">Jonathan Chew</a></h3>
-                        <p class="rate">
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star-o"></i>
-                            <span>87 Rating</span>
+
+        <form id="form1" runat="server">
+    <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
+        <ItemTemplate>
+            <div class="col-sm col-md-6 col-lg-12 ftco-animate fadeInUp ftco-animated">
+                <div class="destination">
+                    <a>
+                        <img border="0" width="160" height="150" alt="Private tour guide Walter" class="lazy" src="https://www.toursbylocals.com/images/guides/7/7385/2013094184902530.jpg" style="display: block;">
+                    </a>
+                    <div class="text p-3">
+                        <div class="d-flex">
+                            <div class="one">
+                                <td>
+                                    <asp:Label ID="LbName" runat="server" Text='<%#Eval("Name") %>'></asp:Label></td>
+
+                            </div>
+
+                        </div>
+                        <td>
+                            <asp:Label ID="LbEmail" runat="server" Text='<%#Eval("Email") %>'></asp:Label></td>
+                        <hr>
+                        <p class="bottom-area d-flex">
+                            <td>
+                                <asp:Label ID="LbPassword" runat="server" Text='<%#Eval("Password") %>'></asp:Label></td>
+                            <td>
+                                <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
+                            </td>
                         </p>
                     </div>
-                    
                 </div>
-                <p>Languages: English (Fluent), Chinese (Fluent)</p>
-                <hr>
-                <p class="bottom-area d-flex">
-                    <span><i class="icon-map-o"></i>Singapore, Pasir Ris</span>
-                    <span class="ml-auto"><a href="TourGuideDetails.aspx">Learn More</a></span>
-                </p>
             </div>
-        </div>
-    </div>
-    <div class="col-sm col-md-6 col-lg-12 ftco-animate fadeInUp ftco-animated">
-        <div class="destination">
-            <a>
-              <img border="0" width="160" height="150" alt="Private tour guide Chintana" class="lazy" src="https://www.toursbylocals.com/images/guides/5/5360/2019156012901578.jpg" style="display: block;">
-            </a>
-            <div class="text p-3">
-                <div class="d-flex">
-                    <div class="one">
-                        <h3><a href="#">Stephanie Song</a></h3>
-                        <p class="rate">
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star"></i>
-                            <i class="icon-star-o"></i>
-                            <i class="icon-star-o"></i>
-                            <span>15 Rating</span>
-                        </p>
-                    </div>
-                    
-                </div>
-                <p>Languages: English (Fluent), Chinese (Conversational)</p>
-                <hr>
-                <p class="bottom-area d-flex">
-                    <span><i class="icon-map-o"></i>Singapore, Punggol</span>
-                    <span class="ml-auto"><a href="#">Learn More</a></span>
-                </p>
-            </div>
-        </div>
-    </div>
+        </ItemTemplate>
+    </asp:Repeater>
+            </form>
 </asp:Content>
+
