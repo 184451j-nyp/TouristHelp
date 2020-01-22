@@ -18,7 +18,7 @@ namespace TouristHelp.DAL
             string sqlStmt = "Select * From Users Where email = @paraEmail";
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
-            da.SelectCommand.Parameters.AddWithValue("@paraEmail", myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraEmail", email);
 
             DataSet ds = new DataSet();
             da.Fill(ds);

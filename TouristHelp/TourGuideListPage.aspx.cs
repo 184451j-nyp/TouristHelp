@@ -29,12 +29,19 @@ namespace TouristHelp
         {
             RepeaterItem item1 = e.Item;
             Label theName = (Label)item1.FindControl("LbName");
-            Label theEmail = (Label)item1.FindControl("LbEmail");
-            Label thePassword = (Label)item1.FindControl("LbPassword");
+            Label theTours = (Label)item1.FindControl("LbTours");
+            Label theDescription = (Label)item1.FindControl("LbDescription");
+            Label theLanguages = (Label)item1.FindControl("LbLanguages");
+            Label theCredentials = (Label)item1.FindControl("LbCredentials");
 
-            Session["SSId"] = theName.Text;
-            Session["SSName"] = theEmail.Text;
-            Session["SSDept"] = thePassword.Text;
+
+
+            Session["SSName"] = theName.Text;
+            Session["SSTours"] = theTours.Text;
+            Session["SSDescription"] = theDescription.Text;
+            Session["SSLanguages"] = theLanguages.Text;
+            Session["SSCredentials"] = theCredentials.Text;
+
             Response.Redirect("TourGuideUpdateDetails.aspx");
         }
 
