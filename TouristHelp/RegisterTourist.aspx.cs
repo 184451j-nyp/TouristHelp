@@ -19,12 +19,12 @@ namespace TouristHelp
             }
         }
 
-        protected void btnSignup_Click(object sender, EventArgs e)
+        protected void btnSignupTourist_Click(object sender, EventArgs e)
         {
-            string name = tbName.Text;
-            string email = tbEmail.Text;
-            string pass1 = tbPassword.Text;
-            string pass2 = tbRepeatPass.Text;
+            string name = tbNameTourist.Text;
+            string email = tbEmailTourist.Text;
+            string pass1 = tbPasswordTourist.Text;
+            string pass2 = tbRepeatPassTourist.Text;
             string nation = ddlNation.SelectedValue;
             if (pass1 == pass2 && name != "" && email != "" && pass1 != "" && nation != "-- Select --")
             {
@@ -35,6 +35,18 @@ namespace TouristHelp
             }
         }
 
+        protected void CustomValidatorEmailExists_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        {
+            if (UserDAO.UserWithEmailExists(args.Value))
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+                
         private static List<string> CountryList()
         {
             List<string> list = new List<string>();
