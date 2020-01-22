@@ -18,12 +18,12 @@ namespace TouristHelp.DAL
             string sqlStmt = "Select * From Users Where email = @paraEmail";
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
-            da.SelectCommand.Parameters.AddWithValue("@paraEmail", myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraEmail", email);
 
             DataSet ds = new DataSet();
             da.Fill(ds);
 
-            if (ds.Tables[0].Rows.Count == 1)
+            if (ds.Tables[0].Rows.Count > 0)
             {
                 return true;
             }
@@ -152,7 +152,7 @@ namespace TouristHelp.DAL
             {
                 myConn.Open();
                 int user_id = (int)cmdUsers.ExecuteScalar();
-                string newStmt = "Insert into Tourists (user_id, rating, description, languages, credentials) Values (@paraUser, @paraTours, @paraDesc, @paraLang, @paraCred);";
+                string newStmt = "Insert into TourGuides (user_id, tours, description, languages, credentials) Values (@paraUser, @paraTours, @paraDesc, @paraLang, @paraCred);";
 
                 SqlCommand cmdTG = new SqlCommand(newStmt, myConn);
 
