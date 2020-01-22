@@ -38,7 +38,7 @@ namespace TouristHelp
             Session["ResTime"] = TbTime.Text.ToString();
             Session["ResPax"] = TbPax.Text.ToString();
             Attraction td = new Attraction();
-            td.InsertReservation(lbName.Text, TbTime.Text, int.Parse(TbPax.Text));
+            td.InsertReservation(lbName.Text, TbTime.Text, int.Parse(TbPax.Text), 1);
             Response.Redirect("Reservation_Food_Confirmed.aspx");
 
         }
