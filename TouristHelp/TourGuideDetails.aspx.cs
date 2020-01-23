@@ -11,7 +11,17 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                tourguidenameLabel2.Text = (string)Session["SSName"];
+                tourguidedescriptionLabel2.Text = (string)Session["SSDescription"];
+                tourguidelanguagesLabel2.Text = (string)Session["SSLanguages"];
+            }
+        }
 
+        protected void RedirectBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("TourDetailsPage.aspx");
         }
     }
 }

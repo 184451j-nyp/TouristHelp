@@ -76,25 +76,5 @@ namespace TouristHelp.DAL
             }
             return empList;
         }
-
-        public void InsertReservation(string Name, string Time, int Pax) //Insert the reservation details into db
-        {
-            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
-            SqlConnection myConn = new SqlConnection(DBConnect);
-
-            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationTime, reservationPax)" +
-                             "VALUES (@paraName, @paraTime, @paraPax)";
-
-
-            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
-
-            sqlCmd.Parameters.AddWithValue("@paraName", Name);
-            sqlCmd.Parameters.AddWithValue("@paraTime", Time);
-            sqlCmd.Parameters.AddWithValue("@paraPax", Pax);
-
-            myConn.Open();
-            sqlCmd.ExecuteNonQuery();
-            myConn.Close();
-        }
     }
 }

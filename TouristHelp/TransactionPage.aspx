@@ -1,54 +1,83 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TransactionPage.aspx.cs" Inherits="TouristHelp.Transaction" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-         <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
-      <div class="overlay"></div>
-      <div class="container">
-        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '50%' }">
-
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Transaction</h1>
-          </div>
-        </div>
-      </div>
-    </div>
+  
 
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+    
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg align-items-center">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-sm-6">
+                    <div class="breadcrumb_tittle text-left">
+                        <h2>Shop</h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="breadcrumb_content text-right">
+                        <p>Reward<span>/</span>Transaction</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
+
 
 
     
-            <div class="menu">
-        <ul>
-          <li class="active"><a href="RewardPage.aspx">How It Works</a></li>
-          <li><a href="Shop.aspx">Shop</a></li>
-          <li><a href="TransactionPage.aspx">My Transaction</a></li>
-        </ul>
+     
+
+        <section>
 
 
 
-                    
-      </div>
+            <span class="menu">
+                <ul>
+                    <li class="active"><a href="RewardPage.aspx">How It Works</a></li>
+                    <li class="style1"><a href="Shop.aspx">Shop</a></li>
+                    <li class="style2"><a href="TransactionPage.aspx">My Transaction</a></li>
+                </ul>
+
+
+
+
+            </span>
+        </section>
+
+
+
 
 
       <form id="frm" runat="server">
-                <div>
-                <asp:Label ID="transactionLabel"  runat="server" Text="Your Transaction History"></asp:Label>
+                <span>
 
-                            <div class="select-wrap one-third">
-	                    <select name="" id="" class="form-control" >
+                            <span class="select-wrap one-third">
+               <asp:Label ID="transactionLabel"   runat="server" Text="Your Transaction History"></asp:Label>
+                                
+	                    <select name="" id="" style="width:unset;" class="form-control" >
 	                      <option value="">Search By Category</option>
 	                      <option value="">Newest</option>
 	                      <option value="">Oldest</option>
 	                    </select>
-	                  </div>
-                                        </div>
+	                  </span>
+                                        </span>
 
 
 
+          <style>             
+              span#ContentPlaceHolder1_transactionLabel{
+                  font-size:30px;
+                  color:cornflowerblue;
 
+
+              }
+          </style>
 
 
 
@@ -241,15 +270,17 @@
 
             </form>
        <style>
-    div.menu ul li {
-  display: inline-block;
-  height:100%;
-  padding: 0 1rem;
-  text-align: center;
+    span.menu ul li  {
+            display: inline-block;
+            height: 100%;
+            padding: 0 1rem;
+            text-align: center;
+            font-size:25px;
+            padding-left:230px;
+            margin-top: 200px;
+        }
 
-}
-
-div.menu a {
+span.menu a {
   text-decoration: none;
   position: relative;
   top: 50%;
@@ -289,12 +320,19 @@ div.row {
 form#frm
 {
     text-align:center;
+    margin-left:30%;
 }
 
 
 ul{
-    margin-left:300px;
+
+
+
 }
+
+ li.active {
+            margin-left:20%;
+        }
 
        </style>
 

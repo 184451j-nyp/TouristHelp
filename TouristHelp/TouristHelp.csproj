@@ -217,6 +217,7 @@
     <Content Include="Images\uss.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="InterestSelect.aspx" />
+    <Content Include="List_Reservation_Food.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Planner.aspx" />
     <Content Include="RegisterTG.aspx" />
@@ -329,7 +330,6 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Shop.aspx" />
-    <Content Include="ShoppingCart.aspx" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\liner_icon.css" />
     <Content Include="Styles\login.css" />
@@ -362,6 +362,7 @@
     <Compile Include="BLL\HotelBook.cs" />
     <Compile Include="BLL\HotelTrans.cs" />
     <Compile Include="BLL\Interest.cs" />
+    <Compile Include="BLL\Food_Reservation.cs" />
     <Compile Include="BLL\Reward.cs" />
     <Compile Include="BLL\ShopVoucher.cs" />
     <Compile Include="BLL\Ticket.cs" />
@@ -372,6 +373,7 @@
     <Compile Include="DAL\HotelBookDAO.cs" />
     <Compile Include="DAL\HotelTrans.cs" />
     <Compile Include="DAL\InterestDAO.cs" />
+    <Compile Include="DAL\Food_ReservationDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
     <Compile Include="DAL\ShopVoucherDAO.cs" />
     <Compile Include="DAL\TicketDAO.cs" />
@@ -414,6 +416,13 @@
     </Compile>
     <Compile Include="InterestSelect.aspx.designer.cs">
       <DependentUpon>InterestSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="List_Reservation_Food.aspx.cs">
+      <DependentUpon>List_Reservation_Food.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="List_Reservation_Food.aspx.designer.cs">
+      <DependentUpon>List_Reservation_Food.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -480,13 +489,6 @@
     </Compile>
     <Compile Include="Shop.aspx.designer.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ShoppingCart.aspx.cs">
-      <DependentUpon>ShoppingCart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ShoppingCart.aspx.designer.cs">
-      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>

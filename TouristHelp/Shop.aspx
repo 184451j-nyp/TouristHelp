@@ -435,6 +435,8 @@
                                                 </div>
                                         </div>
                                     </HeaderTemplate>
+                                   <SeparatorTemplate>    </SeparatorTemplate>
+
                                     <FooterTemplate></FooterTemplate>
                                 </asp:Repeater>
 
