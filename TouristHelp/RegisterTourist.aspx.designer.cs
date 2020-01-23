@@ -11,7 +11,7 @@ namespace TouristHelp
 {
 
 
-    public partial class Register
+    public partial class RegisterTourist
     {
 
         /// <summary>
@@ -123,15 +123,6 @@ namespace TouristHelp
         protected global::System.Web.UI.WebControls.TextBox tbRepeatPassTourist;
 
         /// <summary>
-        /// btnSignupTourist control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSignupTourist;
-
-        /// <summary>
         /// CustomValidatorEmailExists control.
         /// </summary>
         /// <remarks>
@@ -148,6 +139,15 @@ namespace TouristHelp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidatorPasswords;
+
+        /// <summary>
+        /// btnSignupTourist control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSignupTourist;
 
         /// <summary>
         /// HyperLink1 control.

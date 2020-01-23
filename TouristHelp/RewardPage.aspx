@@ -9,7 +9,25 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
         
-      
+          <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg align-items-center">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-sm-6">
+                    <div class="breadcrumb_tittle text-left">
+                        <h2>Shop</h2>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="breadcrumb_content text-right">
+                        <p><span> Reward </span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+
 
             <form id="frm" runat="server">
                 <div>
@@ -96,69 +114,7 @@
       </div>
 
 
-      <div class="row">
-          <div class="col-lg-12">
-          	<div class="row">
-          		<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-                                <img class="img img-2 d-flex justify-content-center align-items-center" style="height:300px; width:350px;" src="Images/iconicFood.jpg"/>
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<asp:Label ID="IntFood" Text="Food" ForeColor="Black" runat="server"></asp:Label>
-			    						</div>
-		    						</div>
-		    						<p>Find out what local cuisines are left to be discovered, waiting to be savoured.</p>
-		    						<hr>
-		    						<p class="bottom-area d-flex">
-		    							<asp:Button ID="BtnAddFood" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" />
-                                        <asp:Button ID="BtnRemFood" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" Visible="False" />
-		    						</p>
-		    					</div>
-		    				</div>
-		    			</div>
-		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-                                <img class="img img-2 d-flex justify-content-center align-items-center" style="height:300px; width:350px;" src="Images/gbtb.jpg" />
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<asp:Label ID="IntNature" Text="Nature" ForeColor="Black" runat="server"></asp:Label>
-			    						</div>
-		    						</div>
-		    						<p>Experience the greenery and have a refreshing take on Singapore.</p>
-		    						<hr>
-		    						<p class="bottom-area d-flex">
-		    							<asp:Button ID="BtnAddNature" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" />
-                                        <asp:Button ID="BtnRemNature" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" Visible="False" />
-		    						</p>
-		    					</div>
-		    				</div>
-		    			</div>
-		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
-		    				<div class="destination">
-		    					<img class="img img-2 d-flex justify-content-center align-items-center" style="height:300px; width:350px;" src="Images/uss.jpg" />
-		    					<div class="text p-3">
-		    						<div class="d-flex">
-		    							<div class="one">
-				    						<asp:Label ID="IntAmusementPark" Text="Amusement Parks" ForeColor="Black" runat="server"></asp:Label>
-			    						</div>
-		    						</div>
-		    						<p>Rediscover the definition of fun and thrill in our iconic amusement parks.</p>
-		    						<hr>
-		    						<p class="bottom-area d-flex">
-		    							<asp:Button ID="BtnAddAP" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" BackColor="Green" />
-                                        <asp:Button ID="BtnRemAP" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" BackColor="Red" Visible="False" />
-		    						    `</p>
-		    					</div>
-		    				</div>
-		    			</div>
-          	</div>
-          </div> <!-- .col-md-8 -->
-        </div>
-
-
-
+    
 
 
 

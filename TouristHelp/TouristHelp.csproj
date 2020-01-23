@@ -87,6 +87,7 @@
     <Content Include="App_Data\TouristHelp_log.ldf">
       <DependentUpon>TouristHelp.mdf</DependentUpon>
     </Content>
+    <Content Include="blank.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -95,16 +96,128 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
-    <Content Include="Hotel.aspx" />
+    <Content Include="HotelPage.aspx" />
+    <Content Include="HotelReservation.aspx" />
+    <Content Include="Images\banner_blog\banner_blog_1.png" />
+    <Content Include="Images\banner_blog\banner_blog_2.png" />
+    <Content Include="Images\banner_blog\banner_blog_3.png" />
+    <Content Include="Images\blog\author.png" />
+    <Content Include="Images\blog\blog_1.png" />
+    <Content Include="Images\blog\blog_2.png" />
+    <Content Include="Images\blog\blog_3.png" />
+    <Content Include="Images\blog\blog_4.png" />
+    <Content Include="Images\blog\learn_about_bg.png" />
+    <Content Include="Images\blog\single_blog_1.png" />
+    <Content Include="Images\blog\single_blog_2.png" />
+    <Content Include="Images\blog\single_blog_3.png" />
+    <Content Include="Images\blog\single_blog_4.png" />
+    <Content Include="Images\blog\single_blog_5.png" />
+    <Content Include="Images\blog\slide_thumb_1.png" />
     <Content Include="Images\breadcrumb_bg.png" />
+    <Content Include="Images\Carlton.jpg" />
+    <Content Include="Images\comment\comment_1.png" />
+    <Content Include="Images\comment\comment_2.png" />
+    <Content Include="Images\comment\comment_3.png" />
+    <Content Include="Images\elements\a.jpg" />
+    <Content Include="Images\elements\a2.jpg" />
+    <Content Include="Images\elements\d.jpg" />
+    <Content Include="Images\elements\disabled-check.png" />
+    <Content Include="Images\elements\disabled-radio.png" />
+    <Content Include="Images\elements\f1.jpg" />
+    <Content Include="Images\elements\f2.jpg" />
+    <Content Include="Images\elements\f3.jpg" />
+    <Content Include="Images\elements\f4.jpg" />
+    <Content Include="Images\elements\f5.jpg" />
+    <Content Include="Images\elements\f6.jpg" />
+    <Content Include="Images\elements\f7.jpg" />
+    <Content Include="Images\elements\f8.jpg" />
+    <Content Include="Images\elements\g1.jpg" />
+    <Content Include="Images\elements\g2.jpg" />
+    <Content Include="Images\elements\g3.jpg" />
+    <Content Include="Images\elements\g4.jpg" />
+    <Content Include="Images\elements\g5.jpg" />
+    <Content Include="Images\elements\g6.jpg" />
+    <Content Include="Images\elements\g7.jpg" />
+    <Content Include="Images\elements\g8.jpg" />
+    <Content Include="Images\elements\primary-check.png" />
+    <Content Include="Images\elements\primary-radio.png" />
+    <Content Include="Images\elements\success-check.png" />
+    <Content Include="Images\elements\success-radio.png" />
+    <Content Include="Images\favicon.png" />
+    <Content Include="Images\feature_post\feature_post_1.png" />
+    <Content Include="Images\feature_post\feature_post_2.png" />
+    <Content Include="Images\feature_post\feature_post_3.png" />
+    <Content Include="Images\feature_post\feature_post_4.png" />
+    <Content Include="Images\feature_post\feature_post_5.png" />
+    <Content Include="Images\feature_post\feature_post_6.png" />
+    <Content Include="Images\gallery\gallery_item.png" />
+    <Content Include="Images\gallery\gallery_item_1.png" />
+    <Content Include="Images\gallery\gallery_item_2.png" />
+    <Content Include="Images\gallery\gallery_item_3.png" />
+    <Content Include="Images\gallery\gallery_item_4.png" />
+    <Content Include="Images\gallery\gallery_item_5.png" />
+    <Content Include="Images\gallery\gallery_item_6.png" />
+    <Content Include="Images\gallery\gallery_item_7.png" />
+    <Content Include="Images\gallery\gallery_item_71.png" />
+    <Content Include="Images\gallery\gallery_item_8.png" />
+    <Content Include="Images\gallery\service_bg_2.png" />
     <Content Include="Images\gbtb.jpg" />
+    <Content Include="Images\goldMember.jpg" />
     <Content Include="Images\iconicFood.jpg" />
+    <Content Include="Images\icon\left.svg" />
+    <Content Include="Images\icon\long-arrow-pointing-to-the-right.svg" />
+    <Content Include="Images\icon\play.svg" />
+    <Content Include="Images\icon\quate.svg" />
+    <Content Include="Images\icon\right.svg" />
+    <Content Include="Images\insta\instagram_1.png" />
+    <Content Include="Images\insta\instagram_2.png" />
+    <Content Include="Images\insta\instagram_3.png" />
+    <Content Include="Images\insta\instagram_4.png" />
+    <Content Include="Images\insta\instagram_5.png" />
+    <Content Include="Images\insta\instagram_6.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\marinaBay.png" />
+    <Content Include="Images\Marriott.jpg" />
+    <Content Include="Images\Orchard.jpg" />
+    <Content Include="Images\post\next.png" />
+    <Content Include="Images\post\post_1.png" />
+    <Content Include="Images\post\post_10.png" />
+    <Content Include="Images\post\post_11.png" />
+    <Content Include="Images\post\post_12.png" />
+    <Content Include="Images\post\post_13.png" />
+    <Content Include="Images\post\post_14.png" />
+    <Content Include="Images\post\post_15.png" />
+    <Content Include="Images\post\post_16.png" />
+    <Content Include="Images\post\post_17.png" />
+    <Content Include="Images\post\post_18.png" />
+    <Content Include="Images\post\post_19.png" />
+    <Content Include="Images\post\post_2.png" />
+    <Content Include="Images\post\post_20.png" />
+    <Content Include="Images\post\post_21.png" />
+    <Content Include="Images\post\post_22.png" />
+    <Content Include="Images\post\post_23.png" />
+    <Content Include="Images\post\post_24.png" />
+    <Content Include="Images\post\post_25.png" />
+    <Content Include="Images\post\post_3.png" />
+    <Content Include="Images\post\post_4.png" />
+    <Content Include="Images\post\post_5.png" />
+    <Content Include="Images\post\post_6.png" />
+    <Content Include="Images\post\post_7.png" />
+    <Content Include="Images\post\post_8.png" />
+    <Content Include="Images\post\post_9.png" />
+    <Content Include="Images\post\preview.png" />
+    <Content Include="Images\Sentosa.png" />
+    <Content Include="Images\sidebar\sidebar_1.png" />
+    <Content Include="Images\sidebar\sidebar_2.png" />
+    <Content Include="Images\sidebar\sidebar_3.png" />
     <Content Include="Images\signin-image.jpg" />
     <Content Include="Images\signup-image.jpg" />
     <Content Include="Images\silverMember.png" />
+    <Content Include="Images\starbucks.jpg" />
     <Content Include="Images\uss.jpg" />
     <Content Include="Index.aspx" />
     <Content Include="InterestSelect.aspx" />
+    <Content Include="List_Reservation_Food.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Planner.aspx" />
     <Content Include="RegisterTG.aspx" />
@@ -135,6 +248,10 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="LoginRegister.Master" />
+    <Content Include="Images\comment\Thumbs.db" />
+    <Content Include="Images\elements\Thumbs.db" />
+    <Content Include="Images\Thumbs.db" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -234,15 +351,28 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="blank.aspx.cs">
+      <DependentUpon>blank.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="blank.aspx.designer.cs">
+      <DependentUpon>blank.aspx</DependentUpon>
+    </Compile>
     <Compile Include="BLL\Attraction.cs" />
+    <Compile Include="BLL\HotelBook.cs" />
+    <Compile Include="BLL\HotelTrans.cs" />
     <Compile Include="BLL\Interest.cs" />
+    <Compile Include="BLL\Food_Reservation.cs" />
     <Compile Include="BLL\Reward.cs" />
     <Compile Include="BLL\ShopVoucher.cs" />
     <Compile Include="BLL\Ticket.cs" />
     <Compile Include="BLL\Transactions.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
+    <Compile Include="DAL\HotelBookDAO.cs" />
+    <Compile Include="DAL\HotelTrans.cs" />
     <Compile Include="DAL\InterestDAO.cs" />
+    <Compile Include="DAL\Food_ReservationDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
     <Compile Include="DAL\ShopVoucherDAO.cs" />
     <Compile Include="DAL\TicketDAO.cs" />
@@ -258,12 +388,19 @@
     <Compile Include="Guidebook.aspx.designer.cs">
       <DependentUpon>Guidebook.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Hotel.aspx.cs">
-      <DependentUpon>Hotel.aspx</DependentUpon>
+    <Compile Include="HotelPage.aspx.cs">
+      <DependentUpon>HotelPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Hotel.aspx.designer.cs">
-      <DependentUpon>Hotel.aspx</DependentUpon>
+    <Compile Include="HotelPage.aspx.designer.cs">
+      <DependentUpon>HotelPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HotelReservation.aspx.cs">
+      <DependentUpon>HotelReservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelReservation.aspx.designer.cs">
+      <DependentUpon>HotelReservation.aspx</DependentUpon>
     </Compile>
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -279,12 +416,26 @@
     <Compile Include="InterestSelect.aspx.designer.cs">
       <DependentUpon>InterestSelect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="List_Reservation_Food.aspx.cs">
+      <DependentUpon>List_Reservation_Food.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="List_Reservation_Food.aspx.designer.cs">
+      <DependentUpon>List_Reservation_Food.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginRegister.Master.cs">
+      <DependentUpon>LoginRegister.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginRegister.Master.designer.cs">
+      <DependentUpon>LoginRegister.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\Direction.cs" />
     <Compile Include="Models\User.cs" />

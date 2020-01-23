@@ -30,11 +30,6 @@ namespace TouristHelp
             RepeaterAttraction.DataBind();
         }
 
-        protected void GoNextPage(object sender, EventArgs e)
-        {
-            Session["AttractionId"] = "7"; // change to name we have the actual name here arady
-            Response.Redirect("Reservation_Food.aspx");
-        }
 
         protected void GoNextPage(object source, RepeaterCommandEventArgs e)
         {

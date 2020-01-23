@@ -114,15 +114,6 @@ namespace TouristHelp
         protected global::System.Web.UI.WebControls.TextBox tbDesc;
 
         /// <summary>
-        /// btnSignupTG control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSignupTG;
-
-        /// <summary>
         /// CustomValidator1 control.
         /// </summary>
         /// <remarks>
@@ -139,6 +130,15 @@ namespace TouristHelp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
+
+        /// <summary>
+        /// btnSignupTG control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSignupTG;
 
         /// <summary>
         /// HyperLink1 control.

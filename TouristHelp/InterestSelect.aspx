@@ -20,6 +20,7 @@
         <div class="row">
           <div class="col-lg-12">
           	<div class="row">
+
           		<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="destination">
                                 <img class="img img-2 d-flex justify-content-center align-items-center" style="height:300px; width:350px;" src="Images/iconicFood.jpg"/>
@@ -38,6 +39,7 @@
 		    					</div>
 		    				</div>
 		    			</div>
+
 		    			<div class="col-sm col-md-6 col-lg-4 ftco-animate">
 		    				<div class="destination">
                                 <img class="img img-2 d-flex justify-content-center align-items-center" style="height:300px; width:350px;" src="Images/gbtb.jpg" />

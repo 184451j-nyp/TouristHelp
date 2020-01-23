@@ -9,7 +9,7 @@ namespace TouristHelp.DAL
 {
     public static class UserDAO
     {
-        public static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        private static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
         public static bool UserWithEmailExists(string email)
         {
@@ -30,11 +30,31 @@ namespace TouristHelp.DAL
 
             return false;
         }
+
+        public static string GetCredentials(string email)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select password From Users Where email = @paraEmail";
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraEmail", email);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            if(ds.Tables[0].Rows.Count > 0)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                return row["password"].ToString();
+            }
+
+            return null;
+        }
     }
 
     public static class TourGuideDAO
     {
-        public static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        private static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
         public static List<TourGuide> SelectAllTourGuides()
         {
@@ -202,7 +222,7 @@ namespace TouristHelp.DAL
 
     public static class TouristDAO
     {
-        public static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        private static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
         public static List<Tourist> SelectAllTourists()
         {

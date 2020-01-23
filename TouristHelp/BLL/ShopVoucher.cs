@@ -10,13 +10,11 @@ namespace TouristHelp.BLL
     public class ShopVoucher
     {
         public int shop_Id { get; set; }
-        public int Id { get; set; }
         public int voucher_Qty { get; set; }
         public string voucher_Type { get; set; }
         public string voucher_Status { get; set; }
         public bool membershipCategory { get; set; }
         public bool foodCategory { get; set; }
-        public bool categoryFilter { get; set; }
         public string nameFilter { get; set; }
         public int voucherCost { get; set; }
         public string shopImage { get; set; }
@@ -28,16 +26,14 @@ namespace TouristHelp.BLL
         {
         }
 
-        public ShopVoucher(int shop_id, int id,int voucherqty, string vouchertype, string voucherstatus, bool membershipcategory, bool foodcategory, bool categoryfilter, string namefilter, int voucherCost, string shopimage, string shopdesc, string vouchername)
+        public ShopVoucher(int shop_id,int voucherqty, string vouchertype, string voucherstatus, bool membershipcategory, bool foodcategory, string namefilter, int voucherCost, string shopimage, string shopdesc, string vouchername)
         {
             this.shop_Id = shop_id;
-            this.Id = id;
             this.voucher_Qty = voucherqty;
             this.voucher_Type = vouchertype;
             this.voucher_Status = voucherstatus;
             this.membershipCategory = membershipcategory;
             this.foodCategory = foodcategory;
-            this.categoryFilter = categoryfilter;
             this.nameFilter = namefilter;
             this.voucherCost = voucherCost;
             this.shopImage = shopimage;
@@ -53,19 +49,17 @@ namespace TouristHelp.BLL
 
         }
 
-        public void insertTransaction(String transId)
+       
+        public List<ShopVoucher> GetAllShop()
         {
-            TransactionDAO dao = new TransactionDAO();
-            dao.insertTransaction(transId);
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.SelectAll();
         }
 
 
 
 
-      
 
 
-
-       
     }
 }

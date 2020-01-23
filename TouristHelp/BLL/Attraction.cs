@@ -41,10 +41,10 @@ namespace TouristHelp.BLL
             return dao.SelectAll();
         }
 
-        public void InsertReservation(string name, string time, int pax)
+        public void InsertReservation(string name, string time, int pax, int id)
         {
-            AttractionDAO dao = new AttractionDAO();
-            dao.InsertReservation(name, time, pax);
+            Food_ReservationDAO dao = new Food_ReservationDAO();
+            dao.InsertReservation(name, time, pax, id);
         }
     }
 }

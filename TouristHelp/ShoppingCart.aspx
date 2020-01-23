@@ -9,34 +9,10 @@
             width: 420px;
         }
         .auto-style4 {
-            width: 181px;
-        }
-        .auto-style5 {
-            width: 180px;
+            width: 130px;
         }
         .auto-style6 {
-            width: 177px;
-        }
-        .auto-style7 {
-            width: 150px;
-            height: 23px;
-        }
-        .auto-style8 {
-            width: 420px;
-            
-            height: 23px;
-        }
-        .auto-style9 {
-            width: 177px;
-            height: 23px;
-        }
-        .auto-style10 {
-            width: 181px;
-            height: 23px;
-        }
-        .auto-style11 {
-            width: 180px;
-            height: 23px;
+            width: 94px;
         }
         .auto-style12 {
             height: 23px;
@@ -44,41 +20,69 @@
         .header{
             text-align: center;
         }
+        .auto-style13 {
+            height: 23px;
+            width: 123px;
+        }
+        .auto-style14 {
+            width: 123px;
+        }
+    .auto-style15 {
+        height: 23px;
+        width: 130px;
+    }
+    .auto-style16 {
+        height: 23px;
+        width: 94px;
+    }
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form runat="server">
     <section class="ftco-section">
       <div class="container">
-
+          
           <table class="w-100">
               <tr>
-                  <td class="auto-style7 header"></td>
-                  <td class="auto-style8 header">Product</td>
-                  <td class="auto-style9 header">Item Price</td>
-                  <td class="auto-style10 header">Quantity</td>
-                  <td class="auto-style11 header">Total Price</td>
-                  <td class="auto-style12 header">Action</td>
+                  <td class="auto-style12"></td>
+                  <td class="auto-style12">Product</td>
+                  <td class="auto-style16">Item Price</td>
+                  <td class="auto-style15">Quantity</td>
+                  <td class="auto-style13">Total Price</td>
+                  <td class="auto-style12">Action</td>
               </tr>
-              <tr>
-                  <td class="auto-style1">&nbsp;</td>
-                  <td class="auto-style2">
-                      <div>
-                          <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                      </div>
-                      <div>
+              <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" >
+           <ItemTemplate>
+                  <tr>
+                      <td class="auto-style1">&nbsp;</td>
+                      <td class="auto-style2">
+                          <div>
+                              <asp:Label ID="lbProdName" runat="server" Font-Bold="True" Text='<%#Eval("productName") %>'></asp:Label>
+                          </div>
+                          <div>
 
-                          <asp:Label ID="Label2" runat="server" Text="Label"></asp:Label>
+                              <asp:Label ID="lbProdDesc" runat="server" Text='<%#Eval("productDesc") %>'></asp:Label>
 
-                      </div>
-                  </td>
-                  <td class="auto-style6">&nbsp;</td>
-                  <td class="auto-style4">&nbsp;</td>
-                  <td class="auto-style5">&nbsp;</td>
-                  <td>&nbsp;</td>
-              </tr>
+                          </div>
+                      </td>
+                      <td class="auto-style6">
+                          <asp:Label ID="lbPrice" runat="server" Text='<%#Eval("productPrice") %>'></asp:Label>
+                      </td>
+                      <td class="auto-style4">
+                          <asp:TextBox ID="tbQuantity" runat="server" Height="22px" Width="57px" Text='<%#Eval("productQuantity") %>'></asp:TextBox>
+                      </td>
+                      <td class="auto-style14">
+                          <asp:Label ID="lbTotalPrice" runat="server" Text='<%#Eval("productTotalPrice") %>'></asp:Label>
+                      </td>
+                      <td>
+                          <asp:Button ID="btnDel" runat="server" Text="Delete" />
+                      </td>
+                  </tr>
+                </ItemTemplate>
+             </asp:Repeater>
           </table>
-
+          <asp:Button ID="btnEdit" runat="server" Text="Edit" style="float:right"/>
+        
       </div>
     </section>
     </form>

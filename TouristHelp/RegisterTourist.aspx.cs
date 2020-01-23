@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
+using System.Web.UI.WebControls;
 using TouristHelp.DAL;
 using TouristHelp.Models;
 
 namespace TouristHelp
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class RegisterTourist : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,32 +21,35 @@ namespace TouristHelp
 
         protected void btnSignupTourist_Click(object sender, EventArgs e)
         {
-            string name = tbNameTourist.Text;
-            string email = tbEmailTourist.Text;
-            string pass1 = tbPasswordTourist.Text;
-            string pass2 = tbRepeatPassTourist.Text;
-            string nation = ddlNation.SelectedValue;
-            if (pass1 == pass2 && name != "" && email != "" && pass1 != "" && nation != "-- Select --")
+            if (Page.IsValid)
             {
-                Tourist obj = new Tourist(name, email, pass1, nation);
-                TouristDAO.InsertTourist(obj);
+                string name = tbNameTourist.Text;
+                string email = tbEmailTourist.Text;
+                string pass1 = tbPasswordTourist.Text;
+                string pass2 = tbRepeatPassTourist.Text;
+                string nation = ddlNation.SelectedValue;
+                if (pass1 == pass2 && name != "" && email != "" && pass1 != "" && nation != "-- Select --")
+                {
+                    Tourist obj = new Tourist(name, email, pass1, nation);
+                    TouristDAO.InsertTourist(obj);
 
-                Response.Redirect("Login.aspx");
+                    Response.Redirect("Login.aspx");
+                }
             }
         }
 
-        protected void CustomValidatorEmailExists_ServerValidate(object source, System.Web.UI.WebControls.ServerValidateEventArgs args)
+        protected void CustomValidatorEmailExists_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (UserDAO.UserWithEmailExists(args.Value))
             {
-                args.IsValid = true;
+                args.IsValid = false;
             }
             else
             {
-                args.IsValid = false;
+                args.IsValid = true;
             }
         }
-                
+
         private static List<string> CountryList()
         {
             List<string> list = new List<string>();
