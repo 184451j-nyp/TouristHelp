@@ -43,7 +43,7 @@ namespace TouristHelp.BLL
 
         public void InsertReservation(string name, string time, int pax, int id)
         {
-            AttractionDAO dao = new AttractionDAO();
+            Food_ReservationDAO dao = new Food_ReservationDAO();
             dao.InsertReservation(name, time, pax, id);
         }
     }
