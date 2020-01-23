@@ -18,7 +18,7 @@ CREATE TABLE [dbo].[Interest] (
 
 
 CREATE TABLE [dbo].[Cart] (
-    [cartId]          INT             NOT NULL,
+    [cartId]          INT             NOT NULL IDENTITY,
     [productName]     VARCHAR (50)    NOT NULL,
     [productPrice]    DECIMAL (18, 2) NOT NULL,
     [productQuantity] INT             NOT NULL,
@@ -27,6 +27,7 @@ CREATE TABLE [dbo].[Cart] (
     [active]          VARCHAR (50)    NULL,
     PRIMARY KEY CLUSTERED ([cartId] ASC)
 );
+
 
 
 CREATE TABLE [dbo].[Users] (
