@@ -231,6 +231,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BLL\Attraction.cs" />
+    <Compile Include="BLL\Cart.cs" />
     <Compile Include="BLL\Interest.cs" />
     <Compile Include="BLL\Reward.cs" />
     <Compile Include="BLL\ShopVoucher.cs" />
@@ -238,6 +239,7 @@
     <Compile Include="BLL\TourGuide.cs" />
     <Compile Include="BLL\Transactions.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
+    <Compile Include="DAL\CartDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
     <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
