@@ -13,15 +13,6 @@ namespace TouristHelp {
     public partial class Shop {
         
         /// <summary>
-        /// LblMsg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblMsg;
-        
-        /// <summary>
         /// frm control.
         /// </summary>
         /// <remarks>
@@ -29,6 +20,15 @@ namespace TouristHelp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm frm;
+        
+        /// <summary>
+        /// notifyLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label notifyLabel;
         
         /// <summary>
         /// creditBalanceTB control.
@@ -184,48 +184,12 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox loyaltyTier;
         
         /// <summary>
-        /// voucherName control.
+        /// Repeat1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label voucherName;
-        
-        /// <summary>
-        /// voucherCost control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label voucherCost;
-        
-        /// <summary>
-        /// creditLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label creditLabel;
-        
-        /// <summary>
-        /// voucherDesc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label voucherDesc;
-        
-        /// <summary>
-        /// BtnSubmit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSubmit;
+        protected global::System.Web.UI.WebControls.Repeater Repeat1;
     }
 }

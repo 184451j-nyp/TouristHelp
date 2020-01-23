@@ -8,15 +8,25 @@ namespace TouristHelp.BLL
 {
     public class Attraction
     {
+        public int Id { get; set; }
         public string Name { get; set; }
+        public float Price { get; set; }
+        public string DateTime { get; set; }
+        public string Description { get; set; }
+        public string Location { get; set; }
 
         public Attraction()
         {
         }
 
-        public Attraction(string name)
+        public Attraction(int id, string name, float price, string date, string desc, string location)
         {
+            Id = id;
             Name = name;
+            Price = price;
+            DateTime = date;
+            Description = desc;
+            Location = location;
         }
 
         public Attraction GetAttractionDataById(string attId)
@@ -25,10 +35,16 @@ namespace TouristHelp.BLL
             return dao.SelectById(attId);
         }
 
-        public void InsertReservation(String nameTemp)
+        public List<Attraction> ListAttraction()
         {
             AttractionDAO dao = new AttractionDAO();
-            dao.InsertReservation(nameTemp);
+            return dao.SelectAll();
+        }
+
+        public void InsertReservation(string name, string time, int pax)
+        {
+            AttractionDAO dao = new AttractionDAO();
+            dao.InsertReservation(name, time, pax);
         }
     }
 }

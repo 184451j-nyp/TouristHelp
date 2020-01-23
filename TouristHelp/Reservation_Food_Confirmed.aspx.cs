@@ -11,10 +11,22 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lbName.Text = Session["AttractionName"].ToString();
-            lbPlace.Text = "placeholderPlace";
-            lbDateTime.Text = "placeholderTime";
-            lbPax.Text = "placeholderText";
+            if (Session["ResName"] != null)
+            {
+                lbName.Text = Session["ResName"].ToString();
+                lbPlace.Text = Session["ResLoc"].ToString();
+                lbDateTime.Text = Session["ResTime"].ToString();
+                lbPax.Text = Session["ResPax"].ToString();
+            }
+            else
+            {
+                Response.Redirect("Guidebook.aspx");
+            }
+        }
+
+        protected void ButtonBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Guidebook.aspx");
         }
     }
 }

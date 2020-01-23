@@ -51,11 +51,131 @@
 
 
 
-                                    <div class="row">
+
+          
+
+
+
+
+
+
+
+      <table>
+<tr>
+<td>
+    <asp:GridView ID="GvEmployee"  ShowHeader="True" 
+        GridLines="None" AutoGenerateColumns="false"
+        runat="server">
+
+
+        <Columns>
+
+
+            <asp:TemplateField>
+
+               
+                <ItemTemplate>
+                    
+                                       <div class="row">
+                                                     
+
+                                     <asp:Label ID="voucherGen_id" CssClass="col-2" runat="server" Text='<%#Eval("voucherGen_id") %>'></asp:Label>
+
+
+                                          <asp:Label ID="voucherName" CssClass="col-2" runat="server" Text='<%#Eval("voucherName") %>'></asp:Label>
+
+
+                                        <asp:Label ID="voucherQuantity" CssClass="col-1" runat="server" Text='<%#Eval("voucherQuantity") %>'></asp:Label>
+
+                                        <asp:Label ID="voucherDate" CssClass="col-2" runat="server" Text='<%#Eval("voucherDate") %>'></asp:Label>
+
+                                      <asp:Label ID="voucherExpiry" CssClass="col-2" runat="server" Text='<%#Eval("voucherExpiry") %>'></asp:Label>
+
+                              <asp:Label ID="voucherTotalCost" CssClass="col-1" runat="server" Text='<%#Eval("voucherTotalCost") %>'></asp:Label>
+
+
+                                         <asp:Label ID="voucherStats" CssClass="col-1" runat="server" Text='<%#Eval("voucherStats") %>'></asp:Label>
+
+
+                               <asp:Label ID="confirmCode" CssClass="col-1" runat="server" Text='<%#Eval("confirmCode") %>'></asp:Label>
+
+
+
+                         
+                </ItemTemplate>
+
+
+
+                 <HeaderTemplate>    
+                    <div class="row">
+
+                                     <asp:Label ID="voucherIdLabel" CssClass="col-2" runat="server" Text="Product Id:"></asp:Label>
+
                                         <asp:Label ID="voucherNameLabel" CssClass="col-2" runat="server" Text="Product Name:"></asp:Label>
 
 
-                                        <asp:Label ID="voucherQuantityLabel" CssClass="col-2" runat="server" Text="Quantity:"></asp:Label>
+                                        <asp:Label ID="voucherQuantityLabel" CssClass="col-1" runat="server" Text="Quantity:"></asp:Label>
+
+                                        <asp:Label ID="dateLabel" CssClass="col-2" runat="server" Text="Date:"></asp:Label>
+
+                                      <asp:Label ID="expiryDateLabel" CssClass="col-2" runat="server" Text="Expiry Date"></asp:Label>
+
+                              <asp:Label ID="shopPriceLabel" CssClass="col-1" runat="server" Text="Total Cost"></asp:Label>
+
+
+                                         <asp:Label ID="voucherStatusLabel" CssClass="col-1" runat="server" Text="Status"></asp:Label>
+
+
+                               <asp:Label ID="confirmCodeLabel" CssClass="col-1" runat="server" Text="Code Verification"></asp:Label>
+
+
+
+              
+                                                            </div></HeaderTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+</td>
+
+
+<td>
+    <asp:Repeater ID="Repeater1"  runat="server">
+        <ItemTemplate>
+            
+           
+                                    
+                                                      
+
+                                                                                        </div>
+
+
+        </ItemTemplate>
+        <SeparatorTemplate>
+        
+
+        </SeparatorTemplate>
+    </asp:Repeater>
+</td>
+</tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+<%--                                    <div class="row">
+
+                                     <asp:Label ID="voucherIdLabel" CssClass="col-2" runat="server" Text="Product Id:"></asp:Label>
+
+                                        <asp:Label ID="voucherNameLabel" CssClass="col-2" runat="server" Text="Product Name:"></asp:Label>
+
+
+                                        <asp:Label ID="voucherQuantityLabel" CssClass="col-1" runat="server" Text="Quantity:"></asp:Label>
 
                                         <asp:Label ID="dateLabel" CssClass="col-2" runat="server" Text="Date:"></asp:Label>
 
@@ -67,7 +187,7 @@
                                          <asp:Label ID="voucherStatusLabel" CssClass="col-1" runat="server" Text="Status"></asp:Label>
 
 
-                               <asp:Label ID="confirmCodeLabel" CssClass="col-2" runat="server" Text="Code Verification"></asp:Label>
+                               <asp:Label ID="confirmCodeLabel" CssClass="col-1" runat="server" Text="Code Verification"></asp:Label>
 
 
 
@@ -78,34 +198,40 @@
                                                     <div class="row">
                                                      
 
-                                                           <asp:Label ID="voucherName" CssClass="col-2" runat="server" Text="Product Name:"></asp:Label>
+                                     <asp:Label ID="voucherGen_id" CssClass="col-2" runat="server" Text=""></asp:Label>
 
 
-                                        <asp:Label ID="voucherQty" CssClass="col-2" runat="server" Text="Quantity:"></asp:Label>
-
-                                        <asp:Label ID="voucherDate" CssClass="col-2" runat="server" Text="Date:"></asp:Label>
-
-                                      <asp:Label ID="voucherExpiry" CssClass="col-2" runat="server" Text="Expiry Date"></asp:Label>
-
-                              <asp:Label ID="voucherTotalCost" CssClass="col-1" runat="server" Text="Price(Cost)"></asp:Label>
+                                          <asp:Label ID="voucherName" CssClass="col-2" runat="server" Text=""></asp:Label>
 
 
-                                         <asp:Label ID="voucherStats" CssClass="col-1" runat="server" Text="Status"></asp:Label>
+                                        <asp:Label ID="voucherQty" CssClass="col-1" runat="server" Text=""></asp:Label>
+
+                                        <asp:Label ID="voucherDate" CssClass="col-2" runat="server" Text=""></asp:Label>
+
+                                      <asp:Label ID="voucherExpiry" CssClass="col-2" runat="server" Text=""></asp:Label>
+
+                              <asp:Label ID="voucherTotalCost" CssClass="col-1" runat="server" Text=""></asp:Label>
 
 
-                               <asp:Label ID="confirmCode" CssClass="col-2" runat="server" Text="Code Verification"></asp:Label>
+                                         <asp:Label ID="voucherStats" CssClass="col-1" runat="server" Text=""></asp:Label>
+
+
+                               <asp:Label ID="confirmCode" CssClass="col-1" runat="server" Text=""></asp:Label>
 
 
 
                                                       
 
-                                                                                        </div>
+                                                                                        </div>--%>
 
 
 
                   
 
+            
 
+
+                  
 
 
 
@@ -160,6 +286,15 @@ div.row {
     margin-top:30px;
 }
 
+form#frm
+{
+    text-align:center;
+}
+
+
+ul{
+    margin-left:300px;
+}
 
        </style>
 

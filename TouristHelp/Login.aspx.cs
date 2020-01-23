@@ -18,13 +18,36 @@ namespace TouristHelp
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
+            if (Page.IsValid)
+            {
+                try
+                {
+                    TourGuide user = TourGuideDAO.SelectTourGuideByEmail(tbEmail.Text);
+                    Session["tourguide_id"] = user.TourGuideId.ToString();
+                }
+                catch(Exception ex)
+                {
+                    Tourist user = TouristDAO.SelectTouristByEmail(tbEmail.Text);
+                    Session["tourist_id"] = user.TouristId.ToString();
+                }
+                finally
+                {
+                    Response.Redirect("blank.aspx");
+                }
+            }
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
             string email = tbEmail.Text;
             string password = tbPassword.Text;
-
-            Tourist tourist = TouristDAO.SelectTouristByEmail(email);
-            if (tourist != null)
+            if(password == UserDAO.GetCredentials(email))
             {
-                lblErr.Text = tourist.Nationality;
+                args.IsValid = true;
+            }
+            else
+            {
+                args.IsValid = false;
             }
         }
     }
