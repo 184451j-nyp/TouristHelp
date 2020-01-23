@@ -350,5 +350,24 @@ namespace TouristHelp.DAL
             }
             
         }
+
+        public static void InsertBooking(string Booking) //Insert the reservation details into db
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO TouristBooking (bookings)" +
+                             "VALUES (@paraBooking)";
+
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraBooking", Booking);
+            
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+        }
     }
 }
