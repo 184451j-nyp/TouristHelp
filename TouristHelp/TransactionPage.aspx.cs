@@ -12,15 +12,26 @@ namespace TouristHelp
 {
     public partial class Transaction : System.Web.UI.Page
     {
+        List<Transactions> eList;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session["user_id"] = "1";
+            //Session["user_id"] = "2";
 
-            string user_id = Session["user_id"].ToString();
+            //string user_id = Session["user_id"].ToString();
+
+
+            //int userId = 1;
+            //Transactions inter = new Transactions();
+            //List<Transactions> IntList = inter.getTransaction(userId);
+
+
+            RefreshGridView();
+
 
             // Retrieve Reward records by account
-            Reward td = new Reward();
-            td = td.GetRewardById(user_id);
+            //Reward td = new Reward();
+            //td = td.GetRewardById(user_id);
 
 
             Session["voucher_id"] = "1";
@@ -42,9 +53,39 @@ namespace TouristHelp
             trans = trans.GetTransactionByid(trans_id);
 
 
+            //voucherGen_id.Text = trans.voucherGen_id.ToString();
 
-            voucherExpiry.Text = trans.voucherExpiry.ToString();
+            //voucherStats.Text = trans.voucherStats.ToString();
 
+            //voucherExpiry.Text = trans.voucherExpiry.ToString();
+
+            //confirmCode.Text = trans.confirmCode.ToString();
+
+            //voucherDate.Text = trans.voucherDate.ToString();
+
+            //voucherTotalCost.Text = trans.voucherTotalCost.ToString();
+
+
+
+
+        }
+
+        private void RefreshGridView()
+        {
+
+            int userId = 1;
+            Transactions emp = new Transactions();
+            List<Transactions> eList = emp.getTransaction(userId);
+
+
+
+            // using gridview to bind to the list of employee objects
+            GvEmployee.Visible = true;
+            GvEmployee.DataSource = eList;
+            GvEmployee.DataBind();
+
+            Repeater1.DataSource = eList;
+            Repeater1.DataBind();
         }
     }
 }

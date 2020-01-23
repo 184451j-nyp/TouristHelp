@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TouristHelp.BLL;
 
 namespace TouristHelp
 {
@@ -51,12 +52,33 @@ namespace TouristHelp
 
         protected void Btn_MinQ(object sender, EventArgs e)
         {
-
+            int current = Convert.ToInt32(tbQuantity.Text.ToString());
+            if(current > 0)
+            {
+                string newQ = (current - 1).ToString();
+                tbQuantity.Text = newQ;
+            }
+            
         }
 
         protected void Btn_AddQ(object sender, EventArgs e)
         {
+            int current = Convert.ToInt32(tbQuantity.Text.ToString());
+            string newQ = (current + 1).ToString();
+            tbQuantity.Text = newQ;
+        }
 
+        protected void BtnBuy_Click(object sender, EventArgs e)
+        {
+            string attName = lbTicketName.Text;
+            string attDesc = lbTicketDesc.Text;
+            double price = Convert.ToDouble(lblPrice.Text);
+            DateTime expDate = Convert.ToDateTime(tbDate.Text);
+            string code = "somethingnew";
+            int user_id = 1;
+
+            Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id);
+            tkt.AddNewTicket();
         }
     }
 }

@@ -29,34 +29,112 @@ namespace TouristHelp.DAL
             if (rec_cnt > 0)
             {
                 DataRow row = ds.Tables[0].Rows[0];
+
                 int voucherGen_id = Convert.ToInt32(row["voucherGen_id"]);
                 string voucherStats = row["voucherStats"].ToString();
                 DateTime voucherExpiry = Convert.ToDateTime(row["voucherExpiry"].ToString());
-                bool filterTransaction = Convert.ToBoolean(row["filterTransaction"]);
                 int confirmCode = Convert.ToInt32(row["confirmCode"]);
                 int user_id = Convert.ToInt32(row["user_id"]);
                 DateTime voucherDate = Convert.ToDateTime(row["voucherDate"].ToString());
                 int voucherTotalCost = Convert.ToInt32(row["voucherTotalCost"]);
+                int voucherQuantity = Convert.ToInt32(row["voucherQuantity"]);
+                string voucherName = row["voucherName"].ToString();
 
 
 
-                td = new Transactions(voucherGen_id, voucherStats, voucherExpiry,filterTransaction,confirmCode,user_id, voucherDate, voucherTotalCost);
+
+                td = new Transactions(voucherGen_id, voucherStats, voucherExpiry,confirmCode,user_id, voucherDate, voucherTotalCost, voucherQuantity, voucherName);
             }
             return td;
         }
 
 
-        public void insertTransaction(String transId)
+
+
+
+        public void insertTransaction(Transactions transId)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Transaction (voucher_id), (voucherStatus), (voucherExpiry), (filterTransaction), (confirmCode), (user_id)" +
-                "VALUES (@paraVoucherId), (@paraVoucherStatus), (@paraVoucherExpiry), (@paraFilterTransaction), (@paraConfirmCode), (@paraUserId)";
+            string sqlStmt = "INSERT INTO [Transaction] (voucherGen_id, voucherStats, voucherExpiry, confirmCode, user_id, voucherDate, voucherTotalCost, voucherQuantity, voucherName) " +
+                             "VALUES (@paraVoucherGenId, @paraVoucherStats, @paraVoucherExpiry, @paraConfirmCode, @paraUserId, @paraVoucherDate, @paraVoucherTotalCost, @paraVoucherQuantity, @paraVoucherName)";
+                            
+
+
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
-            //sqlCmd.Parameters.AddWithValue("@paraVoucherId")
+            sqlCmd.Parameters.AddWithValue("@paraVoucherGenId", transId.voucherGen_id);
+            sqlCmd.Parameters.AddWithValue("@paraVoucherStats", transId.voucherStats);
+            sqlCmd.Parameters.AddWithValue("@paraVoucherExpiry", transId.voucherExpiry);
+            sqlCmd.Parameters.AddWithValue("@paraConfirmCode", transId.confirmCode);
+            sqlCmd.Parameters.AddWithValue("@paraUserId", transId.user_id);
+            sqlCmd.Parameters.AddWithValue("@paraVoucherDate", transId.voucherDate);
+            sqlCmd.Parameters.AddWithValue("@paraVoucherTotalCost", transId.voucherTotalCost);
+            sqlCmd.Parameters.AddWithValue("@paraVoucherQuantity", transId.voucherQuantity);
+            sqlCmd.Parameters.AddWithValue("@paraVoucherName", transId.voucherName);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+            myConn.Close();
         }
+
+
+        public List<Transactions> getTransactionById(int userId)
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from web.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Step 2 -  Create a DataAdapter to retrieve data from the database table
+            string sqlStmt = "Select * from [Transaction] " +
+                              "WHERE user_id =  @paraUserId " +
+                               "ORDER BY voucherDate DESC";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraUserId", userId);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<Transactions> intList = new List<Transactions>();
+
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt == 0)
+            {
+                intList = null;
+            }
+            else
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    int voucherGen_id = Convert.ToInt32(row["voucherGen_id"]);
+                    string voucherStats = row["voucherStats"].ToString();
+                    DateTime voucherExpiry = Convert.ToDateTime(row["voucherExpiry"].ToString());
+                    int confirmCode = Convert.ToInt32(row["confirmCode"]);
+                    DateTime voucherDate = Convert.ToDateTime(row["voucherDate"].ToString());
+                    int voucherTotalCost = Convert.ToInt32(row["voucherTotalCost"]);
+                    int voucherQuantity = Convert.ToInt32(row["voucherQuantity"]);
+                    string voucherName = row["voucherName"].ToString();
+
+                    Transactions objRate = new Transactions(voucherGen_id, voucherStats, voucherExpiry, confirmCode, userId, voucherDate, voucherTotalCost, voucherQuantity, voucherName);
+                    intList.Add(objRate);
+                }
+            }
+            return intList;
+        }
+
+
+
+
+
+
+
+
+
+
+
     }
 }
