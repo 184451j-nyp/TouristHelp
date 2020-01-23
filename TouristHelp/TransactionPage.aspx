@@ -120,7 +120,7 @@
 
                                       <asp:Label ID="expiryDateLabel" CssClass="col-2" runat="server" Text="Expiry Date"></asp:Label>
 
-                              <asp:Label ID="shopPriceLabel" CssClass="col-1" runat="server" Text="Price(Cost)"></asp:Label>
+                              <asp:Label ID="shopPriceLabel" CssClass="col-1" runat="server" Text="Total Cost"></asp:Label>
 
 
                                          <asp:Label ID="voucherStatusLabel" CssClass="col-1" runat="server" Text="Status"></asp:Label>

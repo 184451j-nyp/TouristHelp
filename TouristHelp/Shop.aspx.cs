@@ -24,6 +24,22 @@ namespace TouristHelp
 
                 loadRepeater();
 
+                if (Session["labelSuccess"] != null)
+                {
+                    notifyLabel.Text = Session["labelSuccess"].ToString();
+                    notifyLabel.Visible = true;
+                    notifyLabel.ForeColor = Color.Green;
+                }
+
+
+
+                if (Session["labelFail"] != null)
+                {
+                    notifyLabel.Text = Session["labelFail"].ToString();
+                    notifyLabel.Visible = true;
+                    notifyLabel.ForeColor = Color.Red;
+                }
+
 
 
             }
@@ -374,9 +390,9 @@ namespace TouristHelp
 
                 trans.insertTrans();
 
-                notifyLabel.Text = "Purchase successful";
-                notifyLabel.Visible = true;
-                notifyLabel.ForeColor = Color.Green;
+                string labelS = "Purchase successful";
+                Session["labelSuccess"] = labelS;
+               
                 Response.Redirect("Shop.aspx");
                 return;
 
@@ -391,9 +407,10 @@ namespace TouristHelp
 
             else
             {
-                notifyLabel.Text = "Purchased has failed";
-                notifyLabel.Visible = true;
-                notifyLabel.ForeColor = Color.Red;
+                string labelF = "Purchase Failed";
+                Session["labelFail"] = labelF;
+
+                Response.Redirect("Shop.aspx");
             }
 
 

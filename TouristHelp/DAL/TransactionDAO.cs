@@ -90,7 +90,8 @@ namespace TouristHelp.DAL
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
             string sqlStmt = "Select * from [Transaction] " +
-                              "WHERE user_id =  @paraUserId" ;
+                              "WHERE user_id =  @paraUserId " +
+                               "ORDER BY voucherDate DESC";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
             da.SelectCommand.Parameters.AddWithValue("@paraUserId", userId);

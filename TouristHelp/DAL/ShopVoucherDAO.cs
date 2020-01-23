@@ -30,13 +30,11 @@ namespace TouristHelp.DAL
             {
                 DataRow row = ds.Tables[0].Rows[0];
                 int voucher_id = Convert.ToInt32(row["voucher_id"]);
-                int user_id = Convert.ToInt32(row["user_id"]);
                 int voucherQty = Convert.ToInt32(row["voucherQty"]);
                 string voucherType = row["voucherType"].ToString();
                 string voucherStatus = row["voucherStatus"].ToString();
                 bool membershipCategory = Convert.ToBoolean(row["membershipCategory"]);
                 bool foodCategory = Convert.ToBoolean(row["foodCategory"]);
-                bool categoryFilter = Convert.ToBoolean(row["categoryFilter"]);
                 string nameFilter = row["nameFilter"].ToString();
                 int voucherCost = Convert.ToInt32(row["voucherCost"]);
                 string shopImage = row["shopImage"].ToString();
@@ -44,7 +42,7 @@ namespace TouristHelp.DAL
                 string voucherName = row["voucherName"].ToString();
 
 
-                td = new ShopVoucher(voucher_id, user_id, voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, categoryFilter, nameFilter, voucherCost, shopImage, shopDesc, voucherName);
+                td = new ShopVoucher(voucher_id, voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherCost, shopImage, shopDesc, voucherName);
             }
             return td;
         }
@@ -75,19 +73,17 @@ namespace TouristHelp.DAL
             {
                 DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
                 int voucher_id = Convert.ToInt32(row["voucher_id"]);
-                int user_id = Convert.ToInt32(row["user_id"]);
                 int voucherQty = Convert.ToInt32(row["voucherQty"]);
                 string voucherType = row["voucherType"].ToString();
                 string voucherStatus = row["voucherStatus"].ToString();
                 bool membershipCategory = Convert.ToBoolean(row["membershipCategory"]);
                 bool foodCategory = Convert.ToBoolean(row["foodCategory"]);
-                bool categoryFilter = Convert.ToBoolean(row["categoryFilter"]);
                 string nameFilter = row["nameFilter"].ToString();
                 int voucherCost = Convert.ToInt32(row["voucherCost"]);
                 string shopImage = row["shopImage"].ToString();
                 string shopDesc = row["shopDesc"].ToString();
                 string voucherName = row["voucherName"].ToString();
-                ShopVoucher obj = new ShopVoucher(voucher_id, user_id, voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, categoryFilter, nameFilter, voucherCost, shopImage, shopDesc, voucherName);
+                ShopVoucher obj = new ShopVoucher(voucher_id, voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherCost, shopImage, shopDesc, voucherName);
                 empList.Add(obj);
             }
 

@@ -30,9 +30,17 @@
 
 
     <form id="frm" runat="server">
+           <asp:Label ID="notifyLabel" runat="server" visible="false" Text="Label"></asp:Label>
 
-        <asp:Label ID="notifyLabel" runat="server" Text="Label"></asp:Label>
+            <style>               
+
+                #spanContentPlaceHolder1_notifyLabel{
+                    font-size:30px;
+                }
+            </style>
         <div>
+                 
+
             <div class="row">
                 <asp:Label ID="creditBalanceTB" CssClass="col-2" runat="server" Text="Your Credit Balance:"></asp:Label>
                 <asp:TextBox ID="creditBalance" CssClass="col-2" runat="server" Enabled="False"></asp:TextBox>
@@ -118,8 +126,8 @@
             <span class="menu">
                 <ul>
                     <li class="active"><a href="RewardPage.aspx">How It Works</a></li>
-                    <li><a href="Shop.aspx">Shop</a></li>
-                    <li><a href="TransactionPage.aspx">My Transaction</a></li>
+                    <li class="style1"><a href="Shop.aspx">Shop</a></li>
+                    <li class="style2"><a href="TransactionPage.aspx">My Transaction</a></li>
                 </ul>
 
 
@@ -283,50 +291,7 @@
 
 
 
-        <%--<HeaderTemplate>
-                                    <div class="row">
 
-
-                                    <section class="ftco-section">
-                                        <div class="container">
-                                            <div class="row">
-
-                                                <div class="col-lg-4">
-                                                    <div class="sidebar-wrap ftco-animate">
-                                                        <h3 class="heading mb-4">Filter</h3>
-                                                        <form action="#">
-
-                                                            <div class="fields">
-                                                                <div class="form-group">
-                                                                    <input type="text" class="form-control" placeholder="Search for specific item">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <div class="select-wrap one-third">
-                                                                        <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                                        <select name="" id="" class="form-control">
-                                                                            <option value="">Search By Category</option>
-                                                                            <option value="">Popular</option>
-                                                                            <option value="">Newest</option>
-                                                                            <option value="">Low Price</option>
-                                                                            <option value="">High Price</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-
-                                                                <div class="form-group">
-                                                                    <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-                                                                </div>
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="sidebar-wrap ftco-animate">
-                                                        <form method="post" class="star-rating">
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                                    </div>
-</div>
-            </HeaderTemplate>--%>
 
 
 
@@ -338,87 +303,147 @@
                     <div class="container">
 
 
-                            <div class="col-lg-12">
-                                <%--start the repeater here--%>
+                        <div class="col-lg-12">
+                            <%--start the repeater here--%>
 
-                                <style>
+                            <style>
 
-                                 .size1of3 { float: left; width: 33%; }
+                                 .size1of3 { float: left; width: 30%; }
                                 </style>
 
-                                <div>
+                            <div>
 
                                 <asp:Repeater ID="Repeat1" runat="server" OnItemCommand="Repeat1_ItemCommand">
 
                                     <ItemTemplate>
 
-<div class="size1of3">
+                                        <div class="size1of3">
 
-                                        <span class="col-sm col-md-6 col-lg-4 ftco-animate">
-
-
-                                            <asp:Image ID="shopImage" class="img img-2 d-flex justify-content-center align-items-center" Style="height: 300px; width: 350px;"
-                                                ImageUrl='<%# Eval("shopImage")%>'
-                                                runat="server" />
-
-                                                      <asp:HiddenField runat="server" ID="shop_Id" Value='<%#Eval("shop_Id") %>' />
+                                            <span class="col-sm col-md-6 col-lg-4 ftco-animate">
 
 
-                                            <div class="text p-3">
-                                                <div class="d-flex">
-                                                    <div class="one">
-                                                        <h3>
-                                                        <asp:Label ID="voucherName" runat="server" Text='<%#Eval("voucherName") %>'></asp:Label>
-                                                        </h3>
+                                                <asp:Image ID="shopImage" class="img img-2 d-flex justify-content-center align-items-center" Style="height: 300px; width: 350px;"
+                                                    ImageUrl='<%# Eval("shopImage")%>'
+                                                    runat="server" />
 
-                                                        <asp:Label ID="voucherCost" runat="server" Style="margin-left: 10px;" ForeColor="BlueViolet" Text='<%#Eval("voucherCost") %>'></asp:Label>
-                                                        <asp:Label ID="creditLabel" runat="server" Text="Credits"></asp:Label>
+                                                <asp:HiddenField runat="server" ID="shop_Id" Value='<%#Eval("shop_Id") %>' />
+
+
+                                                <div class="text p-3">
+                                                    <div class="d-flex">
+                                                        <div class="one">
+                                                            <h3>
+                                                                <asp:Label ID="voucherName" runat="server" Text='<%#Eval("voucherName") %>'></asp:Label>
+                                                            </h3>
+
+                                                            <asp:Label ID="voucherCost" runat="server" Style="margin-left: 10px;" ForeColor="BlueViolet" Text='<%#Eval("voucherCost") %>'></asp:Label>
+                                                            <asp:Label ID="creditLabel" runat="server" Text="Credits"></asp:Label>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <span>
-                                                   
-                                                    <asp:Label ID="shopDesc" runat="server" Style="margin-left: 10px;" ForeColor="Black" Text='<%#Eval("shopDesc") %>'></asp:Label>
-                                                     <asp:Label ID="voucherStatus" runat="server" Style="margin-left: 10px;" ForeColor="Green" Text='<%#Eval("voucher_Status") %>'></asp:Label>
-                                                     <asp:HiddenField runat="server" ID="voucherQty" Value='<%#Eval("voucher_Qty") %>' />
+                                                    <span>
+
+                                                        <asp:Label ID="shopDesc" runat="server" Style="margin-left: 10px;" ForeColor="Black" Text='<%#Eval("shopDesc") %>'></asp:Label>
+                                                        <asp:Label ID="voucherStatus" runat="server" Style="margin-left: 10px;" ForeColor="Green" Text='<%#Eval("voucher_Status") %>'></asp:Label>
+                                                        <asp:HiddenField runat="server" ID="voucherQty" Value='<%#Eval("voucher_Qty") %>' />
                                                     </span>
-                                                <hr>
-                                                <p class="bottom-area d-flex">
+                                                    <hr>
+                                                    <p class="bottom-area d-flex">
 
 
-                                                    <asp:DropDownList ID="voucherQuantity" runat="server" AutoPostBack="True">
-                                                        <asp:ListItem Selected="True" Value="1"></asp:ListItem>
-                                                        <asp:ListItem>2</asp:ListItem>
-                                                        <asp:ListItem>3</asp:ListItem>
-                                                        <asp:ListItem>4</asp:ListItem>
-                                                        <asp:ListItem>5</asp:ListItem>
-                                                        <asp:ListItem>6</asp:ListItem>
-                                                        <asp:ListItem>7</asp:ListItem>
-                                                        <asp:ListItem>8</asp:ListItem>
-                                                        <asp:ListItem>9</asp:ListItem>
-                                                        <asp:ListItem>10</asp:ListItem>
+                                                        <asp:DropDownList ID="voucherQuantity" runat="server" AutoPostBack="True">
+                                                            <asp:ListItem Selected="True" Value="1"></asp:ListItem>
+                                                            <asp:ListItem>2</asp:ListItem>
+                                                            <asp:ListItem>3</asp:ListItem>
+                                                            <asp:ListItem>4</asp:ListItem>
+                                                            <asp:ListItem>5</asp:ListItem>
+                                                            <asp:ListItem>6</asp:ListItem>
+                                                            <asp:ListItem>7</asp:ListItem>
+                                                            <asp:ListItem>8</asp:ListItem>
+                                                            <asp:ListItem>9</asp:ListItem>
+                                                            <asp:ListItem>10</asp:ListItem>
 
-                                                    </asp:DropDownList>
+                                                        </asp:DropDownList>
 
 
-                                                    <asp:Button ID="Button1" runat="server" class="ml-auto" Text="Buy" OnClick="BtnSubmit_Click" />
+                                                        <asp:Button ID="Button1" runat="server" class="ml-auto" Text="Buy" OnClick="BtnSubmit_Click" />
+                                                </div></p>
+                                        </div>
 
-                                                    </div>
 
-                                                </p>
-                                            </div>
-
-                                        
 
                                     </ItemTemplate>
+                                    <HeaderTemplate>
+
+
+                                        <div class="searchPosition">
+
+                                            <style>
+                                                .searchPosition {
+                                                    float: right;
+                                                    width: 10%;
+
+                                                
+                                                }
+                                                .form-control{
+                                                    width:unset;
+                                                }
+                                            </style>
+                                            <section class="ftco-section">
+                                                <div class="container">
+                                                    <div class="row">
+
+                                                        <div class="col-lg-6">
+                                                            <div class="sidebar-wrap ftco-animate">
+                                                                <h3 class="heading mb-4">Filter</h3>
+                                                                <form action="#">
+
+                                                                    <div class="fields">
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control" placeholder="Search for specific item">
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <div class="select-wrap one-third">
+                                                                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                                                                                <select name="" id="" class="form-control">
+                                                                                    <option value="">Search By Category</option>
+                                                                                    <option value="">Popular</option>
+                                                                                    <option value="">Newest</option>
+                                                                                    <option value="">Low Price</option>
+                                                                                    <option value="">High Price</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+
+                                                                        <style>
+                                                                            .form-control {
+
+                                                                            }
+                                                                        </style>
+
+                                                                        <div class="form-group">
+                                                                            <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="sidebar-wrap ftco-animate">
+                                                                <form method="post" class="star-rating">
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </div>
+                                    </HeaderTemplate>
                                     <FooterTemplate></FooterTemplate>
                                 </asp:Repeater>
 
-                                <br style="clear:left;" />
-</div>
-                                
-
+                                <br style="clear: left;" />
                             </div>
-                            <!-- .col-md-8 -->
+
+
+                        </div>
+                        <!-- .col-md-8 -->
                     </div>
                 </section>
                 <!-- .section -->
@@ -614,15 +639,19 @@
 
 
     <style>
-        span.menu ul li {
+        span.menu ul li  {
             display: inline-block;
             height: 100%;
             padding: 0 1rem;
-            margin-left: 380px;
             text-align: center;
+            font-size:25px;
+            padding-left:100px;
             margin-top: 200px;
         }
 
+        li.active {
+            margin-left:500px;
+        }
         span.menu a {
             text-decoration: none;
             position: relative;
