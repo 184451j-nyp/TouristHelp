@@ -27,7 +27,8 @@
             </p>
             <asp:Label runat="server" ID="lbDateTime"></asp:Label>
             <br />
-            <asp:Label runat="server" ID="lbPax"></asp:Label>
+            <p><asp:Label runat="server" ID="lbPax"></asp:Label> Pax</p>
+            
         </div>
     </form>
 </body>

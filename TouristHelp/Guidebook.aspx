@@ -10,8 +10,6 @@
     <br />
     <form runat="server">
 
-        
-
         <asp:Repeater ID="RepeaterAttraction" runat="server" OnItemCommand="GoNextPage">
             <ItemTemplate>
                 <div class="col-sm col-md-6 col-lg-12" style="border-style: solid; border-width: 1px; margin-bottom: 10px">
@@ -34,14 +32,12 @@
                         <hr>
                         <p class="bottom-area d-flex">
                             <span><i class="icon-map-o"></i><%#Eval("Location") %></span>
-                            <asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="More info" Style="float: right" />
                         </p>
+                        <asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="More info" Style="float: right" />
                     </div>
                 </div>
             </ItemTemplate>
         </asp:Repeater>
-
-
 
     </form>
 </asp:Content>
