@@ -93,7 +93,7 @@ namespace TouristHelp.DAL
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.tours, TourGuides.description, TourGuides.languages " +
+            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.tours, TourGuides.description, TourGuides.languages, TourGuides.credentials " +
                 "From TourGuides " +
                 "Inner Join Users On TourGuides.user_id = Users.user_id Where TourGuides.tourguide_id = @paraId";
 
@@ -126,7 +126,7 @@ namespace TouristHelp.DAL
         public static TourGuide SelectTourGuideByEmail(string email)
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
-            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.tours, TourGuides.description, TourGuides.languages " +
+            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.tours, TourGuides.description, TourGuides.languages, TourGuides.credentials " +
                 "From TourGuides " +
                 "Inner Join Users On TourGuides.user_id = Users.user_id Where Users.email = @paraEmail";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
