@@ -76,9 +76,13 @@ namespace TouristHelp
             DateTime expDate = Convert.ToDateTime(tbDate.Text);
             string code = "somethingnew";
             int user_id = 1;
+            int quantity = Convert.ToInt32(tbQuantity.Text);
 
             Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id);
             tkt.AddNewTicket();
+
+            Cart cart = new Cart(attName, attDesc, price, quantity, user_id);
+            cart.InsertCartTicket();
         }
     }
 }
