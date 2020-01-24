@@ -359,6 +359,7 @@
       <DependentUpon>blank.aspx</DependentUpon>
     </Compile>
     <Compile Include="BLL\Attraction.cs" />
+    <Compile Include="BLL\Cart.cs" />
     <Compile Include="BLL\HotelBook.cs" />
     <Compile Include="BLL\HotelTrans.cs" />
     <Compile Include="BLL\Interest.cs" />
@@ -368,6 +369,7 @@
     <Compile Include="BLL\Ticket.cs" />
     <Compile Include="BLL\Transactions.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
+    <Compile Include="DAL\CartDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
     <Compile Include="DAL\HotelBookDAO.cs" />
     <Compile Include="DAL\HotelTrans.cs" />
