@@ -8,7 +8,7 @@ namespace TouristHelp.Models
 {
     public class User
     {
-        public int? UserId { get; }
+        public int? UserId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
@@ -58,6 +58,15 @@ namespace TouristHelp.Models
         {
             return TourGuideDAO.SelectAllTourGuides();
         }
+
+        
+
+        public static void UpdateTourGuide(TourGuide tg)
+        {
+            TourGuideDAO.UpdateTourGuide(tg);
+        }
+
+       
     }
 
     public class Tourist : User
@@ -73,6 +82,11 @@ namespace TouristHelp.Models
         {
             TouristId = touristId;
             Nationality = nationality;
+        }
+
+        public void InsertBooking(string booking)
+        {
+            TouristDAO.InsertBooking(booking);
         }
     }
 }
