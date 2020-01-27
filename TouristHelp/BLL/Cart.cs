@@ -57,7 +57,8 @@ namespace TouristHelp.BLL
 
         public void InsertCartReservation()
         {
-
+            CartDAO cart = new CartDAO();
+            cart.InsertTicket(this);
         }
 
         public void InsertCart()
