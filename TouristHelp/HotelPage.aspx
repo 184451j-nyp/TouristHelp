@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="HotelPage.aspx.cs" Inherits="TouristHelp.Hotel" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -37,13 +40,8 @@
 
 
 
-
-
-
-
-
-
-
+            
+   
 
 
 
@@ -98,6 +96,11 @@
                                                     <hr>
                                                     <p class="bottom-area d-flex">
 
+
+                                                        <div class="row">
+
+                                                              <div class="col-5">
+
                                                         <asp:Label ID="roomQtyLbl" runat="server" Text="Rooms"></asp:Label>
 
                                                         <asp:DropDownList ID="roomQty" runat="server" AutoPostBack="True">
@@ -113,8 +116,64 @@
                                                             <asp:ListItem>10</asp:ListItem>
 
                                                         </asp:DropDownList>
-                         <asp:Button ID="BtnBuy" runat="server" Text="Add to Shopping Cart" style="float:right" OnClick="BtnBuy_Click"/>
+                                                                                                                                     
+                                                                                                                              </div>
 
+
+
+   
+                                                                                                                                <div class="col-5">
+
+
+                                                                   <asp:Label ID="durationLbl" runat="server" Text="Days"></asp:Label>
+
+                                                        <asp:DropDownList ID="durationQty" runat="server" AutoPostBack="True">
+                                                            <asp:ListItem Selected="True" Value="1"></asp:ListItem>
+                                                            <asp:ListItem>2</asp:ListItem>
+                                                            <asp:ListItem>3</asp:ListItem>
+                                                            <asp:ListItem>4</asp:ListItem>
+                                                            <asp:ListItem>5</asp:ListItem>
+                                                            <asp:ListItem>6</asp:ListItem>
+                                                            <asp:ListItem>7</asp:ListItem>
+                                                            <asp:ListItem>8</asp:ListItem>
+                                                            <asp:ListItem>9</asp:ListItem>
+                                                            <asp:ListItem>10</asp:ListItem>
+                                                            <asp:ListItem>11</asp:ListItem>
+                                                            <asp:ListItem>12</asp:ListItem>
+                                                            <asp:ListItem>13</asp:ListItem>
+                                                            <asp:ListItem>14</asp:ListItem>
+                                                            <asp:ListItem>15</asp:ListItem>
+                                                            <asp:ListItem>16</asp:ListItem>
+                                                            <asp:ListItem>17</asp:ListItem>
+                                                            <asp:ListItem>18</asp:ListItem>
+                                                            <asp:ListItem>19</asp:ListItem>
+                                                            <asp:ListItem>20</asp:ListItem>
+                                                            <asp:ListItem>21</asp:ListItem>
+                                                            <asp:ListItem>22</asp:ListItem>
+                                                            <asp:ListItem>23</asp:ListItem>
+                                                            <asp:ListItem>24</asp:ListItem>
+                                                            <asp:ListItem>25</asp:ListItem>
+                                                            <asp:ListItem>26</asp:ListItem>
+                                                            <asp:ListItem>27</asp:ListItem>
+                                                            <asp:ListItem>28</asp:ListItem>
+                                                            <asp:ListItem>29</asp:ListItem>
+                                                            <asp:ListItem>30</asp:ListItem>
+                                                          
+                                                        </asp:DropDownList>
+
+                                                                                                                                    </div>
+                                                        
+                                                            </div>
+
+
+
+                                                        <div>
+
+                                                            <br />
+                                                         <asp:Button ID="BtnBuy" runat="server"  Text="Add to Shopping Cart" style="float:left;height:100%;width:100%;" OnClick="BtnBuy_Click"/>
+
+                                                            
+                                                        </div>
                                                 </div></p>
                                         </div>
 
@@ -135,8 +194,9 @@
 
                                 
 
+<%--
+             <asp:ScriptManager ID="ScriptManager69" runat="server">
 
-            <%-- <asp:ScriptManager ID="ScriptManager69" runat="server">
                  </asp:ScriptManager>
 
 
@@ -146,7 +206,6 @@
         	<div class="col-lg-12 sidebar order-md-last ftco-animate">
         		<div class="sidebar-wrap ftco-animate">
         			<h3 class="heading mb-4">Find City</h3>
-        			<form action="#">
         				<div class="fields">
 		                   <div class="form-group">
 		                <div class="select-wrap one-third">
@@ -261,26 +320,25 @@
 
 
                        
-	            </form>
         		</div>
         	
 
 
           </div><!-- END-->
 
-
-
-
-
-
-
-
-
-        
           
           </div> <!-- .col-md-8 -->
         </div>
     </section> <!-- .section -->--%>
+
+
+
+
+
+
+
+
+
 
                                 <br style="clear: left;" />
                             </div>
@@ -295,6 +353,7 @@
             </table>
         </td>
 
+        
 
 
             </form>

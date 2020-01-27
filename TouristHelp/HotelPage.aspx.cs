@@ -37,11 +37,15 @@ namespace TouristHelp
 
 
 
+
+
             }
+
+
         }
 
 
-      
+
 
         private void loadRepeater2()
         {
@@ -70,12 +74,14 @@ namespace TouristHelp
             //checkOut_PopupControlExtender.Commit(checkOutCalendar.SelectedDate.ToString());
         }
 
+      
+
         protected void RepeatHotel_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             RepeaterItem hotels = e.Item;
 
             string attName;
-            string attDesc = "";
+            string attDesc = "Item price cost consists of base price of hotel with the check in duration";
             double price;
             DateTime expDate;
             int code;
@@ -87,9 +93,7 @@ namespace TouristHelp
             Session["voucher_id"] = getHotelId.Value;
 
 
-            Label getHotelName = (Label)hotels.FindControl("hotelName");
-            Session["hotelName"] = getHotelName.Text;
-            attName = getHotelName.Text;
+            
 
 
             Label gethotelPrice = (Label)hotels.FindControl("hotelPrice");
@@ -112,6 +116,11 @@ namespace TouristHelp
 
 
 
+
+
+
+          
+
             //DateTime checkInDateTime = Convert.ToDateTime(checkInTB);
             //DateTime checkOutDateTime = Convert.ToDateTime(checkOutTB);
 
@@ -119,8 +128,10 @@ namespace TouristHelp
             //TimeSpan difference = checkInDateTime - checkOutDateTime;
 
             //int stayDuration = Convert.ToInt32(difference.TotalDays);
+            DropDownList getHotelDuration = (DropDownList)hotels.FindControl("durationQty");
+            Session["durationQty"] = getHotelDuration.SelectedValue;
+            int stayDuration = Convert.ToInt32(getHotelDuration.SelectedValue);
 
-            int stayDuration = 1;
 
             totalCost = Convert.ToDecimal(price * quantity * stayDuration);
 
@@ -129,13 +140,21 @@ namespace TouristHelp
             //Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id);
             //tkt.AddNewTicket();
 
+            Label getHotelName = (Label)hotels.FindControl("hotelName");
+            Session["hotelName"] = getHotelName.Text;
+            string attDuration = stayDuration.ToString();
+            attName = getHotelName.Text + " (" + attDuration + " Days" + ")";
+
+            double cartPrice = Convert.ToDouble(price) * Convert.ToDouble(stayDuration);
+
+
             HotelTrans hotel = new HotelTrans(code, totalCost, quantity, stayDuration, user_id, attName, code, hotelPaid);
             hotel.AddNewHotel();
 
-            Cart cart = new Cart(attName, attDesc, price, quantity, user_id);
+            Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id);
             cart.InsertCartTicket();
 
-            string hotelAdded = getHotelName.Text + " " + "(rooms: " + quantity.ToString() + ")" + "has been added to shop Cart";
+            string hotelAdded = getHotelName.Text + " " + "(rooms: " + quantity.ToString()  + ")" + "(duration: " + stayDuration.ToString() + "days" + ")" + "has been added to shop Cart";
             Session["hotelAdded"] = hotelAdded;
 
             Response.Redirect("HotelPage.aspx");
