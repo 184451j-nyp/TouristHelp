@@ -37,6 +37,8 @@ namespace TouristHelp.BLL
             userId = user_Id;
         }
 
+
+        
         public List<Cart> GetAllItems(int userid)
         {
             CartDAO dao = new CartDAO();

@@ -46,5 +46,8 @@ namespace TouristHelp.BLL
             return dao.SelectAllHotel();
         }
 
+
+
+
     }
 }
