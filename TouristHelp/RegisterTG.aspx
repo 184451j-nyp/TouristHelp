@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="signup">
-        <div class="login-container">
+        <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up as a Tour Guide</h2>
@@ -35,11 +35,9 @@
                         <div class="form-group">
                             <asp:TextBox ID="tbDesc" runat="server" TextMode="MultiLine" MaxLength="144" placeholder="Describe yourself for us and potential clients..."></asp:TextBox>
                         </div>
-                        <div class="form-group">
-                            <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Email has been used for another account!" ForeColor="Red" ControlToValidate="tbEmailTG" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
+                            <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Email has been used for another account!" ForeColor="Red" ControlToValidate="tbEmailTG" OnServerValidate="CustomValidator1_ServerValidate" Display="Dynamic"></asp:CustomValidator>
                             <br />
-                            <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Passwords must match!" ControlToValidate="tbPasswordTG" ControlToCompare="tbRepeatPassTG" Operator="Equal" ForeColor="Red"></asp:CompareValidator>
-                        </div>
+                            <asp:CompareValidator ID="CompareValidator2" runat="server" ErrorMessage="Passwords must match!" ControlToValidate="tbPasswordTG" ControlToCompare="tbRepeatPassTG" Operator="Equal" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                         <div class="form-group form-button">
                             <asp:Button ID="btnSignupTG" runat="server" Text="Register" CssClass="form-submit" OnClick="btnSignupTG_Click" />
                         </div>
