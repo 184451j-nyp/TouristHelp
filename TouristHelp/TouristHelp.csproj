@@ -224,6 +224,7 @@
     <Content Include="Planner.aspx" />
     <Content Include="RegisterTG.aspx" />
     <Content Include="RegisterTourist.aspx" />
+    <Content Include="AdminPageAddAttraction_2.aspx" />
     <Content Include="Reservation_Food.aspx" />
     <Content Include="Reservation_Food_Confirmed.aspx" />
     <Content Include="RewardPage.aspx" />
@@ -471,6 +472,13 @@
     </Compile>
     <Compile Include="RegisterTourist.aspx.designer.cs">
       <DependentUpon>RegisterTourist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPageAddAttraction_2.aspx.cs">
+      <DependentUpon>AdminPageAddAttraction_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageAddAttraction_2.aspx.designer.cs">
+      <DependentUpon>AdminPageAddAttraction_2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservation_Food.aspx.cs">
       <DependentUpon>Reservation_Food.aspx</DependentUpon>

@@ -76,5 +76,27 @@ namespace TouristHelp.DAL
             }
             return empList;
         }
+
+        public void InsertNewAttraction(Attraction att) //Insert the attraction details into db
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO Attraction (attractionName, attractionPrice, dateTime, attractionDesc, attractionLocation)" +
+                             "VALUES (@paraName, @paraPrice, @paraDate, @paraDesc, @paraLoc)";
+
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraName", att.Name);
+            sqlCmd.Parameters.AddWithValue("@paraPrice", att.Price);
+            sqlCmd.Parameters.AddWithValue("@paraDate", att.DateTime);
+            sqlCmd.Parameters.AddWithValue("@paraDesc", att.Description);
+            sqlCmd.Parameters.AddWithValue("paraLoc", att.Location);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+        }
     }
 }

@@ -28,5 +28,10 @@ namespace TouristHelp
             RepeaterAttraction.DataSource = acttList;
             RepeaterAttraction.DataBind();
         }
+
+        protected void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("AdminPageAddAttraction_2.aspx");
+        }
     }
 }
