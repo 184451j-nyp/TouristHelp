@@ -83,6 +83,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPageAddAttraction.aspx" />
     <Content Include="App_Data\TouristHelp.mdf" />
     <Content Include="App_Data\TouristHelp_log.ldf">
       <DependentUpon>TouristHelp.mdf</DependentUpon>
@@ -351,6 +352,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPageAddAttraction.aspx.cs">
+      <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageAddAttraction.aspx.designer.cs">
+      <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="blank.aspx.cs">
       <DependentUpon>blank.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
