@@ -373,7 +373,7 @@
     <Compile Include="DAL\CartDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
     <Compile Include="DAL\HotelBookDAO.cs" />
-    <Compile Include="DAL\HotelTrans.cs" />
+    <Compile Include="DAL\HotelTransDAO.cs" />
     <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="DAL\Food_ReservationDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
