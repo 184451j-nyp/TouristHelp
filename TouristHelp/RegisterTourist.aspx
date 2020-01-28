@@ -5,7 +5,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <section class="signup">
-        <div class="login-container">
+        <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
                     <h2 class="form-title">Sign up as a Tourist</h2>
@@ -36,11 +36,9 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorRepeatPswd" runat="server" ErrorMessage="*" ForeColor="Red" ControlToValidate="tbRepeatPassTourist"></asp:RequiredFieldValidator></label>
                             <asp:TextBox ID="tbRepeatPassTourist" runat="server" TextMode="Password" placeholder="Repeat Password"></asp:TextBox>
                         </div>
-                        <div class="form-group">
-                            <asp:CustomValidator ID="CustomValidatorEmailExists" runat="server" ErrorMessage="Email has been used for another account!" ForeColor="Red" ControlToValidate="tbEmailTourist" OnServerValidate="CustomValidatorEmailExists_ServerValidate"></asp:CustomValidator>
+                            <asp:CustomValidator ID="CustomValidatorEmailExists" runat="server" ErrorMessage="Email has been used for another account!" ForeColor="Red" ControlToValidate="tbEmailTourist" OnServerValidate="CustomValidatorEmailExists_ServerValidate" Display="Dynamic"></asp:CustomValidator>
                             <br />
-                            <asp:CompareValidator ID="CompareValidatorPasswords" runat="server" ErrorMessage="Passwords must match!" ControlToValidate="tbPasswordTourist" ControlToCompare="tbRepeatPassTourist" Operator="Equal" ForeColor="Red"></asp:CompareValidator>
-                        </div>
+                            <asp:CompareValidator ID="CompareValidatorPasswords" runat="server" ErrorMessage="Passwords must match!" ControlToValidate="tbPasswordTourist" ControlToCompare="tbRepeatPassTourist" Operator="Equal" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                         <div class="form-group form-button">
                             <asp:Button ID="btnSignupTourist" runat="server" Text="Register" CssClass="form-submit" OnClick="btnSignupTourist_Click" />
                         </div>

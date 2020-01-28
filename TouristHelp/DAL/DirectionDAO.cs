@@ -69,10 +69,11 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
                 int id = int.Parse(row["id"].ToString());
                 int user = int.Parse(row["user"].ToString());
-                string nodeCoord = row["nodeCoord"].ToString();
+                double laat = double.Parse(row["latitude"].ToString());
+                double longi = double.Parse(row["longitude"].ToString());
                 int group = int.Parse(row["group"].ToString());
                 int order = int.Parse(row["order"].ToString());
-                Direction obj = new Direction(id, user, nodeCoord, group, order);
+                Direction obj = new Direction(id, user, laat, longi, group, order);
                 dirList.Add(obj);
             }
 

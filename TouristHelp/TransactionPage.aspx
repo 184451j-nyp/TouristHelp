@@ -14,7 +14,7 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-sm-6">
                     <div class="breadcrumb_tittle text-left">
-                        <h2>Shop</h2>
+                        <h2>Transaction</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -51,22 +51,20 @@
         </section>
 
 
-
-
-
-      <form id="frm" runat="server">
-                <span>
-
-                            <span class="select-wrap one-third">
+    <span class="select-wrap one-third">
                <asp:Label ID="transactionLabel"   runat="server" Text="Your Transaction History"></asp:Label>
                                 
 	                    <select name="" id="" style="width:unset;" class="form-control" >
-	                      <option value="">Search By Category</option>
 	                      <option value="">Newest</option>
 	                      <option value="">Oldest</option>
 	                    </select>
 	                  </span>
-                                        </span>
+
+
+      <form id="frm" runat="server">
+                
+
+                            
 
 
 
@@ -74,8 +72,12 @@
               span#ContentPlaceHolder1_transactionLabel{
                   font-size:30px;
                   color:cornflowerblue;
+                  margin-left:45%;
 
+              }
 
+              select.form-control{
+                  margin-left:50%;
               }
           </style>
 
@@ -277,7 +279,6 @@
             text-align: center;
             font-size:25px;
             padding-left:230px;
-            margin-top: 200px;
         }
 
 span.menu a {

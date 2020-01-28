@@ -21,9 +21,7 @@
                             <div class="form-group">
                                 <asp:TextBox ID="tbPassword" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
                             </div>
-                            <div class="form-group">
-                                <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Email or password is wrong!" OnServerValidate="CustomValidator1_ServerValidate" ForeColor="Red"></asp:CustomValidator>
-                            </div>
+                            <asp:CustomValidator ID="CustomValidator1" runat="server" ErrorMessage="Email or password is wrong!" OnServerValidate="CustomValidator1_ServerValidate" ForeColor="Red" Display="Dynamic"></asp:CustomValidator>
                             <div class="form-group form-button">
                                 <asp:Button ID="btnLogin" runat="server" Text="Log In" CssClass="form-submit" OnClick="btnLogin_Click" />
                             </div>

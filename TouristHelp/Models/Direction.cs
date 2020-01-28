@@ -7,19 +7,21 @@ namespace TouristHelp.Models
 {
     public class Direction
     {
-        public int id { get; }
-        public int user { get; set; }
-        public string nodeCoord { get; set; }
-        public int group { get; set; }
-        public int order { get; set; }
+        public int Id { get; }
+        public int User { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public int Group { get; set; }
+        public int Order { get; set; }
 
-        public Direction(int id, int user, string node, int group, int order)
+        public Direction(int id, int user, double lat, double longi, int group, int order)
         {
-            this.id = id;
-            this.user = user;
-            nodeCoord = node;
-            this.group = group;
-            this.order = order;
+            Id = id;
+            User = user;
+            Latitude = lat;
+            Longitude = longi;
+            Group = group;
+            Order = order;
         }
     }
 }

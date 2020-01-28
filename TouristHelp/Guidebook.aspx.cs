@@ -18,7 +18,6 @@ namespace TouristHelp
             {
                 loadRepeater();
             }
-                
         }
 
         private void loadRepeater()

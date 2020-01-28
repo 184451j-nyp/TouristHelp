@@ -13,6 +13,7 @@ namespace TouristHelp.BLL
         public double productPrice { get; set; }
         public int productQuantity { get; set; }
         public double productTotalPrice { get; set; }
+        public int userId { get; set; }
         public Cart()
         {
 
@@ -27,6 +28,17 @@ namespace TouristHelp.BLL
             productTotalPrice = producttotalprice;
         }
 
+        public Cart(string productname, string productdesc, double productprice, int productquantity, int user_Id)
+        {
+            productName = productname;
+            productDesc = productdesc;
+            productPrice = productprice;
+            productQuantity = productquantity;
+            userId = user_Id;
+        }
+
+
+        
         public List<Cart> GetAllItems(int userid)
         {
             CartDAO dao = new CartDAO();
@@ -37,6 +49,23 @@ namespace TouristHelp.BLL
         {
             CartDAO dao = new CartDAO();
             dao.UpdateItem(quantity);
+        }
+
+        public void InsertCartTicket()
+        {
+            CartDAO cart = new CartDAO();
+            cart.InsertTicket(this);
+        }
+
+        public void InsertCartReservation()
+        {
+            CartDAO cart = new CartDAO();
+            cart.InsertTicket(this);
+        }
+
+        public void InsertCart()
+        {
+
         }
     }
 }

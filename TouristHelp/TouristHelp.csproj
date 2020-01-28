@@ -83,6 +83,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPageAddAttraction.aspx" />
+    <Content Include="App_Data\db_reconstruct.sql" />
     <Content Include="App_Data\TouristHelp.mdf" />
     <Content Include="App_Data\TouristHelp_log.ldf">
       <DependentUpon>TouristHelp.mdf</DependentUpon>
@@ -222,6 +224,7 @@
     <Content Include="Planner.aspx" />
     <Content Include="RegisterTG.aspx" />
     <Content Include="RegisterTourist.aspx" />
+    <Content Include="AdminPageAddAttraction_2.aspx" />
     <Content Include="Reservation_Food.aspx" />
     <Content Include="Reservation_Food_Confirmed.aspx" />
     <Content Include="RewardPage.aspx" />
@@ -352,6 +355,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPageAddAttraction.aspx.cs">
+      <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageAddAttraction.aspx.designer.cs">
+      <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="blank.aspx.cs">
       <DependentUpon>blank.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -373,7 +383,7 @@
     <Compile Include="DAL\CartDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
     <Compile Include="DAL\HotelBookDAO.cs" />
-    <Compile Include="DAL\HotelTrans.cs" />
+    <Compile Include="DAL\HotelTransDAO.cs" />
     <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="DAL\Food_ReservationDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
@@ -463,6 +473,13 @@
     </Compile>
     <Compile Include="RegisterTourist.aspx.designer.cs">
       <DependentUpon>RegisterTourist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPageAddAttraction_2.aspx.cs">
+      <DependentUpon>AdminPageAddAttraction_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageAddAttraction_2.aspx.designer.cs">
+      <DependentUpon>AdminPageAddAttraction_2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservation_Food.aspx.cs">
       <DependentUpon>Reservation_Food.aspx</DependentUpon>
