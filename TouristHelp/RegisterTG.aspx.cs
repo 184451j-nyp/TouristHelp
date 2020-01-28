@@ -22,9 +22,10 @@ namespace TouristHelp
                 string pass2 = tbRepeatPassTG.Text;
                 string desc = tbDesc.Text;
                 string lang = tbLang.Text;
+                decimal price = 0;
                 if (pass1 == pass2 && name != "" && email != "" && pass1 != "")
                 {
-                    TourGuide obj = new TourGuide(name, email, pass1, "", desc, lang, "");
+                    TourGuide obj = new TourGuide(name, email, pass1, "", desc, lang, "", "", "", price);
                     TourGuideDAO.InsertTourGuide(obj);
 
                     Response.Redirect("Login.aspx");

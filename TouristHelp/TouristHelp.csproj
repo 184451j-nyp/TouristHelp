@@ -345,6 +345,7 @@
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
     <Content Include="TourGuideUpdateDetails.aspx" />
+    <Content Include="TouristBookingsPage.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -359,6 +360,7 @@
       <DependentUpon>blank.aspx</DependentUpon>
     </Compile>
     <Compile Include="BLL\Attraction.cs" />
+    <Compile Include="BLL\Cart.cs" />
     <Compile Include="BLL\HotelBook.cs" />
     <Compile Include="BLL\HotelTrans.cs" />
     <Compile Include="BLL\Interest.cs" />
@@ -368,6 +370,7 @@
     <Compile Include="BLL\Ticket.cs" />
     <Compile Include="BLL\Transactions.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
+    <Compile Include="DAL\CartDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
     <Compile Include="DAL\HotelBookDAO.cs" />
     <Compile Include="DAL\HotelTrans.cs" />
@@ -544,6 +547,13 @@
     </Compile>
     <Compile Include="TourGuideUpdateDetails.aspx.designer.cs">
       <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TouristBookingsPage.aspx.cs">
+      <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TouristBookingsPage.aspx.designer.cs">
+      <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransactionPage.aspx.cs">
       <DependentUpon>TransactionPage.aspx</DependentUpon>

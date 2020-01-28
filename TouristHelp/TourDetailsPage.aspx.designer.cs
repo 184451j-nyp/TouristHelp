@@ -31,6 +31,24 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.Label tourguidetitleLabel;
         
         /// <summary>
+        /// tourguideidLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tourguideidLabel;
+        
+        /// <summary>
+        /// useridLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label useridLabel;
+        
+        /// <summary>
         /// BtnConfirm control.
         /// </summary>
         /// <remarks>
