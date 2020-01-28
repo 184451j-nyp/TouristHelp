@@ -346,9 +346,6 @@
     <Content Include="TicketList.aspx" />
     <Content Include="TourDetailsPage.aspx" />
     <Content Include="TourGuideDetails.aspx" />
-    <Content Include="TourGuideListPage.aspx" />
-    <Content Include="TourGuideUpdateDetails.aspx" />
-    <Content Include="TouristBookingsPage.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -376,6 +373,7 @@
     <Compile Include="BLL\Interest.cs" />
     <Compile Include="BLL\Food_Reservation.cs" />
     <Compile Include="BLL\Reward.cs" />
+    <Compile Include="BLL\SHA256Hash.cs" />
     <Compile Include="BLL\ShopVoucher.cs" />
     <Compile Include="BLL\Ticket.cs" />
     <Compile Include="BLL\Transactions.cs" />
@@ -451,6 +449,7 @@
       <DependentUpon>LoginRegister.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\Direction.cs" />
+    <Compile Include="Models\TouristBooking.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Planner.aspx.cs">
       <DependentUpon>Planner.aspx</DependentUpon>
@@ -550,27 +549,6 @@
     </Compile>
     <Compile Include="TourGuideDetails.aspx.designer.cs">
       <DependentUpon>TourGuideDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TourGuideListPage.aspx.cs">
-      <DependentUpon>TourGuideListPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TourGuideListPage.aspx.designer.cs">
-      <DependentUpon>TourGuideListPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TourGuideUpdateDetails.aspx.cs">
-      <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TourGuideUpdateDetails.aspx.designer.cs">
-      <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TouristBookingsPage.aspx.cs">
-      <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TouristBookingsPage.aspx.designer.cs">
-      <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransactionPage.aspx.cs">
       <DependentUpon>TransactionPage.aspx</DependentUpon>
