@@ -19,7 +19,16 @@ namespace TouristHelp.BLL
         {
         }
 
-        public Attraction(int id, string name, float price, string date, string desc, string location)
+        public Attraction(string name, float price, string date, string desc, string location)// for adding
+        {
+            Name = name;
+            Price = price;
+            DateTime = date;
+            Description = desc;
+            Location = location;
+        }
+
+        public Attraction(int id, string name, float price, string date, string desc, string location)// for displaying
         {
             Id = id;
             Name = name;
@@ -41,10 +50,11 @@ namespace TouristHelp.BLL
             return dao.SelectAll();
         }
 
-        public void InsertReservation(string name, string time, int pax, int id)
+        public void AddAttraction(Attraction att)
         {
-            Food_ReservationDAO dao = new Food_ReservationDAO();
-            dao.InsertReservation(name, time, pax, id);
+            AttractionDAO attDao = new AttractionDAO();
+            attDao.InsertNewAttraction(att);
         }
+        
     }
 }

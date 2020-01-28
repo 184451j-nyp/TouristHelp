@@ -38,6 +38,8 @@ namespace TouristHelp
             Session["ResPax"] = TbPax.Text.ToString();
             Food_Reservation td = new Food_Reservation();
             td.InsertReservation(lbName.Text, TbTime.Text, int.Parse(TbPax.Text), 1);
+            Cart cr = new Cart(lbName.Text, "Reservation at " + lbName.Text, 0, 1, 1);
+            cr.InsertCartReservation();
             Response.Redirect("Reservation_Food_Confirmed.aspx");
 
         }

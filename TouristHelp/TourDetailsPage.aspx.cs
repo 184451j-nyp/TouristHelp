@@ -14,12 +14,13 @@ namespace TouristHelp
         protected void Page_Load(object sender, EventArgs e)
         {
             tourguidetitleLabel.Text = (string)Session["SSTours"];
+            tourguideidLabel.Text = (string)Session["SSTourGuideId"];
+            useridLabel.Text = (string)Session["SSUserId"];
         }
 
         protected void BtnConfirm_Click(object sender, EventArgs e)
         {
-            Session["BookingName"] = tourguidetitleLabel.Text.ToString();
-            TouristDAO.InsertBooking(tourguidetitleLabel.Text.ToString());
+            TouristDAO.InsertBooking(tourguidetitleLabel.Text, int.Parse(tourguideidLabel.Text), int.Parse(useridLabel.Text));
         }
     }
 }

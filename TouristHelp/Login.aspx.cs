@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TouristHelp.DAL;
+using TouristHelp.BLL;
 using TouristHelp.Models;
 
 namespace TouristHelp
@@ -25,7 +26,7 @@ namespace TouristHelp
                     TourGuide user = TourGuideDAO.SelectTourGuideByEmail(tbEmail.Text);
                     Session["tourguide_id"] = user.TourGuideId.ToString();
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
                     Tourist user = TouristDAO.SelectTouristByEmail(tbEmail.Text);
                     Session["tourist_id"] = user.TouristId.ToString();
@@ -39,9 +40,9 @@ namespace TouristHelp
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            string email = tbEmail.Text;
+            string email = tbEmail.Text.ToLower();
             string password = tbPassword.Text;
-            if(password == UserDAO.GetCredentials(email))
+            if(SHA256Hash.GenerateSHA256(password) == UserDAO.GetLoginCredentials(email))
             {
                 args.IsValid = true;
             }
