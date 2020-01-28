@@ -19,6 +19,12 @@ namespace TouristHelp
             {
                 Label1.Text = Session["tourguide_id"].ToString();
             }
+
+            string[] arr = { "Hello world!", "This is a test array"};
+            for(int i=0; i<arr.Length; i++)
+            {
+                Page.ClientScript.RegisterArrayDeclaration("array", arr[i]);
+            }
         }
     }
 }
