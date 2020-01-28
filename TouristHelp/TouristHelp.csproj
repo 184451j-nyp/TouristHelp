@@ -164,6 +164,7 @@
     <Content Include="Images\gallery\service_bg_2.png" />
     <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\goldMember.jpg" />
+    <Content Include="Images\hiltonGarden.jpg" />
     <Content Include="Images\iconicFood.jpg" />
     <Content Include="Images\icon\left.svg" />
     <Content Include="Images\icon\long-arrow-pointing-to-the-right.svg" />
@@ -176,10 +177,12 @@
     <Content Include="Images\insta\instagram_4.png" />
     <Content Include="Images\insta\instagram_5.png" />
     <Content Include="Images\insta\instagram_6.png" />
+    <Content Include="Images\katong.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\marinaBay.png" />
     <Content Include="Images\Marriott.jpg" />
     <Content Include="Images\Orchard.jpg" />
+    <Content Include="Images\parkAvenue.jpg" />
     <Content Include="Images\post\next.png" />
     <Content Include="Images\post\post_1.png" />
     <Content Include="Images\post\post_10.png" />
