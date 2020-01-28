@@ -42,8 +42,8 @@
             <asp:TextBox ID="tourguidepasswordTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
 
-            <asp:Label ID="tourguidetoursLabel" CssClass="col-1" runat="server" Text="Tours:"></asp:Label>
-            <asp:TextBox ID="tourguidetoursTextBox" CssClass="col-1" runat="server"></asp:TextBox>
+            <asp:Label ID="tourguidetourtitleLabel" CssClass="col-1" runat="server" Text="Tour Title:"></asp:Label>
+            <asp:TextBox ID="tourguidetourtitleTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
             <asp:Label ID="tourguidedescriptionLabel" CssClass="col-1" runat="server" Text="Description:"></asp:Label>
             <asp:TextBox ID="tourguidedescriptionTextBox" CssClass="col-1" runat="server"></asp:TextBox>
@@ -55,7 +55,14 @@
             <asp:Label ID="tourguidecredentialsLabel" CssClass="col-1" runat="server" Text="Credentials:"></asp:Label>
             <asp:TextBox ID="tourguidecredentialsTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
+            <asp:Label ID="tourguidetourdescriptionLabel" CssClass="col-1" runat="server" Text="Tour Description:"></asp:Label>
+            <asp:TextBox ID="tourguidetourdescriptionTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
+            <asp:Label ID="tourguidetourdetailsLabel" CssClass="col-1" runat="server" Text="Tour Details:"></asp:Label>
+            <asp:TextBox ID="tourguidetourdetailsTextBox" CssClass="col-1" runat="server"></asp:TextBox>
+
+            <asp:Label ID="tourguidetourpriceLabel" CssClass="col-1" runat="server" Text="Tour Price:"></asp:Label>
+            <asp:TextBox ID="tourguidetourpriceTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
             <asp:Button ID="BtnSubmit" runat="server" OnClick="BtnSubmit_Click" Text="Update" Width="55px" />
 

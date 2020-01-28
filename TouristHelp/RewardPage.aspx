@@ -15,12 +15,12 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-sm-6">
                     <div class="breadcrumb_tittle text-left">
-                        <h2>Shop</h2>
+                        <h2>Reward</h2>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="breadcrumb_content text-right">
-                        <p><span> Reward </span></p>
+                        <p><span>  </span></p>
                     </div>
                 </div>
             </div>
@@ -99,20 +99,26 @@
 
             </form>
 
+
+     <section>
+
+
+
+            <span class="menu">
+                <ul>
+                    <li class="active"><a href="RewardPage.aspx">How It Works</a></li>
+                    <li class="style1"><a href="Shop.aspx">Shop</a></li>
+                    <li class="style2"><a href="TransactionPage.aspx">My Transaction</a></li>
+                </ul>
+
+
+
+
+            </span>
+        </section>
                
 
-            <div class="menu">
-        <ul>
-          <li class="active"><a href="RewardPage.aspx">How It Works</a></li>
-          <li><a href="Shop.aspx">Shop</a></li>
-          <li><a href="TransactionPage.aspx">My Transaction</a></li>
-        </ul>
-
-
-
-                    
-      </div>
-
+        
 
     
 
@@ -165,13 +171,19 @@
     </table>
 
    <style>
-    div.menu ul li {
-  display: inline-block;
-  height:100%;
-  padding: 0 1rem;
-  text-align: center;
+     span.menu ul li  {
+            display: inline-block;
+            height: 100%;
+            padding: 0 1rem;
+            text-align: center;
+            font-size:25px;
+            padding-left:100px;
+            margin-top: 200px;
+        }
 
-}
+        li.active {
+            margin-left:500px;
+        }
 
 div.menu a {
   text-decoration: none;

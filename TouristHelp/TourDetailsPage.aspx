@@ -21,7 +21,10 @@
 
         <div class="col-lg-6">
             <h6 class="text-uppercase">Tours Information</h6>
-            <asp:Label ID="tourguidetitleLabel" CssClass="col-1" runat="server" Text="Title:"></asp:Label>
+            <asp:Label ID="tourguidetitleLabel" CssClass="col-2" runat="server" Text="Title:"></asp:Label>
+            <asp:Label ID="tourguideidLabel" CssClass="col-2" runat="server" Text="Tour Guide Id:"></asp:Label>
+            <asp:Label ID="useridLabel" CssClass="col-2" runat="server" Text="User Id:"></asp:Label>
+
             <p>
                 This is a 3 hour city tour that provides an overview of Singapore popular sites, cultures, history and economy.<br>
                 <br>

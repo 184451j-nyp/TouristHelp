@@ -112,22 +112,22 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox tourguidepasswordTextBox;
         
         /// <summary>
-        /// tourguidetoursLabel control.
+        /// tourguidetourtitleLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidetoursLabel;
+        protected global::System.Web.UI.WebControls.Label tourguidetourtitleLabel;
         
         /// <summary>
-        /// tourguidetoursTextBox control.
+        /// tourguidetourtitleTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidetoursTextBox;
+        protected global::System.Web.UI.WebControls.TextBox tourguidetourtitleTextBox;
         
         /// <summary>
         /// tourguidedescriptionLabel control.
@@ -182,6 +182,60 @@ namespace TouristHelp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox tourguidecredentialsTextBox;
+        
+        /// <summary>
+        /// tourguidetourdescriptionLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tourguidetourdescriptionLabel;
+        
+        /// <summary>
+        /// tourguidetourdescriptionTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tourguidetourdescriptionTextBox;
+        
+        /// <summary>
+        /// tourguidetourdetailsLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tourguidetourdetailsLabel;
+        
+        /// <summary>
+        /// tourguidetourdetailsTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tourguidetourdetailsTextBox;
+        
+        /// <summary>
+        /// tourguidetourpriceLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tourguidetourpriceLabel;
+        
+        /// <summary>
+        /// tourguidetourpriceTextBox control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tourguidetourpriceTextBox;
         
         /// <summary>
         /// BtnSubmit control.

@@ -11,27 +11,28 @@ namespace TouristHelp.DAL
 {
     public class CartDAO
     {
-        //public void AddItem(Cart cart)
-        //{
-        //    string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
-        //    SqlConnection myConn = new SqlConnection(DBConnect);
+        public void InsertTicket(Cart cart)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
 
-        //    string sqlStmt = "INSERT INTO Interest (productName, productPrice, productQuantity, user_id, productDesc) " +
-        //                     "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraProductDesc)";
+            string sqlStmt = "INSERT INTO Cart (productName, productPrice, productQuantity, user_id, productDesc, active) " +
+                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active')";
 
 
-        //    SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
-        //    sqlCmd.Parameters.AddWithValue("@paraProductName", cart.productName);
-        //    sqlCmd.Parameters.AddWithValue("@paraProductPrice", cart.productPrice);
-        //    sqlCmd.Parameters.AddWithValue("@paraProductQuantity", cart.productPrice);
-        //    sqlCmd.Parameters.AddWithValue("@paraProductDesc", cart.productPrice);
+            sqlCmd.Parameters.AddWithValue("@paraProductName", cart.productName);
+            sqlCmd.Parameters.AddWithValue("@paraProductPrice", cart.productPrice);
+            sqlCmd.Parameters.AddWithValue("@paraProductQuantity", cart.productQuantity);
+            sqlCmd.Parameters.AddWithValue("@paraProductDesc", cart.productDesc);
+            sqlCmd.Parameters.AddWithValue("@paraUserId", cart.userId);
 
-        //    myConn.Open();
-        //    sqlCmd.ExecuteNonQuery();
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
 
-        //    myConn.Close();
-        //}
+            myConn.Close();
+        }
 
         public List<Cart> SelectCartById(int userId)
         {

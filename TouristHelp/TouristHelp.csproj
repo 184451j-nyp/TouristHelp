@@ -83,6 +83,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AdminPageAddAttraction.aspx" />
+    <Content Include="App_Data\db_reconstruct.sql" />
     <Content Include="App_Data\TouristHelp.mdf" />
     <Content Include="App_Data\TouristHelp_log.ldf">
       <DependentUpon>TouristHelp.mdf</DependentUpon>
@@ -222,6 +224,7 @@
     <Content Include="Planner.aspx" />
     <Content Include="RegisterTG.aspx" />
     <Content Include="RegisterTourist.aspx" />
+    <Content Include="AdminPageAddAttraction_2.aspx" />
     <Content Include="Reservation_Food.aspx" />
     <Content Include="Reservation_Food_Confirmed.aspx" />
     <Content Include="RewardPage.aspx" />
@@ -330,6 +333,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Shop.aspx" />
+    <Content Include="ShoppingCart.aspx" />
     <Content Include="Styles\animate.css" />
     <Content Include="Styles\liner_icon.css" />
     <Content Include="Styles\login.css" />
@@ -344,12 +348,20 @@
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
     <Content Include="TourGuideUpdateDetails.aspx" />
+    <Content Include="TouristBookingsPage.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPageAddAttraction.aspx.cs">
+      <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageAddAttraction.aspx.designer.cs">
+      <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="blank.aspx.cs">
       <DependentUpon>blank.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -358,6 +370,7 @@
       <DependentUpon>blank.aspx</DependentUpon>
     </Compile>
     <Compile Include="BLL\Attraction.cs" />
+    <Compile Include="BLL\Cart.cs" />
     <Compile Include="BLL\HotelBook.cs" />
     <Compile Include="BLL\HotelTrans.cs" />
     <Compile Include="BLL\Interest.cs" />
@@ -367,9 +380,10 @@
     <Compile Include="BLL\Ticket.cs" />
     <Compile Include="BLL\Transactions.cs" />
     <Compile Include="DAL\AttractionDAO.cs" />
+    <Compile Include="DAL\CartDAO.cs" />
     <Compile Include="DAL\DirectionDAO.cs" />
     <Compile Include="DAL\HotelBookDAO.cs" />
-    <Compile Include="DAL\HotelTrans.cs" />
+    <Compile Include="DAL\HotelTransDAO.cs" />
     <Compile Include="DAL\InterestDAO.cs" />
     <Compile Include="DAL\Food_ReservationDAO.cs" />
     <Compile Include="DAL\RewardDAO.cs" />
@@ -460,6 +474,13 @@
     <Compile Include="RegisterTourist.aspx.designer.cs">
       <DependentUpon>RegisterTourist.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminPageAddAttraction_2.aspx.cs">
+      <DependentUpon>AdminPageAddAttraction_2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageAddAttraction_2.aspx.designer.cs">
+      <DependentUpon>AdminPageAddAttraction_2.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Reservation_Food.aspx.cs">
       <DependentUpon>Reservation_Food.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -487,6 +508,13 @@
     </Compile>
     <Compile Include="Shop.aspx.designer.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ShoppingCart.aspx.designer.cs">
+      <DependentUpon>ShoppingCart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -536,6 +564,13 @@
     </Compile>
     <Compile Include="TourGuideUpdateDetails.aspx.designer.cs">
       <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TouristBookingsPage.aspx.cs">
+      <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TouristBookingsPage.aspx.designer.cs">
+      <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransactionPage.aspx.cs">
       <DependentUpon>TransactionPage.aspx</DependentUpon>

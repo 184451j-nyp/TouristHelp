@@ -38,8 +38,14 @@ namespace TouristHelp
             Label theDescription = (Label)item1.FindControl("LbDescription");
             Label theLanguages = (Label)item1.FindControl("LbLanguages");
             Label theCredentials = (Label)item1.FindControl("LbCredentials");
+            Label theTourDescription = (Label)item1.FindControl("Lbtourdescription");
+            Label theTourDetails = (Label)item1.FindControl("Lbtourdetails");
+            Label theTourPrice = (Label)item1.FindControl("Lbtourprice");
 
-            
+
+
+
+
 
             Session["SSName"] = theName.Text;
             Session["SSEmail"] = theEmail.Text;
@@ -51,6 +57,9 @@ namespace TouristHelp
             Session["SSDescription"] = theDescription.Text;
             Session["SSLanguages"] = theLanguages.Text;
             Session["SSCredentials"] = theCredentials.Text;
+            Session["SSTourDescription"] = theTourDescription.Text;
+            Session["SSTourDetails"] = theTourDetails.Text;
+            Session["SSTourPrice"] = theTourPrice.Text;
 
 
 
