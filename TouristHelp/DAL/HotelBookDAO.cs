@@ -324,8 +324,8 @@ namespace TouristHelp.DAL
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
             string sqlStmt = "Select * from HotelBook " +
-                                "WHERE hotelPrice >= @paraMinPriceFilter AND " +
-                                "maxPriceFilter <= @paraMaxPriceFilter";
+                                "WHERE hotelPrice >= @paraMinPriceFilter AND  " +
+                                "hotelPrice <= @paraMaxPriceFilter";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
             da.SelectCommand.Parameters.AddWithValue("@paraMinPriceFilter", minPriceFilter);

@@ -182,7 +182,7 @@
         }
 
         li.active {
-            margin-left:500px;
+            margin-left:100px;
         }
 
 div.menu a {
