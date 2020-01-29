@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+                <asp:Label ID="Label1" Visible="false" runat="server" Text=""></asp:Label>
 
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg align-items-center">
@@ -350,7 +351,7 @@
                                                     <p class="bottom-area d-flex">
 
 
-                                                        <asp:DropDownList ID="voucherQuantity" runat="server" AutoPostBack="True">
+                                                        <asp:DropDownList ID="voucherQuantity" runat="server" AutoPostBack="False">
                                                             <asp:ListItem Selected="True" Value="1"></asp:ListItem>
                                                             <asp:ListItem>2</asp:ListItem>
                                                             <asp:ListItem>3</asp:ListItem>
@@ -652,7 +653,7 @@
         }
 
         li.active {
-            margin-left:500px;
+            margin-left:150px;
         }
         span.menu a {
             text-decoration: none;

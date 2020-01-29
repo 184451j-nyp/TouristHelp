@@ -18,12 +18,14 @@ namespace TouristHelp.BLL
         public bool westFilter { get; set; }
         public bool eastFilter { get; set; }
         public string hotelName { get; set; }
+        public int minPriceFilter { get; set; }
+        public int maxPriceFilter { get; set; }
 
         public HotelBook()
         {
         }
 
-        public HotelBook(int hotelid, decimal hotelprice, string hotelimage, bool centralfilter, bool northfilter, bool southfilter, bool westfilter, bool eastfilter, string hotelname )
+        public HotelBook(int hotelid, decimal hotelprice, string hotelimage, bool centralfilter, bool northfilter, bool southfilter, bool westfilter, bool eastfilter, string hotelname  )
         {
             this.hotelId = hotelid;
             this.hotelPrice = hotelprice;
@@ -34,6 +36,12 @@ namespace TouristHelp.BLL
             this.westFilter = westfilter;
             this.eastFilter = eastfilter;
             this.hotelName = hotelname;
+          
+        }
+        public HotelBook(int minpricefilter, int maxpricefilter)
+        {
+            this.minPriceFilter = minpricefilter;
+            this.maxPriceFilter = maxpricefilter;
         }
 
         public HotelBook getHotelById(string hotelId)
@@ -51,11 +59,42 @@ namespace TouristHelp.BLL
         }
 
 
+        public List<HotelBook> getCentralHotels()
+        {
+            HotelBookDAO dao = new HotelBookDAO();
+            return dao.getCentralHotels();
+        }
+
         public List<HotelBook> getNorthHotels()
         {
             HotelBookDAO dao = new HotelBookDAO();
             return dao.getNorthHotels();
         }
 
+
+        public List<HotelBook> getSouthHotels()
+        {
+            HotelBookDAO dao = new HotelBookDAO();
+            return dao.getSouthHotels();
+        }
+
+        public List<HotelBook> getWestHotels()
+        {
+            HotelBookDAO dao = new HotelBookDAO();
+            return dao.getWestHotels();
+        }
+
+        public List<HotelBook> getEastHotels()
+        {
+            HotelBookDAO dao = new HotelBookDAO();
+            return dao.getEastHotels();
+        }
+
+
+        public List<HotelBook> getHotelsByPrice()
+        {
+            HotelBookDAO dao = new HotelBookDAO();
+            return dao.getHotelsByPrice(minPriceFilter, maxPriceFilter);
+        }
     }
 }

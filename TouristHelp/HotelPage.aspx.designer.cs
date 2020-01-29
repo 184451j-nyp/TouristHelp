@@ -13,6 +13,15 @@ namespace TouristHelp {
     public partial class Hotel {
         
         /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
         /// frm control.
         /// </summary>
         /// <remarks>
@@ -40,13 +49,40 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.Label minPriceLbl;
         
         /// <summary>
-        /// maximumPriceLbl control.
+        /// minpriceTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label maximumPriceLbl;
+        protected global::System.Web.UI.WebControls.TextBox minpriceTB;
+        
+        /// <summary>
+        /// maxPriceLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label maxPriceLbl;
+        
+        /// <summary>
+        /// maxPriceTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox maxPriceTB;
+        
+        /// <summary>
+        /// filterSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button filterSearch;
         
         /// <summary>
         /// hotelAddedLbl control.
