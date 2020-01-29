@@ -9,7 +9,7 @@ namespace TouristHelp.DAL
 {
     public static class UserDAO
     {
-        private static readonly string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        private static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
         public static bool UserWithEmailExists(string email)
         {
@@ -54,15 +54,15 @@ namespace TouristHelp.DAL
 
     public static class TourGuideDAO
     {
-        private static readonly string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        private static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
         public static List<TourGuide> SelectAllTourGuides()
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.description, TourGuides.languages, TourGuides.credentials " +
-                "From TourGuides " +
-                "Inner Join Users On TourGuides.user_id = Users.user_id";
+            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.tourtitle, TourGuides.description, TourGuides.languages, TourGuides.credentials, TourGuides.tourdescription, TourGuides.tourdetails, TourGuides.tourprice " +
+                "From [TourGuides] " +
+                "Inner Join [Users] On TourGuides.user_id = Users.user_id";
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
@@ -79,11 +79,16 @@ namespace TouristHelp.DAL
                 string name = row["name"].ToString();
                 string password = row["password"].ToString();
                 string email = row["email"].ToString();
+                string tourtitle = row["tourtitle"].ToString();
                 string desc = row["description"].ToString();
                 string languages = row["languages"].ToString();
                 string credentials = row["credentials"].ToString();
+                string tourdesc = row["tourdescription"].ToString();
+                string tourdetails = row["tourdetails"].ToString();
+                decimal tourprice = decimal.Parse(row["tourprice"].ToString());
 
-                TourGuide obj = new TourGuide(id, user_id, name, email, password, desc, languages, credentials);
+
+                TourGuide obj = new TourGuide(id, user_id, name, email, password, tourtitle, desc, languages, credentials, tourdesc, tourdetails, tourprice);
                 userList.Add(obj);
             }
             return userList;
@@ -93,7 +98,7 @@ namespace TouristHelp.DAL
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.tourtitle, TourGuides.description, TourGuides.languages, TourGuides.credentials " +
+            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.tourtitle, TourGuides.description, TourGuides.languages, TourGuides.credentials, TourGuides.tourdescription, TourGuides.tourdetails, TourGuides.tourprice" +
                 "From TourGuides " +
                 "Inner Join Users On TourGuides.user_id = Users.user_id Where TourGuides.tourguide_id = @paraId";
 
@@ -110,11 +115,14 @@ namespace TouristHelp.DAL
                 string name = row["name"].ToString();
                 string password = row["password"].ToString();
                 string email = row["email"].ToString();
+                string tourtitle = row["tourtitle"].ToString();
                 string desc = row["description"].ToString();
                 string languages = row["languages"].ToString();
                 string credentials = row["credentials"].ToString();
-
-                TourGuide obj = new TourGuide(id, user_id, name, email, password, desc, languages, credentials);
+                string tourdesc = row["tourdescription"].ToString();
+                string tourdetails = row["tourdetails"].ToString();
+                decimal tourprice = decimal.Parse(row["tourprice"].ToString());
+                TourGuide obj = new TourGuide(id, user_id, name, email, password, tourtitle, desc, languages, credentials, tourdesc, tourdetails, tourprice);
                 return obj;
             }
             else
@@ -126,7 +134,7 @@ namespace TouristHelp.DAL
         public static TourGuide SelectTourGuideByEmail(string email)
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
-            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.tours, TourGuides.description, TourGuides.languages, TourGuides.credentials " +
+            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.tours, TourGuides.description, TourGuides.languages, TourGuides.credentials TourGuides.tourdescription, TourGuides.tourdetails, TourGuides.tourprice" +
                 "From TourGuides " +
                 "Inner Join Users On TourGuides.user_id = Users.user_id Where Users.email = @paraEmail";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
@@ -142,11 +150,14 @@ namespace TouristHelp.DAL
                 int user_id = int.Parse(row["user_id"].ToString());
                 string name = row["name"].ToString();
                 string password = row["password"].ToString();
+                string tourtitle = row["tourtitle"].ToString();
                 string desc = row["description"].ToString();
                 string languages = row["languages"].ToString();
                 string credentials = row["credentials"].ToString();
-
-                TourGuide obj = new TourGuide(id, user_id, name, email, password, desc, languages, credentials);
+                string tourdesc = row["tourdescription"].ToString();
+                string tourdetails = row["tourdetails"].ToString();
+                decimal tourprice = decimal.Parse(row["tourprice"].ToString());
+                TourGuide obj = new TourGuide(id, user_id, name, email, password, tourtitle, desc, languages, credentials, tourdesc, tourdetails, tourprice);
                 return obj;
             }
             else
@@ -172,14 +183,21 @@ namespace TouristHelp.DAL
             {
                 myConn.Open();
                 int user_id = (int)cmdUsers.ExecuteScalar();
-                string newStmt = "Insert into TourGuides (user_id, tourtitle, description, languages, credentials, tourdescription, tourdetails, tourprice) Values (@paraUser, @paraDesc, @paraLang, @paraCred);";
+                string newStmt = "Insert into TourGuides (user_id, tourtitle, description, languages, credentials, tourdescription, tourdetails, tourprice) Values (@paraUser, @paraTourTitle, @paraDesc, @paraLang, @paraCred, @paraTourDescription, @paraTourDetails, @paraTourPrice);";
 
                 SqlCommand cmdTG = new SqlCommand(newStmt, myConn);
 
                 cmdTG.Parameters.AddWithValue("@paraUser", user_id);
+                cmdTG.Parameters.AddWithValue("@paraTourTitle", tg.TourTitle);
                 cmdTG.Parameters.AddWithValue("@paraDesc", tg.Description);
                 cmdTG.Parameters.AddWithValue("@paraLang", tg.Languages);
                 cmdTG.Parameters.AddWithValue("@paraCred", tg.Credentials);
+                cmdTG.Parameters.AddWithValue("@paraTourDescription", tg.TourDescription);
+                cmdTG.Parameters.AddWithValue("@paraTourDetails", tg.TourDetails);
+                cmdTG.Parameters.AddWithValue("@paraTourPrice", tg.TourPrice);
+
+
+
 
                 cmdTG.ExecuteNonQuery();
             }
@@ -193,13 +211,17 @@ namespace TouristHelp.DAL
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "Update TourGuides Set description = @paraDesc, languages = @paraLang, credentials = @paraCred Where tourguide_id = @paraTG; " +
+            string sqlStmt = "Update TourGuides Set tourtitle = @paraTourTitle, description = @paraDesc, languages = @paraLang, credentials = @paraCred, tourdescription = @paraTourDesc, tourdetails = @paraTourDetails, tourprice = @paraTourPrice Where tourguide_id = @paraTG; " +
                 "Update Users Set name = @paraName, password = @paraPswd, email = @paraEmail Where user_id = @paraUser;";
 
             SqlCommand cmd = new SqlCommand(sqlStmt, myConn);
+            cmd.Parameters.AddWithValue("@paraTourTitle", tg.TourTitle);
             cmd.Parameters.AddWithValue("@paraDesc", tg.Description);
             cmd.Parameters.AddWithValue("@paraLang", tg.Languages);
             cmd.Parameters.AddWithValue("@paraCred", tg.Credentials);
+            cmd.Parameters.AddWithValue("@paraTourDesc", tg.TourDescription);
+            cmd.Parameters.AddWithValue("@paraTourDetails", tg.TourDetails);
+            cmd.Parameters.AddWithValue("@paraTourPrice", tg.TourPrice);
             cmd.Parameters.AddWithValue("@paraTG", tg.TourGuideId);
             cmd.Parameters.AddWithValue("@paraName", tg.Name);
             cmd.Parameters.AddWithValue("@paraPswd", tg.Password);
@@ -220,7 +242,7 @@ namespace TouristHelp.DAL
 
     public static class TouristDAO
     {
-        private static readonly string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        private static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
         public static List<Tourist> SelectAllTourists()
         {
@@ -396,15 +418,15 @@ namespace TouristHelp.DAL
 
     public static class TouristBookingDAO
     {
-        private static readonly string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        private static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
         public static List<TouristBooking> SelectAllTouristBooking()
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             string sqlStmt = "Select TouristBooking.tourist_id, TouristBooking.user_id, Users.name, Users.password, Users.email, TouristBooking.bookings " +
-                "From TouristBooking " +
-                "Inner Join Users On TouristBooking.user_id = Users.user_id";
+                "From [TouristBooking] " +
+                "Inner Join [Users] On TouristBooking.user_id = Users.user_id";
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 

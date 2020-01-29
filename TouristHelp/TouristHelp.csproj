@@ -455,7 +455,6 @@
       <DependentUpon>LoginRegister.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\Direction.cs" />
-    <Compile Include="Models\TouristBooking.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Planner.aspx.cs">
       <DependentUpon>Planner.aspx</DependentUpon>
