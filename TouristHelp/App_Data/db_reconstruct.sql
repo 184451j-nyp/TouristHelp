@@ -1,10 +1,14 @@
 ﻿CREATE TABLE [dbo].[Attraction] (
-    [attractionId]       INT           IDENTITY (1, 1) NOT NULL,
-    [attractionName]     VARCHAR (50)  NOT NULL,
-    [attractionPrice]    MONEY         NOT NULL,
-    [dateTime]           VARCHAR (50)  NULL,
-    [attractionDesc]     VARCHAR (MAX) NOT NULL,
-    [attractionLocation] VARCHAR (50)  NOT NULL, 
+    [attractionId]        INT             IDENTITY (1, 1) NOT NULL,
+    [attractionName]      VARCHAR (50)    NOT NULL,
+    [attractionPrice]     MONEY           NOT NULL,
+    [dateTime]            VARCHAR (50)    NULL,
+    [attractionDesc]      VARCHAR (MAX)   NOT NULL,
+    [attractionLocation]  VARCHAR (50)    NOT NULL,
+    [attractionLatitude]  DECIMAL (18, 8) NULL,
+    [attractionLongitude] DECIMAL (18, 8) NULL,
+    [attractionInterest]  VARCHAR (50)    NOT NULL,
+    [attractionType]      VARCHAR (50)    NOT NULL, 
     CONSTRAINT [PK_Attraction] PRIMARY KEY ([attractionId])
 );
 
@@ -162,4 +166,13 @@ CREATE TABLE [dbo].[TouristBooking] (
     [tourist_id] INT          IDENTITY (1, 1) NOT NULL,
     [bookings]   VARCHAR (50) NULL,
     PRIMARY KEY CLUSTERED ([tourist_id] ASC)
+);
+
+
+CREATE TABLE [dbo].[ReservationFood] (
+    [reservationId]   INT          IDENTITY (1, 1) NOT NULL,
+    [reservationName] VARCHAR (50) NOT NULL,
+    [reservationTime] VARCHAR (50) NOT NULL,
+    [reservationPax]  INT          NOT NULL,
+    [userId]          INT          NOT NULL
 );

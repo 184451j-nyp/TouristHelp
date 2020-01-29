@@ -11,73 +11,74 @@ namespace TouristHelp.DAL
 {
     public static class DirectionDAO
     {
-        public static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        private static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
-        public static List<Direction> SelectAll()
+        public static List<Direction> GetDirByUser(int tourist)
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
-            string sqlStmt = "Select * from Directions";
+            string sqlStmt = "Select Attraction.attractionId, Attraction.attractionName, Attraction.attractionLatitude, Attraction.attractionLongitude, Attraction.attractionType " +
+                "From Directions Inner Join Attraction On Attraction.attractionId = Directions.attraction_id " +
+                "Where tourist_id = @paraId";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraId", tourist);
 
             DataSet ds = new DataSet();
             da.Fill(ds);
 
-            return convertToObj(ds);
-        } 
-
-        public static List<Direction> GetDirectionsByGrp(int grp)
-        {
-            SqlConnection myConn = new SqlConnection(DBConnect);
-            string sqlStmt = "Select * From Directions Where group = @paraGrp Order By group";
-            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
-            da.SelectCommand.Parameters.AddWithValue("@paraGrp", grp.ToString());
-
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            return convertToObj(ds);
-        }
-
-        public static List<int> GetDirGrpByUser(int user_id)
-        {
-            SqlConnection myConn = new SqlConnection(DBConnect);
-            string sqlStmt = "Select Distinct group As DistinctGrps From (Select * From Directions Where user = @paraId";
-            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
-            da.SelectCommand.Parameters.AddWithValue("@paraId", user_id.ToString());
-
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            List<int> list = new List<int>();
+            List<Direction> list = new List<Direction>();
             int rec_cnt = ds.Tables[0].Rows.Count;
             for (int i = 0; i < rec_cnt; i++)
             {
-                DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
-                int id = int.Parse(row["DistinctGrps"].ToString());
-                list.Add(id);
+                DataRow row = ds.Tables[0].Rows[i];
+                int id = int.Parse(row["attractionId"].ToString());
+                string name = row["attractionName"].ToString();
+                double lat = double.Parse(row["attractionLatitude"].ToString());
+                double log = double.Parse(row["attractionLongitude"].ToString());
+                string type = row["attractionType"].ToString();
+                Direction obj = new Direction(id, name, lat, log, type);
+                list.Add(obj);
             }
 
             return list;
         }
 
-        private static List<Direction> convertToObj(DataSet ds)
+        public static void RemoveOneDirByUser(int attraction, int tourist)
         {
-            List<Direction> dirList = new List<Direction>();
-            int rec_cnt = ds.Tables[0].Rows.Count;
-            for (int i = 0; i < rec_cnt; i++)
-            {
-                DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
-                int id = int.Parse(row["id"].ToString());
-                int user = int.Parse(row["user"].ToString());
-                double laat = double.Parse(row["latitude"].ToString());
-                double longi = double.Parse(row["longitude"].ToString());
-                int group = int.Parse(row["group"].ToString());
-                int order = int.Parse(row["order"].ToString());
-                Direction obj = new Direction(id, user, laat, longi, group, order);
-                dirList.Add(obj);
-            }
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            string sqlstmt = "Delete From Directions Where attraction_id = @paraAttraction And tourist_id = @paraTourist";
+            SqlCommand cmd = new SqlCommand(sqlstmt, myConn);
+            cmd.Parameters.AddWithValue("@paraAttraction", attraction);
+            cmd.Parameters.AddWithValue("@paraTourist", tourist);
 
-            return dirList;
+            try
+            {
+                myConn.Open();
+                cmd.ExecuteNonQuery();
+                myConn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        public static void RemovAllDirByUser(int tourist)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            string sqlstmt = "Delete From Directions Where tourist_id = @paraTourist";
+            SqlCommand cmd = new SqlCommand(sqlstmt, myConn);
+            cmd.Parameters.AddWithValue("@paraTourist", tourist);
+
+            try
+            {
+                myConn.Open();
+                cmd.ExecuteNonQuery();
+                myConn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
     }
 }

@@ -185,10 +185,11 @@ figure {
   margin-top: 16px; }
 
 .signup-image-link {
-  font-size: 14px;
+  font-size: 16px;
   color: #222;
   display: block;
-  text-align: center; }
+  text-align: center;
+}
 
 .term-service {
   font-size: 13px;
