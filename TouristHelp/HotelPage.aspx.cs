@@ -17,45 +17,116 @@ namespace TouristHelp
         List<HotelBook> hotelList;
 
 
-       
         protected void Page_Load(object sender, EventArgs e)
         {
 
 
-            if (!Page.IsPostBack)
+            if (!Page.IsPostBack && region.SelectedItem.Value == "Region")
 
             {
 
-                loadRepeater2();
+                regionRepeater();
 
                 if (Session["hotelAdded"] != null)
-                    {
+                {
                     hotelAddedLbl.Text = Session["hotelAdded"].ToString();
                     hotelAddedLbl.Visible = true;
                     hotelAddedLbl.ForeColor = Color.Green;
                 }
 
 
+            }
 
+            else if (Page.IsPostBack && region.SelectedItem.Value == "Region" )
+
+            {
+
+                regionRepeater();
+
+
+                if (Session["hotelAdded"] != null)
+                {
+                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
+                    hotelAddedLbl.Visible = true;
+                    hotelAddedLbl.ForeColor = Color.Green;
+                }
+
+             ;
 
 
             }
 
 
+
+            else if (region.SelectedItem.Value == "North" && !Page.IsPostBack)
+            {
+
+               
+
+                if (Session["hotelAdded"] != null)
+                {
+                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
+                    hotelAddedLbl.Visible = true;
+                    hotelAddedLbl.ForeColor = Color.Green;
+                }
+
+            }
+
+            else if (Page.IsPostBack && region.SelectedItem.Value == "North")
+
+            {
+                northRepeater();
+
+
+
+                if (Session["hotelAdded"] != null)
+                {
+                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
+                    hotelAddedLbl.Visible = true;
+                    hotelAddedLbl.ForeColor = Color.Green;
+
+
+                
+                }
+            }
+
+
+
+
+
+
         }
 
 
 
 
-        private void loadRepeater2()
+        private void regionRepeater()
         {
-            HotelBook hotel = new HotelBook();
-            hotelList = hotel.GetAllHotel();
+            if (region.SelectedItem.Value == "Region")
+            {
+                HotelBook hotel = new HotelBook();
+                hotelList = hotel.GetAllHotel();
 
-            RepeatHotel.DataSource = hotelList;
-            RepeatHotel.DataBind();
+                RepeatHotel.DataSource = hotelList;
+                RepeatHotel.DataBind();
+
+            }
+            
         }
 
+        private void northRepeater()
+        {
+           
+             if (region.SelectedItem.Value == "North")
+            {
+                HotelBook hotel = new HotelBook();
+                hotelList = hotel.getNorthHotels();
+
+                RepeatHotel.DataSource = hotelList;
+                RepeatHotel.DataBind();
+            }
+
+        }
 
         protected void BtnBuy_Click(object sender, EventArgs e)
         {
@@ -159,6 +230,11 @@ namespace TouristHelp
 
             Response.Redirect("HotelPage.aspx");
             return;
+        }
+
+        protected void myListDropDown_Change(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -3,36 +3,73 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <form id="form" runat="server">
-
-
-
-
-
-        <div class="row">
-            <asp:Label ID="tourguidenameLabel" CssClass="col-1" runat="server" Text="Name:"></asp:Label>
-            <asp:Label ID="tourguidenameLabel2" CssClass="col-1" runat="server"></asp:Label>
-
-            <asp:Label ID="tourguidedescriptionLabel" CssClass="col-1" runat="server" Text="Description:"></asp:Label>
-            <asp:Label ID="tourguidedescriptionLabel2" CssClass="col-1" runat="server"></asp:Label>
-
-            <asp:Label ID="tourguidelanguagesLabel" CssClass="col-1" runat="server" Text="Languages:"></asp:Label>
-            <asp:Label ID="tourguidelanguagesLabel2" CssClass="col-1" runat="server"></asp:Label>
-
-
-
-
-
-
-
-
+    <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+                <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '80%', opacity: 1.6 }">Tour Guide Details</h1>
+                </div>
+            </div>
         </div>
+    </div>
 
-        <asp:Button ID="ButtonRedirect"
-            Text="View Tours"
-            OnClick="RedirectBtn_Click"
-            runat="server" />
+
+
+
+    <form id="form" runat="server">
+        <div class="col-lg-12 ftco-animate">
+
+            <div class="row">
+                <asp:Label ID="tourguidenameLabel" CssClass="col-2" runat="server" Font-Size="15" Text="Name:"></asp:Label>
+                <asp:Label ID="tourguidenameLabel2" CssClass="col-2" runat="server" Font-Size="15"></asp:Label>
+            </div>
+
+              <div class="row">
+
+                <asp:Label ID="tourguideidLabel" CssClass="col-2" runat="server" Font-Size="15" Text="Tour Guide Id:"></asp:Label>
+                <asp:Label ID="tourguideidLabel2" CssClass="col-5" runat="server" Font-Size="15"></asp:Label>
+
+
+            </div>
+
+
+
+            <div class="row">
+
+                <asp:Label ID="tourguidedescriptionLabel" CssClass="col-2" runat="server" Font-Size="15" Text="Description:"></asp:Label>
+                <asp:Label ID="tourguidedescriptionLabel2" CssClass="col-5" runat="server" Font-Size="15"></asp:Label>
+            </div>
+            <div class="row">
+
+                <asp:Label ID="tourguidelanguagesLabel" CssClass="col-2" runat="server" Font-Size="15" Text="Languages:"></asp:Label>
+                <asp:Label ID="tourguidelanguagesLabel2" CssClass="col-5" runat="server" Font-Size="15"></asp:Label>
+
+
+            </div>
+
+              <div class="row">
+
+                <asp:Label ID="tourguidecredentialsLabel" CssClass="col-2" runat="server" Font-Size="15" Text="Credentials:"></asp:Label>
+                <asp:Label ID="tourguidecredentialsLabel2" CssClass="col-5" runat="server" Font-Size="15"></asp:Label>
+
+
+            </div>
+
+
+
+            <asp:Button ID="ButtonRedirect"
+                Text="View Tours"
+                Font-Size="15"
+                Style="float: right"
+                OnClick="RedirectBtn_Click"
+                runat="server" />
+        </div>
     </form>
+
+
+
+
 
     <style>
         div.menu ul li {

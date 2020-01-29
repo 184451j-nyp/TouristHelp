@@ -32,6 +32,235 @@
 
         <form id="frm" runat="server">
 
+
+
+
+
+
+
+            <br />
+
+            
+<div class="wrapper">
+
+            <section class="ftco-section">
+      <div class="container">
+        <div class="row">
+        	<div class="col-lg-12 sidebar order-md-last ftco-animate">
+        		<div class="sidebar-wrap ftco-animate">
+        			<h3 class="heading mb-4">Find Hotels</h3>
+        				<div class="fields">
+		                   <div class="form-group">
+		                <div class="select-wrap one-third">
+	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+	         
+
+                                 <asp:DropDownList ID="region"  class="form-control" style="width:20%;margin-left:41%;" placeholder="Region"   runat="server" AutoPostBack="True">
+                                                            <asp:ListItem Selected="False" Value="Region"></asp:ListItem>
+                                                            <asp:ListItem>Central</asp:ListItem>
+                                                            <asp:ListItem>North</asp:ListItem>
+                                                            <asp:ListItem>South</asp:ListItem>
+                                                            <asp:ListItem>West</asp:ListItem>
+                                                            <asp:ListItem>East</asp:ListItem>
+  
+                                                        </asp:DropDownList>
+	                  </div>
+		              </div>
+		    
+
+
+
+
+
+
+
+
+
+
+
+		          
+		        <%--      <div class="form-group">
+		              	<div class="range-slider">
+		              		<span>
+										    <input type="number" value="300" min="0" id="minPrice" max="120000"/>	-
+										    <input type="number" value="300" min="0" id="maxPrice" max="120000"/>
+										  </span>
+										  <input value="1000" min="0" max="120000" step="500" type="range"/>
+										  <input value="50000" min="0" max="120000" step="500" type="range"/>
+										</div>
+		              </div>--%>
+
+
+                            <asp:Label ID="minPriceLbl"  runat="server" Text="Minimum Price"></asp:Label>
+
+                                                    <div class="slidecontainer">
+                          <input type="range" min="100"  max="10000" value="100" class="slider" id="minPrice">
+                          <p>Price: <span id="minPriceIndicator"></span></p>
+                        </div>
+
+
+
+
+
+
+
+
+                        <script>
+                        var minSlider = document.getElementById("minPrice");
+                            var minOutput = document.getElementById("minPriceIndicator");
+                            minOutput.innerHTML = minSlider.value;
+
+                            minSlider.oninput = function () {
+                                minOutput.innerHTML = this.value;
+                        }
+                        </script>
+
+
+
+                            
+                            <asp:Label ID="maximumPriceLbl" runat="server" Text="Maximum Price"></asp:Label>
+
+                                                    <div class="slidecontainer">
+                          <input type="range" min="100" max="10000"  value="100" class="slider" id="maxPrice">
+                          <p>Price:  <span id="maxPriceIndicator" ></span></p>
+                        </div>
+
+
+
+
+
+
+
+
+                        <script>
+                        var maxSlider = document.getElementById("maxPrice");
+                            var maxOutput = document.getElementById("maxPriceIndicator");
+                            maxOutput.innerHTML = maxSlider.value;
+
+                            maxSlider.oninput = function () {
+                          maxOutput.innerHTML = this.value;
+                        }
+                        </script>
+
+
+
+
+		              <div class="form-group">
+		                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
+		              </div>
+		            </div>
+
+                                                    <script>
+                                var slider = document.getElementById("myRange");
+                                var output = document.getElementById("demo");
+                                output.innerHTML = slider.value;
+
+                                slider.oninput = function() {
+                                  output.innerHTML = this.value;
+                                }
+                                </script>
+
+
+
+
+                 
+                        <style>
+
+                            span#ContentPlaceHolder1_minPriceLbl {
+                               
+                            }
+                            
+
+                              button, input, optgroup, select, textarea {
+    font-family: unset;
+
+
+
+               f {
+                      margin-left:40%;
+                  }
+
+
+
+
+
+    .slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 10px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url('contrasticon.png');
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 23px;
+  height: 24px;
+  border: 0;
+  background: url('contrasticon.png');
+  cursor: pointer;
+}
+
+              
+}
+                          </style>
+
+                       
+        		</div>
+
+
+          </div><!-- END-->
+
+          
+          </div> <!-- .col-md-8 -->
+        </div>
+    </section> <!-- .section -->
+
+
+    </div>
+
+            <style>
+                div.fields{
+                    border-style: solid;
+                    text-align:center;
+                    width:89%;
+                }
+
+
+            </style>
+
+
+
+
+
+
+
+
+
+
+
+
           <asp:Label ID="hotelAddedLbl" runat="server" visible="false" Text="Label"></asp:Label>
 
 
@@ -62,7 +291,7 @@
 
                             <div>
 
-                                <asp:Repeater ID="RepeatHotel" runat="server" OnItemCommand="RepeatHotel_ItemCommand" >
+                                <asp:Repeater ID="RepeatHotel" runat="server" EnableViewState="false"  OnItemCommand="RepeatHotel_ItemCommand" >
 
                                     <ItemTemplate>
 
@@ -103,7 +332,7 @@
 
                                                         <asp:Label ID="roomQtyLbl" runat="server" Text="Rooms"></asp:Label>
 
-                                                        <asp:DropDownList ID="roomQty" runat="server" AutoPostBack="True">
+                                                        <asp:DropDownList ID="roomQty" runat="server" OnSelectedIndexChanged="myListDropDown_Change" AutoPostBack="False">
                                                             <asp:ListItem Selected="True" Value="1"></asp:ListItem>
                                                             <asp:ListItem>2</asp:ListItem>
                                                             <asp:ListItem>3</asp:ListItem>
@@ -122,12 +351,12 @@
 
 
    
-                                                                                                                                <div class="col-5">
+                                                                                                                                <div class="col-6">
 
 
                                                                    <asp:Label ID="durationLbl" runat="server" Text="Days"></asp:Label>
 
-                                                        <asp:DropDownList ID="durationQty" runat="server" AutoPostBack="True">
+                                                        <asp:DropDownList ID="durationQty" runat="server" AutoPostBack="False">
                                                             <asp:ListItem Selected="True" Value="1"></asp:ListItem>
                                                             <asp:ListItem>2</asp:ListItem>
                                                             <asp:ListItem>3</asp:ListItem>
@@ -194,142 +423,15 @@
 
                                 
 
-<%--
-             <asp:ScriptManager ID="ScriptManager69" runat="server">
-
-                 </asp:ScriptManager>
-
-
-                                         <section class="ftco-section">
-      <div class="container">
-        <div class="row">
-        	<div class="col-lg-12 sidebar order-md-last ftco-animate">
-        		<div class="sidebar-wrap ftco-animate">
-        			<h3 class="heading mb-4">Find City</h3>
-        				<div class="fields">
-		                   <div class="form-group">
-		                <div class="select-wrap one-third">
-	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control" placeholder="Region">
-	                      <option value="">Region</option>
-	                      <option value="">North</option>
-	                      <option value="">South</option>
-	                      <option value="">East</option>
-	                      <option value="">West</option>
-	                    </select>
-	                  </div>
-		              </div>
-		              <div class="form-group">
-		                <div class="select-wrap one-third">
-	                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-	                    <select name="" id="" class="form-control" placeholder="Keyword search">
-	                      <option value="">Select Location</option>
-	                      <option value="">Ang Mo Kio</option>
-	                      <option value="">Bishan</option>
-	                      <option value="">Khatib</option>
-	                      <option value="">Sembawang</option>
-                          <option value="">Yishun</option>
-
-	                    </select>
-	                  </div>
-		              </div>
-
-
-                        <span>
-		              <span class="form-group">
-                         <asp:TextBox ID="checkInTB" runat="server">Check In</asp:TextBox>
-
-                          
-                          <ajaxToolkit:PopupControlExtender ID="checkIn_PopupControlExtender"  BehaviorID="checkIn_PopupControlExtender"   PopupControlID="CheckInPanel" Position="Bottom" TargetControlID="checkInTB" runat="server"></ajaxToolkit:PopupControlExtender>
-
-                          <br />
-
-                            <asp:Panel ID="CheckInPanel" style="background-color:white;" runat="server">
-                             <asp:UpdatePanel ID="updateCheckinPanel"  runat="server">
-                                 <ContentTemplate>
-
-
-                                     <asp:Calendar ID="checkInCalender" runat="server" OnSelectionChanged="checkInCalender_SelectionChanged"></asp:Calendar>
-                            
-                                    
-
-                                 </ContentTemplate>
-
-                             </asp:UpdatePanel>
-                                </asp:Panel>
-
-		              </span>
-
-                           
 
 
 
 
-                            
-		              <span class="form-group">
-
-                         <asp:TextBox ID="checkOutTB" runat="server">Check Out</asp:TextBox>
-
-                          
-                          <ajaxToolkit:PopupControlExtender ID="checkOut_PopupControlExtender"  BehaviorID="checkOut_PopupControlExtender"  PopupControlID="checkOutPanel" Position="Bottom" TargetControlID="checkOutTB" runat="server"></ajaxToolkit:PopupControlExtender>
-
-                          <br />
-
-                            <asp:Panel ID="checkOutPanel" style="background-color:white;" runat="server">
-                             <asp:UpdatePanel ID="updateCheckOutPanel" runat="server">
-                                 <ContentTemplate>
-                                     <asp:Calendar ID="checkOutCalendar" runat="server" OnSelectionChanged="checkOutCalendar_SelectionChanged"></asp:Calendar>
-                                 </ContentTemplate>
-
-                             </asp:UpdatePanel>
-                                </asp:Panel>
-
-		              </span>
-
-                            </span>
-
-
-		          
-		              <div class="form-group">
-		              	<div class="range-slider">
-		              		<span>
-										    <input type="number" value="25000" min="0" max="120000"/>	-
-										    <input type="number" value="50000" min="0" max="120000"/>
-										  </span>
-										  <input value="1000" min="0" max="120000" step="500" type="range"/>
-										  <input value="50000" min="0" max="120000" step="500" type="range"/>
-										  </svg>
-										</div>
-		              </div>
-		              <div class="form-group">
-		                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-		              </div>
-		            </div>
 
 
 
 
-                        <style>
-                            
 
-                              button, input, optgroup, select, textarea {
-    font-family: -webkit-pictograph;
-   
-}
-                          </style>
-
-
-                       
-        		</div>
-        	
-
-
-          </div><!-- END-->
-
-          
-          </div> <!-- .col-md-8 -->
-        </div>
-    </section> <!-- .section -->--%>
 
 
 

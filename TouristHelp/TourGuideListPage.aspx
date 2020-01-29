@@ -19,30 +19,40 @@
                             <div class="d-flex">
                                 <div class="one">
                                     <td>
-                                        <asp:Label ID="LbName" runat="server" Text='<%#Eval("Name") %>'></asp:Label></td>
+                                        <label></label>
+                                        <asp:Label ID="LbName" runat="server" Font-Size="15" Text='<%#Eval("Name") %>'></asp:Label></td>
                                     <asp:Label ID="LbEmail" runat="server" Visible="false" Text='<%#Eval("Email") %>'></asp:Label></td>
                                            <asp:Label ID="LbuserId" runat="server" Visible="false" Text='<%#Eval("UserId") %>'></asp:Label></td>
                                          <asp:Label ID="LbtourguideId" runat="server" Visible="false" Text='<%#Eval("TourGuideId") %>'></asp:Label></td>
 
                                 </div>
+                                <td>
+                                    <asp:Label ID="LbCredentials" runat="server" Font-Size="15" Visible="false" Text='<%#Eval("Credentials") %>'></asp:Label></td>
+                                <asp:Label ID="Lbtourdescription" runat="server" Visible="false" Text='<%#Eval("TourDescription") %>'></asp:Label></td>
+                                                                         <asp:Label ID="Lbtourdetails" runat="server" Visible="false" Text='<%#Eval("TourDetails") %>'></asp:Label></td>
+                                                                         <asp:Label ID="Lbtourprice" runat="server" Visible="false" Text='<%#Eval("TourPrice") %>'></asp:Label></td>
+
+
+
 
                             </div>
                             <td>
                                 <asp:Label ID="LbPassword" runat="server" Visible="false" Text='<%#Eval("Password") %>'></asp:Label></td>
 
-                            <asp:Label ID="LbTours" runat="server" Visible="false" Text='<%#Eval("Tours") %>'></asp:Label></td>
-                            <asp:Label ID="LbDescription" runat="server" Text='<%#Eval("Description") %>'></asp:Label></td>
+                            <asp:Label ID="LbTours" runat="server" Visible="false" Text='<%#Eval("TourTitle") %>'></asp:Label></td>
+                            <asp:Label ID="LbDescription" runat="server" Font-Size="15" Text='<%#Eval("Description") %>'></asp:Label></td>
+                                                        <p class="bottom-area d-flex">
 
-                            <hr>
-                            <p class="bottom-area d-flex">
-                                <td>
-                                    <asp:Label ID="LbLanguages" runat="server" Text='<%#Eval("Languages") %>'></asp:Label></td>
-                                <asp:Label ID="LbCredentials" runat="server" Text='<%#Eval("Credentials") %>'></asp:Label></td>
+                                                            <td>
+                                                                <asp:Label ID="LbLanguages" runat="server" Font-Size="15" Text='<%#Eval("Languages") %>'></asp:Label></td>
 
-                            </p>
+                                                        </p>
+
                             <td>
-                                <asp:LinkButton ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
+                                <asp:LinkButton ID="LinkButton1" runat="server" Font-Size="15">Learn More</asp:LinkButton>
                             </td>
+                            <hr>
+
                             <td></td>
                         </div>
                     </div>

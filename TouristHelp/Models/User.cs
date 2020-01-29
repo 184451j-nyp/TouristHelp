@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using TouristHelp.DAL;
 
 namespace TouristHelp.Models
 {
@@ -32,41 +31,28 @@ namespace TouristHelp.Models
     public class TourGuide : User
     {
         public int? TourGuideId { get; set; }
-        public string Tours { get; set; }
+        public string TourTitle { get; set; }
         public string Description { get; set; }
         public string Languages { get; set; }
         public string Credentials { get; set; }
+        public string TourDescription { get; set; }
+        public string TourDetails { get; set; }
+        public decimal TourPrice { get; set; }
 
-        public TourGuide(string name, string email, string pswd, string tours, string description, string languages, string credentials):base(name, email, pswd)
+        public TourGuide(string name, string email, string pswd, string description, string languages, string credentials):base(name, email, pswd)
         {
             TourGuideId = null;
-            Tours = tours;
             Description = description;
             Languages = languages;
             Credentials = credentials;
         }
-        public TourGuide(int tourguide_id, int user_id, string name, string email, string pswd, string tours, string description, string languages, string credentials):base(user_id, name, email, pswd)
+        public TourGuide(int tourguide_id, int user_id, string name, string email, string pswd, string description, string languages, string credentials) :base(user_id, name, email, pswd)
         {
             TourGuideId = tourguide_id;
-            Tours = tours;
             Description = description;
             Languages = languages;
             Credentials = credentials;
         }
-
-        public static List<TourGuide> GetAllTourGuide()
-        {
-            return TourGuideDAO.SelectAllTourGuides();
-        }
-
-        
-
-        public static void UpdateTourGuide(TourGuide tg)
-        {
-            TourGuideDAO.UpdateTourGuide(tg);
-        }
-
-       
     }
 
     public class Tourist : User
@@ -82,11 +68,6 @@ namespace TouristHelp.Models
         {
             TouristId = touristId;
             Nationality = nationality;
-        }
-
-        public void InsertBooking(string booking)
-        {
-            TouristDAO.InsertBooking(booking);
         }
     }
 }

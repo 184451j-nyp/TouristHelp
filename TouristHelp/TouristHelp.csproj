@@ -165,6 +165,7 @@
     <Content Include="Images\gallery\service_bg_2.png" />
     <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\goldMember.jpg" />
+    <Content Include="Images\hiltonGarden.jpg" />
     <Content Include="Images\iconicFood.jpg" />
     <Content Include="Images\icon\left.svg" />
     <Content Include="Images\icon\long-arrow-pointing-to-the-right.svg" />
@@ -177,10 +178,12 @@
     <Content Include="Images\insta\instagram_4.png" />
     <Content Include="Images\insta\instagram_5.png" />
     <Content Include="Images\insta\instagram_6.png" />
+    <Content Include="Images\katong.jpg" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\marinaBay.png" />
     <Content Include="Images\Marriott.jpg" />
     <Content Include="Images\Orchard.jpg" />
+    <Content Include="Images\parkAvenue.jpg" />
     <Content Include="Images\post\next.png" />
     <Content Include="Images\post\post_1.png" />
     <Content Include="Images\post\post_10.png" />
@@ -346,8 +349,6 @@
     <Content Include="TicketList.aspx" />
     <Content Include="TourDetailsPage.aspx" />
     <Content Include="TourGuideDetails.aspx" />
-    <Content Include="TourGuideListPage.aspx" />
-    <Content Include="TourGuideUpdateDetails.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -375,6 +376,7 @@
     <Compile Include="BLL\Interest.cs" />
     <Compile Include="BLL\Food_Reservation.cs" />
     <Compile Include="BLL\Reward.cs" />
+    <Compile Include="BLL\SHA256Hash.cs" />
     <Compile Include="BLL\ShopVoucher.cs" />
     <Compile Include="BLL\Ticket.cs" />
     <Compile Include="BLL\Transactions.cs" />
@@ -450,6 +452,7 @@
       <DependentUpon>LoginRegister.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\Direction.cs" />
+    <Compile Include="Models\TouristBooking.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Planner.aspx.cs">
       <DependentUpon>Planner.aspx</DependentUpon>
@@ -549,20 +552,6 @@
     </Compile>
     <Compile Include="TourGuideDetails.aspx.designer.cs">
       <DependentUpon>TourGuideDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TourGuideListPage.aspx.cs">
-      <DependentUpon>TourGuideListPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TourGuideListPage.aspx.designer.cs">
-      <DependentUpon>TourGuideListPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TourGuideUpdateDetails.aspx.cs">
-      <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TourGuideUpdateDetails.aspx.designer.cs">
-      <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransactionPage.aspx.cs">
       <DependentUpon>TransactionPage.aspx</DependentUpon>

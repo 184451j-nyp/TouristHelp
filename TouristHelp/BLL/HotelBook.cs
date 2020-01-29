@@ -12,23 +12,27 @@ namespace TouristHelp.BLL
         public int hotelId { get; set; }
         public decimal hotelPrice { get; set; }
         public string hotelImage { get; set; }
-        public bool regionFilter { get; set; }
-        public int minPrice { get; set; }
-        public int maxPrice { get; set; }
+        public bool centralFilter { get; set; }
+        public bool northFilter { get; set; }
+        public bool southFilter { get; set; }
+        public bool westFilter { get; set; }
+        public bool eastFilter { get; set; }
         public string hotelName { get; set; }
 
         public HotelBook()
         {
         }
 
-        public HotelBook(int hotelid, decimal hotelprice, string hotelimage, bool regionfilter, int minprice, int maxprice, string hotelname )
+        public HotelBook(int hotelid, decimal hotelprice, string hotelimage, bool centralfilter, bool northfilter, bool southfilter, bool westfilter, bool eastfilter, string hotelname )
         {
             this.hotelId = hotelid;
             this.hotelPrice = hotelprice;
             this.hotelImage = hotelimage;
-            this.regionFilter = regionfilter;
-            this.minPrice = minprice;
-            this.maxPrice = maxPrice;
+            this.centralFilter = centralFilter;
+            this.northFilter = northfilter;
+            this.southFilter = southfilter;
+            this.westFilter = westfilter;
+            this.eastFilter = eastfilter;
             this.hotelName = hotelname;
         }
 
@@ -47,7 +51,11 @@ namespace TouristHelp.BLL
         }
 
 
-
+        public List<HotelBook> getNorthHotels()
+        {
+            HotelBookDAO dao = new HotelBookDAO();
+            return dao.getNorthHotels();
+        }
 
     }
 }

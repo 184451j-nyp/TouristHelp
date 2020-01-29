@@ -16,6 +16,8 @@ namespace TouristHelp
                 tourguidenameLabel2.Text = (string)Session["SSName"];
                 tourguidedescriptionLabel2.Text = (string)Session["SSDescription"];
                 tourguidelanguagesLabel2.Text = (string)Session["SSLanguages"];
+                tourguideidLabel2.Text = (string)Session["SSTourGuideId"];
+                tourguidecredentialsLabel2.Text = (string)Session["SSCredentials"];
             }
         }
 
