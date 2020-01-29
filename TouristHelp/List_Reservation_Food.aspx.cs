@@ -16,6 +16,24 @@ namespace TouristHelp
         {
             if (!Page.IsPostBack)
             {
+                if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+
+                else
+                {
+
+                    try
+                    {
+                        Label1.Text = Session["tourist_id"].ToString();
+                    }
+                    catch (NullReferenceException)
+                    {
+                        Label1.Text = Session["tourguide_id"].ToString();
+                    }
+
+                }
                 loadRepeater();
             }
         }
@@ -23,7 +41,7 @@ namespace TouristHelp
         private void loadRepeater()
         {
             Food_Reservation actt = new Food_Reservation();
-            resList = actt.GetReservationById(1);
+            resList = actt.GetReservationById(int.Parse(Session["tourist_id"].ToString()));
             
             RepeaterReserves.DataSource = resList;
             RepeaterReserves.DataBind();

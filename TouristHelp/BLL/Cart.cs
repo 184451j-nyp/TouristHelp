@@ -8,6 +8,7 @@ namespace TouristHelp.BLL
 {
     public class Cart
     {
+        public int productId { get; set; }
         public string productName { get; set; }
         public string productDesc { get; set; }
         public double productPrice { get; set; }
@@ -19,8 +20,9 @@ namespace TouristHelp.BLL
 
         }
 
-        public Cart(string productname, string productdesc, double productprice, int productquantity, double producttotalprice)
+        public Cart(int productid, string productname, string productdesc, double productprice, int productquantity, double producttotalprice)
         {
+            productId = productid;
             productName = productname;
             productDesc = productdesc;
             productPrice = productprice;
@@ -37,7 +39,11 @@ namespace TouristHelp.BLL
             userId = user_Id;
         }
 
-
+        public Cart(int productid, int productquantity)
+        {
+            productId = productid;
+            productQuantity = productquantity;
+        }
         
         public List<Cart> GetAllItems(int userid)
         {
@@ -45,10 +51,10 @@ namespace TouristHelp.BLL
             return dao.SelectCartById(userid);
         }
 
-        public void UpdateCart(int quantity)
+        public void UpdateCart(int productId, int productQuantity)
         {
             CartDAO dao = new CartDAO();
-            dao.UpdateItem(quantity);
+            dao.UpdateItem(productId, productQuantity);
         }
 
         public void InsertCartTicket()
@@ -63,9 +69,10 @@ namespace TouristHelp.BLL
             cart.InsertTicket(this);
         }
 
-        public void InsertCart()
+        public void ItemPay(int userId)
         {
-
+            CartDAO cart = new CartDAO();
+            cart.ItemPay(userId);
         }
     }
 }

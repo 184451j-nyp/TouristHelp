@@ -82,8 +82,8 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Attraction (attractionName, attractionPrice, dateTime, attractionDesc, attractionLocation)" +
-                             "VALUES (@paraName, @paraPrice, @paraDate, @paraDesc, @paraLoc)";
+            string sqlStmt = "INSERT INTO Attraction (attractionName, attractionPrice, dateTime, attractionDesc, attractionLocation, attractionLatitude, attractionLongitude, attractionInterest, attractionType)" +
+                             "VALUES (@paraName, @paraPrice, @paraDate, @paraDesc, @paraLoc, @paraLat, @paraLong, @paraInt, @paraType)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -92,7 +92,12 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraPrice", att.Price);
             sqlCmd.Parameters.AddWithValue("@paraDate", att.DateTime);
             sqlCmd.Parameters.AddWithValue("@paraDesc", att.Description);
-            sqlCmd.Parameters.AddWithValue("paraLoc", att.Location);
+            sqlCmd.Parameters.AddWithValue("@paraLoc", att.Location);
+            sqlCmd.Parameters.AddWithValue("@paraLat", att.Latitude);
+            sqlCmd.Parameters.AddWithValue("@paraLong", att.Longitude);
+            sqlCmd.Parameters.AddWithValue("@paraInt", att.Interest);
+            sqlCmd.Parameters.AddWithValue("@paraType", att.Type);
+
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();

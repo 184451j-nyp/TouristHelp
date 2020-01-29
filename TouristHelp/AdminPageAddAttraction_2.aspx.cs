@@ -17,7 +17,7 @@ namespace TouristHelp
 
         protected void BtnAdd_Click(object sender, EventArgs e)
         {
-            Attraction att = new Attraction(TbName.Text, float.Parse(TbPrice.Text), TbDate.Text, TbDesc.Text, TbLocation.Text);
+            Attraction att = new Attraction(TbName.Text, float.Parse(TbPrice.Text), TbDate.Text, TbDesc.Text, TbLocation.Text, decimal.Parse(TbLat.Text), decimal.Parse(TbLong.Text), TbInterest.Text, TbType.Text);
             att.AddAttraction(att);
             Response.Redirect("AdminPageAddAttraction.aspx");
         }
