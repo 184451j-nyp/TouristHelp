@@ -41,6 +41,7 @@ namespace TouristHelp.DAL
                 bool westFilter = Convert.ToBoolean(row["westFilter"]);
                 bool eastFilter = Convert.ToBoolean(row["eastFilter"]);
                 string hotelName = row["hotelName"].ToString();
+          
 
 
 
@@ -83,7 +84,7 @@ namespace TouristHelp.DAL
                 bool westFilter = Convert.ToBoolean(row["westFilter"]);
                 bool eastFilter = Convert.ToBoolean(row["eastFilter"]);
                 string hotelName = row["hotelName"].ToString();
-
+                
 
                 HotelBook obj = new HotelBook(hotelId, hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
                 empList.Add(obj);
@@ -94,6 +95,47 @@ namespace TouristHelp.DAL
 
 
 
+        public List<HotelBook> getCentralHotels()
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from web.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Step 2 -  Create a DataAdapter to retrieve data from the database table
+            string sqlStmt = "Select * from HotelBook " +
+                                "WHERE centralFilter = 1 ";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            //Step 3 -  Create a DataSet to store the data to be retrieved
+            DataSet ds = new DataSet();
+
+            //Step 4 -  Use the DataAdapter to fill the DataSet with data retrieved
+            da.Fill(ds);
+
+            //Step 5 -  Read data from DataSet to List
+            List<HotelBook> empList = new List<HotelBook>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
+                int hotelId = Convert.ToInt32(row["hotelId"]);
+                decimal hotelPrice = Convert.ToDecimal(row["hotelPrice"]);
+                string hotelImage = row["hotelImage"].ToString();
+                bool centralFilter = Convert.ToBoolean(row["centralFilter"]);
+                bool northFilter = Convert.ToBoolean(row["northFilter"]);
+                bool southFilter = Convert.ToBoolean(row["southFilter"]);
+                bool westFilter = Convert.ToBoolean(row["westFilter"]);
+                bool eastFilter = Convert.ToBoolean(row["eastFilter"]);
+                string hotelName = row["hotelName"].ToString();
+              
+
+                HotelBook obj = new HotelBook(hotelId, hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                empList.Add(obj);
+            }
+
+            return empList;
+        }
 
 
         public List<HotelBook> getNorthHotels()
@@ -129,7 +171,7 @@ namespace TouristHelp.DAL
                 bool westFilter = Convert.ToBoolean(row["westFilter"]);
                 bool eastFilter = Convert.ToBoolean(row["eastFilter"]);
                 string hotelName = row["hotelName"].ToString();
-
+                
 
                 HotelBook obj = new HotelBook(hotelId, hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
                 empList.Add(obj);
@@ -137,5 +179,189 @@ namespace TouristHelp.DAL
 
             return empList;
         }
+
+
+
+
+        public List<HotelBook> getSouthHotels()
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from web.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Step 2 -  Create a DataAdapter to retrieve data from the database table
+            string sqlStmt = "Select * from HotelBook " +
+                                "WHERE southFilter = 1 ";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            //Step 3 -  Create a DataSet to store the data to be retrieved
+            DataSet ds = new DataSet();
+
+            //Step 4 -  Use the DataAdapter to fill the DataSet with data retrieved
+            da.Fill(ds);
+
+            //Step 5 -  Read data from DataSet to List
+            List<HotelBook> empList = new List<HotelBook>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
+                int hotelId = Convert.ToInt32(row["hotelId"]);
+                decimal hotelPrice = Convert.ToDecimal(row["hotelPrice"]);
+                string hotelImage = row["hotelImage"].ToString();
+                bool centralFilter = Convert.ToBoolean(row["centralFilter"]);
+                bool northFilter = Convert.ToBoolean(row["northFilter"]);
+                bool southFilter = Convert.ToBoolean(row["southFilter"]);
+                bool westFilter = Convert.ToBoolean(row["westFilter"]);
+                bool eastFilter = Convert.ToBoolean(row["eastFilter"]);
+                string hotelName = row["hotelName"].ToString();
+              
+
+                HotelBook obj = new HotelBook(hotelId, hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                empList.Add(obj);
+            }
+
+            return empList;
+        }
+
+
+        public List<HotelBook> getWestHotels()
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from web.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Step 2 -  Create a DataAdapter to retrieve data from the database table
+            string sqlStmt = "Select * from HotelBook " +
+                                "WHERE westFilter = 1 ";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            //Step 3 -  Create a DataSet to store the data to be retrieved
+            DataSet ds = new DataSet();
+
+            //Step 4 -  Use the DataAdapter to fill the DataSet with data retrieved
+            da.Fill(ds);
+
+            //Step 5 -  Read data from DataSet to List
+            List<HotelBook> empList = new List<HotelBook>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
+                int hotelId = Convert.ToInt32(row["hotelId"]);
+                decimal hotelPrice = Convert.ToDecimal(row["hotelPrice"]);
+                string hotelImage = row["hotelImage"].ToString();
+                bool centralFilter = Convert.ToBoolean(row["centralFilter"]);
+                bool northFilter = Convert.ToBoolean(row["northFilter"]);
+                bool southFilter = Convert.ToBoolean(row["southFilter"]);
+                bool westFilter = Convert.ToBoolean(row["westFilter"]);
+                bool eastFilter = Convert.ToBoolean(row["eastFilter"]);
+                string hotelName = row["hotelName"].ToString();
+              
+
+                HotelBook obj = new HotelBook(hotelId, hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                empList.Add(obj);
+            }
+
+            return empList;
+        }
+
+
+        public List<HotelBook> getEastHotels()
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from web.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Step 2 -  Create a DataAdapter to retrieve data from the database table
+            string sqlStmt = "Select * from HotelBook " +
+                                "WHERE eastFilter = 1 ";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            //Step 3 -  Create a DataSet to store the data to be retrieved
+            DataSet ds = new DataSet();
+
+            //Step 4 -  Use the DataAdapter to fill the DataSet with data retrieved
+            da.Fill(ds);
+
+            //Step 5 -  Read data from DataSet to List
+            List<HotelBook> empList = new List<HotelBook>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
+                int hotelId = Convert.ToInt32(row["hotelId"]);
+                decimal hotelPrice = Convert.ToDecimal(row["hotelPrice"]);
+                string hotelImage = row["hotelImage"].ToString();
+                bool centralFilter = Convert.ToBoolean(row["centralFilter"]);
+                bool northFilter = Convert.ToBoolean(row["northFilter"]);
+                bool southFilter = Convert.ToBoolean(row["southFilter"]);
+                bool westFilter = Convert.ToBoolean(row["westFilter"]);
+                bool eastFilter = Convert.ToBoolean(row["eastFilter"]);
+                string hotelName = row["hotelName"].ToString();
+               
+
+                HotelBook obj = new HotelBook(hotelId, hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                empList.Add(obj);
+            }
+
+            return empList;
+        }
+
+
+
+
+
+        public List<HotelBook> getHotelsByPrice(int minPriceFilter, int maxPriceFilter)
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from web.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Step 2 -  Create a DataAdapter to retrieve data from the database table
+            string sqlStmt = "Select * from HotelBook " +
+                                "WHERE hotelPrice >= @paraMinPriceFilter AND " +
+                                "maxPriceFilter <= @paraMaxPriceFilter";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraMinPriceFilter", minPriceFilter);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraMaxPriceFilter", maxPriceFilter);
+
+            //Step 3 -  Create a DataSet to store the data to be retrieved
+            DataSet ds = new DataSet();
+
+            //Step 4 -  Use the DataAdapter to fill the DataSet with data retrieved
+            da.Fill(ds);
+
+            //Step 5 -  Read data from DataSet to List
+            List<HotelBook> empList = new List<HotelBook>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
+                int hotelId = Convert.ToInt32(row["hotelId"]);
+                decimal hotelPrice = Convert.ToDecimal(row["hotelPrice"]);
+                string hotelImage = row["hotelImage"].ToString();
+                bool centralFilter = Convert.ToBoolean(row["centralFilter"]);
+                bool northFilter = Convert.ToBoolean(row["northFilter"]);
+                bool southFilter = Convert.ToBoolean(row["southFilter"]);
+                bool westFilter = Convert.ToBoolean(row["westFilter"]);
+                bool eastFilter = Convert.ToBoolean(row["eastFilter"]);
+                string hotelName = row["hotelName"].ToString();
+                
+
+                HotelBook obj = new HotelBook(hotelId, hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                empList.Add(obj);
+            }
+
+            return empList;
+        }
+
+
     }
 }

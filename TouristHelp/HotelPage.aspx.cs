@@ -9,6 +9,7 @@ using System.Drawing;
 using TouristHelp.DAL;
 using System.Data.SqlClient;
 
+
 namespace TouristHelp
 {
 
@@ -44,6 +45,20 @@ namespace TouristHelp
                 regionRepeater();
 
 
+               
+
+            }
+
+
+
+
+
+
+            else if (region.SelectedItem.Value == "Central" && !Page.IsPostBack)
+            {
+
+                centralRepeater();
+
                 if (Session["hotelAdded"] != null)
                 {
                     hotelAddedLbl.Text = Session["hotelAdded"].ToString();
@@ -51,17 +66,23 @@ namespace TouristHelp
                     hotelAddedLbl.ForeColor = Color.Green;
                 }
 
-             ;
+            }
+
+            else if (Page.IsPostBack && region.SelectedItem.Value == "Central")
+
+            {
+                centralRepeater();
+
 
 
             }
 
 
-
             else if (region.SelectedItem.Value == "North" && !Page.IsPostBack)
             {
 
-               
+                northRepeater();
+
 
                 if (Session["hotelAdded"] != null)
                 {
@@ -79,16 +100,85 @@ namespace TouristHelp
 
 
 
+
+            }
+
+            else if (region.SelectedItem.Value == "South" && !Page.IsPostBack)
+            {
+
+                southRepeater();
+
                 if (Session["hotelAdded"] != null)
                 {
                     hotelAddedLbl.Text = Session["hotelAdded"].ToString();
                     hotelAddedLbl.Visible = true;
                     hotelAddedLbl.ForeColor = Color.Green;
-
-
-                
                 }
+
             }
+
+            else if (Page.IsPostBack && region.SelectedItem.Value == "South")
+
+            {
+                southRepeater();
+
+
+
+            }
+
+
+
+            else if (region.SelectedItem.Value == "West" && !Page.IsPostBack)
+            {
+
+                westRepeater();
+
+                if (Session["hotelAdded"] != null)
+                {
+                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
+                    hotelAddedLbl.Visible = true;
+                    hotelAddedLbl.ForeColor = Color.Green;
+                }
+
+            }
+
+            else if (Page.IsPostBack && region.SelectedItem.Value == "West")
+
+            {
+                westRepeater();
+
+
+
+
+            }
+
+
+
+            else if (region.SelectedItem.Value == "East" && !Page.IsPostBack)
+            {
+
+                eastRepeater();
+
+
+                if (Session["hotelAdded"] != null)
+                {
+                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
+                    hotelAddedLbl.Visible = true;
+                    hotelAddedLbl.ForeColor = Color.Green;
+                }
+
+            }
+
+            else if (Page.IsPostBack && region.SelectedItem.Value == "East")
+
+            {
+                eastRepeater();
+
+
+
+
+            }
+
 
 
 
@@ -113,6 +203,19 @@ namespace TouristHelp
             }
             
         }
+        private void centralRepeater()
+        {
+
+            if (region.SelectedItem.Value == "Central")
+            {
+                HotelBook hotel = new HotelBook();
+                hotelList = hotel.getCentralHotels();
+
+                RepeatHotel.DataSource = hotelList;
+                RepeatHotel.DataBind();
+            }
+
+        }
 
         private void northRepeater()
         {
@@ -125,6 +228,64 @@ namespace TouristHelp
                 RepeatHotel.DataSource = hotelList;
                 RepeatHotel.DataBind();
             }
+
+        }
+        private void southRepeater()
+        {
+
+            if (region.SelectedItem.Value == "South")
+            {
+                HotelBook hotel = new HotelBook();
+                hotelList = hotel.getSouthHotels();
+
+                RepeatHotel.DataSource = hotelList;
+                RepeatHotel.DataBind();
+            }
+
+        }
+
+        private void westRepeater()
+        {
+
+            if (region.SelectedItem.Value == "West")
+            {
+                HotelBook hotel = new HotelBook();
+                hotelList = hotel.getWestHotels();
+
+                RepeatHotel.DataSource = hotelList;
+                RepeatHotel.DataBind();
+            }
+
+        }
+
+ 
+        private void eastRepeater()
+        {
+
+            if (region.SelectedItem.Value == "East")
+            {
+                HotelBook hotel = new HotelBook();
+                hotelList = hotel.getEastHotels();
+
+                RepeatHotel.DataSource = hotelList;
+                RepeatHotel.DataBind();
+            }
+
+        }
+
+        private void filterRepeater()
+        {
+
+            int getMinPrice = Convert.ToInt32(minpriceTB.Text);
+
+            int getMaxPrice = Convert.ToInt32(maxPriceTB.Text);
+
+            HotelBook hotel = new HotelBook(getMinPrice, getMaxPrice);
+            hotelList = hotel.getHotelsByPrice();
+
+            RepeatHotel.DataSource = hotelList;
+            RepeatHotel.DataBind();
+
 
         }
 
@@ -225,6 +386,7 @@ namespace TouristHelp
             Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id);
             cart.InsertCartTicket();
 
+
             string hotelAdded = getHotelName.Text + " " + "(rooms: " + quantity.ToString()  + ")" + "(duration: " + stayDuration.ToString() + "days" + ")" + "has been added to shop Cart";
             Session["hotelAdded"] = hotelAdded;
 
@@ -234,6 +396,19 @@ namespace TouristHelp
 
         protected void myListDropDown_Change(object sender, EventArgs e)
         {
+
+        }
+
+  
+
+        protected void filterSearch_Btn(object sender, EventArgs e)
+        {
+
+
+            filterRepeater();
+
+
+            //System.Diagnostics.Debug.WriteLine(minPrice);
 
         }
     }

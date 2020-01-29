@@ -91,10 +91,10 @@
 		              </div>--%>
 
 
-                            <asp:Label ID="minPriceLbl"  runat="server" Text="Minimum Price"></asp:Label>
+<%--                            <asp:Label ID="minPriceLbl"  runat="server" Text="Minimum Price"></asp:Label>
 
                                                     <div class="slidecontainer">
-                          <input type="range" min="100"  max="10000" value="100" class="slider" id="minPrice">
+                          <input type="range" runat="server" min="100"  max="10000" value="100" class="slider" id="minPrice">
                           <p>Price: <span id="minPriceIndicator"></span></p>
                         </div>
 
@@ -140,15 +140,33 @@
                             maxSlider.oninput = function () {
                           maxOutput.innerHTML = this.value;
                         }
-                        </script>
+                        </script>--%>
 
+                            <asp:Label ID="minPriceLbl" runat="server" Text="Min Price:"></asp:Label>
 
+                            <asp:TextBox ID="minpriceTB" runat="server"></asp:TextBox>
 
+                             <asp:Label ID="maxPriceLbl" runat="server" Text="Max Price:"></asp:Label>
+
+                            <asp:TextBox ID="maxPriceTB" runat="server"></asp:TextBox>
 
 		              <div class="form-group">
-		                <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-		              </div>
+    <asp:Button ID="filterSearch" runat="server"  Text="Search"  OnClick="filterSearch_Btn"/>		              </div>
 		            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                                                     <script>
                                 var slider = document.getElementById("myRange");
@@ -161,9 +179,6 @@
                                 </script>
 
 
-
-
-                 
                         <style>
 
                             span#ContentPlaceHolder1_minPriceLbl {
