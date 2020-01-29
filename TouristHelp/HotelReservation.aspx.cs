@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TouristHelp.BLL;
+using System.Drawing;
+using TouristHelp.DAL;
 
 namespace TouristHelp
 {
@@ -11,7 +14,58 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Session["user_id"] = "2";
 
+            //string user_id = Session["user_id"].ToString();
+
+
+            //int userId = 1;
+            //Transactions inter = new Transactions();
+            //List<Transactions> IntList = inter.getTransaction(userId);
+
+
+            paidFilter();
+            // Retrieve Reward records by account
+            //Reward td = new Reward();
+            //td = td.GetRewardById(user_id);
+
+
+  
+
+
+            //voucherGen_id.Text = trans.voucherGen_id.ToString();
+
+            //voucherStats.Text = trans.voucherStats.ToString();
+
+            //voucherExpiry.Text = trans.voucherExpiry.ToString();
+
+            //confirmCode.Text = trans.confirmCode.ToString();
+
+            //voucherDate.Text = trans.voucherDate.ToString();
+
+            //voucherTotalCost.Text = trans.voucherTotalCost.ToString();
+
+
+        }
+
+
+
+        private void paidFilter()
+        {
+
+            int userId = 1;
+            HotelTrans emp = new HotelTrans();
+            List<HotelTrans> eList = emp.showPaidHotel(userId);
+
+
+
+            // using gridview to bind to the list of employee objects
+            GvEmployee.Visible = true;
+            GvEmployee.DataSource = eList;
+            GvEmployee.DataBind();
+
+            paidRepeater.DataSource = eList;
+            paidRepeater.DataBind();
         }
     }
 }

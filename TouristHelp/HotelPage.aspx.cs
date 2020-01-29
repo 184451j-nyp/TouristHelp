@@ -363,7 +363,8 @@ namespace TouristHelp
             DropDownList getHotelDuration = (DropDownList)hotels.FindControl("durationQty");
             Session["durationQty"] = getHotelDuration.SelectedValue;
             int stayDuration = Convert.ToInt32(getHotelDuration.SelectedValue);
-
+            DateTime dateToday = Convert.ToDateTime(DateTime.Today);
+            DateTime expiryDate = dateToday.AddDays(stayDuration);
 
             totalCost = Convert.ToDecimal(price * quantity * stayDuration);
 
@@ -380,7 +381,7 @@ namespace TouristHelp
             double cartPrice = Convert.ToDouble(price) * Convert.ToDouble(stayDuration);
 
 
-            HotelTrans hotel = new HotelTrans(code, totalCost, quantity, stayDuration, user_id, attName, code, hotelPaid);
+            HotelTrans hotel = new HotelTrans(code, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid);
             hotel.AddNewHotel();
 
             Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id);
