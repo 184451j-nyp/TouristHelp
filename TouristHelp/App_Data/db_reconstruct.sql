@@ -1,4 +1,15 @@
-﻿CREATE TABLE [dbo].[Ticket] (
+﻿CREATE TABLE [dbo].[Attraction] (
+    [attractionId]       INT           IDENTITY (1, 1) NOT NULL,
+    [attractionName]     VARCHAR (50)  NOT NULL,
+    [attractionPrice]    MONEY         NOT NULL,
+    [dateTime]           VARCHAR (50)  NULL,
+    [attractionDesc]     VARCHAR (MAX) NOT NULL,
+    [attractionLocation] VARCHAR (50)  NOT NULL, 
+    CONSTRAINT [PK_Attraction] PRIMARY KEY ([attractionId])
+);
+
+
+CREATE TABLE [dbo].[Ticket] (
     [ticketId]       INT             IDENTITY (1, 1) NOT NULL,
     [attractionName] VARCHAR (50)    NOT NULL,
     [attractionDesc] VARCHAR (50)    NOT NULL,
@@ -61,13 +72,12 @@ CREATE TABLE [dbo].[TourGuides] (
 
 
 CREATE TABLE [dbo].[Directions] (
-    [Id]        INT            NOT NULL,
-    [tourist_id]      INT            NOT NULL,
-    [latitude]  DECIMAL (8, 8) NULL,
-    [group]     INT            NOT NULL,
-    [order]     INT            NULL,
-    [longitude] DECIMAL (8, 8) NULL, 
-    CONSTRAINT [FK_Directions_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [Tourists]([tourist_id])
+    [Id]        INT          NOT NULL,
+    [attraction_id] INT NOT NULL, 
+    [tourist_id] INT NOT NULL, 
+    PRIMARY KEY CLUSTERED ([Id] ASC), 
+    CONSTRAINT [FK_Directions_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [Tourists]([tourist_id]), 
+    CONSTRAINT [FK_Directions_ToAttractions] FOREIGN KEY ([attraction_id]) REFERENCES [Attraction]([attractionId])
 );
 
 
