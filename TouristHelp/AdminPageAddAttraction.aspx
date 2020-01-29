@@ -31,9 +31,11 @@
                         <h4 id="desc"><%#Eval("Description") %></h4>
                         <hr>
                         <p class="bottom-area d-flex">
-                            <span><i class="icon-map-o"></i><%#Eval("Location") %></span>
+                            <span><%#Eval("Location") %></span>
                         </p>
-                        <asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="More info" Style="float: right" />
+                        <asp:Button ID="ButtonSelect" runat="server"  CssClass="btn btn-default" Text="More info" Style="float:right;" />
+                        <br />
+                        <br />
                     </div>
                 </div>
             </ItemTemplate>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Web.UI.WebControls;
 using TouristHelp.DAL;
+using TouristHelp.BLL;
 using TouristHelp.Models;
 
 namespace TouristHelp
@@ -24,13 +25,14 @@ namespace TouristHelp
             if (Page.IsValid)
             {
                 string name = tbNameTourist.Text;
-                string email = tbEmailTourist.Text;
+                string email = tbEmailTourist.Text.ToLower();
                 string pass1 = tbPasswordTourist.Text;
                 string pass2 = tbRepeatPassTourist.Text;
                 string nation = ddlNation.SelectedValue;
                 if (pass1 == pass2 && name != "" && email != "" && pass1 != "" && nation != "-- Select --")
                 {
-                    Tourist obj = new Tourist(name, email, pass1, nation);
+                    string hash = SHA256Hash.GenerateSHA256(pass1);
+                    Tourist obj = new Tourist(name, email, hash, nation);
                     TouristDAO.InsertTourist(obj);
 
                     Response.Redirect("Login.aspx");
