@@ -76,13 +76,15 @@ CREATE TABLE [dbo].[TourGuides] (
 
 
 CREATE TABLE [dbo].[Directions] (
-    [Id]        INT          NOT NULL,
-    [attraction_id] INT NOT NULL, 
-    [tourist_id] INT NOT NULL, 
-    PRIMARY KEY CLUSTERED ([Id] ASC), 
-    CONSTRAINT [FK_Directions_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [Tourists]([tourist_id]), 
-    CONSTRAINT [FK_Directions_ToAttractions] FOREIGN KEY ([attraction_id]) REFERENCES [Attraction]([attractionId])
+    [Id]            INT IDENTITY (1, 1) NOT NULL,
+    [attraction_id] INT NOT NULL,
+    [tourist_id]    INT NOT NULL,
+    CONSTRAINT [PK_Directions] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Directions_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [dbo].[Tourists] ([tourist_id]),
+    CONSTRAINT [FK_Directions_ToAttractions] FOREIGN KEY ([attraction_id]) REFERENCES [dbo].[Attraction] ([attractionId])
 );
+
+
 
 
 
