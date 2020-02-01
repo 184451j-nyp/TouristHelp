@@ -85,9 +85,6 @@ CREATE TABLE [dbo].[Directions] (
 );
 
 
-
-
-
 CREATE TABLE [dbo].[Reward] (
     [user_id]         INT          NOT NULL,
     [loginCount]      INT          DEFAULT ((0)) NOT NULL,
@@ -165,9 +162,11 @@ CREATE TABLE [dbo].[ReservationHotel] (
 
 
 CREATE TABLE [dbo].[TouristBooking] (
-    [tourist_id] INT          IDENTITY (1, 1) NOT NULL,
-    [bookings]   VARCHAR (50) NULL,
-    PRIMARY KEY CLUSTERED ([tourist_id] ASC)
+    [tourist_id] INT           NOT NULL,
+    [bookings]   VARCHAR (50) NULL, 
+    [id] INT NOT NULL IDENtity(1,1), 
+    CONSTRAINT [PK_TouristBooking] PRIMARY KEY ([id]), 
+    CONSTRAINT [FK_TouristBooking_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [Tourists]([tourist_id])
 );
 
 
@@ -177,4 +176,15 @@ CREATE TABLE [dbo].[ReservationFood] (
     [reservationTime] VARCHAR (50) NOT NULL,
     [reservationPax]  INT          NOT NULL,
     [userId]          INT          NOT NULL
+);
+
+CREATE TABLE [dbo].[Tours]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [tourguide_id] INT NOT NULL, 
+    [title] VARCHAR(50) NULL, 
+    [description] VARCHAR(50) NULL, 
+    [details] VARCHAR(50) NULL, 
+    [price] DECIMAL(18, 5) NULL, 
+    CONSTRAINT [FK_Tours_ToTourGuides] FOREIGN KEY ([tourguide_id]) REFERENCES [TourGuides]([tourguide_id])
 );
