@@ -28,6 +28,24 @@ namespace TouristHelp
             {
                 Response.Redirect("Guidebook.aspx");
             }
+            if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            else
+            {
+
+                try
+                {
+                    Label1.Text = Session["tourist_id"].ToString();
+                }
+                catch (NullReferenceException)
+                {
+                    Label1.Text = Session["tourguide_id"].ToString();
+                }
+
+            }
         }
 
         protected void BtnConfirm_Click(object sender, EventArgs e)
@@ -37,7 +55,7 @@ namespace TouristHelp
             Session["ResTime"] = TbTime.Text.ToString();
             Session["ResPax"] = TbPax.Text.ToString();
             Food_Reservation td = new Food_Reservation();
-            td.InsertReservation(lbName.Text, TbTime.Text, int.Parse(TbPax.Text), 1);
+            td.InsertReservation(lbName.Text, TbTime.Text, int.Parse(TbPax.Text), int.Parse(Session["tourist_id"].ToString()));
             Cart cr = new Cart(lbName.Text, "Reservation at " + lbName.Text, 0, 1, 1);
             cr.InsertCartReservation();
             Response.Redirect("Reservation_Food_Confirmed.aspx");
