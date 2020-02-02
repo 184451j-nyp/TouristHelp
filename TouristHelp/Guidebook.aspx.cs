@@ -16,16 +16,34 @@ namespace TouristHelp
         {
             if (!Page.IsPostBack)
             {
-                loadRepeater();
+                if (Session["AttractionType"] == null) //filter codes
+                {
+                    loadRepeater("All");
+                }
+                else
+                {
+                    loadRepeater(Session["AttractionType"].ToString());
+                }
+                    
             }
         }
 
-        private void loadRepeater()
+        private void loadRepeater(string type)
         {
             Attraction actt = new Attraction();
-            acttList = actt.ListAttraction();
+            
+            if (type == "All")
+            {
+                acttList = actt.ListAttractionAll();
+            }
+            else
+            {
+                acttList = actt.ListAttraction(type);
+            }
 
-            RepeaterAttraction.DataSource = acttList;
+
+
+                RepeaterAttraction.DataSource = acttList;
             RepeaterAttraction.DataBind();
         }
 
@@ -47,6 +65,29 @@ namespace TouristHelp
                 Response.Redirect("Ticketing.aspx");
             }
             
+        }
+
+        protected void ButtonFilterAll_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Guidebook.aspx");
+        }
+
+        protected void ButtonFilterPlaces_Click(object sender, EventArgs e)
+        {
+            Session["AttractionType"] = "Place";
+            Response.Redirect("Guidebook.aspx");
+        }
+
+        protected void ButtonFilterEvents_Click(object sender, EventArgs e)
+        {
+            Session["AttractionType"] = "Event";
+            Response.Redirect("Guidebook.aspx");
+        }
+
+        protected void ButtonFilterDeals_Click(object sender, EventArgs e)
+        {
+            Session["AttractionType"] = "Deal";
+            Response.Redirect("Guidebook.aspx");
         }
     }
 }

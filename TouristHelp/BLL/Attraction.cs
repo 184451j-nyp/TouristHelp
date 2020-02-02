@@ -59,10 +59,16 @@ namespace TouristHelp.BLL
             return dao.SelectById(attId);
         }
 
-        public List<Attraction> ListAttraction()
+        public List<Attraction> ListAttractionAll()// un-filter
         {
             AttractionDAO dao = new AttractionDAO();
             return dao.SelectAll();
+        }
+
+        public List<Attraction> ListAttraction(string type)// filtered
+        {
+            AttractionDAO dao = new AttractionDAO();
+            return dao.SelectByType(type);
         }
 
         public void AddAttraction(Attraction att)
