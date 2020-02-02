@@ -9,7 +9,7 @@
     </div>
     <br />
     <br />
-
+    <asp:Label ID="Label1" Visible="false" runat="server" Text=""></asp:Label>
         <asp:Repeater ID="RepeaterReserves" runat="server">
             <ItemTemplate>
                 <div class="col-sm col-md-6 col-lg-12" style="border-style: solid; border-width: 1px; margin-bottom: 10px">

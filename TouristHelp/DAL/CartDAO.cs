@@ -60,31 +60,55 @@ namespace TouristHelp.DAL
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
+                    int productId = Convert.ToInt32(row["cartId"].ToString());
                     string productName = row["productName"].ToString();
                     double productPrice = Convert.ToDouble(row["productPrice"].ToString());
                     int productQuantity = Convert.ToInt32(row["productQuantity"].ToString());
                     string productDesc = row["productDesc"].ToString();
                     double productTotalPrice = productPrice * productQuantity;
-                    Cart obj = new Cart(productName, productDesc, productPrice, productQuantity, productTotalPrice);
+                    Cart obj = new Cart(productId, productName, productDesc, productPrice, productQuantity, productTotalPrice);
                     cartList.Add(obj);
                 }
             }
             return cartList;
         }
 
-        public void UpdateItem(int prodQuantity)
+        public void UpdateItem(int prodId, int prodQuantity)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE Cart SET productQuantity = @paraProductQuantity where active =  active";
+            string sqlStmt = "UPDATE Cart SET productQuantity = @paraProductQuantity where active =  'active' AND user_id = @paraProdId ";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
 
             sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
 
-            sqlCmd.Parameters.AddWithValue("@paraRenewMode", prodQuantity);
+            sqlCmd.Parameters.AddWithValue("@paraProductQuantity", prodQuantity);
+            sqlCmd.Parameters.AddWithValue("@paraProdId", prodId);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+
+        }
+
+        public void ItemPay(int userId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Cart SET active = 'inactive' where active = 'active' AND user_id = @paraUserId";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraUserId", userId);
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();

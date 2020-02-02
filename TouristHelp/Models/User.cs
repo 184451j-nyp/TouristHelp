@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using TouristHelp.DAL;
 
 namespace TouristHelp.Models
 {
@@ -31,22 +32,18 @@ namespace TouristHelp.Models
     public class TourGuide : User
     {
         public int? TourGuideId { get; set; }
-        public string TourTitle { get; set; }
         public string Description { get; set; }
         public string Languages { get; set; }
         public string Credentials { get; set; }
-        public string TourDescription { get; set; }
-        public string TourDetails { get; set; }
-        public decimal TourPrice { get; set; }
 
-        public TourGuide(string name, string email, string pswd, string description, string languages, string credentials):base(name, email, pswd)
+        public TourGuide(string name, string email, string pswd, string description, string languages, string credentials) : base(name, email, pswd)
         {
             TourGuideId = null;
             Description = description;
             Languages = languages;
             Credentials = credentials;
         }
-        public TourGuide(int tourguide_id, int user_id, string name, string email, string pswd, string description, string languages, string credentials) :base(user_id, name, email, pswd)
+        public TourGuide(int tourguide_id, int user_id, string name, string email, string pswd, string description, string languages, string credentials) : base(user_id, name, email, pswd)
         {
             TourGuideId = tourguide_id;
             Description = description;
@@ -60,11 +57,11 @@ namespace TouristHelp.Models
         public int? TouristId { get; set; }
         public string Nationality { get; set; }
 
-        public Tourist(string name, string email, string pswd, string nationality):base(name, email, pswd)
+        public Tourist(string name, string email, string pswd, string nationality) : base(name, email, pswd)
         {
             Nationality = nationality;
         }
-        public Tourist(int touristId, int user, string name, string email, string pswd, string nationality):base(user, name, email, pswd)
+        public Tourist(int touristId, int user, string name, string email, string pswd, string nationality) : base(user, name, email, pswd)
         {
             TouristId = touristId;
             Nationality = nationality;

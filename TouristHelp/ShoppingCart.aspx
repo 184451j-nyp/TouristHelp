@@ -58,6 +58,7 @@
                       <td class="auto-style2">
                           <div>
                               <asp:Label ID="lbProdName" runat="server" Font-Bold="True" Text='<%#Eval("productName") %>'></asp:Label>
+                              <asp:Label ID="lbProdId" runat="server" Visible ="false" Text='<%#Eval("productId") %>'></asp:Label>
                           </div>
                           <div>
 
@@ -81,8 +82,10 @@
                 </ItemTemplate>
              </asp:Repeater>
           </table>
-          <asp:Button ID="btnEdit" runat="server" Text="Edit" style="float:right"/>
-        
+          <asp:Button ID="btnEdit" runat="server" Text="Edit" style="float:right" OnClick="btnEdit_Click"/>
+        <div>
+            <asp:Button ID="btnPurchase" runat="server" Text="Checkout" style="float:right" OnClick="btnPurchase_Click"/>
+        </div>
       </div>
     </section>
     </form>

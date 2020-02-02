@@ -36,8 +36,13 @@ namespace TouristHelp.DAL
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
                 string loc = row["attractionLocation"].ToString();
+                decimal lat = decimal.Parse(row["attractionLatitude"].ToString());
+                decimal lon = decimal.Parse(row["attractionLongitude"].ToString());
+                string interest = row["attractionInterest"].ToString();
+                string type = row["attractionType"].ToString();
+                string transaction = row["attractionTransaction"].ToString();
 
-                td = new Attraction(id, name, price, date, desc, loc);
+                td = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
             }
             return td;
         }
@@ -71,7 +76,13 @@ namespace TouristHelp.DAL
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
                 string loc = row["attractionLocation"].ToString();
-                Attraction obj = new Attraction(id, name, price, date, desc, loc);
+                decimal lat = decimal.Parse(row["attractionLatitude"].ToString());
+                decimal lon = decimal.Parse(row["attractionLongitude"].ToString());
+                string interest = row["attractionInterest"].ToString();
+                string type = row["attractionType"].ToString();
+                string transaction = row["attractionTransaction"].ToString();
+
+                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
                 empList.Add(obj);
             }
             return empList;
@@ -82,8 +93,8 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Attraction (attractionName, attractionPrice, dateTime, attractionDesc, attractionLocation)" +
-                             "VALUES (@paraName, @paraPrice, @paraDate, @paraDesc, @paraLoc)";
+            string sqlStmt = "INSERT INTO Attraction (attractionName, attractionPrice, dateTime, attractionDesc, attractionLocation, attractionLatitude, attractionLongitude, attractionInterest, attractionType, attractionTransaction)" +
+                             "VALUES (@paraName, @paraPrice, @paraDate, @paraDesc, @paraLoc, @paraLat, @paraLong, @paraInt, @paraType, @paraTran)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -92,7 +103,13 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraPrice", att.Price);
             sqlCmd.Parameters.AddWithValue("@paraDate", att.DateTime);
             sqlCmd.Parameters.AddWithValue("@paraDesc", att.Description);
-            sqlCmd.Parameters.AddWithValue("paraLoc", att.Location);
+            sqlCmd.Parameters.AddWithValue("@paraLoc", att.Location);
+            sqlCmd.Parameters.AddWithValue("@paraLat", att.Latitude);
+            sqlCmd.Parameters.AddWithValue("@paraLong", att.Longitude);
+            sqlCmd.Parameters.AddWithValue("@paraInt", att.Interest);
+            sqlCmd.Parameters.AddWithValue("@paraType", att.Type);
+            sqlCmd.Parameters.AddWithValue("@paraTran", att.Transaction);
+
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();

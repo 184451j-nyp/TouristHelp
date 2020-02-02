@@ -8,20 +8,18 @@ namespace TouristHelp.Models
     public class Direction
     {
         public int Id { get; }
-        public int User { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-        public int Group { get; set; }
-        public int Order { get; set; }
+        public string Name { get; }
+        public double Latitude { get; }
+        public double Longitude { get; }
+        public string Type { get; }
 
-        public Direction(int id, int user, double lat, double longi, int group, int order)
+        public Direction(int id, string name, double latitude, double longitude, string type)
         {
             Id = id;
-            User = user;
-            Latitude = lat;
-            Longitude = longi;
-            Group = group;
-            Order = order;
+            Name = name;
+            Latitude = latitude;
+            Longitude = longitude;
+            Type = type;
         }
     }
 }

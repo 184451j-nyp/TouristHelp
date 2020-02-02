@@ -50,10 +50,6 @@ namespace TouristHelp
             {
                 args.IsValid = false;
             }
-
-
-            System.Diagnostics.Debug.WriteLine(email);
-
         }
     }
 }
