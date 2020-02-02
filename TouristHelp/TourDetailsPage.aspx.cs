@@ -23,7 +23,7 @@ namespace TouristHelp
 
         protected void BtnConfirm_Click(object sender, EventArgs e)
         {
-            TouristDAO.InsertBooking(tourguidetitleLabel.Text, int.Parse(tourguideidLabel.Text), int.Parse(useridLabel.Text));
+            //TouristDAO.InsertBooking(tourguidetitleLabel.Text, int.Parse(tourguideidLabel.Text), int.Parse(useridLabel.Text));
         }
     }
 }

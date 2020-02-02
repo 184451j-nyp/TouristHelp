@@ -18,12 +18,13 @@ namespace TouristHelp.BLL
         public decimal Longitude { get; set; }
         public string Interest { get; set; }
         public string Type { get; set; }
+        public string Transaction { get; set; }
 
         public Attraction()
         {
         }
 
-        public Attraction(string name, float price, string date, string desc, string location, decimal latitude, decimal longitude, string interest, string type)// for adding
+        public Attraction(string name, float price, string date, string desc, string location, decimal latitude, decimal longitude, string interest, string type, string transaction)// for adding
         {
             Name = name;
             Price = price;
@@ -34,9 +35,10 @@ namespace TouristHelp.BLL
             Longitude = longitude;
             Interest = interest;
             Type = type;
+            Transaction = transaction;
         }
 
-        public Attraction(int id, string name, float price, string date, string desc, string location)// for displaying
+        public Attraction(int id, string name, float price, string date, string desc, string location, decimal latitude, decimal longitude, string interest, string type, string transaction)// for displaying
         {
             Id = id;
             Name = name;
@@ -44,6 +46,11 @@ namespace TouristHelp.BLL
             DateTime = date;
             Description = desc;
             Location = location;
+            Latitude = latitude;
+            Longitude = longitude;
+            Interest = interest;
+            Type = type;
+            Transaction = transaction;
         }
 
         public Attraction GetAttractionDataById(string attId)

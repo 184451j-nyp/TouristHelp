@@ -34,8 +34,8 @@ namespace TouristHelp
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            TourGuide tg = new TourGuide(int.Parse(tourguidetourguideidTextBox.Text), int.Parse(tourguideuseridTextBox.Text),tourguidenameTextBox.Text, tourguideemailTextBox.Text, tourguidepasswordTextBox.Text, tourguidetourtitleTextBox.Text, tourguidedescriptionTextBox.Text,tourguidelanguagesTextBox.Text, tourguidecredentialsTextBox.Text, tourguidetourdescriptionTextBox.Text, tourguidetourdetailsTextBox.Text, decimal.Parse(tourguidetourpriceTextBox.Text));
-            TourGuideDAO.UpdateTourGuide(tg);
+            //TourGuide tg = new TourGuide(int.Parse(tourguidetourguideidTextBox.Text), int.Parse(tourguideuseridTextBox.Text),tourguidenameTextBox.Text, tourguideemailTextBox.Text, tourguidepasswordTextBox.Text, tourguidetourtitleTextBox.Text, tourguidedescriptionTextBox.Text,tourguidelanguagesTextBox.Text, tourguidecredentialsTextBox.Text, tourguidetourdescriptionTextBox.Text, tourguidetourdetailsTextBox.Text, decimal.Parse(tourguidetourpriceTextBox.Text));
+            //TourGuideDAO.UpdateTourGuide(tg);
         }
     }
 }

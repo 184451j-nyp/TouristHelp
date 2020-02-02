@@ -25,8 +25,8 @@ namespace TouristHelp
                 decimal price = 0;
                 if (pass1 == pass2 && name != "" && email != "" && pass1 != "")
                 {
-                    TourGuide obj = new TourGuide(name, email, pass1, "", desc, lang, "", "", "", price);
-                    TourGuideDAO.InsertTourGuide(obj);
+                    //TourGuide obj = new TourGuide(name, email, pass1, "", desc, lang, "", "", "", price);
+                    //TourGuideDAO.InsertTourGuide(obj);
 
                     Response.Redirect("Login.aspx");
                 }
