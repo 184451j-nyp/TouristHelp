@@ -50,6 +50,24 @@ namespace TouristHelp.Models
             Languages = languages;
             Credentials = credentials;
         }
+
+
+        public static List<TourGuide> GetAllTourGuide()
+        {
+            return TourGuideDAO.SelectAllTourGuides();
+        }
+
+
+
+        public static void UpdateTourGuide(TourGuide tg)
+        {
+            TourGuideDAO.UpdateTourGuide(tg);
+        }
+
+        public static void SelectTourGuideById(int id)
+        {
+            TourGuideDAO.SelectTourGuideById(id);
+        }
     }
 
     public class Tourist : User

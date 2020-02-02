@@ -28,22 +28,7 @@
             <asp:Label ID="tourguidenameLabel" CssClass="col-1" runat="server" Text="Name:"></asp:Label>
             <asp:TextBox ID="tourguidenameTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
-            <asp:Label ID="tourguideuseridLabel" CssClass="col-1" runat="server" Text="User Id:"></asp:Label>
-            <asp:TextBox ID="tourguideuseridTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
-            <asp:Label ID="tourguidetourguideidLabel" CssClass="col-1" runat="server" Text="Tour Guide Id:"></asp:Label>
-            <asp:TextBox ID="tourguidetourguideidTextBox" CssClass="col-1" runat="server"></asp:TextBox>
-
-            <asp:Label ID="tourguideemailLabel" CssClass="col-1" runat="server" Text="Email:"></asp:Label>
-            <asp:TextBox ID="tourguideemailTextBox" CssClass="col-1" runat="server"></asp:TextBox>
-
-
-            <asp:Label ID="tourguidepasswordLabel" CssClass="col-1" runat="server" Text="Password:"></asp:Label>
-            <asp:TextBox ID="tourguidepasswordTextBox" CssClass="col-1" runat="server"></asp:TextBox>
-
-
-            <asp:Label ID="tourguidetourtitleLabel" CssClass="col-1" runat="server" Text="Tour Title:"></asp:Label>
-            <asp:TextBox ID="tourguidetourtitleTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
             <asp:Label ID="tourguidedescriptionLabel" CssClass="col-1" runat="server" Text="Description:"></asp:Label>
             <asp:TextBox ID="tourguidedescriptionTextBox" CssClass="col-1" runat="server"></asp:TextBox>
@@ -55,16 +40,17 @@
             <asp:Label ID="tourguidecredentialsLabel" CssClass="col-1" runat="server" Text="Credentials:"></asp:Label>
             <asp:TextBox ID="tourguidecredentialsTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
-            <asp:Label ID="tourguidetourdescriptionLabel" CssClass="col-1" runat="server" Text="Tour Description:"></asp:Label>
-            <asp:TextBox ID="tourguidetourdescriptionTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
-            <asp:Label ID="tourguidetourdetailsLabel" CssClass="col-1" runat="server" Text="Tour Details:"></asp:Label>
-            <asp:TextBox ID="tourguidetourdetailsTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
-            <asp:Label ID="tourguidetourpriceLabel" CssClass="col-1" runat="server" Text="Tour Price:"></asp:Label>
-            <asp:TextBox ID="tourguidetourpriceTextBox" CssClass="col-1" runat="server"></asp:TextBox>
+            <asp:Label ID="tourguideemailLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
+            <asp:Label ID="tourguidepasswordLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
 
-            <asp:Button ID="BtnSubmit" runat="server" OnClick="BtnSubmit_Click" Text="Update" Width="55px" />
+            <asp:Label ID="tourguideidLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
+            <asp:Label ID="tourguideuseridLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
+
+
+
+            <asp:Button ID="BtnSubmit" runat="server" OnClick="BtnSubmit_Click" Text="Update" Width="80px" />
 
 
 

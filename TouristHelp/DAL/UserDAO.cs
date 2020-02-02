@@ -193,7 +193,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             string sqlStmt = "Update TourGuides Set description = @paraDesc, languages = @paraLang, credentials = @paraCred Where tourguide_id = @paraTG; " +
-                "Update Users Set name = @paraName, password = @paraPswd, email = @paraEmail Where user_id = @paraUser;";
+                "Update Users Set name = @paraName, password = @paraPswd, email = @paraEmail,  Where user_id = @paraUser;";
 
             SqlCommand cmd = new SqlCommand(sqlStmt, myConn);
             cmd.Parameters.AddWithValue("@paraDesc", tg.Description);

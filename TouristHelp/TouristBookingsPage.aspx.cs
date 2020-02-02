@@ -19,7 +19,7 @@ namespace TouristHelp
         }
         private void loadRepeater()
         {
-            touristbookingList = Tours.GetAllTouristBooking();
+            //touristbookingList = Tours.GetAllTouristBooking();
 
             RepeaterBookings.DataSource = touristbookingList;
             RepeaterBookings.DataBind();

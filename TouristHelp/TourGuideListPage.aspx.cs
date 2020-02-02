@@ -53,13 +53,10 @@ namespace TouristHelp
             Session["SSTourGuideId"] = thetourguideId.Text;
 
             Session["SSPassword"] = thePassword.Text;
-            Session["SSTours"] = theTours.Text;
             Session["SSDescription"] = theDescription.Text;
             Session["SSLanguages"] = theLanguages.Text;
             Session["SSCredentials"] = theCredentials.Text;
-            Session["SSTourDescription"] = theTourDescription.Text;
-            Session["SSTourDetails"] = theTourDetails.Text;
-            Session["SSTourPrice"] = theTourPrice.Text;
+       
 
 
 
