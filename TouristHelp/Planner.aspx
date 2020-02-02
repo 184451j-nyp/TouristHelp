@@ -24,6 +24,7 @@
                     </Columns>
                     <HeaderStyle CssClass="thead-dark" />
                 </asp:GridView>
+                <asp:HiddenField ID="geojsonHidden" runat="server" value=""/>
                 <asp:Label ID="lblNoEntry" runat="server" Text="Add some places by visiting our list of Attractions" ForeColor="Red" Visible="false"></asp:Label>
             </form>
         </div>
@@ -45,5 +46,32 @@
 
         map.addControl(new mapboxgl.NavigationControl());
         map.setRenderWorldCopies(false);
+
+        var geojson = JSON.parse(document.getElementById("<%= geojsonHidden.ClientID %>").value);
+        
+        map.on('load', function () {
+            map.addSource('points', {
+                'type': 'geojson',
+                'data': {
+                    'type': 'FeatureCollection',
+                    'features': geojson
+                }
+            });
+            map.addLayer({
+                'id': 'points',
+                'type': 'symbol',
+                'source': 'points',
+                'layout': {
+                    // get the icon name from the source's "icon" property
+                    // concatenate the name to get an icon from the style's sprite sheet
+                    'icon-image': ['concat', ['get', 'icon'], '-15'],
+                    // get the title name from the source's "title" property
+                    'text-field': ['get', 'title'],
+                    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
+                    'text-offset': [0, 0.6],
+                    'text-anchor': 'top'
+                }
+            });
+        });
     </script>
 </asp:Content>

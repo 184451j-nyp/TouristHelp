@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using TouristHelp.DAL;
 using TouristHelp.Models;
+using Newtonsoft.Json;
 
 namespace TouristHelp
 {
@@ -18,7 +19,9 @@ namespace TouristHelp
         {
             if(Session["tourist_id"] != null)
             {
-                places = DirectionDAO.GetDirByUser(int.Parse(Session["tourist_id"].ToString()));
+                int tourist_id = int.Parse(Session["tourist_id"].ToString());
+                places = DirectionDAO.GetDirByUser(tourist_id);
+                geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
                 if (places.Count == 0)
                 {
                     lblNoEntry.Visible = true;
@@ -29,8 +32,6 @@ namespace TouristHelp
                     gvDirections.DataSource = places;
                     gvDirections.DataBind();
                 }
-
-
             }
             else
             {
