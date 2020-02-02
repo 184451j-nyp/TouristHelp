@@ -15,11 +15,12 @@
             <form id="FormView1" runat="server">
                 <asp:GridView ID="gvDirections" runat="server" AutoGenerateColumns="False" CssClass="table">
                     <Columns>
-                        <asp:BoundField DataField="id" HeaderText="ID" ReadOnly="True" />
-                        <asp:BoundField DataField="name" HeaderText="Name" ReadOnly="True" />
-                        <asp:BoundField DataField="latitude" HeaderText="Latitude" ReadOnly="True" />
-                        <asp:BoundField DataField="longitude" HeaderText="Longitude" ReadOnly="True" />
-                        <asp:BoundField DataField="type" HeaderText="Type" ReadOnly="True" />
+                        <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" />
+                        <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" />
+                        <asp:BoundField DataField="Price" HeaderText="Price" ReadOnly="True" />
+                        <asp:BoundField DataField="Location" HeaderText="Location" ReadOnly="True" />
+                        <asp:BoundField DataField="Description" HeaderText="Description" ReadOnly="True" />
+                        <asp:BoundField DataField="Type" HeaderText="Type" ReadOnly="True" />
                     </Columns>
                     <HeaderStyle CssClass="thead-dark" />
                 </asp:GridView>
