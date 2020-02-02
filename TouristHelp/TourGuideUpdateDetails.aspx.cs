@@ -14,28 +14,23 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
-                tourguidenameTextBox.Text = (string)Session["SSName"];
-                tourguideemailTextBox.Text = (string)Session["SSEmail"];
-                tourguidepasswordTextBox.Text = (string)Session["SSPassword"];
-                tourguidetourtitleTextBox.Text = (string)Session["SSTours"];
-                tourguideuseridTextBox.Text = (string)Session["SSUserId"];
-                tourguidetourguideidTextBox.Text = (string)Session["SSTourGuideId"];
-
-                tourguidedescriptionTextBox.Text = (string)Session["SSDescription"];
-                tourguidelanguagesTextBox.Text = (string)Session["SSLanguages"];
-                tourguidecredentialsTextBox.Text = (string)Session["SSCredentials"];
-                tourguidetourdescriptionTextBox.Text = (string)Session["SSTourDescription"];
-                tourguidetourdetailsTextBox.Text = (string)Session["SSTourDetails"];
-                tourguidetourpriceTextBox.Text = (string)Session["SSTourPrice"];
+                TourGuide tg = TourGuideDAO.SelectTourGuideById(int.Parse(Session["tourguide_id"].ToString()));
+                tourguidenameTextBox.Text = tg.Name;
+                tourguidedescriptionTextBox.Text = tg.Description;
+                tourguidelanguagesTextBox.Text = tg.Languages;
+                tourguidecredentialsTextBox.Text = tg.Credentials;
+                tourguideemailLabel.Text = tg.Email;
+                tourguideidLabel.Text = tg.TourGuideId.ToString();
+                tourguideuseridLabel.Text = tg.UserId.ToString();
             }
         }
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            //TourGuide tg = new TourGuide(int.Parse(tourguidetourguideidTextBox.Text), int.Parse(tourguideuseridTextBox.Text),tourguidenameTextBox.Text, tourguideemailTextBox.Text, tourguidepasswordTextBox.Text, tourguidetourtitleTextBox.Text, tourguidedescriptionTextBox.Text,tourguidelanguagesTextBox.Text, tourguidecredentialsTextBox.Text, tourguidetourdescriptionTextBox.Text, tourguidetourdetailsTextBox.Text, decimal.Parse(tourguidetourpriceTextBox.Text));
-            //TourGuideDAO.UpdateTourGuide(tg);
+            TourGuide tg = new TourGuide(int.Parse(tourguideidLabel.Text), int.Parse(tourguideuseridLabel.Text), tourguidenameTextBox.Text, tourguideemailLabel.Text, tourguidepasswordLabel.Text, tourguidedescriptionTextBox.Text, tourguidelanguagesTextBox.Text, tourguidecredentialsTextBox.Text);
+            TourGuide.UpdateTourGuide(tg);
         }
     }
 }

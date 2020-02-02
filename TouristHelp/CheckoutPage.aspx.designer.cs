@@ -10,132 +10,141 @@
 namespace TouristHelp {
     
     
-    public partial class TourGuideUpdateDetails {
+    public partial class CheckoutPage {
         
         /// <summary>
-        /// form control.
+        /// frm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form;
+        protected global::System.Web.UI.HtmlControls.HtmlForm frm;
         
         /// <summary>
-        /// tourguidenameLabel control.
+        /// creditBalanceTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidenameLabel;
+        protected global::System.Web.UI.WebControls.Label creditBalanceTB;
         
         /// <summary>
-        /// tourguidenameTextBox control.
+        /// creditBalance control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidenameTextBox;
+        protected global::System.Web.UI.WebControls.TextBox creditBalance;
         
         /// <summary>
-        /// tourguidedescriptionLabel control.
+        /// loginCountTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidedescriptionLabel;
+        protected global::System.Web.UI.WebControls.Label loginCountTB;
         
         /// <summary>
-        /// tourguidedescriptionTextBox control.
+        /// loginCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidedescriptionTextBox;
+        protected global::System.Web.UI.WebControls.TextBox loginCount;
         
         /// <summary>
-        /// tourguidelanguagesLabel control.
+        /// membershipTierTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidelanguagesLabel;
+        protected global::System.Web.UI.WebControls.Label membershipTierTB;
         
         /// <summary>
-        /// tourguidelanguagesTextBox control.
+        /// membershipTier control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidelanguagesTextBox;
+        protected global::System.Web.UI.WebControls.TextBox membershipTier;
         
         /// <summary>
-        /// tourguidecredentialsLabel control.
+        /// loginStreakTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidecredentialsLabel;
+        protected global::System.Web.UI.WebControls.Label loginStreakTB;
         
         /// <summary>
-        /// tourguidecredentialsTextBox control.
+        /// loginStreak control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidecredentialsTextBox;
+        protected global::System.Web.UI.WebControls.TextBox loginStreak;
         
         /// <summary>
-        /// tourguideemailLabel control.
+        /// totalDiscountTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguideemailLabel;
+        protected global::System.Web.UI.WebControls.Label totalDiscountTB;
         
         /// <summary>
-        /// tourguidepasswordLabel control.
+        /// totalDiscount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidepasswordLabel;
+        protected global::System.Web.UI.WebControls.TextBox totalDiscount;
         
         /// <summary>
-        /// tourguideidLabel control.
+        /// remainBonusDaysTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguideidLabel;
+        protected global::System.Web.UI.WebControls.Label remainBonusDaysTB;
         
         /// <summary>
-        /// tourguideuseridLabel control.
+        /// remainBonusDays control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguideuseridLabel;
+        protected global::System.Web.UI.WebControls.TextBox remainBonusDays;
         
         /// <summary>
-        /// BtnSubmit control.
+        /// bonusCreditsTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnSubmit;
+        protected global::System.Web.UI.WebControls.Label bonusCreditsTB;
+        
+        /// <summary>
+        /// bonusCredits control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox bonusCredits;
     }
 }
