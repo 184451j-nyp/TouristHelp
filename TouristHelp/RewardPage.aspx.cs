@@ -34,7 +34,7 @@ namespace TouristHelp
 
             }
 
-            Session["user_id"] = "1";
+            Session["user_id"] = Session["tourist_id"];
 
             string user_id = Session["user_id"].ToString();
 

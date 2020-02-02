@@ -15,7 +15,7 @@ namespace TouristHelp
         {
             if (!Page.IsPostBack)
             {
-                int user_id = 1;
+                int user_id = Convert.ToInt32(Session["tourist_id"]);
                 Cart cart = new Cart();
                 prodList = cart.GetAllItems(user_id);
 
@@ -36,7 +36,7 @@ namespace TouristHelp
         protected void btnPurchase_Click(object sender, EventArgs e)
         {
             //update your cart items active to not active and your own stuff "paid" from not paid to paid
-            int user_id = 1;
+            int user_id = Convert.ToInt32(Session["tourist_id"]);
             Cart cart = new Cart();
             cart.ItemPay(user_id);
             Response.Redirect("ShoppingCart.aspx");

@@ -109,5 +109,33 @@ namespace TouristHelp.DAL
         }
 
 
+
+        public void insertNewReward(Reward userId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO Reward (loginCount, loginStreak, loyaltyTier, totalDiscount, bonusCredits, membershipTier, creditbalance, remainBonusDays) " +
+                             "VALUES (@paraLoginCount, @paraLoginStreak, @paraLoyaltyTier, @paraTotalDiscount, @paraBonusCredits, @paraMembershipTier, @paraCreditBalance, @paraRemainBonuaDays)";
+
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraLoginCount", userId.loginCount);
+            sqlCmd.Parameters.AddWithValue("@paraLoginStreak", userId.loginStreak);
+            sqlCmd.Parameters.AddWithValue("@paraLoyaltyTier", userId.loyaltyTier);
+            sqlCmd.Parameters.AddWithValue("@paraTotalDiscount", userId.totalDiscount);
+            sqlCmd.Parameters.AddWithValue("@paraBonusCredits", userId.bonusCredits);
+            sqlCmd.Parameters.AddWithValue("@paraMembershipTier", userId.membershipTier);
+            sqlCmd.Parameters.AddWithValue("@paraCreditBalance", userId.creditBalance);
+            sqlCmd.Parameters.AddWithValue("@paraRemainBonuaDays", userId.remainBonusDays);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+        }
+
+
     }
 }

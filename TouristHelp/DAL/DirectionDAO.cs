@@ -16,7 +16,8 @@ namespace TouristHelp.DAL
         public static List<Direction> GetDirByUser(int tourist)
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
-            string sqlStmt = "Select Attraction.attractionId, Attraction.attractionName, Attraction.attractionLatitude, Attraction.attractionLongitude, Attraction.attractionType " +
+            string sqlStmt = "Select Attraction.attractionId, Attraction.attractionName, Attraction.attractionPrice, " +
+                "Attraction.attractionDesc, Attraction.attractionLocation, Attraction.attractionType " +
                 "From Directions Inner Join Attraction On Attraction.attractionId = Directions.attraction_id " +
                 "Where tourist_id = @paraId";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
@@ -32,10 +33,40 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[i];
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                double lat = double.Parse(row["attractionLatitude"].ToString());
-                double log = double.Parse(row["attractionLongitude"].ToString());
+                decimal price = decimal.Parse(row["attractionType"].ToString());
+                string desc = row["attractionDesc"].ToString();
+                string location = row["attractionLocation"].ToString();
                 string type = row["attractionType"].ToString();
-                Direction obj = new Direction(id, name, lat, log, type);
+                Direction obj = new Direction(id, name, price, desc, location, type);
+                list.Add(obj);
+            }
+
+            return list;
+        }
+
+        public static List<GeoJson> GetGeoJsonsByUser(int tourist)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            string sqlStmt = "Select Attraction.attractionName, Attraction.attractionDesc, Attraction.attractionLatitude, Attraction.attractionLongitude " +
+                "From Directions Inner Join Attraction On Attraction.attractionId = Directions.attraction_id " +
+                "Where tourist_id = @paraId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("paraId", tourist);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            List<GeoJson> list = new List<GeoJson>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                string name = row["attractionName"].ToString();
+                string desc = row["attractionDesc"].ToString();
+                double lat = double.Parse(row["attractionLatitiude"].ToString());
+                double log = double.Parse(row["attractionLongitude"].ToString());
+                GeoJson obj = new GeoJson(name, desc, lat, log);
                 list.Add(obj);
             }
 

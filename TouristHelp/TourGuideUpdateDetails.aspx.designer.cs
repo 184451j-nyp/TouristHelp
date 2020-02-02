@@ -40,96 +40,6 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox tourguidenameTextBox;
         
         /// <summary>
-        /// tourguideuseridLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguideuseridLabel;
-        
-        /// <summary>
-        /// tourguideuseridTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguideuseridTextBox;
-        
-        /// <summary>
-        /// tourguidetourguideidLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidetourguideidLabel;
-        
-        /// <summary>
-        /// tourguidetourguideidTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidetourguideidTextBox;
-        
-        /// <summary>
-        /// tourguideemailLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguideemailLabel;
-        
-        /// <summary>
-        /// tourguideemailTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguideemailTextBox;
-        
-        /// <summary>
-        /// tourguidepasswordLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidepasswordLabel;
-        
-        /// <summary>
-        /// tourguidepasswordTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidepasswordTextBox;
-        
-        /// <summary>
-        /// tourguidetourtitleLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidetourtitleLabel;
-        
-        /// <summary>
-        /// tourguidetourtitleTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidetourtitleTextBox;
-        
-        /// <summary>
         /// tourguidedescriptionLabel control.
         /// </summary>
         /// <remarks>
@@ -184,58 +94,40 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox tourguidecredentialsTextBox;
         
         /// <summary>
-        /// tourguidetourdescriptionLabel control.
+        /// tourguideemailLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidetourdescriptionLabel;
+        protected global::System.Web.UI.WebControls.Label tourguideemailLabel;
         
         /// <summary>
-        /// tourguidetourdescriptionTextBox control.
+        /// tourguidepasswordLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidetourdescriptionTextBox;
+        protected global::System.Web.UI.WebControls.Label tourguidepasswordLabel;
         
         /// <summary>
-        /// tourguidetourdetailsLabel control.
+        /// tourguideidLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidetourdetailsLabel;
+        protected global::System.Web.UI.WebControls.Label tourguideidLabel;
         
         /// <summary>
-        /// tourguidetourdetailsTextBox control.
+        /// tourguideuseridLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidetourdetailsTextBox;
-        
-        /// <summary>
-        /// tourguidetourpriceLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourguidetourpriceLabel;
-        
-        /// <summary>
-        /// tourguidetourpriceTextBox control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tourguidetourpriceTextBox;
+        protected global::System.Web.UI.WebControls.Label tourguideuseridLabel;
         
         /// <summary>
         /// BtnSubmit control.
