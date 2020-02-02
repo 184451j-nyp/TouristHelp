@@ -28,6 +28,17 @@ namespace TouristHelp.BLL
             this.creditBalance = creditbalance;
         }
 
+        public Reward(int logincount, int loginstreak, string loyaltytier, int totaldiscount, int bonuscredits, string membershiptier, int creditbalance, int remainbonusdays)
+        {
+            this.loginCount = logincount;
+            this.loginStreak = loginstreak;
+            this.loyaltyTier = loyaltytier;
+            this.totalDiscount = totaldiscount;
+            this.bonusCredits = bonuscredits;
+            this.membershipTier = membershiptier;
+            this.creditBalance = creditbalance;
+            this.remainBonusDays = remainbonusdays;
+        }
         public Reward(int id, int logincount, int loginstreak, string loyaltytier, int totaldiscount, int bonuscredits, string membershiptier, int creditbalance, int remainbonusdays)
         {
             this.Id = id;
@@ -65,6 +76,10 @@ namespace TouristHelp.BLL
             return result;
         }
 
-
+        public void insertNewReward()
+        {
+            RewardDAO userId = new RewardDAO();
+            userId.insertNewReward(this);
+        }
     }
 }

@@ -9,13 +9,13 @@
         <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="text-align: center; transform: translateZ(0px) translateY(10.929%); ">Guidebook</h1>
         &nbsp;
         &nbsp;
-        <asp:Button ID="ButtonFilterAll" runat="server" CssClass="btn btn-default" Text="All" Style="" /> <%--Filter all--%>
+        <asp:Button ID="ButtonFilterAll" runat="server" CssClass="btn btn-default" Text="All" Style="" OnClick="ButtonFilterAll_Click" /> <%--Filter all--%>
 
-        <asp:Button ID="ButtonFilterPlaces" runat="server" CssClass="btn btn-default" Text="Places" Style="" /> <%--Filter places--%>
+        <asp:Button ID="ButtonFilterPlaces" runat="server" CssClass="btn btn-default" Text="Places" Style="" OnClick="ButtonFilterPlaces_Click" /> <%--Filter places--%>
 
-        <asp:Button ID="ButtonFilterEvents" runat="server" CssClass="btn btn-default" Text="Events" Style="" /> <%--Filter events--%>
+        <asp:Button ID="ButtonFilterEvents" runat="server" CssClass="btn btn-default" Text="Events" Style="" OnClick="ButtonFilterEvents_Click" /> <%--Filter events--%>
 
-        <asp:Button ID="ButtonFilterDeals" runat="server" CssClass="btn btn-default" Text="Deals" Style="" /> <%--Filter deals--%>
+        <asp:Button ID="ButtonFilterDeals" runat="server" CssClass="btn btn-default" Text="Deals" Style="" OnClick="ButtonFilterDeals_Click" /> <%--Filter deals--%>
 
         <asp:DropDownList ID="DropDownList1" runat="server" style="float:right"> 
             <asp:ListItem>Personalised</asp:ListItem>

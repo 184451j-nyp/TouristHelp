@@ -23,7 +23,6 @@ namespace TouristHelp
                 string pass2 = tbRepeatPassTG.Text;
                 string desc = tbDesc.Text;
                 string lang = tbLang.Text;
-                decimal price = 0;
                 if (pass1 == pass2 && name != "" && email != "" && pass1 != "")
                 {
                     string hash = SHA256Hash.GenerateSHA256(pass1);
