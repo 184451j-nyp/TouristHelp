@@ -37,11 +37,29 @@
                     </p>
                     <p>
                        Attraction Interest:
-                            <asp:TextBox ID="TbInterest" runat="server"></asp:TextBox>
+                            <asp:DropDownList ID="DdlInterest" runat="server">
+                                <asp:ListItem>Food</asp:ListItem>
+                                <asp:ListItem>Nature</asp:ListItem>
+                                <asp:ListItem>Culture</asp:ListItem>
+                                <asp:ListItem>Amusement</asp:ListItem>
+                                <asp:ListItem>Shopping</asp:ListItem>
+                        </asp:DropDownList>
                     </p>
                     <p>
                        Attraction Type:
-                            <asp:TextBox ID="TbType" runat="server"></asp:TextBox>
+                            <asp:DropDownList ID="DdlType" runat="server">
+                                <asp:ListItem>Place</asp:ListItem>
+                                <asp:ListItem>Deal</asp:ListItem>
+                                <asp:ListItem>Event</asp:ListItem>
+                        </asp:DropDownList>
+                    </p>
+                    <p>
+                       Attraction Transaction:
+                            <asp:DropDownList ID="DdlTran" runat="server">
+                                <asp:ListItem>Food Reservtion</asp:ListItem>
+                                <asp:ListItem>Ticket</asp:ListItem>
+                                <asp:ListItem>None</asp:ListItem>
+                        </asp:DropDownList>
                     </p>
                     <asp:Button ID="BtnAdd" runat="server" CssClass="btn btn-default" Style="float: right" Text="Add Attraction" OnClick="BtnAdd_Click" />
                     <asp:Button ID="BtnCancel" runat="server" CssClass="btn btn-default" Style="float: right; margin-right:20px" Text="Go back" OnClick="BtnBack_Click" />

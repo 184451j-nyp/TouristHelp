@@ -34,9 +34,19 @@ namespace TouristHelp
         {
             RepeaterItem item1 = e.Item;
             Label attId = (Label)item1.FindControl("LbId");
+            Label attTran = (Label)item1.FindControl("LbTran");
 
-            Session["AttractionId"] = attId.Text; 
-            Response.Redirect("Reservation_Food.aspx");
+            Session["AttractionId"] = attId.Text;
+
+            if (attTran.Text == "Food Reservtion")
+            {
+                Response.Redirect("Reservation_Food.aspx");
+            }
+            else if (attTran.Text == "Ticket")
+            {
+                Response.Redirect("Ticketing.aspx");
+            }
+            
         }
     }
 }

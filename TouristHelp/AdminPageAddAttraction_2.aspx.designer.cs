@@ -76,22 +76,31 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox TbLong;
         
         /// <summary>
-        /// TbInterest control.
+        /// DdlInterest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TbInterest;
+        protected global::System.Web.UI.WebControls.DropDownList DdlInterest;
         
         /// <summary>
-        /// TbType control.
+        /// DdlType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TbType;
+        protected global::System.Web.UI.WebControls.DropDownList DdlType;
+        
+        /// <summary>
+        /// DdlTran control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DdlTran;
         
         /// <summary>
         /// BtnAdd control.
