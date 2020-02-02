@@ -13,6 +13,8 @@ namespace TouristHelp
 {
     public partial class Shop : System.Web.UI.Page
     {
+        int voucherCost;
+
         List<ShopVoucher> shopList;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -86,7 +88,7 @@ namespace TouristHelp
 
 
 
-            Session["user_id"] = "1";
+            Session["user_id"] = Label1.Text;
 
             string user_id = Session["user_id"].ToString();
 
@@ -103,16 +105,6 @@ namespace TouristHelp
             remainBonusDays.Text = td.remainBonusDays.ToString();
             bonusCredits.Text = td.bonusCredits.ToString();
 
-
-            Session["voucher_id"] = "1";
-
-            string shop_id = Session["voucher_id"].ToString();
-            // Retrieve ShopVoucher records by account
-            ShopVoucher ts = new ShopVoucher();
-
-            ts = ts.GetShopById(shop_id);
-
-            int voucher_Qty = ts.voucher_Qty;
 
 
 
@@ -149,7 +141,8 @@ namespace TouristHelp
 
         protected bool validatePurchase()
         {
-            Session["user_id"] = "1";
+            Session["user_id"] = Session["tourist_id"];
+
 
             string user_id = Session["user_id"].ToString();
 
@@ -159,16 +152,12 @@ namespace TouristHelp
 
             int creditBalance = td.creditBalance;
 
-            Session["voucher_id"] = "1";
-
-            string shop_id = Session["voucher_id"].ToString();
+       
 
             // Retrieve ShopVoucher records by account
             ShopVoucher ts = new ShopVoucher();
 
-            ts = ts.GetShopById(shop_id);
 
-            int voucherCost = ts.voucherCost;
 
 
 
@@ -296,10 +285,11 @@ namespace TouristHelp
 
         protected void addCreditBtn_Click(object sender, EventArgs e)
         {
-            Session["user_id"] = "1";
+            Session["user_id"] = Session["tourist_id"].ToString();
 
             string user_id = Session["user_id"].ToString();
 
+            int user_idInt = Convert.ToInt32(user_id);
             // Retrieve Reward records by account
             Reward td = new Reward();
             td = td.GetRewardById(user_id);
@@ -309,7 +299,7 @@ namespace TouristHelp
             int credit = creditBalance + 1000;
 
 
-            Reward emp = new Reward(1, credit);
+            Reward emp = new Reward(user_idInt, credit);
             int result = emp.UpdateAccount(emp);
 
 
@@ -340,15 +330,16 @@ namespace TouristHelp
 
             string voucherStatus;
 
-            int voucherCost;
 
             string voucherName;
 
             int genId;
 
 
-            Session["user_id"] = "1";
+            Session["user_id"] = Session["tourist_id"].ToString();
             string user_id = Session["user_id"].ToString();
+            int user_idInt = Convert.ToInt32(user_id);
+
             // Retrieve ShopVoucher records by account
 
             Reward td = new Reward();
@@ -397,7 +388,7 @@ namespace TouristHelp
 
 
 
-                Reward emp = new Reward(1, credit);
+                Reward emp = new Reward(user_idInt, credit);
                 int result = emp.UpdateAccount(emp);
 
 

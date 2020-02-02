@@ -74,7 +74,7 @@ namespace TouristHelp
         private void paidFilter()
         {
 
-            int userId = 1;
+            int userId = Convert.ToInt32(Session["tourist_id"]);
             HotelTrans emp = new HotelTrans();
             List<HotelTrans> eList = emp.showPaidHotel(userId);
 
