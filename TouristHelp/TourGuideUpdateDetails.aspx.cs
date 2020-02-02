@@ -16,15 +16,14 @@ namespace TouristHelp
         {
             if (!IsPostBack)
             {
-                tourguidenameTextBox.Text = Session["name"].ToString();
-                tourguidedescriptionTextBox.Text = Session["description"].ToString();
-                tourguidelanguagesTextBox.Text = Session["languages"].ToString();
-                tourguidecredentialsTextBox.Text = Session["credentials"].ToString();
-                tourguideemailLabel.Text = Session["email"].ToString();
-                tourguidepasswordLabel.Text = Session["password"].ToString();
-                tourguideidLabel.Text = Session["tourguide_id"].ToString();
-                tourguideuseridLabel.Text = Session["user_id"].ToString();
-              
+                TourGuide tg = TourGuideDAO.SelectTourGuideById(int.Parse(Session["tourguide_id"].ToString()));
+                tourguidenameTextBox.Text = tg.Name;
+                tourguidedescriptionTextBox.Text = tg.Description;
+                tourguidelanguagesTextBox.Text = tg.Languages;
+                tourguidecredentialsTextBox.Text = tg.Credentials;
+                tourguideemailLabel.Text = tg.Email;
+                tourguideidLabel.Text = tg.TourGuideId.ToString();
+                tourguideuseridLabel.Text = tg.UserId.ToString();
             }
         }
 

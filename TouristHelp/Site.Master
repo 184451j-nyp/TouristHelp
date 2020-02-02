@@ -49,10 +49,10 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="Planner.aspx">Journey Planner</a>
                                 </li>
-                                <li class="nav-item dropdown">
+                                <li class="nav-item">
                                     <a class="nav-link" href="HotelPage.aspx">Hotel</a>
                                 </li>
-                                   <li class="nav-item dropdown">
+                                   <li class="nav-item">
                                     <a class="nav-link" href="TourGuideListPage.aspx">Tour Guides</a>
                                 </li>
                                 <li class="nav-item dropdown">
