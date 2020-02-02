@@ -102,6 +102,7 @@ namespace TouristHelp
 
             Cart cart = new Cart(attName, attDesc, price, quantity, user_id);
             cart.InsertCartTicket();
+            Response.Redirect("ShoppingCart.aspx");
         }
     }
 }

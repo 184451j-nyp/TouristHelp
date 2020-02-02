@@ -52,6 +52,9 @@
                                 <li class="nav-item dropdown">
                                     <a class="nav-link" href="HotelPage.aspx">Hotel</a>
                                 </li>
+                                   <li class="nav-item dropdown">
+                                    <a class="nav-link" href="TourGuideListPage.aspx">Tour Guides</a>
+                                </li>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="RewardPage.aspx" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reward
                                     </a>
