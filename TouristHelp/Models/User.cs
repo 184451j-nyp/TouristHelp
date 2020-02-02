@@ -64,10 +64,6 @@ namespace TouristHelp.Models
             TourGuideDAO.UpdateTourGuide(tg);
         }
 
-        public static void SelectTourGuideById(int id)
-        {
-            TourGuideDAO.SelectTourGuideById(id);
-        }
     }
 
     public class Tourist : User

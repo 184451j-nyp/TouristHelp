@@ -19,7 +19,7 @@ namespace TouristHelp
 
         private void loadRepeater()
         {
-            //tourguideList = TourGuide.GetAllTourGuide();
+            tourguideList = TourGuide.GetAllTourGuide();
 
             Repeater1.DataSource = tourguideList;
             Repeater1.DataBind();
