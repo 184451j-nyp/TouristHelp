@@ -1,10 +1,14 @@
 ﻿CREATE TABLE [dbo].[Attraction] (
-    [attractionId]       INT           IDENTITY (1, 1) NOT NULL,
-    [attractionName]     VARCHAR (50)  NOT NULL,
-    [attractionPrice]    MONEY         NOT NULL,
-    [dateTime]           VARCHAR (50)  NULL,
-    [attractionDesc]     VARCHAR (MAX) NOT NULL,
-    [attractionLocation] VARCHAR (50)  NOT NULL, 
+    [attractionId]        INT             IDENTITY (1, 1) NOT NULL,
+    [attractionName]      VARCHAR (50)    NOT NULL,
+    [attractionPrice]     MONEY           NOT NULL,
+    [dateTime]            VARCHAR (50)    NULL,
+    [attractionDesc]      VARCHAR (MAX)   NOT NULL,
+    [attractionLocation]  VARCHAR (50)    NOT NULL,
+    [attractionLatitude]  DECIMAL (18, 8) NULL,
+    [attractionLongitude] DECIMAL (18, 8) NULL,
+    [attractionInterest]  VARCHAR (50)    NOT NULL,
+    [attractionType]      VARCHAR (50)    NOT NULL, 
     CONSTRAINT [PK_Attraction] PRIMARY KEY ([attractionId])
 );
 
@@ -72,14 +76,13 @@ CREATE TABLE [dbo].[TourGuides] (
 
 
 CREATE TABLE [dbo].[Directions] (
-    [Id]        INT          NOT NULL,
-    [attraction_id] INT NOT NULL, 
-    [tourist_id] INT NOT NULL, 
-    PRIMARY KEY CLUSTERED ([Id] ASC), 
-    CONSTRAINT [FK_Directions_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [Tourists]([tourist_id]), 
-    CONSTRAINT [FK_Directions_ToAttractions] FOREIGN KEY ([attraction_id]) REFERENCES [Attraction]([attractionId])
+    [Id]            INT IDENTITY (1, 1) NOT NULL,
+    [attraction_id] INT NOT NULL,
+    [tourist_id]    INT NOT NULL,
+    CONSTRAINT [PK_Directions] PRIMARY KEY CLUSTERED ([Id] ASC),
+    CONSTRAINT [FK_Directions_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [dbo].[Tourists] ([tourist_id]),
+    CONSTRAINT [FK_Directions_ToAttractions] FOREIGN KEY ([attraction_id]) REFERENCES [dbo].[Attraction] ([attractionId])
 );
-
 
 
 CREATE TABLE [dbo].[Reward] (
@@ -159,7 +162,29 @@ CREATE TABLE [dbo].[ReservationHotel] (
 
 
 CREATE TABLE [dbo].[TouristBooking] (
-    [tourist_id] INT          IDENTITY (1, 1) NOT NULL,
-    [bookings]   VARCHAR (50) NULL,
-    PRIMARY KEY CLUSTERED ([tourist_id] ASC)
+    [tourist_id] INT           NOT NULL,
+    [bookings]   VARCHAR (50) NULL, 
+    [id] INT NOT NULL IDENtity(1,1), 
+    CONSTRAINT [PK_TouristBooking] PRIMARY KEY ([id]), 
+    CONSTRAINT [FK_TouristBooking_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [Tourists]([tourist_id])
+);
+
+
+CREATE TABLE [dbo].[ReservationFood] (
+    [reservationId]   INT          IDENTITY (1, 1) NOT NULL,
+    [reservationName] VARCHAR (50) NOT NULL,
+    [reservationTime] VARCHAR (50) NOT NULL,
+    [reservationPax]  INT          NOT NULL,
+    [userId]          INT          NOT NULL
+);
+
+CREATE TABLE [dbo].[Tours]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [tourguide_id] INT NOT NULL, 
+    [title] VARCHAR(50) NULL, 
+    [description] VARCHAR(50) NULL, 
+    [details] VARCHAR(50) NULL, 
+    [price] DECIMAL(18, 5) NULL, 
+    CONSTRAINT [FK_Tours_ToTourGuides] FOREIGN KEY ([tourguide_id]) REFERENCES [TourGuides]([tourguide_id])
 );

@@ -6,3 +6,5 @@
 /TouristHelp/[Oo]bj/*
 /packages/*
 /packages/
+*.mdf
+*.ldf

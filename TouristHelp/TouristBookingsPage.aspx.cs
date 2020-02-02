@@ -11,7 +11,7 @@ namespace TouristHelp
 {
     public partial class TouristBookingsPage : System.Web.UI.Page
     {
-        List<TouristBooking> touristbookingList;
+        List<Tours> touristbookingList;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +19,7 @@ namespace TouristHelp
         }
         private void loadRepeater()
         {
-            touristbookingList = TouristBooking.GetAllTouristBooking();
+            touristbookingList = Tours.GetAllTouristBooking();
 
             RepeaterBookings.DataSource = touristbookingList;
             RepeaterBookings.DataBind();

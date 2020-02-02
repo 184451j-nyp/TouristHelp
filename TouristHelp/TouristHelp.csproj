@@ -31,7 +31,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TypeScriptTarget>ES5</TypeScriptTarget>
@@ -393,6 +393,7 @@
     <Compile Include="DAL\RewardDAO.cs" />
     <Compile Include="DAL\ShopVoucherDAO.cs" />
     <Compile Include="DAL\TicketDAO.cs" />
+    <Compile Include="DAL\ToursDAO.cs" />
     <Compile Include="DAL\TransactionDAO.cs" />
     <Compile Include="DAL\UserDAO.cs" />
     <Compile Include="Global.asax.cs">
@@ -455,6 +456,7 @@
       <DependentUpon>LoginRegister.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\Direction.cs" />
+    <Compile Include="Models\Tours.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Planner.aspx.cs">
       <DependentUpon>Planner.aspx</DependentUpon>
