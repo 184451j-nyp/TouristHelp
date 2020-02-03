@@ -29,7 +29,14 @@ namespace TouristHelp
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            RepeaterItem selItem = e.Item;
 
+            int user_id = 1;
+            Label prodId = (Label)selItem.FindControl("lbProdId");
+            int productId = Convert.ToInt32(prodId.Text);
+            Cart cart = new Cart();
+            cart.DeleteItem(productId, user_id);
+            Response.Redirect("ShoppingCart.aspx");
         }
 
 
@@ -41,7 +48,7 @@ namespace TouristHelp
             cart.ItemPay(user_id);
             Response.Redirect("ShoppingCart.aspx");
         }
-
+        
         protected void btnEdit_Click(object sender, EventArgs e)
         {
             foreach (RepeaterItem ri in Repeater1.Items)

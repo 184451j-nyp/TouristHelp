@@ -78,7 +78,7 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE Cart SET productQuantity = @paraProductQuantity where active =  'active' AND user_id = @paraProdId ";
+            string sqlStmt = "UPDATE Cart SET productQuantity = @paraProductQuantity where active =  'active' AND cartId = @paraProdId ";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
@@ -101,13 +101,36 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE Cart SET active = 'inactive' where active = 'active' AND user_id = @paraUserId";
+            string sqlStmt = "DELETE FROM Cart where user_id = @paraUserId";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
 
             sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
 
+            sqlCmd.Parameters.AddWithValue("@paraUserId", userId);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+
+        }
+
+        public void DeleteItem(int productId, int userId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "DELETE FROM Cart where cartId = @paraProdId AND user_id = @paraUserId";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraProdId", productId);
             sqlCmd.Parameters.AddWithValue("@paraUserId", userId);
 
             myConn.Open();

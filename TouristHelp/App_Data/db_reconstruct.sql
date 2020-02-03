@@ -8,7 +8,8 @@
     [attractionLatitude]  DECIMAL (18, 8) NULL,
     [attractionLongitude] DECIMAL (18, 8) NULL,
     [attractionInterest]  VARCHAR (50)    NOT NULL,
-    [attractionType]      VARCHAR (50)    NOT NULL, 
+    [attractionType]      VARCHAR (50)    NOT NULL,
+	[attractionTransaction] VARCHAR (50)    NULL
     CONSTRAINT [PK_Attraction] PRIMARY KEY ([attractionId])
 );
 
