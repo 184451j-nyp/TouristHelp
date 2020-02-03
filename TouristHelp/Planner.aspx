@@ -8,6 +8,25 @@
         rel="stylesheet"
         href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.css"
         type="text/css" />
+    <style>
+        .marker {
+            background-image: url('https://i.imgur.com/MK4NUzI.png');
+            background-size: cover;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .mapboxgl-popup{
+            max-width: 200px;
+        }
+
+        .mapboxgl-popup-content{
+            text-align: center;
+            font-family: 'Open Sans', sans-serif;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row mt-2">
@@ -24,7 +43,7 @@
                     </Columns>
                     <HeaderStyle CssClass="thead-dark" />
                 </asp:GridView>
-                <asp:HiddenField ID="geojsonHidden" runat="server" value=""/>
+                <asp:HiddenField ID="geojsonHidden" runat="server" Value="" />
                 <asp:Label ID="lblNoEntry" runat="server" Text="Add some places by visiting our list of Attractions" ForeColor="Red" Visible="false"></asp:Label>
             </form>
         </div>
@@ -47,31 +66,19 @@
         map.addControl(new mapboxgl.NavigationControl());
         map.setRenderWorldCopies(false);
 
-        var geojson = JSON.parse(document.getElementById("<%= geojsonHidden.ClientID %>").value);
-        
-        map.on('load', function () {
-            map.addSource('points', {
-                'type': 'geojson',
-                'data': {
-                    'type': 'FeatureCollection',
-                    'features': geojson
-                }
-            });
-            map.addLayer({
-                'id': 'points',
-                'type': 'symbol',
-                'source': 'points',
-                'layout': {
-                    // get the icon name from the source's "icon" property
-                    // concatenate the name to get an icon from the style's sprite sheet
-                    'icon-image': ['concat', ['get', 'icon'], '-15'],
-                    // get the title name from the source's "title" property
-                    'text-field': ['get', 'title'],
-                    'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
-                    'text-offset': [0, 0.6],
-                    'text-anchor': 'top'
-                }
-            });
-        });
+        var geojson = { 'type': 'FeatureCollection', 'features': JSON.parse(document.getElementById("<%= geojsonHidden.ClientID %>").value) }
+
+        geojson.features.forEach(function (marker) {
+            // create a HTML element for each feature
+            var el = document.createElement('div');
+            el.className = 'marker';
+
+            // make a marker for each feature and add to the map
+            new mapboxgl.Marker(el)
+                .setLngLat(marker.geometry.coordinates).
+                setPopup(new mapboxgl.Popup({ offset: 25 })
+                .setHTML("<h3>" + marker.properties.title + "</h3><p>" + marker.properties.description + "</p>"))
+                .addTo(map);
+        })
     </script>
 </asp:Content>

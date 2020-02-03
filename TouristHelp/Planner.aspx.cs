@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.Script.Serialization;
 using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,17 +20,22 @@ namespace TouristHelp
             {
                 int tourist_id = int.Parse(Session["tourist_id"].ToString());
                 places = DirectionDAO.GetDirByUser(tourist_id);
-                geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
+
                 if (places.Count == 0)
                 {
                     lblNoEntry.Visible = true;
+                    List<Direction> random = DirectionDAO.GetRandomPoI();
+                    gvDirections.DataSource = random;
+                    gvDirections.DataBind();
+                    geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.ParseGeoJsonFromList(random));
                 }
                 else
                 {
-                    gvDirections.Visible = true;
+                    geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
                     gvDirections.DataSource = places;
                     gvDirections.DataBind();
                 }
+                gvDirections.Visible = true;
             }
             else
             {
