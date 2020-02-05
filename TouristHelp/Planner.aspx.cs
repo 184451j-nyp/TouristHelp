@@ -18,30 +18,55 @@ namespace TouristHelp
         {
             if(Session["tourist_id"] != null)
             {
-                int tourist_id = int.Parse(Session["tourist_id"].ToString());
-                places = DirectionDAO.GetDirByUser(tourist_id);
+                LoadData(int.Parse(Session["tourist_id"].ToString()));                
 
-                if (places.Count == 0)
+                AttractionDAO attractions = new AttractionDAO();
+                foreach(var i in attractions.SelectAll().OrderBy(a => a.Name).ToList())
                 {
-                    lblNoEntry.Visible = true;
-                    List<Direction> random = DirectionDAO.GetRandomPoI();
-                    gvDirections.DataSource = random;
-                    gvDirections.DataBind();
-                    geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.ParseGeoJsonFromList(random));
+                    DropDownListAttractions.Items.Add(new ListItem(i.Name, i.Id.ToString()));
                 }
-                else
-                {
-                    geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
-                    gvDirections.DataSource = places;
-                    gvDirections.DataBind();
-                }
-                gvDirections.Visible = true;
+                DropDownListAttractions.DataBind();
             }
             else
             {
                 Response.Redirect("Login.aspx");
             }
             
+        }
+
+        protected void BtnAddAttraction_Click(object sender, EventArgs e)
+        {
+            DirectionDAO.AddDirToUser(int.Parse(DropDownListAttractions.SelectedValue), int.Parse(Session["tourist_id"].ToString()));
+            LoadData(int.Parse(Session["tourist_id"].ToString()));
+        }
+
+        private void LoadData(int tourist_id)
+        {
+            places = DirectionDAO.GetDirByUser(tourist_id);
+
+            if (places.Count == 0)
+            {
+                lblNoEntry.Visible = true;
+                List<Direction> random = DirectionDAO.GetRandomPoI();
+                gvDirections.DataSource = random;
+                gvDirections.DataBind();
+                geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.ParseGeoJsonFromList(random));
+            }
+            else
+            {
+                geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
+                gvDirections.DataSource = places;
+                gvDirections.DataBind();
+            }
+            gvDirections.Visible = true;
+        }
+
+        protected void gvDirections_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvDirections.SelectedRow;
+            int attraction = int.Parse(row.Cells[0].Text);
+            DirectionDAO.RemoveOneDirByUser(attraction, int.Parse(Session["tourist_id"].ToString()));
+            LoadData(int.Parse(Session["tourist_id"].ToString()));
         }
     }
 }

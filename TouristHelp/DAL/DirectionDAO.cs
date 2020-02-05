@@ -26,18 +26,16 @@ namespace TouristHelp.DAL
             Random random = new Random();
 
             int rec_cnt = ds.Tables[0].Rows.Count;
-            if (rec_cnt < 4) // could be removed before deployment
+            for (int i = 0; i < 3; i++)
             {
-                for (int i = 0; i < rec_cnt; i++)
+                int rand = random.Next(rec_cnt);
+                if (arr.Contains(rand))
                 {
-                    arr.Add(i);
+                    i--;
                 }
-            }
-            else
-            {
-                for (int i = 0; i < 3; i++)
+                else
                 {
-                    arr.Add(random.Next(rec_cnt));
+                    arr.Add(rand);
                 }
             }
 
@@ -119,11 +117,6 @@ namespace TouristHelp.DAL
 
         public static List<GeoJson> ParseGeoJsonFromList(List<Direction> directions) //to be used with random PoI method
         {
-            if (directions.Count < 3)
-            {
-                return null;
-            }
-
             List<int> ids = new List<int>();
             foreach (Direction dir in directions)
             {
@@ -155,6 +148,26 @@ namespace TouristHelp.DAL
                 geoJsons.Add(obj);
             }
             return geoJsons;
+        }
+
+        public static void AddDirToUser(int attraction, int tourist)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            string sqlstmt = "Insert Into Directions (attraction_id, tourist_id) Values (@paraAttraction, @paraTourist);";
+            SqlCommand cmd = new SqlCommand(sqlstmt, myConn);
+            cmd.Parameters.AddWithValue("@paraAttraction", attraction);
+            cmd.Parameters.AddWithValue("@paraTourist", tourist);
+
+            try
+            {
+                myConn.Open();
+                cmd.ExecuteNonQuery();
+                myConn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         public static void RemoveOneDirByUser(int attraction, int tourist)
