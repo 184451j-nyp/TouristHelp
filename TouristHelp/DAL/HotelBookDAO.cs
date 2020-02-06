@@ -363,5 +363,34 @@ namespace TouristHelp.DAL
         }
 
 
+
+
+        public void addNewHotel(HotelBook hotel) //Insert the hotel details into db
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO HotelBook (hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName)" +
+                             "VALUES (@parahotelprice, @parahotelimage, @paracentralfilter, @paranorthfilter, @parasouthfilter, @parawestfilter, @paraeastfilter, @parahotelname)";
+
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@parahotelprice", hotel.hotelPrice);
+            sqlCmd.Parameters.AddWithValue("@parahotelimage", hotel.hotelImage);
+            sqlCmd.Parameters.AddWithValue("@paracentralfilter", hotel.northFilter);
+            sqlCmd.Parameters.AddWithValue("@paranorthfilter", hotel.southFilter);
+            sqlCmd.Parameters.AddWithValue("@parasouthfilter", hotel.westFilter);
+            sqlCmd.Parameters.AddWithValue("@parawestfilter", hotel.eastFilter);
+            sqlCmd.Parameters.AddWithValue("@paraeastfilter", hotel.hotelName);
+            sqlCmd.Parameters.AddWithValue("@parahotelname", hotel.hotelName);
+
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+        }
+
+
     }
 }
