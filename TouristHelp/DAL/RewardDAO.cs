@@ -115,12 +115,13 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Reward (loginCount, loginStreak, loyaltyTier, totalDiscount, bonusCredits, membershipTier, creditbalance, remainBonusDays) " +
-                             "VALUES (@paraLoginCount, @paraLoginStreak, @paraLoyaltyTier, @paraTotalDiscount, @paraBonusCredits, @paraMembershipTier, @paraCreditBalance, @paraRemainBonuaDays)";
+            string sqlStmt = "INSERT INTO Reward (tourist_id, loginCount, loginStreak, loyaltyTier, totalDiscount, bonusCredits, membershipTier, creditbalance, remainBonusDays) " +
+                             "VALUES (@paraTourist, @paraLoginCount, @paraLoginStreak, @paraLoyaltyTier, @paraTotalDiscount, @paraBonusCredits, @paraMembershipTier, @paraCreditBalance, @paraRemainBonuaDays)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
+            sqlCmd.Parameters.AddWithValue("@paraTourist", userId.Id);
             sqlCmd.Parameters.AddWithValue("@paraLoginCount", userId.loginCount);
             sqlCmd.Parameters.AddWithValue("@paraLoginStreak", userId.loginStreak);
             sqlCmd.Parameters.AddWithValue("@paraLoyaltyTier", userId.loyaltyTier);

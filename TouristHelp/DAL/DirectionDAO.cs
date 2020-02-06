@@ -55,6 +55,41 @@ namespace TouristHelp.DAL
             return list;
         }
 
+        public static List<GeoJson> ParseGeoJsonFromList(List<Direction> directions) //to be used with random PoI method
+        {
+            List<int> ids = new List<int>();
+            foreach (Direction dir in directions)
+            {
+                ids.Add(dir.Id);
+            }
+
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            string sqlStmt = "Select Attraction.attractionName, Attraction.attractionDesc, Attraction.attractionLatitude, Attraction.attractionLongitude " +
+                "From Attraction " +
+                "Where attractionId in (@paraOne, @paraTwo, @paraThree)";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraOne", ids[0]);
+            da.SelectCommand.Parameters.AddWithValue("@paraTwo", ids[1]);
+            da.SelectCommand.Parameters.AddWithValue("@paraThree", ids[2]);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<GeoJson> geoJsons = new List<GeoJson>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                string name = row["attractionName"].ToString();
+                string desc = row["attractionDesc"].ToString();
+                double lat = double.Parse(row["attractionLatitude"].ToString());
+                double log = double.Parse(row["attractionLongitude"].ToString());
+                GeoJson obj = new GeoJson(name, desc, lat, log);
+                geoJsons.Add(obj);
+            }
+            return geoJsons;
+        }
+
         public static List<Direction> GetDirByUser(int tourist)
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
@@ -115,41 +150,6 @@ namespace TouristHelp.DAL
             return list;
         }
 
-        public static List<GeoJson> ParseGeoJsonFromList(List<Direction> directions) //to be used with random PoI method
-        {
-            List<int> ids = new List<int>();
-            foreach (Direction dir in directions)
-            {
-                ids.Add(dir.Id);
-            }
-
-            SqlConnection myConn = new SqlConnection(DBConnect);
-            string sqlStmt = "Select Attraction.attractionName, Attraction.attractionDesc, Attraction.attractionLatitude, Attraction.attractionLongitude " +
-                "From Attraction " +
-                "Where attractionId in (@paraOne, @paraTwo, @paraThree)";
-            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
-            da.SelectCommand.Parameters.AddWithValue("@paraOne", ids[0]);
-            da.SelectCommand.Parameters.AddWithValue("@paraTwo", ids[1]);
-            da.SelectCommand.Parameters.AddWithValue("@paraThree", ids[2]);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            List<GeoJson> geoJsons = new List<GeoJson>();
-            int rec_cnt = ds.Tables[0].Rows.Count;
-            for (int i = 0; i < rec_cnt; i++)
-            {
-                DataRow row = ds.Tables[0].Rows[i];
-                string name = row["attractionName"].ToString();
-                string desc = row["attractionDesc"].ToString();
-                double lat = double.Parse(row["attractionLatitude"].ToString());
-                double log = double.Parse(row["attractionLongitude"].ToString());
-                GeoJson obj = new GeoJson(name, desc, lat, log);
-                geoJsons.Add(obj);
-            }
-            return geoJsons;
-        }
-
         public static void AddDirToUser(int attraction, int tourist)
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
@@ -207,6 +207,11 @@ namespace TouristHelp.DAL
             {
                 Console.WriteLine(ex);
             }
+        }
+
+        public static double[] GetCoordByName(string name)
+        {
+            return null;
         }
     }
 }

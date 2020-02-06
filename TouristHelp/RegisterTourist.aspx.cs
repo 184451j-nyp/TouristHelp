@@ -59,7 +59,7 @@ namespace TouristHelp
 
         protected void CustomValidatorEmailExists_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (UserDAO.UserWithEmailExists(args.Value))
+            if (UserDAO.UserWithEmailExists(args.Value.ToLower()))
             {
                 args.IsValid = false;
             }

@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace TouristHelp
 {
@@ -15,11 +10,10 @@ namespace TouristHelp
             {
                 Label1.Text = Session["tourist_id"].ToString();
             }
-            catch(NullReferenceException)
+            catch (NullReferenceException)
             {
                 Label1.Text = Session["tourguide_id"].ToString();
             }
-
         }
     }
 }

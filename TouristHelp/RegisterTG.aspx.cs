@@ -18,7 +18,7 @@ namespace TouristHelp
             if (Page.IsValid)
             {
                 string name = tbNameTG.Text;
-                string email = tbEmailTG.Text;
+                string email = tbEmailTG.Text.ToLower();
                 string pass1 = tbPasswordTG.Text;
                 string pass2 = tbRepeatPassTG.Text;
                 string desc = tbDesc.Text;
@@ -29,8 +29,6 @@ namespace TouristHelp
                     TourGuide obj = new TourGuide(name, email, hash, desc, lang, "");
                     TourGuideDAO.InsertTourGuide(obj);
 
-
-
                     Response.Redirect("Login.aspx");
                 }
             }
@@ -38,7 +36,7 @@ namespace TouristHelp
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (UserDAO.UserWithEmailExists(args.Value))
+            if (UserDAO.UserWithEmailExists(args.Value.ToLower()))
             {
                 args.IsValid = false;
             }
