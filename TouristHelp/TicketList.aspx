@@ -16,6 +16,8 @@
 
     <form runat="server">
        <section class="ftco-section">
+           <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" >
+           <ItemTemplate>
          <div class="container">
              <div class="row">
                  <div class="col-lg-2">
@@ -25,17 +27,28 @@
                      <div class="row">
                          <div class="col-lg-12">
                              <h2>Ticket Name</h2>
+                             <%--<asp:Label ID="lbTixName" runat="server" Font-Bold="True" Text='<%#Eval("ticketName") %>'></asp:Label>
+                              <asp:Label ID="lbTixId" runat="server" Visible ="false" Text='<%#Eval("ticketId") %>'></asp:Label>--%>
                          </div>
                          <div class="col-lg-12">
                              <h4>Ticket Desc</h4>
+                             <%--<asp:Label ID="lbTixDesc" runat="server" Text='<%#Eval("ticketDesc") %>'></asp:Label>--%>
+                         </div>
+                         <div class="col-lg-12">
+                             <h4>Expiry Date: something</h4>
+                             <%--<asp:Label ID="lbTixDesc" runat="server" Text='<%#Eval("ticketDesc") %>'></asp:Label>--%>
                          </div>
                      </div>
                  </div>
                  <div class="col-lg-2">
-                     <a href="Main.aspx"></a>
+                     <a href="Main.aspx">Link here :D</a>
+                     <%--send them to the QR code or ticket code here--%>
+                     <%--<asp:HyperLink--%>
                  </div>
              </div>
          </div>
+               </ItemTemplate>
+             </asp:Repeater>
        </section>
     </form>
 </asp:Content>

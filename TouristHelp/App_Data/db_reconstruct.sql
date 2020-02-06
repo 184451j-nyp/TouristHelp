@@ -15,16 +15,19 @@
 
 
 CREATE TABLE [dbo].[Ticket] (
-    [ticketId]       INT             IDENTITY (1, 1) NOT NULL,
-    [attractionName] VARCHAR (50)    NOT NULL,
-    [attractionDesc] VARCHAR (50)    NOT NULL,
-    [price]          NUMERIC (18, 2) NOT NULL,
-    [dateExpire]     DATE            NOT NULL,
-    [ticketCode]     VARCHAR (50)    NOT NULL,
-    [paid]           VARCHAR (50)    NOT NULL,
-    [user_id]        NCHAR (10)      NULL,
+    [ticketId]        INT             IDENTITY (1, 1) NOT NULL,
+    [attractionName]  VARCHAR (50)    NOT NULL,
+    [attractionDesc]  VARCHAR (50)    NOT NULL,
+    [price]           NUMERIC (18, 2) NOT NULL,
+    [dateExpire]      DATE            NOT NULL,
+    [ticketCode]      VARCHAR (50)    NOT NULL,
+    [paid]            VARCHAR (50)    NOT NULL,
+    [user_id]         NCHAR (10)      NULL,
+    [attractionImage] NCHAR (50)      NULL,
     PRIMARY KEY CLUSTERED ([ticketId] ASC)
 );
+
+
 
 
 CREATE TABLE [dbo].[Interest] (

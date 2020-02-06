@@ -12,7 +12,12 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            var attractionId = Session["AttractionId"].ToString();
+            Attraction newTix = new Attraction();
+            newTix = newTix.GetAttractionDataById(attractionId);
+            lbTicketName.Text = newTix.Name;
+            lbTicketDesc.Text = newTix.Description;
+            lblPrice.Text = newTix.Price.ToString();
         }
         protected void Btn_TypeSel(object sender, EventArgs e)
         {
@@ -88,13 +93,12 @@ namespace TouristHelp
                 }
 
             }
-
+            var user_id = Convert.ToInt32(Session["tourist_id"]);
             string attName = lbTicketName.Text;
             string attDesc = lbTicketDesc.Text;
             double price = Convert.ToDouble(lblPrice.Text);
             DateTime expDate = Convert.ToDateTime(tbDate.Text);
             string code = "somethingnew";
-            int user_id = 1;
             int quantity = Convert.ToInt32(tbQuantity.Text);
 
             Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id);
