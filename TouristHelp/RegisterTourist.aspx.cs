@@ -30,20 +30,15 @@ namespace TouristHelp
                 string pass2 = tbRepeatPassTourist.Text;
                 string nation = ddlNation.SelectedValue;
                 if (pass1 == pass2 && name != "" && email != "" && pass1 != "" && nation != "-- Select --")
-
-                    
-
                 {
                     string hash = SHA256Hash.GenerateSHA256(pass1);
                     Tourist obj = new Tourist(name, email, hash, nation);
                     TouristDAO.InsertTourist(obj);
 
 
-
-
                     //Michaels Reward insert table stuff (dont touch)
+                    int id = Convert.ToInt32(TouristDAO.SelectTouristByEmail(email).UserId);
 
-                  
                     int logincount = 0;
                     int loginstreak = 0;
                     string loyaltytier = "none";
@@ -53,7 +48,7 @@ namespace TouristHelp
                     int creditbalance = 0;
                     int remainbonusdays = 0;
 
-                    Reward insertReward = new Reward(logincount, loginstreak, loyaltytier, totaldiscount, bonuscredits, membershiptier, creditbalance, remainbonusdays);
+                    Reward insertReward = new Reward(id, logincount, loginstreak, loyaltytier, totaldiscount, bonuscredits, membershiptier, creditbalance, remainbonusdays);
 
                     insertReward.insertNewReward();
 
@@ -64,7 +59,7 @@ namespace TouristHelp
 
         protected void CustomValidatorEmailExists_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (UserDAO.UserWithEmailExists(args.Value))
+            if (UserDAO.UserWithEmailExists(args.Value.ToLower()))
             {
                 args.IsValid = false;
             }

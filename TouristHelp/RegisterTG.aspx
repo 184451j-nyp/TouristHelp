@@ -47,8 +47,8 @@
                     <figure>
                         <img src="Images/signup-image.jpg" alt="sign up image">
                     </figure>
-                    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="signup-image-link" NavigateUrl="~/Login.aspx"><u>I am already a user</u></asp:HyperLink>
-                    <asp:HyperLink ID="HyperLink2" runat="server" CssClass="signup-image-link" NavigateUrl="~/RegisterTourist.aspx"><u>I want to sign up as a tourist</u></asp:HyperLink>
+                    <a class="signup-image-link" href="Login.aspx">I have already signed up</a>
+                    <a class="signup-image-link" href="RegisterTourist.aspx">I want to sign up as a Tourist</a>
                 </div>
             </div>
         </div>
