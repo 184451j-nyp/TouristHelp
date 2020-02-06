@@ -3,31 +3,27 @@
     [attractionName]      VARCHAR (50)    NOT NULL,
     [attractionPrice]     MONEY           NOT NULL,
     [dateTime]            VARCHAR (50)    NULL,
-    [attractionDesc]      VARCHAR (MAX)   NOT NULL,
-    [attractionLocation]  VARCHAR (50)    NOT NULL,
-    [attractionLatitude]  DECIMAL (18, 8) NULL,
-    [attractionLongitude] DECIMAL (18, 8) NULL,
-    [attractionInterest]  VARCHAR (50)    NOT NULL,
-    [attractionType]      VARCHAR (50)    NOT NULL,
-	[attractionTransaction] VARCHAR (50)    NULL
-    CONSTRAINT [PK_Attraction] PRIMARY KEY ([attractionId])
+    [attractionDesc]      VARCHAR (MAX)   NULL,
+    [attractionLocation]  VARCHAR (50)    NULL,
+    [attractionLatitude]  DECIMAL (12, 6) NULL,
+    [attractionLongitude] DECIMAL (12, 6) NULL,
+    [attractionInterest]  VARCHAR (50)    NULL,
+    [attractionType]      VARCHAR (50)    NULL,
+    CONSTRAINT [PK_Attraction] PRIMARY KEY CLUSTERED ([attractionId] ASC)
 );
 
 
 CREATE TABLE [dbo].[Ticket] (
-    [ticketId]        INT             IDENTITY (1, 1) NOT NULL,
-    [attractionName]  VARCHAR (50)    NOT NULL,
-    [attractionDesc]  VARCHAR (50)    NOT NULL,
-    [price]           NUMERIC (18, 2) NOT NULL,
-    [dateExpire]      DATE            NOT NULL,
-    [ticketCode]      VARCHAR (50)    NOT NULL,
-    [paid]            VARCHAR (50)    NOT NULL,
-    [user_id]         NCHAR (10)      NULL,
-    [attractionImage] NCHAR (50)      NULL,
+    [ticketId]       INT             IDENTITY (1, 1) NOT NULL,
+    [attractionName] VARCHAR (50)    NOT NULL,
+    [attractionDesc] VARCHAR (50)    NOT NULL,
+    [price]          NUMERIC (18, 2) NOT NULL,
+    [dateExpire]     DATE            NOT NULL,
+    [ticketCode]     VARCHAR (50)    NOT NULL,
+    [paid]           VARCHAR (50)    NOT NULL,
+    [user_id]        NCHAR (10)      NULL,
     PRIMARY KEY CLUSTERED ([ticketId] ASC)
 );
-
-
 
 
 CREATE TABLE [dbo].[Interest] (
@@ -90,7 +86,7 @@ CREATE TABLE [dbo].[Directions] (
 
 
 CREATE TABLE [dbo].[Reward] (
-    [user_id]         INT          NOT NULL,
+    [tourist_id]         INT       NOT NULL,
     [loginCount]      INT          DEFAULT ((0)) NOT NULL,
     [loginStreak]     INT          DEFAULT ((0)) NOT NULL,
     [loyaltyTier]     VARCHAR (50) NOT NULL,
@@ -98,8 +94,10 @@ CREATE TABLE [dbo].[Reward] (
     [bonusCredits]    INT          NOT NULL,
     [membershipTier]  VARCHAR (50) NOT NULL,
     [creditBalance]   INT          NOT NULL,
-    [remainBonusDays] INT          NOT NULL,
-    CONSTRAINT [PK_Reward] PRIMARY KEY CLUSTERED ([user_id] ASC)
+    [remainBonusDays] INT          NOT NULL, 
+    [id] INT NOT NULL identity(1, 1), 
+    CONSTRAINT [PK_Reward] PRIMARY KEY ([id]), 
+    CONSTRAINT [FK_Reward_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [Tourists]([tourist_id])
 );
 
 
@@ -113,28 +111,24 @@ CREATE TABLE [dbo].[Transaction] (
     [voucherTotalCost] INT          NOT NULL,
     [voucherQuantity]  INT          NOT NULL,
     [voucherName]      VARCHAR (50) NOT NULL,
-    CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC),
-    CONSTRAINT [FK_Transaction_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Reward] ([user_id])
+    CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC)
 );
 
 
 
 CREATE TABLE [dbo].[ShopVoucher] (
     [voucher_id]         INT           NOT NULL,
-    [user_id]            INT           NOT NULL,
     [voucherQty]         INT           NOT NULL,
     [voucherType]        VARCHAR (50)  NOT NULL,
     [voucherStatus]      VARCHAR (50)  NOT NULL,
     [membershipCategory] BIT           NOT NULL,
     [foodCategory]       BIT           NOT NULL,
-    [categoryFilter]     BIT           NOT NULL,
     [nameFilter]         VARCHAR (50)  NULL,
     [voucherCost]        INT           NOT NULL,
     [shopImage]          NVARCHAR (50) NULL,
     [shopDesc]           NVARCHAR (50) NULL,
     [voucherName]        NVARCHAR (50) NOT NULL,
-    PRIMARY KEY CLUSTERED ([voucher_id] ASC),
-    CONSTRAINT [FK_ShopVoucher_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Reward] ([user_id])
+    PRIMARY KEY CLUSTERED ([voucher_id] ASC)
 );
 
 
@@ -143,10 +137,14 @@ CREATE TABLE [dbo].[HotelBook] (
     [hotelId]        INT             NOT NULL,
     [hotelPrice]     DECIMAL (18, 2) NOT NULL,
     [hotelImage]     NVARCHAR (50)   NULL,
-    [regionFilter]   BIT             NULL,
+    [centralFilter]  BIT             NOT NULL,
+    [northFilter]    BIT             NOT NULL,
+    [southFilter]    BIT             NOT NULL,
+    [westFilter]     BIT             NOT NULL,
+    [eastFilter]     BIT             NOT NULL,
+    [hotelName]      NVARCHAR (50)   NOT NULL,
     [minPriceFilter] INT             NULL,
     [maxPriceFilter] INT             NULL,
-    [hotelName]      NVARCHAR (50)   NULL,
     PRIMARY KEY CLUSTERED ([hotelId] ASC)
 );
 
