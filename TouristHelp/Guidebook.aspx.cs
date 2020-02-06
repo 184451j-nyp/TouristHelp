@@ -16,34 +16,54 @@ namespace TouristHelp
         {
             if (!Page.IsPostBack)
             {
-                if (Session["AttractionType"] == null) //filter codes
+                if (Session["AttractionType"] == null && Session["AttractionInterest"] == null) //filter codes
                 {
-                    loadRepeater("All");
+                    loadRepeater("All", "Popular");
                 }
                 else
                 {
-                    loadRepeater(Session["AttractionType"].ToString());
+                    DdlType.SelectedValue = Session["AttractionType"].ToString();
+                    DdlInterest.SelectedValue = Session["AttractionInterest"].ToString();
+                    loadRepeater(Session["AttractionType"].ToString(), Session["AttractionInterest"].ToString());
                 }
                     
             }
         }
 
-        private void loadRepeater(string type)
+        private void loadRepeater(string type, string interest)
         {
             Attraction actt = new Attraction();
             
-            if (type == "All")
+            if (interest == "Popular")
             {
-                acttList = actt.ListAttractionAll();
+                if (type == "All")
+                    {
+                        acttList = actt.ListAttractionAll();
+                    }
+                else
+                    {
+                        acttList = actt.ListAttraction(type);
+                    }
             }
-            else
+            else if (interest == "Personalised")
             {
-                acttList = actt.ListAttraction(type);
+                if (type == "All")
+                {
+
+                    var userInt = "Food";
+                    acttList = actt.ListAttractionAll_Personal(userInt);
+                }
+                else
+                {
+                    var userInt = "Food";
+                    acttList = actt.ListAttraction_Personal(type, userInt);
+                }
             }
+            
 
 
 
-                RepeaterAttraction.DataSource = acttList;
+            RepeaterAttraction.DataSource = acttList;
             RepeaterAttraction.DataBind();
         }
 
@@ -67,26 +87,10 @@ namespace TouristHelp
             
         }
 
-        protected void ButtonFilterAll_Click(object sender, EventArgs e)
+        protected void ButtonFilter_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Guidebook.aspx");
-        }
-
-        protected void ButtonFilterPlaces_Click(object sender, EventArgs e)
-        {
-            Session["AttractionType"] = "Place";
-            Response.Redirect("Guidebook.aspx");
-        }
-
-        protected void ButtonFilterEvents_Click(object sender, EventArgs e)
-        {
-            Session["AttractionType"] = "Event";
-            Response.Redirect("Guidebook.aspx");
-        }
-
-        protected void ButtonFilterDeals_Click(object sender, EventArgs e)
-        {
-            Session["AttractionType"] = "Deal";
+            Session["AttractionType"] = DdlType.SelectedValue;
+            Session["AttractionInterest"] = DdlInterest.SelectedValue;
             Response.Redirect("Guidebook.aspx");
         }
     }

@@ -67,7 +67,7 @@
                         </asp:DropDownList>
                     </p>
                     <asp:Button ID="BtnAdd" runat="server" CssClass="btn btn-default" Style="float: right" Text="Add Attraction" OnClick="BtnAdd_Click" />
-                    <asp:Button ID="BtnCancel" runat="server" CssClass="btn btn-default" Style="float: right; margin-right:20px" Text="Go back" OnClick="BtnBack_Click" />
+                    <asp:Button ID="BtnCancel" runat="server" CssClass="btn btn-default" Style="float: right; margin-right:20px" Text="Go back" OnClick="BtnBack_Click" CausesValidation="False" />
                 </td>
             </tr>
         </table>
