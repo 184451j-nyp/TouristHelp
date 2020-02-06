@@ -340,6 +340,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SendMailToTourGuide.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Styles\animate.css" />
@@ -356,6 +357,7 @@
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
     <Content Include="TourGuideUpdateDetails.aspx" />
+    <Content Include="TourGuideUpdateTour.aspx" />
     <Content Include="TouristBookingsPage.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
@@ -520,6 +522,13 @@
     <Compile Include="RewardPage.aspx.designer.cs">
       <DependentUpon>RewardPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SendMailToTourGuide.aspx.cs">
+      <DependentUpon>SendMailToTourGuide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendMailToTourGuide.aspx.designer.cs">
+      <DependentUpon>SendMailToTourGuide.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Shop.aspx.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -582,6 +591,13 @@
     </Compile>
     <Compile Include="TourGuideUpdateDetails.aspx.designer.cs">
       <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuideUpdateTour.aspx.cs">
+      <DependentUpon>TourGuideUpdateTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideUpdateTour.aspx.designer.cs">
+      <DependentUpon>TourGuideUpdateTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="TouristBookingsPage.aspx.cs">
       <DependentUpon>TouristBookingsPage.aspx</DependentUpon>

@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TouristHelp.Models;
+using TouristHelp.DAL;
+
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -18,11 +21,13 @@ namespace TouristHelp
                 tourguidelanguagesLabel2.Text = (string)Session["SSLanguages"];
                 tourguideidLabel2.Text = (string)Session["SSTourGuideId"];
                 tourguidecredentialsLabel2.Text = (string)Session["SSCredentials"];
+                tourguideuserid.Text = (string)Session["SSUserId"];
             }
         }
 
         protected void RedirectBtn_Click(object sender, EventArgs e)
         {
+
             Response.Redirect("TourDetailsPage.aspx");
         }
     }

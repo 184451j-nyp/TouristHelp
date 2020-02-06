@@ -8,6 +8,17 @@
 
 
     <form id="form1" runat="server">
+        <asp:Button ID="FilterButton" runat="server" Text="Button" OnClick="FilterButton_Click" />
+        <asp:DropDownList ID="DropDownListLanguage" runat="server">
+            <asp:ListItem>All</asp:ListItem>
+            <asp:ListItem>English</asp:ListItem>
+            <asp:ListItem>Chinese</asp:ListItem>
+            <asp:ListItem>Malay</asp:ListItem>
+            <asp:ListItem>Tamil</asp:ListItem>
+        </asp:DropDownList>
+
+
+
         <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
             <ItemTemplate>
                 <div class="col-sm col-md-6 col-lg-12 ftco-animate fadeInUp ftco-animated">
@@ -15,7 +26,7 @@
                         <a>
                             <img border="0" width="160" height="150" alt="Private tour guide Walter" class="lazy" src="https://www.toursbylocals.com/images/guides/7/7385/2013094184902530.jpg" style="display: block;">
                         </a>
-                        <div class="text p-3">
+                        &nbsp;&nbsp;&nbsp;<div class="text p-3">
                             <div class="d-flex">
                                 <div class="one">
                                     <td>

@@ -25,16 +25,9 @@ namespace TouristHelp
                 {
                     TourGuide user = TourGuideDAO.SelectTourGuideByEmail(tbEmail.Text);
                     Session["tourguide_id"] = user.TourGuideId.ToString();
-                    Session["user_id"] = user.UserId.ToString();
-                    Session["name"] = user.Name;
-                    Session["email"] = user.Email;
-                    Session["password"] = user.Password;
-                    Session["description"] = user.Description;
-                    Session["languages"] = user.Languages;
-                    Session["credentials"] = user.Credentials;
 
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     Tourist user = TouristDAO.SelectTouristByEmail(tbEmail.Text);
                     Session["tourist_id"] = user.TouristId.ToString();
