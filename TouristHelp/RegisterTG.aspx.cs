@@ -29,6 +29,8 @@ namespace TouristHelp
                     TourGuide obj = new TourGuide(name, email, hash, desc, lang, "");
                     TourGuideDAO.InsertTourGuide(obj);
 
+
+
                     Response.Redirect("Login.aspx");
                 }
             }

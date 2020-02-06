@@ -80,6 +80,42 @@ namespace TouristHelp.DAL
                 decimal lon = decimal.Parse(row["attractionLongitude"].ToString());
                 string interest = row["attractionInterest"].ToString();
                 string type = row["attractionType"].ToString();
+                //string transaction = row["attractionTransaction"].ToString();
+
+                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, null);
+                empList.Add(obj);
+            }
+            return empList;
+        }
+
+        public List<Attraction> SelectByType(string filterType) //get same type from attraction db and put into list
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * from Attraction where attractionType = @paraType";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraType", filterType);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+
+            List<Attraction> empList = new List<Attraction>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i]; 
+                int id = int.Parse(row["attractionId"].ToString());
+                string name = row["attractionName"].ToString();
+                float price = float.Parse(row["attractionPrice"].ToString());
+                string date = row["DateTime"].ToString();
+                string desc = row["attractionDesc"].ToString();
+                string loc = row["attractionLocation"].ToString();
+                decimal lat = decimal.Parse(row["attractionLatitude"].ToString());
+                decimal lon = decimal.Parse(row["attractionLongitude"].ToString());
+                string interest = row["attractionInterest"].ToString();
+                string type = row["attractionType"].ToString();
                 string transaction = row["attractionTransaction"].ToString();
 
                 Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);

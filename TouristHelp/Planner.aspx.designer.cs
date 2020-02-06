@@ -24,6 +24,15 @@ namespace TouristHelp
         protected global::System.Web.UI.HtmlControls.HtmlForm FormView1;
 
         /// <summary>
+        /// lblNoEntry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNoEntry;
+
+        /// <summary>
         /// gvDirections control.
         /// </summary>
         /// <remarks>
@@ -33,12 +42,30 @@ namespace TouristHelp
         protected global::System.Web.UI.WebControls.GridView gvDirections;
 
         /// <summary>
-        /// lblNoEntry control.
+        /// DropDownListAttractions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNoEntry;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownListAttractions;
+
+        /// <summary>
+        /// BtnAddAttraction control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnAddAttraction;
+
+        /// <summary>
+        /// geojsonHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField geojsonHidden;
     }
 }

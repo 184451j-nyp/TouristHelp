@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using TouristHelp.DAL;
 using TouristHelp.BLL;
+using TouristHelp.DAL;
 using TouristHelp.Models;
 
 namespace TouristHelp
@@ -14,7 +11,7 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session.Abandon();
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -25,16 +22,8 @@ namespace TouristHelp
                 {
                     TourGuide user = TourGuideDAO.SelectTourGuideByEmail(tbEmail.Text);
                     Session["tourguide_id"] = user.TourGuideId.ToString();
-                    Session["user_id"] = user.UserId.ToString();
-                    Session["name"] = user.Name;
-                    Session["email"] = user.Email;
-                    Session["password"] = user.Password;
-                    Session["description"] = user.Description;
-                    Session["languages"] = user.Languages;
-                    Session["credentials"] = user.Credentials;
-
                 }
-                catch(Exception)
+                catch (Exception)
                 {
                     Tourist user = TouristDAO.SelectTouristByEmail(tbEmail.Text);
                     Session["tourist_id"] = user.TouristId.ToString();
@@ -50,7 +39,7 @@ namespace TouristHelp
         {
             string email = tbEmail.Text.ToLower();
             string password = tbPassword.Text;
-            if(SHA256Hash.GenerateSHA256(password) == UserDAO.GetLoginCredentials(email))
+            if (SHA256Hash.GenerateSHA256(password) == UserDAO.GetLoginCredentials(email))
             {
                 args.IsValid = true;
             }

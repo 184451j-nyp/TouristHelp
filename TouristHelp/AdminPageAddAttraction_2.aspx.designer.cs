@@ -22,6 +22,15 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox TbName;
         
         /// <summary>
+        /// RfvName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvName;
+        
+        /// <summary>
         /// TbDesc control.
         /// </summary>
         /// <remarks>
@@ -29,6 +38,15 @@ namespace TouristHelp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TbDesc;
+        
+        /// <summary>
+        /// RfvDesc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvDesc;
         
         /// <summary>
         /// TbPrice control.
@@ -40,6 +58,15 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox TbPrice;
         
         /// <summary>
+        /// RfvPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvPrice;
+        
+        /// <summary>
         /// TbLocation control.
         /// </summary>
         /// <remarks>
@@ -49,6 +76,15 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox TbLocation;
         
         /// <summary>
+        /// RfvLocation control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvLocation;
+        
+        /// <summary>
         /// TbDate control.
         /// </summary>
         /// <remarks>
@@ -56,6 +92,15 @@ namespace TouristHelp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TbDate;
+        
+        /// <summary>
+        /// RfvDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvDate;
         
         /// <summary>
         /// TbLat control.

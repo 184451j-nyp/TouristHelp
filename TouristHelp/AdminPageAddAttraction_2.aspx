@@ -9,23 +9,28 @@
                 <td class="auto-style1">
                     <p>
                         Attraction Name: 
-                            <asp:TextBox ID="TbName" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TbName" runat="server" CausesValidation="True"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvName" runat="server" ControlToValidate="TbPrice" ForeColor="Red">*Please Enter a Name</asp:RequiredFieldValidator>
                     </p>
                     <p>
                         Attraction Description:
                             <asp:TextBox ID="TbDesc" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvDesc" runat="server" ControlToValidate="TbDesc" ForeColor="Red">*Please Enter a Description</asp:RequiredFieldValidator>
                     </p>
                     <p>
                         Attraction Price:
                             <asp:TextBox ID="TbPrice" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvPrice" runat="server" ControlToValidate="TbName" ForeColor="Red">*Please Enter a Price</asp:RequiredFieldValidator>
                     </p>
                     <p>
                         Attraction Location:
                         <asp:TextBox ID="TbLocation" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvLocation" runat="server" ControlToValidate="TbLocation" ForeColor="Red">*Please Enter a Location</asp:RequiredFieldValidator>
                     </p>
                     <p>
                        Attraction Date:
                             <asp:TextBox ID="TbDate" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvDate" runat="server" ControlToValidate="TbDate" ForeColor="Red">*Please Enter a Date</asp:RequiredFieldValidator>
                     </p>
                     <p>
                        Attraction Latitude:
