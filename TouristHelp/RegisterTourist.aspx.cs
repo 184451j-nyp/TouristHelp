@@ -35,6 +35,23 @@ namespace TouristHelp
                     Tourist obj = new Tourist(name, email, hash, nation);
                     TouristDAO.InsertTourist(obj);
 
+
+                    //Michaels Reward insert table stuff (dont touch)
+                    int id = Convert.ToInt32(TouristDAO.SelectTouristByEmail(email).UserId);
+
+                    int logincount = 0;
+                    int loginstreak = 0;
+                    string loyaltytier = "none";
+                    int totaldiscount = 0;
+                    int bonuscredits = 0;
+                    string membershiptier = "normal";
+                    int creditbalance = 0;
+                    int remainbonusdays = 0;
+
+                    Reward insertReward = new Reward(id, logincount, loginstreak, loyaltytier, totaldiscount, bonuscredits, membershiptier, creditbalance, remainbonusdays);
+
+                    insertReward.insertNewReward();
+
                     Response.Redirect("Login.aspx");
                 }
             }
@@ -42,7 +59,7 @@ namespace TouristHelp
 
         protected void CustomValidatorEmailExists_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (UserDAO.UserWithEmailExists(args.Value))
+            if (UserDAO.UserWithEmailExists(args.Value.ToLower()))
             {
                 args.IsValid = false;
             }

@@ -23,7 +23,7 @@ namespace TouristHelp
         private void loadRepeater()
         {
             Attraction actt = new Attraction();
-            acttList = actt.ListAttraction();
+            acttList = actt.ListAttractionAll();
 
             RepeaterAttraction.DataSource = acttList;
             RepeaterAttraction.DataBind();

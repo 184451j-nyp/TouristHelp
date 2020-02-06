@@ -13,49 +13,31 @@ namespace TouristHelp {
     public partial class Guidebook {
         
         /// <summary>
-        /// ButtonFilterAll control.
+        /// DdlType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonFilterAll;
+        protected global::System.Web.UI.WebControls.DropDownList DdlType;
         
         /// <summary>
-        /// ButtonFilterPlaces control.
+        /// DdlInterest control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonFilterPlaces;
+        protected global::System.Web.UI.WebControls.DropDownList DdlInterest;
         
         /// <summary>
-        /// ButtonFilterEvents control.
+        /// ButtonFilter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonFilterEvents;
-        
-        /// <summary>
-        /// ButtonFilterDeals control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonFilterDeals;
-        
-        /// <summary>
-        /// DropDownList1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.Button ButtonFilter;
         
         /// <summary>
         /// RepeaterAttraction control.

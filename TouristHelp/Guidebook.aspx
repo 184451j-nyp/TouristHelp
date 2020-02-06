@@ -7,20 +7,24 @@
 
     <div style="background-color: lightcyan; /*border-style:solid*/">
         <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="text-align: center; transform: translateZ(0px) translateY(10.929%); ">Guidebook</h1>
-        &nbsp;
-        &nbsp;
-        <asp:Button ID="ButtonFilterAll" runat="server" CssClass="btn btn-default" Text="All" Style="" /> <%--Filter all--%>
-
-        <asp:Button ID="ButtonFilterPlaces" runat="server" CssClass="btn btn-default" Text="Places" Style="" /> <%--Filter places--%>
-
-        <asp:Button ID="ButtonFilterEvents" runat="server" CssClass="btn btn-default" Text="Events" Style="" /> <%--Filter events--%>
-
-        <asp:Button ID="ButtonFilterDeals" runat="server" CssClass="btn btn-default" Text="Deals" Style="" /> <%--Filter deals--%>
-
-        <asp:DropDownList ID="DropDownList1" runat="server" style="float:right"> 
-            <asp:ListItem>Personalised</asp:ListItem>
-            <asp:ListItem>Popular</asp:ListItem>
+        
+        <span style="margin-left:20px">Show: </span>
+        <asp:DropDownList ID="DdlType" runat="server" > 
+            <asp:ListItem>All</asp:ListItem>
+            <asp:ListItem Value="Place">Place</asp:ListItem>
+            <asp:ListItem Value="Event">Event</asp:ListItem>
+            <asp:ListItem Value="Deal">Deal</asp:ListItem>
         </asp:DropDownList>
+
+        <span style="margin-left:20px">|&nbsp;&nbsp;&nbsp; Sort by: </span>
+        <asp:DropDownList ID="DdlInterest" runat="server" > 
+            <asp:ListItem>Popular</asp:ListItem>
+            <asp:ListItem>Personalised</asp:ListItem>
+        </asp:DropDownList>
+
+        <span>  &nbsp;&nbsp;&nbsp;  |&nbsp;&nbsp;&nbsp;   </span>
+        
+        <asp:Button ID="ButtonFilter" runat="server" Text="Apply Filters" OnClick="ButtonFilter_Click" />
         <br />
         <br />
     </div>

@@ -74,5 +74,11 @@ namespace TouristHelp.BLL
             CartDAO cart = new CartDAO();
             cart.ItemPay(userId);
         }
+
+        public void DeleteItem(int productId, int userId)
+        {
+            CartDAO cart = new CartDAO();
+            cart.DeleteItem(productId, userId);
+        }
     }
 }

@@ -59,10 +59,30 @@ namespace TouristHelp.BLL
             return dao.SelectById(attId);
         }
 
-        public List<Attraction> ListAttraction()
+        public List<Attraction> ListAttractionAll()// un-filter, popular arrange
         {
             AttractionDAO dao = new AttractionDAO();
             return dao.SelectAll();
+        }
+
+        public List<Attraction> ListAttraction(string type)// filtered, popular arrange
+        {
+            AttractionDAO dao = new AttractionDAO();
+            return dao.SelectByType(type);
+        }
+
+        ///////// pog /////////
+
+        public List<Attraction> ListAttractionAll_Personal(string arrange)// un-filter, personal arrange
+        {
+            AttractionDAO dao = new AttractionDAO();
+            return dao.SelectAll_Personal(arrange);
+        }
+
+        public List<Attraction> ListAttraction_Personal(string type, string arrange)// filtered, personal arrange
+        {
+            AttractionDAO dao = new AttractionDAO();
+            return dao.SelectByType_Personal(type, arrange);
         }
 
         public void AddAttraction(Attraction att)

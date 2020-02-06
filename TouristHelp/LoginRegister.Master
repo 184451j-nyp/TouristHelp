@@ -13,6 +13,13 @@
     <script src="Scripts/bootstrap.min.js"></script>
     <script src="Scripts/login.js"></script>
 
+    <style>
+        u{
+            border-bottom: 1px dashed #999;
+            text-decoration: none;
+        }
+    </style>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

@@ -334,7 +334,7 @@ namespace TouristHelp
             double price;
             DateTime expDate;
             int code;
-            int user_id = 1;
+            int user_id = Convert.ToInt32(Session["tourist_id"]);
             int quantity;
             decimal totalCost;
 
