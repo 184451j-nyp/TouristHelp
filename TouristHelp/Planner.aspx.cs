@@ -27,11 +27,14 @@ namespace TouristHelp
                 }
                 DropDownListAttractions.DataBind();
             }
+            else if(Session["tourguide_id"] != null)
+            {
+                Response.Redirect("blank.aspx");
+            }
             else
             {
                 Response.Redirect("Login.aspx");
             }
-            
         }
 
         protected void BtnAddAttraction_Click(object sender, EventArgs e)
@@ -57,6 +60,11 @@ namespace TouristHelp
                 geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
                 gvDirections.DataSource = places;
                 gvDirections.DataBind();
+                foreach(Direction i in places)
+                {
+                    DropDownListSaved.Items.Add(i.Name);
+                }
+                DropDownListSaved.DataBind();
             }
             gvDirections.Visible = true;
         }

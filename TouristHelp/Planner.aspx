@@ -56,7 +56,12 @@
                 <div class="row">
                     <div class="col">
                         <h3>Get Directions!</h3>
-
+                        <br />
+                        <p>Add locations in the order you want to visit them:</p>
+                        <br />
+                        <p>Saved locations:</p>
+                        <asp:DropDownList ID="DropDownListSaved" runat="server"></asp:DropDownList>
+                        <button class="btn btn-info" onclick="addToList(); return false;"></button>
                     </div>
                 </div>
 
@@ -96,7 +101,7 @@
                 .addTo(map);
         });
 
-        function addDirList() {
+        function addToList() {
             alert("Button click!");
         }
     </script>
