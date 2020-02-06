@@ -86,7 +86,7 @@ CREATE TABLE [dbo].[Directions] (
 
 
 CREATE TABLE [dbo].[Reward] (
-    [user_id]         INT          IDENTITY (1, 1) NOT NULL,
+    [tourist_id]         INT       NOT NULL,
     [loginCount]      INT          DEFAULT ((0)) NOT NULL,
     [loginStreak]     INT          DEFAULT ((0)) NOT NULL,
     [loyaltyTier]     VARCHAR (50) NOT NULL,
@@ -94,7 +94,10 @@ CREATE TABLE [dbo].[Reward] (
     [bonusCredits]    INT          NOT NULL,
     [membershipTier]  VARCHAR (50) NOT NULL,
     [creditBalance]   INT          NOT NULL,
-    [remainBonusDays] INT          NOT NULL
+    [remainBonusDays] INT          NOT NULL, 
+    [id] INT NOT NULL identity(1, 1), 
+    CONSTRAINT [PK_Reward] PRIMARY KEY ([id]), 
+    CONSTRAINT [FK_Reward_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [Tourists]([tourist_id])
 );
 
 
