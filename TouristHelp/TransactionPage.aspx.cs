@@ -56,23 +56,6 @@ namespace TouristHelp
             //td = td.GetRewardById(user_id);
 
 
-            Session["voucher_id"] = "1";
-
-            string shop_id = Session["voucher_id"].ToString();
-            // Retrieve ShopVoucher records by account
-            ShopVoucher ts = new ShopVoucher();
-
-            ts = ts.GetShopById(shop_id);
-
-
-            Session["voucherGen_id"] = "123";
-
-            string trans_id = Session["voucherGen_id"].ToString();
-            // Retrieve Transaction records by account
-
-            Transactions trans = new Transactions();
-
-            trans = trans.GetTransactionByid(trans_id);
 
 
             //voucherGen_id.Text = trans.voucherGen_id.ToString();
@@ -95,7 +78,7 @@ namespace TouristHelp
         private void RefreshGridView()
         {
 
-            int userId = 1;
+            int userId = Convert.ToInt32(Session["tourist_id"]);
             Transactions emp = new Transactions();
             List<Transactions> eList = emp.getTransaction(userId);
 

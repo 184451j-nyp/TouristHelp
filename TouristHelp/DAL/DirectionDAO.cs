@@ -33,7 +33,7 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[i];
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                decimal price = decimal.Parse(row["attractionType"].ToString());
+                decimal price = decimal.Parse(row["attractionPrice"].ToString());
                 string desc = row["attractionDesc"].ToString();
                 string location = row["attractionLocation"].ToString();
                 string type = row["attractionType"].ToString();
@@ -64,7 +64,7 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[i];
                 string name = row["attractionName"].ToString();
                 string desc = row["attractionDesc"].ToString();
-                double lat = double.Parse(row["attractionLatitiude"].ToString());
+                double lat = double.Parse(row["attractionLatitude"].ToString());
                 double log = double.Parse(row["attractionLongitude"].ToString());
                 GeoJson obj = new GeoJson(name, desc, lat, log);
                 list.Add(obj);

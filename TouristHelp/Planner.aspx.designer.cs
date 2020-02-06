@@ -33,6 +33,15 @@ namespace TouristHelp
         protected global::System.Web.UI.WebControls.GridView gvDirections;
 
         /// <summary>
+        /// geojsonHidden control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField geojsonHidden;
+
+        /// <summary>
         /// lblNoEntry control.
         /// </summary>
         /// <remarks>
