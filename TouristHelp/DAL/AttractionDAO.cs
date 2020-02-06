@@ -124,6 +124,137 @@ namespace TouristHelp.DAL
             return empList;
         }
 
+        public List<Attraction> SelectAll_Personal(string arrangeBy) //get all from attraction db arrange by user interest and put into list
+        {
+            
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            
+            string sqlStmt = "Select * from Attraction where attractionInterest = @paraInt";
+            SqlDataAdapter da1 = new SqlDataAdapter(sqlStmt, myConn);
+            da1.SelectCommand.Parameters.AddWithValue("@paraInt", arrangeBy);
+
+            sqlStmt = "Select * from Attraction where not attractionInterest = @paraInt";
+            SqlDataAdapter da2 = new SqlDataAdapter(sqlStmt, myConn);
+            da2.SelectCommand.Parameters.AddWithValue("@paraInt", arrangeBy);
+
+
+            DataSet ds1 = new DataSet();
+            DataSet ds2 = new DataSet();
+
+            da1.Fill(ds1);
+            da2.Fill(ds2);
+
+            List<Attraction> empList = new List<Attraction>();
+            int rec_cnt = ds1.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds1.Tables[0].Rows[i];
+                int id = int.Parse(row["attractionId"].ToString());
+                string name = row["attractionName"].ToString();
+                float price = float.Parse(row["attractionPrice"].ToString());
+                string date = row["DateTime"].ToString();
+                string desc = row["attractionDesc"].ToString();
+                string loc = row["attractionLocation"].ToString();
+                decimal lat = decimal.Parse(row["attractionLatitude"].ToString());
+                decimal lon = decimal.Parse(row["attractionLongitude"].ToString());
+                string interest = row["attractionInterest"].ToString();
+                string type = row["attractionType"].ToString();
+                string transaction = row["attractionTransaction"].ToString();
+
+                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                empList.Add(obj);
+            }
+
+            rec_cnt = ds2.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds2.Tables[0].Rows[i];
+                int id = int.Parse(row["attractionId"].ToString());
+                string name = row["attractionName"].ToString();
+                float price = float.Parse(row["attractionPrice"].ToString());
+                string date = row["DateTime"].ToString();
+                string desc = row["attractionDesc"].ToString();
+                string loc = row["attractionLocation"].ToString();
+                decimal lat = decimal.Parse(row["attractionLatitude"].ToString());
+                decimal lon = decimal.Parse(row["attractionLongitude"].ToString());
+                string interest = row["attractionInterest"].ToString();
+                string type = row["attractionType"].ToString();
+                string transaction = row["attractionTransaction"].ToString();
+
+                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                empList.Add(obj);
+            }
+            return empList;
+        }
+
+        public List<Attraction> SelectByType_Personal(string filterType, string arrangeBy) //get same type from attraction db arrange by user interest and put into list
+        {
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+            
+            string sqlStmt = "Select * from Attraction where attractionType = @paraType and attractionInterest = @paraInt";
+            SqlDataAdapter da1 = new SqlDataAdapter(sqlStmt, myConn);
+            da1.SelectCommand.Parameters.AddWithValue("@paraType", filterType);
+            da1.SelectCommand.Parameters.AddWithValue("@paraInt", arrangeBy);
+
+            sqlStmt = "Select * from Attraction where attractionType = @paraType and not attractionInterest = @paraInt";
+            SqlDataAdapter da2 = new SqlDataAdapter(sqlStmt, myConn);
+            da2.SelectCommand.Parameters.AddWithValue("@paraType", filterType);
+            da2.SelectCommand.Parameters.AddWithValue("@paraInt", arrangeBy);
+
+
+            DataSet ds1 = new DataSet();
+            DataSet ds2 = new DataSet();
+
+            da1.Fill(ds1);
+            da2.Fill(ds2);
+
+            List<Attraction> empList = new List<Attraction>();
+            int rec_cnt = ds1.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds1.Tables[0].Rows[i];
+                int id = int.Parse(row["attractionId"].ToString());
+                string name = row["attractionName"].ToString();
+                float price = float.Parse(row["attractionPrice"].ToString());
+                string date = row["DateTime"].ToString();
+                string desc = row["attractionDesc"].ToString();
+                string loc = row["attractionLocation"].ToString();
+                decimal lat = decimal.Parse(row["attractionLatitude"].ToString());
+                decimal lon = decimal.Parse(row["attractionLongitude"].ToString());
+                string interest = row["attractionInterest"].ToString();
+                string type = row["attractionType"].ToString();
+                string transaction = row["attractionTransaction"].ToString();
+
+                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                empList.Add(obj);
+            }
+
+            rec_cnt = ds2.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds2.Tables[0].Rows[i];
+                int id = int.Parse(row["attractionId"].ToString());
+                string name = row["attractionName"].ToString();
+                float price = float.Parse(row["attractionPrice"].ToString());
+                string date = row["DateTime"].ToString();
+                string desc = row["attractionDesc"].ToString();
+                string loc = row["attractionLocation"].ToString();
+                decimal lat = decimal.Parse(row["attractionLatitude"].ToString());
+                decimal lon = decimal.Parse(row["attractionLongitude"].ToString());
+                string interest = row["attractionInterest"].ToString();
+                string type = row["attractionType"].ToString();
+                string transaction = row["attractionTransaction"].ToString();
+
+                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                empList.Add(obj);
+            }
+            return empList;
+        }
+
         public void InsertNewAttraction(Attraction att) //Insert the attraction details into db
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
