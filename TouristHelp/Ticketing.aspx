@@ -24,17 +24,16 @@
                  <asp:ScriptManager ID="ScriptManager1" runat="server">
                  </asp:ScriptManager>
                        
-                 <asp:Label ID="lbTicketName" runat="server" Font-Size="XX-Large" Text="Name Placeholder"></asp:Label>
+                 <asp:Label ID="lbTicketName" runat="server" Font-Size="XX-Large"></asp:Label>
                        
                  <br />
-                 <asp:Label ID="lbTicketDesc" runat="server" Font-Size="Large" Text="Description Placeholder"></asp:Label>
+                 <asp:Label ID="lbTicketDesc" runat="server" Font-Size="Large"></asp:Label>
 
                          <br />
                          <br />
 
                          <asp:Label ID="Label2" runat="server" Text="Select a Package:" Font-Size="X-Large"></asp:Label>
                          <br />
-                         <asp:Button ID="BtnPack1" runat="server" OnClick="Package_Click" Text="Jewel" />
                          <br />
                          <br />
                          <asp:Label ID="Label3" runat="server" Font-Size="X-Large" Text="Date:"></asp:Label>
@@ -63,7 +62,7 @@
                                  <asp:Label ID="dollar" runat="server" Font-Size="Medium" Text="$"></asp:Label>
                                    <asp:Label ID="lblPrice" runat="server" Font-Size="Medium" Text="14.99"></asp:Label>
                              </span>
-                             <span class="col-lg-1">
+                             <span class="col-lg-3">
                                    <asp:Button ID="BtnMinQ" runat="server" class="ml-auto" Text="-" OnClick="Btn_MinQ" />
                                    <asp:TextBox ID="tbQuantity" runat="server" Width="18px">0</asp:TextBox>
                                    <asp:Button ID="BtnAddQ" runat="server" class="ml-auto" Text="+" OnClick="Btn_AddQ" />

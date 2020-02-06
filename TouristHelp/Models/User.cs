@@ -57,6 +57,11 @@ namespace TouristHelp.Models
             return TourGuideDAO.SelectAllTourGuides();
         }
 
+        public static List<TourGuide> GetAllTourGuidesByLanguage(string language)
+        {
+            return TourGuideDAO.SelectTourGuideByLanguage(language);
+        }
+
 
 
         public static void UpdateTourGuide(TourGuide tg)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace TouristHelp
 {
@@ -24,6 +25,9 @@ namespace TouristHelp
                 tourguideemailLabel.Text = tg.Email;
                 tourguideidLabel.Text = tg.TourGuideId.ToString();
                 tourguideuseridLabel.Text = tg.UserId.ToString();
+
+
+
             }
         }
 
@@ -31,6 +35,27 @@ namespace TouristHelp
         {
             TourGuide tg = new TourGuide(int.Parse(tourguideidLabel.Text), int.Parse(tourguideuseridLabel.Text), tourguidenameTextBox.Text, tourguideemailLabel.Text, tourguidepasswordLabel.Text, tourguidedescriptionTextBox.Text, tourguidelanguagesTextBox.Text, tourguidecredentialsTextBox.Text);
             TourGuide.UpdateTourGuide(tg);
+
+
         }
+
+        protected void UploadFile(object sender, EventArgs e)
+        {
+            string folderPath = Server.MapPath("~/Files/");
+
+            //Check whether Directory (Folder) exists.
+            if (!Directory.Exists(folderPath))
+            {
+                //If Directory (Folder) does not exists Create it.
+                Directory.CreateDirectory(folderPath);
+            }
+
+            //Save the File to the Directory (Folder).
+            FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName));
+
+            //Display the Picture in Image control.
+            Image1.ImageUrl = "~/Files/" + Path.GetFileName(FileUpload1.FileName);
+        }
+
     }
 }

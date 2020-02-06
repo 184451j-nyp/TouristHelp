@@ -90,6 +90,52 @@ namespace TouristHelp.DAL
             return userList;
         }
 
+
+
+
+
+        public static List<TourGuide> SelectTourGuideByLanguage(string language)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.description, TourGuides.languages, TourGuides.credentials " +
+                "From [TourGuides] " +
+                "Inner Join [Users] On TourGuides.user_id = Users.user_id " +
+            "Where TourGuides.languages = @paralanguage";
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("paralanguage", language);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<TourGuide> userList = new List<TourGuide>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                int id = int.Parse(row["tourguide_id"].ToString());
+                int user_id = int.Parse(row["user_id"].ToString());
+                string name = row["name"].ToString();
+                string password = row["password"].ToString();
+                string email = row["email"].ToString();
+                string desc = row["description"].ToString();
+                string languages = row["languages"].ToString();
+                string credentials = row["credentials"].ToString();
+
+
+                TourGuide obj = new TourGuide(id, user_id, name, email, password, desc, languages, credentials);
+                userList.Add(obj);
+            }
+            return userList;
+        }
+
+
+
+
+
+
         public static TourGuide SelectTourGuideById(int id)
         {
             SqlConnection myConn = new SqlConnection(DBConnect);

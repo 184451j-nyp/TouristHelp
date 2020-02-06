@@ -77,6 +77,10 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="QRCoder, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -112,6 +116,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="DLL\QRCoder.dll" />
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
     <Content Include="HotelPage.aspx" />
@@ -276,6 +281,7 @@
     <Content Include="Scripts\esm\popper-utils.min.js.map" />
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="libman.json" />
+    <Content Include="DLL\QRCoder.dll.refresh" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -353,6 +359,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="SendMailToTourGuide.aspx" />
     <Content Include="Shop.aspx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Styles\animate.css" />
@@ -363,12 +370,14 @@
     <Content Include="Styles\navbar.css" />
     <Content Include="Styles\themify-icons.css" />
     <Content Include="Styles\Ticketing\style.css" />
+    <Content Include="TicketDetail.aspx" />
     <Content Include="Ticketing.aspx" />
     <Content Include="TicketList.aspx" />
     <Content Include="TourDetailsPage.aspx" />
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
     <Content Include="TourGuideUpdateDetails.aspx" />
+    <Content Include="TourGuideUpdateTour.aspx" />
     <Content Include="TouristBookingsPage.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
@@ -547,6 +556,13 @@
     <Compile Include="RewardPage.aspx.designer.cs">
       <DependentUpon>RewardPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="SendMailToTourGuide.aspx.cs">
+      <DependentUpon>SendMailToTourGuide.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SendMailToTourGuide.aspx.designer.cs">
+      <DependentUpon>SendMailToTourGuide.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Shop.aspx.cs">
       <DependentUpon>Shop.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -567,6 +583,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TicketDetail.aspx.cs">
+      <DependentUpon>TicketDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketDetail.aspx.designer.cs">
+      <DependentUpon>TicketDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Ticketing.aspx.cs">
       <DependentUpon>Ticketing.aspx</DependentUpon>
@@ -609,6 +632,13 @@
     </Compile>
     <Compile Include="TourGuideUpdateDetails.aspx.designer.cs">
       <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuideUpdateTour.aspx.cs">
+      <DependentUpon>TourGuideUpdateTour.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideUpdateTour.aspx.designer.cs">
+      <DependentUpon>TourGuideUpdateTour.aspx</DependentUpon>
     </Compile>
     <Compile Include="TouristBookingsPage.aspx.cs">
       <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
@@ -653,7 +683,11 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="DefaultPages\" />
+    <Folder Include="TourGuidePages\" />
+    <Folder Include="TouristPages\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

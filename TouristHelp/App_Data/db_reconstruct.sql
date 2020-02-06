@@ -3,12 +3,13 @@
     [attractionName]      VARCHAR (50)    NOT NULL,
     [attractionPrice]     MONEY           NOT NULL,
     [dateTime]            VARCHAR (50)    NULL,
-    [attractionDesc]      VARCHAR (MAX)   NULL,
-    [attractionLocation]  VARCHAR (50)    NULL,
-    [attractionLatitude]  DECIMAL (12, 6) NULL,
-    [attractionLongitude] DECIMAL (12, 6) NULL,
-    [attractionInterest]  VARCHAR (50)    NULL,
-    [attractionType]      VARCHAR (50)    NULL,
+    [attractionDesc]      VARCHAR (MAX)   NOT NULL,
+    [attractionLocation]  VARCHAR (50)    NOT NULL,
+    [attractionLatitude]  DECIMAL (18, 8) NULL,
+    [attractionLongitude] DECIMAL (18, 8) NULL,
+    [attractionInterest]  VARCHAR (50)    NOT NULL,
+    [attractionType]      VARCHAR (50)    NOT NULL,
+    [attractionTransaction] VARCHAR(50) NOT NULL, 
     CONSTRAINT [PK_Attraction] PRIMARY KEY CLUSTERED ([attractionId] ASC)
 );
 

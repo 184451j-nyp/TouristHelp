@@ -33,7 +33,7 @@
                         <p class="bottom-area d-flex">
                             <span><%#Eval("Location") %></span>
                         </p>
-                        <asp:Button ID="ButtonSelect" runat="server"  CssClass="btn btn-default" Text="More info" Style="float:right;" />
+                        <asp:Button ID="ButtonSelect" runat="server"  CssClass="btn btn-default" Text="Edit" Style="float:right;" />
                         <br />
                         <br />
                     </div>

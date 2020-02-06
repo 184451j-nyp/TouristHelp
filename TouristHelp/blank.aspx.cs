@@ -6,13 +6,20 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
+            if (Session["tourist_id"] != null || Session["tourguide_id"] != null)
             {
-                Label1.Text = Session["tourist_id"].ToString();
+                try
+                {
+                    Label1.Text = Session["tourist_id"].ToString();
+                }
+                catch (NullReferenceException)
+                {
+                    Label1.Text = Session["tourguide_id"].ToString();
+                }
             }
-            catch (NullReferenceException)
+            else
             {
-                Label1.Text = Session["tourguide_id"].ToString();
+                Response.Redirect("Login.aspx");
             }
         }
     }
