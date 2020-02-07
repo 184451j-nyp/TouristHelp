@@ -178,8 +178,10 @@ CREATE TABLE [dbo].[ReservationFood] (
     [reservationName] VARCHAR (50) NOT NULL,
     [reservationTime] VARCHAR (50) NOT NULL,
     [reservationPax]  INT          NOT NULL,
-    [userId]          INT          NOT NULL
+    [reservationState]  VARCHAR(50) NOT NULL, 
+    [userId] INT NOT NULL
 );
+
 
 CREATE TABLE [dbo].[Tours]
 (

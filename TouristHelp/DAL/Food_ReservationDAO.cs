@@ -71,10 +71,6 @@ namespace TouristHelp.DAL
 
             string sqlStmt = "UPDATE ReservationFood SET reservationState = 'Inactive' WHERE reservationId = @paraId";
 
-            //UPDATE Customers
-            //SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
-            //WHERE CustomerID = 1;
-
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             sqlCmd.Parameters.AddWithValue("@paraId", resId);

@@ -54,15 +54,20 @@ namespace TouristHelp
                 }
                 Session["ResName"] = lbName.Text.ToString();
                 Session["ResLoc"] = lbPlace.Text.ToString();
-                Session["ResTime"] = TbTime.Text.ToString();
+                Session["ResTime"] = tbDate.Text.ToString();
                 Session["ResPax"] = TbPax.Text.ToString();
                 Food_Reservation td = new Food_Reservation();
-                td.InsertReservation(lbName.Text, TbTime.Text, int.Parse(TbPax.Text), int.Parse(Session["tourist_id"].ToString()));
+                td.InsertReservation(lbName.Text, tbDate.Text, int.Parse(TbPax.Text), int.Parse(Session["tourist_id"].ToString()));
                 Cart cr = new Cart(lbName.Text, "Reservation at " + lbName.Text, 0, 1, 1);
                 cr.InsertCartReservation();
                 Response.Redirect("Reservation_Food_Confirmed.aspx");
             }
             
+        }
+
+        protected void Calendar1_SelectionChanged2(object sender, EventArgs e)
+        {
+            tbDate_PopupControlExtender.Commit(Calendar1.SelectedDate.ToShortDateString());
         }
     }
 }
