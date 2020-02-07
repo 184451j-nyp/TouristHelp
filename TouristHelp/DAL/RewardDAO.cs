@@ -110,29 +110,35 @@ namespace TouristHelp.DAL
 
 
 
-        public void insertNewReward(Reward userId)
+        public void insertNewReward(Reward newUser)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Reward (tourist_id, loginCount, loginStreak, loyaltyTier, totalDiscount, bonusCredits, membershipTier, creditbalance, remainBonusDays) " +
-                             "VALUES (@paraTourist, @paraLoginCount, @paraLoginStreak, @paraLoyaltyTier, @paraTotalDiscount, @paraBonusCredits, @paraMembershipTier, @paraCreditBalance, @paraRemainBonuaDays)";
+            string sqlStmt = "INSERT INTO Reward (user_id ,loginCount, loginStreak, loyaltyTier, totalDiscount, bonusCredits, membershipTier, creditbalance, remainBonusDays) " +
+                             "VALUES (@paraUser, @paraLoginCount, @paraLoginStreak, @paraLoyaltyTier, @paraTotalDiscount, @paraBonusCredits, @paraMembershipTier, @paraCreditBalance, @paraRemainBonuaDays)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
-            sqlCmd.Parameters.AddWithValue("@paraTourist", userId.Id);
-            sqlCmd.Parameters.AddWithValue("@paraLoginCount", userId.loginCount);
-            sqlCmd.Parameters.AddWithValue("@paraLoginStreak", userId.loginStreak);
-            sqlCmd.Parameters.AddWithValue("@paraLoyaltyTier", userId.loyaltyTier);
-            sqlCmd.Parameters.AddWithValue("@paraTotalDiscount", userId.totalDiscount);
-            sqlCmd.Parameters.AddWithValue("@paraBonusCredits", userId.bonusCredits);
-            sqlCmd.Parameters.AddWithValue("@paraMembershipTier", userId.membershipTier);
-            sqlCmd.Parameters.AddWithValue("@paraCreditBalance", userId.creditBalance);
-            sqlCmd.Parameters.AddWithValue("@paraRemainBonuaDays", userId.remainBonusDays);
+
+            sqlCmd.Parameters.AddWithValue("@paraUser", newUser.Id);
+            sqlCmd.Parameters.AddWithValue("@paraLoginCount", newUser.loginCount);
+            sqlCmd.Parameters.AddWithValue("@paraLoginStreak", newUser.loginStreak);
+            sqlCmd.Parameters.AddWithValue("@paraLoyaltyTier", newUser.loyaltyTier);
+            sqlCmd.Parameters.AddWithValue("@paraTotalDiscount", newUser.totalDiscount);
+            sqlCmd.Parameters.AddWithValue("@paraBonusCredits", newUser.bonusCredits);
+            sqlCmd.Parameters.AddWithValue("@paraMembershipTier", newUser.membershipTier);
+            sqlCmd.Parameters.AddWithValue("@paraCreditBalance", newUser.creditBalance);
+            sqlCmd.Parameters.AddWithValue("@paraRemainBonuaDays", newUser.remainBonusDays);
 
             myConn.Open();
+
+
+
             sqlCmd.ExecuteNonQuery();
+
+
 
             myConn.Close();
         }

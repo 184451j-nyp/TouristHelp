@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using TouristHelp.DAL;
+
 using System.Web;
 
 namespace TouristHelp.Models
@@ -23,6 +25,9 @@ namespace TouristHelp.Models
             Details = details;
             Price = price;
         }
+     
+
+
     }
 
     public class TouristBookings

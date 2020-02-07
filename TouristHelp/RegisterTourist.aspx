@@ -48,8 +48,8 @@
                     <figure>
                         <img src="Images/signup-image.jpg" alt="sign up image">
                     </figure>
-                    <a class="signup-image-link" href="Login.aspx">I have already signed up</a>
-                    <a class="signup-image-link" href="RegisterTG.aspx">I want to sign up as a Tour Guide</a>
+                    <a class="signup-image-link" href="Login.aspx"><u>I have already signed up</u></a>
+                    <a class="signup-image-link" href="RegisterTG.aspx"><u>I want to sign up as a Tour Guide</u></a>
                 </div>
             </div>
         </div>

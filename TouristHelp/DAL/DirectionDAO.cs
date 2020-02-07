@@ -26,6 +26,11 @@ namespace TouristHelp.DAL
             Random random = new Random();
 
             int rec_cnt = ds.Tables[0].Rows.Count;
+            if(rec_cnt == 0)
+            {
+                return list;
+            }
+
             for (int i = 0; i < 3; i++)
             {
                 int rand = random.Next(rec_cnt);
@@ -58,6 +63,12 @@ namespace TouristHelp.DAL
         public static List<GeoJson> ParseGeoJsonFromList(List<Direction> directions) //to be used with random PoI method
         {
             List<int> ids = new List<int>();
+            List<GeoJson> geoJsons = new List<GeoJson>();
+            if(directions.Count == 0)
+            {
+                return geoJsons;
+            }
+
             foreach (Direction dir in directions)
             {
                 ids.Add(dir.Id);
@@ -75,7 +86,6 @@ namespace TouristHelp.DAL
             DataSet ds = new DataSet();
             da.Fill(ds);
 
-            List<GeoJson> geoJsons = new List<GeoJson>();
             int rec_cnt = ds.Tables[0].Rows.Count;
             for (int i = 0; i < rec_cnt; i++)
             {
