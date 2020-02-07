@@ -36,6 +36,7 @@ namespace TouristHelp
                     TouristDAO.InsertTourist(obj);
 
 
+
                     //Michaels Reward insert table stuff (dont touch)
                     int id = Convert.ToInt32(TouristDAO.SelectTouristByEmail(email).UserId);
 

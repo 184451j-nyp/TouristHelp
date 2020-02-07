@@ -40,11 +40,22 @@ namespace TouristHelp
 
         private void loadRepeater()
         {
-            Food_Reservation actt = new Food_Reservation();
-            resList = actt.GetReservationById(int.Parse(Session["tourist_id"].ToString()));
+            Food_Reservation res = new Food_Reservation();
+            resList = res.GetReservationById(int.Parse(Session["tourist_id"].ToString()));
             
             RepeaterReserves.DataSource = resList;
             RepeaterReserves.DataBind();
+        }
+
+        protected void CancelRes(object source, RepeaterCommandEventArgs e)
+        {
+            RepeaterItem item1 = e.Item;
+            Label resId = (Label)item1.FindControl("LbId");
+
+            Food_Reservation res = new Food_Reservation();
+            res.CancelReservation(int.Parse(resId.Text));
+
+            Response.Redirect("List_Reservation_Food.aspx");
         }
     }
 }

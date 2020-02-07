@@ -101,6 +101,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPageAddAttraction.aspx" />
+    <Content Include="AdminPageHotel.aspx" />
+    <Content Include="AdminPageHotel2.aspx" />
     <Content Include="App_Data\db_reconstruct.sql" />
     <Content Include="App_Data\TouristHelp.mdf" />
     <Content Include="App_Data\TouristHelp_log.ldf">
@@ -389,6 +391,20 @@
     </Compile>
     <Compile Include="AdminPageAddAttraction.aspx.designer.cs">
       <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPageHotel.aspx.cs">
+      <DependentUpon>AdminPageHotel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageHotel.aspx.designer.cs">
+      <DependentUpon>AdminPageHotel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPageHotel2.aspx.cs">
+      <DependentUpon>AdminPageHotel2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageHotel2.aspx.designer.cs">
+      <DependentUpon>AdminPageHotel2.aspx</DependentUpon>
     </Compile>
     <Compile Include="blank.aspx.cs">
       <DependentUpon>blank.aspx</DependentUpon>

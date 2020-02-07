@@ -141,6 +141,33 @@ namespace TouristHelp.DAL
 
         }
 
+        public int GetCartId(string attName, int userId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "SELECT cartId From Cart where user_id = @paraUserId " +
+                            "and productName = @paraAttName";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraUserId", userId);
+            da.SelectCommand.Parameters.AddWithValue("@paraAttName", attName);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            int cartId = 0;
+
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                cartId = Convert.ToInt32(row["cartId"].ToString());
+
+            }
+            return cartId;
+        }
+
     }
 
 }

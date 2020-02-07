@@ -61,7 +61,7 @@
                     <p>
                        Attraction Transaction:
                             <asp:DropDownList ID="DdlTran" runat="server">
-                                <asp:ListItem>Food Reservtion</asp:ListItem>
+                                <asp:ListItem>Food Reservation</asp:ListItem>
                                 <asp:ListItem>Ticket</asp:ListItem>
                                 <asp:ListItem>None</asp:ListItem>
                         </asp:DropDownList>
