@@ -58,13 +58,16 @@
             </div>
 
 
+            <div class="row">
+                <asp:Button ID="ButtonRedirect"
+                    Text="View Tours"
+                    Font-Size="15"
+                    OnClick="RedirectBtn_Click"
+                    runat="server" />
 
-            <asp:Button ID="ButtonRedirect"
-                Text="View Tours"
-                Font-Size="15"
-                Style="float: right"
-                OnClick="RedirectBtn_Click"
-                runat="server" />
+
+                <asp:Button ID="ContactButton" margin-left="20px" Text="Contact Tour Guide" Font-Size="15" OnClick="ContactButton_Click" runat="server" />
+            </div>
         </div>
     </form>
 

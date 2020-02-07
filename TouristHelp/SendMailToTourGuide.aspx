@@ -3,18 +3,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+                <div class="col-md-9 text-center ftco-animate" data-scrollax=" properties: { translateY: '50%' }">
+
+                    <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Contact Tour Guide</h1>
+                </div>
+            </div>
+        </div>
+    </div>
     <form id="form" runat="server">
-        <asp:Label runat="server">Send To:</asp:Label>
-        <asp:TextBox ID="txtTo" runat="server" CssClass="col-1"></asp:TextBox>
+        <div class="row">
+            <asp:Label CssClass="col-1" runat="server" Text="Send To:"></asp:Label>
+            <asp:TextBox ID="txtTo" CssClass="col-1" runat="server" ReadOnly="true"></asp:TextBox>
 
-        <asp:Label runat="server">Subject:</asp:Label>
-        <asp:TextBox ID="txtSub" runat="server" CssClass="col-1"></asp:TextBox>
-
-        <asp:Label runat="server">Body:</asp:Label>
-        <asp:TextBox ID="txtBody" runat="server" TextMode="MultiLine" CssClass="col-1"></asp:TextBox>
+            <asp:Label CssClass="col-1" runat="server" Text="Subject:"></asp:Label>
+            <asp:TextBox ID="txtSub" CssClass="col-1" runat="server"></asp:TextBox>
 
 
-        <asp:Button ID="Sendbtn" runat="server" CssClass="col-1" Text="Send Mail" OnClick="Sendbtn_Click" />
+            <asp:Label CssClass="col-1" runat="server" Text="Body:"></asp:Label>
+            <asp:TextBox ID="txtBody" CssClass="col-1" TextMode="MultiLine" runat="server"></asp:TextBox>
+
+            <asp:Button ID="Sendbtn" runat="server" OnClick="Sendbtn_Click" Text="Send Mail" Width="80px" />
+
+        </div>
     </form>
 </asp:Content>
 
