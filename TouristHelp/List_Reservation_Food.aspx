@@ -25,7 +25,7 @@
                             <h3 id="Name"><%#Eval("Name") %></h3>
                         </div>
                         <div class="two">
-                            <span class="price" id="time">From: <%#Eval("Time") %></span></div>
+                            <span class="price" id="time">Timing: <%#Eval("Date") %> : <%#Eval("Time") %></span></div>
                         <div><span><%#Eval("Pax") %> People</span></div>
                         <hr>
                             <asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="Cancel Reservation" Style="float: right" />

@@ -15,7 +15,7 @@ namespace TouristHelp
             {
                 lbName.Text = Session["ResName"].ToString();
                 lbPlace.Text = Session["ResLoc"].ToString();
-                lbDateTime.Text = Session["ResTime"].ToString();
+                lbDateTime.Text = Session["ResDate"].ToString() + " : " + Session["ResTime"].ToString();
                 lbPax.Text = Session["ResPax"].ToString();
             }
             else
