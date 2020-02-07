@@ -17,12 +17,14 @@
 CREATE TABLE [dbo].[Ticket] (
     [ticketId]       INT             IDENTITY (1, 1) NOT NULL,
     [attractionName] VARCHAR (50)    NOT NULL,
-    [attractionDesc] VARCHAR (50)    NOT NULL,
+    [attractionDesc] VARCHAR (MAX)   NOT NULL,
     [price]          NUMERIC (18, 2) NOT NULL,
     [dateExpire]     DATE            NOT NULL,
     [ticketCode]     VARCHAR (50)    NOT NULL,
     [paid]           VARCHAR (50)    NOT NULL,
     [user_id]        NCHAR (10)      NULL,
+    [ticketImage]    NCHAR (50)      NULL,
+    [cartId]         INT             NULL,
     PRIMARY KEY CLUSTERED ([ticketId] ASC)
 );
 
@@ -34,12 +36,12 @@ CREATE TABLE [dbo].[Interest] (
 
 
 CREATE TABLE [dbo].[Cart] (
-    [cartId]          INT             NOT NULL IDENTITY,
+    [cartId]          INT             IDENTITY (1, 1) NOT NULL,
     [productName]     VARCHAR (50)    NOT NULL,
     [productPrice]    DECIMAL (18, 2) NOT NULL,
     [productQuantity] INT             NOT NULL,
     [user_id]         INT             NULL,
-    [productDesc]     VARCHAR (50)    NULL,
+    [productDesc]     VARCHAR (MAX)   NULL,
     [active]          VARCHAR (50)    NULL,
     PRIMARY KEY CLUSTERED ([cartId] ASC)
 );
