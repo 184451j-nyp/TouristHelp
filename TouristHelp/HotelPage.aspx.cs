@@ -20,26 +20,26 @@ namespace TouristHelp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
+            //if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
+            //{
+            //    Response.Redirect("Login.aspx");
+            //}
 
-            else
-            {
+            //else
+            //{
 
-                try
-                {
-                    Label1.Text = Session["tourist_id"].ToString();
-                }
-                catch (NullReferenceException)
-                {
-                    Label1.Text = Session["tourguide_id"].ToString();
-                }
+            //    try
+            //    {
+            //        Label1.Text = Session["tourist_id"].ToString();
+            //    }
+            //    catch (NullReferenceException)
+            //    {
+            //        Label1.Text = Session["tourguide_id"].ToString();
+            //    }
 
-            }
+            //}
 
-            if (!Page.IsPostBack && region.SelectedItem.Value == "Region")
+            if (!Page.IsPostBack)
 
             {
 
@@ -55,7 +55,7 @@ namespace TouristHelp
 
             }
 
-            else if (Page.IsPostBack && region.SelectedItem.Value == "Region" )
+            else if (Page.IsPostBack)
 
             {
 
@@ -71,130 +71,7 @@ namespace TouristHelp
 
 
 
-            else if (region.SelectedItem.Value == "Central" && !Page.IsPostBack)
-            {
-
-                centralRepeater();
-
-                if (Session["hotelAdded"] != null)
-                {
-                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
-                    hotelAddedLbl.Visible = true;
-                    hotelAddedLbl.ForeColor = Color.Green;
-                }
-
-            }
-
-            else if (Page.IsPostBack && region.SelectedItem.Value == "Central")
-
-            {
-                centralRepeater();
-
-
-
-            }
-
-
-            else if (region.SelectedItem.Value == "North" && !Page.IsPostBack)
-            {
-
-                northRepeater();
-
-
-                if (Session["hotelAdded"] != null)
-                {
-                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
-                    hotelAddedLbl.Visible = true;
-                    hotelAddedLbl.ForeColor = Color.Green;
-                }
-
-            }
-
-            else if (Page.IsPostBack && region.SelectedItem.Value == "North")
-
-            {
-                northRepeater();
-
-
-
-
-            }
-
-            else if (region.SelectedItem.Value == "South" && !Page.IsPostBack)
-            {
-
-                southRepeater();
-
-                if (Session["hotelAdded"] != null)
-                {
-                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
-                    hotelAddedLbl.Visible = true;
-                    hotelAddedLbl.ForeColor = Color.Green;
-                }
-
-            }
-
-            else if (Page.IsPostBack && region.SelectedItem.Value == "South")
-
-            {
-                southRepeater();
-
-
-
-            }
-
-
-
-            else if (region.SelectedItem.Value == "West" && !Page.IsPostBack)
-            {
-
-                westRepeater();
-
-                if (Session["hotelAdded"] != null)
-                {
-                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
-                    hotelAddedLbl.Visible = true;
-                    hotelAddedLbl.ForeColor = Color.Green;
-                }
-
-            }
-
-            else if (Page.IsPostBack && region.SelectedItem.Value == "West")
-
-            {
-                westRepeater();
-
-
-
-
-            }
-
-
-
-            else if (region.SelectedItem.Value == "East" && !Page.IsPostBack)
-            {
-
-                eastRepeater();
-
-
-                if (Session["hotelAdded"] != null)
-                {
-                    hotelAddedLbl.Text = Session["hotelAdded"].ToString();
-                    hotelAddedLbl.Visible = true;
-                    hotelAddedLbl.ForeColor = Color.Green;
-                }
-
-            }
-
-            else if (Page.IsPostBack && region.SelectedItem.Value == "East")
-
-            {
-                eastRepeater();
-
-
-
-
-            }
+          
 
 
 
@@ -218,12 +95,8 @@ namespace TouristHelp
                 RepeatHotel.DataBind();
 
             }
-            
-        }
-        private void centralRepeater()
-        {
 
-            if (region.SelectedItem.Value == "Central")
+            else if (region.SelectedItem.Value == "Central")
             {
                 HotelBook hotel = new HotelBook();
                 hotelList = hotel.getCentralHotels();
@@ -232,12 +105,7 @@ namespace TouristHelp
                 RepeatHotel.DataBind();
             }
 
-        }
-
-        private void northRepeater()
-        {
-           
-             if (region.SelectedItem.Value == "North")
+            else if (region.SelectedItem.Value == "North")
             {
                 HotelBook hotel = new HotelBook();
                 hotelList = hotel.getNorthHotels();
@@ -246,11 +114,7 @@ namespace TouristHelp
                 RepeatHotel.DataBind();
             }
 
-        }
-        private void southRepeater()
-        {
-
-            if (region.SelectedItem.Value == "South")
+            else if (region.SelectedItem.Value == "South")
             {
                 HotelBook hotel = new HotelBook();
                 hotelList = hotel.getSouthHotels();
@@ -259,12 +123,8 @@ namespace TouristHelp
                 RepeatHotel.DataBind();
             }
 
-        }
 
-        private void westRepeater()
-        {
-
-            if (region.SelectedItem.Value == "West")
+            else if (region.SelectedItem.Value == "West")
             {
                 HotelBook hotel = new HotelBook();
                 hotelList = hotel.getWestHotels();
@@ -273,13 +133,8 @@ namespace TouristHelp
                 RepeatHotel.DataBind();
             }
 
-        }
 
- 
-        private void eastRepeater()
-        {
-
-            if (region.SelectedItem.Value == "East")
+            else if (region.SelectedItem.Value == "East")
             {
                 HotelBook hotel = new HotelBook();
                 hotelList = hotel.getEastHotels();
@@ -287,8 +142,16 @@ namespace TouristHelp
                 RepeatHotel.DataSource = hotelList;
                 RepeatHotel.DataBind();
             }
-
         }
+      
+
+        
+    
+
+        
+
+ 
+   
 
         private void filterRepeater()
         {

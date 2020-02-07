@@ -378,11 +378,11 @@ namespace TouristHelp.DAL
 
             sqlCmd.Parameters.AddWithValue("@parahotelprice", hotel.hotelPrice);
             sqlCmd.Parameters.AddWithValue("@parahotelimage", hotel.hotelImage);
-            sqlCmd.Parameters.AddWithValue("@paracentralfilter", hotel.northFilter);
-            sqlCmd.Parameters.AddWithValue("@paranorthfilter", hotel.southFilter);
-            sqlCmd.Parameters.AddWithValue("@parasouthfilter", hotel.westFilter);
-            sqlCmd.Parameters.AddWithValue("@parawestfilter", hotel.eastFilter);
-            sqlCmd.Parameters.AddWithValue("@paraeastfilter", hotel.hotelName);
+            sqlCmd.Parameters.AddWithValue("@paracentralfilter", hotel.centralFilter);
+            sqlCmd.Parameters.AddWithValue("@paranorthfilter", hotel.northFilter);
+            sqlCmd.Parameters.AddWithValue("@parasouthfilter", hotel.southFilter);
+            sqlCmd.Parameters.AddWithValue("@parawestfilter", hotel.westFilter);
+            sqlCmd.Parameters.AddWithValue("@paraeastfilter", hotel.eastFilter);
             sqlCmd.Parameters.AddWithValue("@parahotelname", hotel.hotelName);
 
 
