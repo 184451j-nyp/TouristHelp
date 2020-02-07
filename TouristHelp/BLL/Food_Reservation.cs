@@ -8,19 +8,31 @@ namespace TouristHelp.BLL
 {
     public class Food_Reservation
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Time { get; set; }
         public int Pax { get; set; }
+        public string Status { get; set; }
 
         public Food_Reservation()
         {
         }
 
-        public Food_Reservation(string name, string time, int pax)
+        public Food_Reservation(string name, string time, int pax) // creating reservation
         {
             Name = name;
             Time = time;
             Pax = pax;
+        }
+
+
+        public Food_Reservation(int id, string name, string time, int pax, string status) // displaying/updating reservation
+        {
+            Id = id;
+            Name = name;
+            Time = time;
+            Pax = pax;
+            Status = status;
         }
 
         public void InsertReservation(string name, string time, int pax, int id)
@@ -33,6 +45,12 @@ namespace TouristHelp.BLL
         {
             Food_ReservationDAO dao = new Food_ReservationDAO();
             return dao.SelectById(userId);
+        }
+
+        public void CancelReservation(int resId)
+        {
+            Food_ReservationDAO dao = new Food_ReservationDAO();
+            dao.ReservationStatusDisable(resId);
         }
     }
 }

@@ -10,10 +10,9 @@
     <br />
     <br />
     <asp:Label ID="Label1" Visible="false" runat="server" Text=""></asp:Label>
-        <asp:Repeater ID="RepeaterReserves" runat="server">
+        <asp:Repeater ID="RepeaterReserves" runat="server" OnItemCommand="CancelRes">
             <ItemTemplate>
                 <div class="col-sm col-md-6 col-lg-12" style="border-style: solid; border-width: 1px; margin-bottom: 10px">
-                    <%-- Proto Box --%>
 
                     <a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
                         <div class="icon d-flex justify-content-center align-items-center">
@@ -21,7 +20,7 @@
                         </div>
                     </a>
                     <div class="text p-3">
-                       <%-- <asp:Label ID="LbId" runat="server" Visible="false" Text='<%#Eval("Id") %>'></asp:Label> to put id for db retrieval--%>
+                        <asp:Label ID="LbId" runat="server" Visible="false" Text='<%#Eval("Id") %>'></asp:Label> 
                         <div class="one">
                             <h3 id="Name"><%#Eval("Name") %></h3>
                         </div>
@@ -29,7 +28,9 @@
                             <span class="price" id="time">From: <%#Eval("Time") %></span></div>
                         <div><span><%#Eval("Pax") %> People</span></div>
                         <hr>
-                            <%--<asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="More info" Style="float: right" />--%>
+                            <asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="Cancel Reservation" Style="float: right" />
+                        <br />
+                        <br />
                     </div>
                 </div>
             </ItemTemplate>

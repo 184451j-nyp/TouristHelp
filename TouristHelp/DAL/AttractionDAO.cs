@@ -80,9 +80,9 @@ namespace TouristHelp.DAL
                 decimal lon = decimal.Parse(row["attractionLongitude"].ToString());
                 string interest = row["attractionInterest"].ToString();
                 string type = row["attractionType"].ToString();
-                //string transaction = row["attractionTransaction"].ToString();
+                string transaction = row["attractionTransaction"].ToString();
 
-                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, null);
+                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
                 empList.Add(obj);
             }
             return empList;

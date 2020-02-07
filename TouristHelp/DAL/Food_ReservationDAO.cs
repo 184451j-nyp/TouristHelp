@@ -16,8 +16,8 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationTime, reservationPax, userId)" +
-                             "VALUES (@paraName, @paraTime, @paraPax, @paraId)";
+            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationTime, reservationPax, reservationState, userId)" +
+                             "VALUES (@paraName, @paraTime, @paraPax, @paraStatus ,@paraId)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -25,6 +25,7 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
             sqlCmd.Parameters.AddWithValue("@paraTime", Time);
             sqlCmd.Parameters.AddWithValue("@paraPax", Pax);
+            sqlCmd.Parameters.AddWithValue("@paraStatus", "Active");
             sqlCmd.Parameters.AddWithValue("@paraId", UserId);
 
             myConn.Open();
@@ -35,35 +36,52 @@ namespace TouristHelp.DAL
 
         public List<Food_Reservation> SelectById(int resId) //get all reservations under an id from Reservation db and put into list
         {
-            //Step 1 -  Define a connection to the database by getting
-            //          the connection string from web.config
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            //Step 2 -  Create a DataAdapter to retrieve data from the database table
-            string sqlStmt = "Select * from ReservationFood where userId = @paraId";
+            
+            string sqlStmt = "Select * from ReservationFood where userId = @paraId and reservationState = 'Active'";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
             da.SelectCommand.Parameters.AddWithValue("@paraId", resId);
 
-            //Step 3 -  Create a DataSet to store the data to be retrieved
             DataSet ds = new DataSet();
 
-            //Step 4 -  Use the DataAdapter to fill the DataSet with data retrieved
             da.Fill(ds);
 
-            //Step 5 -  Read data from DataSet to List
             List<Food_Reservation> empList = new List<Food_Reservation>();
             int rec_cnt = ds.Tables[0].Rows.Count;
             for (int i = 0; i < rec_cnt; i++)
             {
-                DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
+                DataRow row = ds.Tables[0].Rows[i];
+                int id = int.Parse(row["reservationId"].ToString());
                 string name = row["reservationName"].ToString();
-                string date = row["reservationTime"].ToString();
-                int price = int.Parse(row["reservationPax"].ToString());
-                Food_Reservation obj = new Food_Reservation(name, date, price);
+                string time = row["reservationTime"].ToString();
+                int pax = int.Parse(row["reservationPax"].ToString());
+                string state = row["reservationState"].ToString();
+                Food_Reservation obj = new Food_Reservation(id, name, time, pax, state);
                 empList.Add(obj);
             }
             return empList;
+        }
+
+        public void ReservationStatusDisable(int resId) //set status to disabled
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE ReservationFood SET reservationState = 'Inactive' WHERE reservationId = @paraId";
+
+            //UPDATE Customers
+            //SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
+            //WHERE CustomerID = 1;
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraId", resId);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+            myConn.Close();
         }
     }
 }
