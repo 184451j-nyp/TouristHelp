@@ -32,10 +32,10 @@
                         <asp:Label ID="lblNoEntry" runat="server" Text="Add some places by visiting our list of Attractions! Meanwhile, enjoy this random selection!" ForeColor="Red" Visible="false"></asp:Label>
                         <asp:GridView ID="gvDirections" runat="server" AutoGenerateColumns="False" CssClass="table mw-100" OnSelectedIndexChanged="gvDirections_SelectedIndexChanged">
                             <Columns>
-                                <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" Visible="False"/>
+                                <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" />
                                 <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" />
                                 <asp:BoundField DataField="Price" HeaderText="Price" ReadOnly="True" />
-                                <asp:BoundField DataField="Location" HeaderText="Location" ReadOnly="True" Visible="False"/>
+                                <asp:BoundField DataField="Location" HeaderText="Location" ReadOnly="True" Visible="False" />
                                 <asp:BoundField DataField="Type" HeaderText="Type" ReadOnly="True" />
                                 <asp:CommandField SelectText="Delete" ShowSelectButton="True">
                                     <ItemStyle CssClass="btn btn-danger" ForeColor="White" />
@@ -48,20 +48,47 @@
                 <div class="row">
                     <div class="col">
                         <p>Add attractions to your favorites! :</p>
-                        <asp:DropDownList ID="DropDownListAttractions" runat="server"></asp:DropDownList>
-                        <asp:Button ID="BtnAddAttraction" runat="server" Text="Add" OnClick="BtnAddAttraction_Click" />
+                    </div>
+                    <div class="col-5">
+                        <asp:DropDownList ID="DropDownListAttractions" runat="server" CssClass="form-control"></asp:DropDownList>
+                    </div>
+                    <div class="col">
+                        <asp:Button ID="BtnAddAttraction" runat="server" Text="Add to Favorites" OnClick="BtnAddAttraction_Click" CssClass="btn btn-info" />
                     </div>
                 </div>
-                <hr />
+                <hr class="my-4" style="border: 1px dashed black"/>
                 <div class="row">
-                    <div class="col">
+                    <div class="col-12">
                         <h3>Get Directions!</h3>
-                        <br />
-                        <p>Add locations in the order you want to visit them:</p>
-                        <br />
+                        <h4>Add locations in the order you want to visit them:</h4>
+                    </div>
+                    <div class="col">
                         <p>Saved locations:</p>
-                        <asp:DropDownList ID="DropDownListSaved" runat="server"></asp:DropDownList>
-                        <button class="btn btn-info" onclick="addToList(); return false;"></button>
+                    </div>
+                    <div class="col-5">
+                        <asp:DropDownList ID="DropDownListSaved" runat="server" CssClass="form-control"></asp:DropDownList>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-info" onclick="addToList(); return false;">Add to Directions</button>
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-5 form-group">
+                        <select id="listForDir" class="form-control mb-3" multiple></select>
+                        <button class="btn btn-warning" onclick="removeFromList(); return false;">Remove from list</button>
+                    </div>
+                    <div class="col-3 ml-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="transportMode" id="walkingRB" value="walking" checked />
+                            <label class="form-check-label" for="walkingRB">Walking</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="transportMode" id="drivingRB" value="driving" />
+                            <label class="form-check-label" for="drivingRB">Driving</label>
+                        </div>
+                        <br />
+                        <button class="btn btn-success" onclick="getDirections(); return false;">Get directions</button>
                     </div>
                 </div>
 
@@ -77,8 +104,8 @@
         var map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v11',
-            center: [103.8198, 1.3521],
-            zoom: 11
+            center: [103.8198, 1.3521]
+            //zoom: 11
         });
 
         map.setMaxBounds([[103.560239, 1.182667], [104.093586, 1.511393]]);
@@ -102,7 +129,35 @@
         });
 
         function addToList() {
-            alert("Button click!");
+            var e = document.getElementById("<%= DropDownListSaved.ClientID %>");
+            var place = e.options[e.selectedIndex].text;
+
+            var opt = document.createElement("option");
+            opt.appendChild(document.createTextNode(place));
+            opt.value = place;
+            document.getElementById("listForDir").appendChild(opt);
+        }
+
+        function removeFromList() {
+            $("#listForDir option:selected").remove();
+        }
+
+        function getDirections() {
+            var arr = [];
+            var coords = [];
+            var ddl = document.getElementById("listForDir");
+            for (var i = 0; i < ddl.options.length; i++) {
+                arr.push(ddl.options[i].value);
+            }
+            var data = JSON.parse(document.getElementById("<%= geojsonHidden.ClientID %>").value);
+            data.forEach(function (obj) {
+                if (arr.includes(obj.properties.title)) {
+                    coords.push(obj, geometry.coordinates);
+                }
+            });
+
+
+            console.log(arr);
         }
     </script>
 </asp:Content>
