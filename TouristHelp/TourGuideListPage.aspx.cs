@@ -14,12 +14,34 @@ namespace TouristHelp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            loadRepeater();
+            if (!Page.IsPostBack)
+            {
+                if (Session["LanguageSelect"] == null)
+                {
+                    loadRepeater("All");
+                }
+                else
+                {
+                    DropDownListLanguage.SelectedValue = Session["LanguageSelect"].ToString();
+                    loadRepeater(Session["LanguageSelect"].ToString());
+                }
+            }
+
+
         }
 
-        private void loadRepeater()
+        private void loadRepeater(string language)
         {
-            tourguideList = TourGuide.GetAllTourGuide();
+
+            if(language == "All")
+            {
+                tourguideList = TourGuide.GetAllTourGuide();
+
+            }
+            else
+            {
+                tourguideList = TourGuide.GetAllTourGuidesByLanguage(language);
+            }
 
             Repeater1.DataSource = tourguideList;
             Repeater1.DataBind();
@@ -43,15 +65,10 @@ namespace TouristHelp
             Label theTourPrice = (Label)item1.FindControl("Lbtourprice");
 
 
-
-
-
-
             Session["SSName"] = theName.Text;
             Session["SSEmail"] = theEmail.Text;
             Session["SSUserId"] = theuserId.Text;
             Session["SSTourGuideId"] = thetourguideId.Text;
-
             Session["SSPassword"] = thePassword.Text;
             Session["SSDescription"] = theDescription.Text;
             Session["SSLanguages"] = theLanguages.Text;
@@ -63,5 +80,10 @@ namespace TouristHelp
             Response.Redirect("TourGuideDetails.aspx");
         }
 
+        protected void FilterButton_Click(object sender, EventArgs e)
+        {
+            Session["LanguageSelect"] = DropDownListLanguage.SelectedValue;
+            Response.Redirect("TourGuideListPage.aspx");
+        }
     }
 }

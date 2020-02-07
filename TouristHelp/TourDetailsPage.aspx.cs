@@ -13,12 +13,8 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            tourguidetitleLabel.Text = (string)Session["SSTours"];
-            tourguideidLabel.Text = (string)Session["SSTourGuideId"];
-            useridLabel.Text = (string)Session["SSUserId"];
-            tourdescriptionLabel.Text = (string)Session["SSTourDescription"];
-            tourdetailsLabel.Text = (string)Session["SSTourDetails"];
-            tourpriceLabel.Text = (string)Session["SSTourPrice"];
+            Tours smth = ToursDAO.SelectTourByTourGuideId(int.Parse(Session["SSTourGuideId"].ToString()));
+            tourguidetitleLabel.Text = smth.Title;
         }
 
         protected void BtnConfirm_Click(object sender, EventArgs e)

@@ -44,6 +44,18 @@ namespace TouristHelp.BLL
             this.maxPriceFilter = maxpricefilter;
         }
 
+        public HotelBook(decimal hotelprice, string hotelimage, bool centralfilter, bool northfilter, bool southfilter, bool westfilter, bool eastfilter, string hotelname)
+        {
+            this.hotelPrice = hotelprice;
+            this.hotelImage = hotelimage;
+            this.centralFilter = centralFilter;
+            this.northFilter = northfilter;
+            this.southFilter = southfilter;
+            this.westFilter = westfilter;
+            this.eastFilter = eastfilter;
+            this.hotelName = hotelname;
+        }
+
         public HotelBook getHotelById(string hotelId)
         {
             HotelBookDAO dao = new HotelBookDAO();
@@ -95,6 +107,12 @@ namespace TouristHelp.BLL
         {
             HotelBookDAO dao = new HotelBookDAO();
             return dao.getHotelsByPrice(minPriceFilter, maxPriceFilter);
+        }
+
+        public void addHotel(HotelBook hotel)
+        {
+            HotelBookDAO attDao = new HotelBookDAO();
+            attDao.addNewHotel(hotel);
         }
     }
 }

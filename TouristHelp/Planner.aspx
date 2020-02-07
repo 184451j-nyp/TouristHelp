@@ -32,10 +32,10 @@
                         <asp:Label ID="lblNoEntry" runat="server" Text="Add some places by visiting our list of Attractions! Meanwhile, enjoy this random selection!" ForeColor="Red" Visible="false"></asp:Label>
                         <asp:GridView ID="gvDirections" runat="server" AutoGenerateColumns="False" CssClass="table mw-100" OnSelectedIndexChanged="gvDirections_SelectedIndexChanged">
                             <Columns>
-                                <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" />
+                                <asp:BoundField DataField="ID" HeaderText="ID" ReadOnly="True" Visible="False"/>
                                 <asp:BoundField DataField="Name" HeaderText="Name" ReadOnly="True" />
                                 <asp:BoundField DataField="Price" HeaderText="Price" ReadOnly="True" />
-                                <asp:BoundField DataField="Location" HeaderText="Location" ReadOnly="True" />
+                                <asp:BoundField DataField="Location" HeaderText="Location" ReadOnly="True" Visible="False"/>
                                 <asp:BoundField DataField="Type" HeaderText="Type" ReadOnly="True" />
                                 <asp:CommandField SelectText="Delete" ShowSelectButton="True">
                                     <ItemStyle CssClass="btn btn-danger" ForeColor="White" />
@@ -56,7 +56,12 @@
                 <div class="row">
                     <div class="col">
                         <h3>Get Directions!</h3>
-
+                        <br />
+                        <p>Add locations in the order you want to visit them:</p>
+                        <br />
+                        <p>Saved locations:</p>
+                        <asp:DropDownList ID="DropDownListSaved" runat="server"></asp:DropDownList>
+                        <button class="btn btn-info" onclick="addToList(); return false;"></button>
                     </div>
                 </div>
 
@@ -96,7 +101,7 @@
                 .addTo(map);
         });
 
-        function addDirList() {
+        function addToList() {
             alert("Button click!");
         }
     </script>

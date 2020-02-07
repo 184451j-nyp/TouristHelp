@@ -25,7 +25,7 @@
                 <asp:Label ID="tourguidenameLabel2" CssClass="col-2" runat="server" Font-Size="15"></asp:Label>
             </div>
 
-              <div class="row">
+            <div class="row">
 
                 <asp:Label ID="tourguideidLabel" CssClass="col-2" runat="server" Font-Size="15" Text="Tour Guide Id:"></asp:Label>
                 <asp:Label ID="tourguideidLabel2" CssClass="col-5" runat="server" Font-Size="15"></asp:Label>
@@ -48,11 +48,12 @@
 
             </div>
 
-              <div class="row">
+            <div class="row">
 
                 <asp:Label ID="tourguidecredentialsLabel" CssClass="col-2" runat="server" Font-Size="15" Text="Credentials:"></asp:Label>
                 <asp:Label ID="tourguidecredentialsLabel2" CssClass="col-5" runat="server" Font-Size="15"></asp:Label>
 
+                <asp:Label ID="tourguideuserid" Visible="false" CssClass="col-2" runat="server" Font-Size="15" Text="Credentials:"></asp:Label>
 
             </div>
 
