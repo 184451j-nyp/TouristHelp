@@ -30,5 +30,10 @@ namespace TouristHelp
 
             Response.Redirect("TourDetailsPage.aspx");
         }
+
+        protected void ContactButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("SendMailToTourGuide.aspx");
+        }
     }
 }

@@ -32,8 +32,9 @@ namespace TouristHelp
 
         private void loadRepeater(string language)
         {
+          
 
-            if(language == "All")
+            if (language == "All")
             {
                 tourguideList = TourGuide.GetAllTourGuide();
 
