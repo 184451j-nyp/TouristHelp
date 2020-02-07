@@ -22,9 +22,8 @@
                         </div>
                     </a>
                     <div class="text p-3">
-                        <asp:Label ID="LbId" runat="server" Text='<%#Eval("TouristId") %>'></asp:Label> 
+                        <h3 id="TouristId"><%#Eval("TouristId") %></h3>
                         <div class="one">
-                            <h3 id="Name"><%#Eval("Bookings") %></h3>
                         </div>
                         <div class="two">
                         </div>

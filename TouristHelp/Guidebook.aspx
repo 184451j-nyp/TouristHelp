@@ -41,9 +41,11 @@
                         <asp:Label ID="LbId" runat="server" Visible="false" Text='<%#Eval("Id") %>'></asp:Label> <%--to put id for db retrieval--%>
                         <asp:Label ID="LbType" runat="server" Visible="false" Text='<%#Eval("Type") %>'></asp:Label> 
                         <asp:Label ID="LbInterest" runat="server" Visible="false" Text='<%#Eval("Interest") %>'></asp:Label> 
-                        <asp:Label ID="LbTran" runat="server" Visible="false" Text='<%#Eval("Transaction") %>'></asp:Label>
+                        <asp:Label ID="LbTran" runat="server" Visible="true" Text='<%#Eval("Transaction") %>'></asp:Label>
                         <div class="one">
-                            <h3 id="Name"><%#Eval("Name") %></h3>
+                            <h3 id="Name"><%#Eval("Name") %>
+                            <asp:Button ID="ButtonFav" runat="server" CssClass="btn btn-default" Text="Favourite" Style="float: right; margin:0px" />
+                            </h3>
                         </div>
                         <div class="two">
                             <span class="price" id="price">$<%#Eval("Price") %></span></div>

@@ -14,7 +14,7 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            txtTo.Text = (string)Session["SSEmail"];
         }
 
         protected void Sendbtn_Click(object sender, EventArgs e)
@@ -29,8 +29,8 @@ namespace TouristHelp
                 smtp.Credentials = new System.Net.NetworkCredential("hakuhakutest11@gmail.com", "hakutest11");
                 smtp.EnableSsl = true;
                 MailMessage msg = new MailMessage();
-                msg.Subject = "Tourist";
-                msg.Body = "Hello";
+                msg.Subject = txtSub.Text;
+                msg.Body = txtBody.Text;
                 string toAddress = txtTo.Text;
                 msg.To.Add(toAddress);
                 string fromAddress = "hakuhakutest11@gmail.com";

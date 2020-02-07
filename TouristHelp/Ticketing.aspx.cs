@@ -98,14 +98,34 @@ namespace TouristHelp
             string attDesc = lbTicketDesc.Text;
             double price = Convert.ToDouble(lblPrice.Text);
             DateTime expDate = Convert.ToDateTime(tbDate.Text);
-            string code = "somethingnew";
+            Random random = new Random();
+            
+            //check whether a code exists already
             int quantity = Convert.ToInt32(tbQuantity.Text);
-
-            Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id);
-            tkt.AddNewTicket();
+            string code = random.Next(1000000, 9999999).ToString();
+            Ticket ticket = new Ticket();
+            List<String> codeList = ticket.GetCodes();
+            while (true && codeList != null)
+            {
+                if (codeList.Contains(code))
+                {
+                    code = random.Next(1000000, 9999999).ToString();
+                }
+                else
+                {
+                    break;
+                }
+            }
+            
 
             Cart cart = new Cart(attName, attDesc, price, quantity, user_id);
             cart.InsertCartTicket();
+
+            var cart_id = cart.GetCartId(attName, user_id);
+            Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id, cart_id);
+            tkt.AddNewTicket();
+
+
             Response.Redirect("ShoppingCart.aspx");
         }
     }

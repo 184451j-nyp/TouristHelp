@@ -8,6 +8,15 @@
             <tr>
                 <td class="auto-style1">
 
+                    <p>
+                                            <asp:Label ID="LblMsgName" runat="server" Text=""></asp:Label>
+                    </p>
+                    <p>
+                                            <asp:Label ID="LblMsgPrice" runat="server" Text=""></asp:Label>
+                                            </p>
+<p>                                             <asp:Label ID="LblMsgRegion" runat="server" Text=""></asp:Label>
+</p>
+
 
                       <p>
                         Hotel Image:
@@ -25,7 +34,7 @@
 
                        <p>
                         Hotel Price:
-                            <asp:TextBox ID="TbPrice" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TbPrice" Text="0" runat="server"></asp:TextBox>
                     &nbsp;
                     </p>
 
@@ -34,7 +43,7 @@
                     <p>
                         Hotel Region:
 
-                                 <asp:DropDownList ID="regionSelect"  class="form-control"  placeholder="Region"   runat="server" AutoPostBack="True">
+                                 <asp:DropDownList ID="regionSelect"  class="form-control"  placeholder="Region"   runat="server" AutoPostBack="False">
                                                             <asp:ListItem Selected="False" Value="Region"></asp:ListItem>
                                                             <asp:ListItem>Central</asp:ListItem>
                                                             <asp:ListItem>North</asp:ListItem>

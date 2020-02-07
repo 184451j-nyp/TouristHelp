@@ -26,17 +26,17 @@
                  <div class="col-lg-8">
                      <div class="row">
                          <div class="col-lg-12">
-                             <h2>Ticket Name</h2>
-                             <%--<asp:Label ID="lbTixName" runat="server" Font-Bold="True" Text='<%#Eval("ticketName") %>'></asp:Label>
-                              <asp:Label ID="lbTixId" runat="server" Visible ="false" Text='<%#Eval("ticketId") %>'></asp:Label>--%>
+                             <%--<h2>Ticket Name</h2>--%>
+                             <asp:Label ID="lbTixName" runat="server" Font-Bold="True" Text='<%#Eval("attractionName") %>'></asp:Label>
+                              <asp:Label ID="lbTixId" runat="server" Visible ="false" Text='<%#Eval("ticketId") %>'></asp:Label>
                          </div>
                          <div class="col-lg-12">
-                             <h4>Ticket Desc</h4>
-                             <%--<asp:Label ID="lbTixDesc" runat="server" Text='<%#Eval("ticketDesc") %>'></asp:Label>--%>
+                             <%--<h4>Ticket Desc</h4>--%>
+                             <asp:Label ID="lbTixDesc" runat="server" Text='<%#Eval("attractionDesc") %>'></asp:Label>
                          </div>
                          <div class="col-lg-12">
-                             <h4>Expiry Date: something</h4>
-                             <%--<asp:Label ID="lbTixDesc" runat="server" Text='<%#Eval("ticketDesc") %>'></asp:Label>--%>
+                             <h4>Expiry Date:</h4>
+                             <asp:Label ID="lbTixExp" runat="server" Text='<%#Eval("dateExpire") %>'></asp:Label>
                          </div>
                      </div>
                  </div>

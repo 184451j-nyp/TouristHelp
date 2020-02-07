@@ -26,7 +26,7 @@ namespace TouristHelp
                     DdlInterest.SelectedValue = Session["AttractionInterest"].ToString();
                     loadRepeater(Session["AttractionType"].ToString(), Session["AttractionInterest"].ToString());
                 }
-                    
+                   
             }
         }
 
@@ -59,9 +59,6 @@ namespace TouristHelp
                     acttList = actt.ListAttraction_Personal(type, userInt);
                 }
             }
-            
-
-
 
             RepeaterAttraction.DataSource = acttList;
             RepeaterAttraction.DataBind();
@@ -76,7 +73,7 @@ namespace TouristHelp
 
             Session["AttractionId"] = attId.Text;
 
-            if (attTran.Text == "Food Reservtion")
+            if (attTran.Text == "Food Reservation")
             {
                 Response.Redirect("Reservation_Food.aspx");
             }

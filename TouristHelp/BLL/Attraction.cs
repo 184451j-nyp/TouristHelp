@@ -59,6 +59,7 @@ namespace TouristHelp.BLL
             return dao.SelectById(attId);
         }
 
+        //
         public List<Attraction> ListAttractionAll()// un-filter, popular arrange
         {
             AttractionDAO dao = new AttractionDAO();
@@ -84,6 +85,8 @@ namespace TouristHelp.BLL
             AttractionDAO dao = new AttractionDAO();
             return dao.SelectByType_Personal(type, arrange);
         }
+
+        //
 
         public void AddAttraction(Attraction att)
         {
