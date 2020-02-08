@@ -34,7 +34,7 @@
 
 
             <asp:Label ID="tourguideemailLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
-            <asp:Label ID="tourguidepasswordLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
+            <asp:Label ID="tourguidepasswordLabel" CssClass="col-1" runat="server" Visible="false" Text=""></asp:Label>
 
             <asp:Label ID="tourguideidLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
             <asp:Label ID="tourguideuseridLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>

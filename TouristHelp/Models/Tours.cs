@@ -14,9 +14,9 @@ namespace TouristHelp.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string Details { get; set; }
-        public decimal Price { get; set; }
+        public string Price { get; set; }
 
-        public Tours(int id, int tourguide, string title, string desc, string details, decimal price)
+        public Tours(int id, int tourguide, string title, string desc, string details, string price)
         {
             Id = id;
             TourGuide = tourguide;
@@ -30,16 +30,34 @@ namespace TouristHelp.Models
 
     }
 
-    public class TouristBookings
+    public class TouristBooking
     {
-        public int Id { get; set; }
         public int TouristId { get; set; }
-        public string Bookings { get; set; }
-        public TouristBookings(int id, int tourist, string bookings)
+        public string Name { get; set; }
+        public int Id { get; set; }
+        public string TourTitle { get; set; }
+        public string Timing { get; set; }
+        public string Status { get; set; }
+
+        public TouristBooking(int touristid, string name, int id, string title, string timing, string status)
         {
+            TouristId = touristid;
+            Name = name;
             Id = id;
-            TouristId = tourist;
-            Bookings = bookings;
+            TourTitle = title;
+            Timing = timing;
+            Status = status;
         }
+
+        public static List<TouristBooking> GetAllToursOfTourist(int userId)
+        {
+            return TouristBookingDAO.SelectTourByTouristId(userId);
+        }
+
+        public static List<TouristBooking> GetAllTourBookingsOfTourGuide(int userId)
+        {
+            return TouristBookingDAO.SelectTourByTourGuideId(userId);
+        }
+
     }
 }

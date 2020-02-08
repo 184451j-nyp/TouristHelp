@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using TouristHelp.Models;
+using TouristHelp.DAL;
 
 using System.Web;
 using System.Web.UI;
@@ -11,7 +12,7 @@ namespace TouristHelp
 {
     public partial class TouristBookingsPage : System.Web.UI.Page
     {
-        List<Tours> touristbookingList;
+        List<TouristBooking> touristbookingList;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,7 +20,7 @@ namespace TouristHelp
         }
         private void loadRepeater()
         {
-            //touristbookingList = Tours.GetAllTouristBooking();
+            touristbookingList = TouristBooking.GetAllToursOfTourist(int.Parse(Session["tourist_id"].ToString()));
 
             RepeaterBookings.DataSource = touristbookingList;
             RepeaterBookings.DataBind();

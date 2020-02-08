@@ -29,7 +29,7 @@ namespace TouristHelp.DAL
                 string title = row["title"].ToString();
                 string desc = row["description"].ToString();
                 string details = row["details"].ToString();
-                decimal price = decimal.Parse(row["price"].ToString());
+                string price = row["price"].ToString();
                 Tours obj = new Tours(id, tg, title, desc, details, price);
                 arr.Add(obj);
             }
@@ -58,7 +58,7 @@ namespace TouristHelp.DAL
                 string title = row["title"].ToString();
                 string desc = row["description"].ToString();
                 string details = row["details"].ToString();
-                decimal price = decimal.Parse(row["price"].ToString());
+                string price = row["price"].ToString();
                 Tours obj = new Tours(id, tourguide_id, title, desc, details, price);
                 return obj;
             }
@@ -68,7 +68,7 @@ namespace TouristHelp.DAL
             }
         }
 
-        public static void InsertTour(int Id, int TouristId, string Title, string Description, string Details, decimal Price)
+        public static void InsertTour(int Id, int TouristId, string Title, string Description, string Details, string Price)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
@@ -88,7 +88,7 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraTourDescription", Description);
             sqlCmd.Parameters.AddWithValue("@paraTourDetails", Details);
             sqlCmd.Parameters.AddWithValue("@paraTourPrice", Price);
-         
+
 
 
             myConn.Open();
@@ -101,45 +101,98 @@ namespace TouristHelp.DAL
 
     public static class TouristBookingDAO
     {
-        private static string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+      
 
-        public static List<TouristBookings> SelectAllTouristBooking()
-        {
-            SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "Select * From TouristBooking";
-
-            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
-
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-
-            List<TouristBookings> userList = new List<TouristBookings>();
-            int rec_cnt = ds.Tables[0].Rows.Count;
-            for (int i = 0; i < rec_cnt; i++)
-            {
-                DataRow row = ds.Tables[0].Rows[i];
-                int id = int.Parse(row["id"].ToString());
-                int tourist = int.Parse(row["tourist_id"].ToString());
-                string bookings = row["bookings"].ToString();
-                TouristBookings obj = new TouristBookings(id, tourist, bookings);
-                userList.Add(obj);
-            }
-            return userList;
-        }
-
-        public static void InsertBooking(string Booking, int TouristId, int UserId)
+        public static List<TouristBooking> SelectTourByTouristId(int id)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO TouristBooking (bookings, tourist_id)" +
-                             "VALUES (@paraBooking, @paraTouristId)";
+            string sqlStmt = "Select * from TouristBooking where tourist_id = @paraId";
+
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraId", id);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<TouristBooking> personalTourList = new List<TouristBooking>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+
+
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                int tourist_id = int.Parse(row["tourist_id"].ToString());
+                string name = row["name"].ToString();
+                string tourtitle = row["tourtitle"].ToString();
+                string timing = row["timing"].ToString();
+                string status = row["status"].ToString();
+
+                TouristBooking obj = new TouristBooking(tourist_id, name, id, tourtitle, timing, status);
+                personalTourList.Add(obj);
+            }
+            return personalTourList;
+        }
+
+
+
+        public static List<TouristBooking> SelectTourByTourGuideId(int id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "Select * from TouristBooking where id = @paraId";
+
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraId", id);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<TouristBooking> personalTourList = new List<TouristBooking>();
+            int rec_cnt = ds.Tables[0].Rows.Count;
+
+
+            for (int i = 0; i < rec_cnt; i++)
+            {
+                DataRow row = ds.Tables[0].Rows[i];
+                int tourist_id = int.Parse(row["tourist_id"].ToString());
+                string name = row["name"].ToString();
+                string tourtitle = row["tourtitle"].ToString();
+                string timing = row["timing"].ToString();
+                string status = row["status"].ToString();
+
+                TouristBooking obj = new TouristBooking(tourist_id, name, id, tourtitle, timing, status);
+                personalTourList.Add(obj);
+            }
+            return personalTourList;
+        }
+
+
+
+
+
+        public static void InsertBooking(int TouristId, string Name, int TourGuideId, string TourTitle, string Timing, string Status)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO TouristBooking (tourist_id, name, id, tourtitle, timing, status)" +
+                             "VALUES (@paraTouristId, @paraName, @paraId, @paraTourTitle, @paraTiming, @paraStatus)";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
-            sqlCmd.Parameters.AddWithValue("@paraBooking", Booking);
             sqlCmd.Parameters.AddWithValue("@paraTouristId", TouristId);
+            sqlCmd.Parameters.AddWithValue("@paraName", Name);
+            sqlCmd.Parameters.AddWithValue("@paraId", TourGuideId);
+            sqlCmd.Parameters.AddWithValue("@paraTourTitle", TourTitle);
+            sqlCmd.Parameters.AddWithValue("@paraTiming", Timing);
+            sqlCmd.Parameters.AddWithValue("@paraStatus", Status);
+
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();
