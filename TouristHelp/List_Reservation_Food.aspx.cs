@@ -23,7 +23,6 @@ namespace TouristHelp
 
                 else
                 {
-
                     try
                     {
                         Label1.Text = Session["tourist_id"].ToString();
@@ -32,10 +31,28 @@ namespace TouristHelp
                     {
                         Label1.Text = Session["tourguide_id"].ToString();
                     }
-
                 }
+
+                // to check for any expired reservationd
+                Food_Reservation res = new Food_Reservation();
+                resList = res.GetReservationById(int.Parse(Session["tourist_id"].ToString()));
+
+                for (int i = 0; i < resList.Count; i++)
+                {
+                    DateTime currDate = DateTime.Today;
+                    if (DateTime.Parse(resList[i].Date) < currDate.Date)
+                    {
+                        res.CancelReservation(resList[i].Id);
+                    }
+                }
+
                 loadRepeater();
             }
+        }
+
+        void testcel()
+        {
+
         }
 
         private void loadRepeater()
