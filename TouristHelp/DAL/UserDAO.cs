@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using TouristHelp.Models;
 
 namespace TouristHelp.DAL
@@ -90,10 +91,6 @@ namespace TouristHelp.DAL
             return userList;
         }
 
-
-
-
-
         public static List<TourGuide> SelectTourGuideByLanguage(string language)
         {
             SqlConnection myConn = new SqlConnection(DBConnect);
@@ -130,11 +127,6 @@ namespace TouristHelp.DAL
             }
             return userList;
         }
-
-
-
-
-
 
         public static TourGuide SelectTourGuideById(int id)
         {
@@ -257,6 +249,35 @@ namespace TouristHelp.DAL
                 myConn.Close();
             }
             catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+        public static void InsertImageIntoTG(int tourguide_id, string filename)
+        {
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            FileInfo file = new FileInfo(filename);
+            byte[] btImg = new byte[file.Length];
+            FileStream stream = file.OpenRead();
+            stream.Read(btImg, 0, btImg.Length);
+            stream.Close();
+
+            string sqlstmt = "Insert Into TourGuides (profile_img) Values (@paraImage) Where tourguide_id = @paraID;";
+            SqlCommand cmd = new SqlCommand(sqlstmt, myConn);
+            SqlParameter imgPara = new SqlParameter("@paraImage", SqlDbType.Image);
+            imgPara.Value = btImg;
+            cmd.Parameters.Add(imgPara);
+            cmd.Parameters.AddWithValue("@paraID", tourguide_id);
+
+            try
+            {
+                myConn.Open();
+                cmd.ExecuteNonQuery();
+                myConn.Close();
+            }
+            catch (SqlException ex)
             {
                 Console.WriteLine(ex);
             }

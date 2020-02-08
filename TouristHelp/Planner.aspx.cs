@@ -60,6 +60,7 @@ namespace TouristHelp
                 geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
                 gvDirections.DataSource = places;
                 gvDirections.DataBind();
+                DropDownListSaved.Items.Clear();
                 foreach(Direction i in places)
                 {
                     DropDownListSaved.Items.Add(i.Name);
