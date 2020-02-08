@@ -18,6 +18,10 @@ namespace TouristHelp.BLL
         public string membershipTier { get; set; }
         public int creditBalance { get; set; }
         public int remainBonusDays { get; set; }
+        public bool loggedInLog { get; set; }
+        public DateTime loggedInDate { get; set; }
+        public bool newDateCheck { get; set; }
+
         public Reward()
         {
         }
@@ -39,7 +43,7 @@ namespace TouristHelp.BLL
             this.creditBalance = creditbalance;
             this.remainBonusDays = remainbonusdays;
         }
-        public Reward(int id, int logincount, int loginstreak, string loyaltytier, int totaldiscount, int bonuscredits, string membershiptier, int creditbalance, int remainbonusdays)
+        public Reward(int id, int logincount, int loginstreak, string loyaltytier, int totaldiscount, int bonuscredits, string membershiptier, int creditbalance, int remainbonusdays, DateTime loggedindate)
         {
             this.Id = id;
             this.loginCount = logincount;
@@ -50,6 +54,38 @@ namespace TouristHelp.BLL
             this.membershipTier = membershiptier;
             this.creditBalance = creditbalance;
             this.remainBonusDays = remainbonusdays;
+            this.loggedInDate = loggedindate;
+
+        }
+
+        public Reward(int id, int logincount, int loginstreak, string loyaltytier, int totaldiscount, int bonuscredits, string membershiptier, int creditbalance, int remainbonusdays, bool loggedinlog, DateTime loggedindate)
+        {
+            this.Id = id;
+            this.loginCount = logincount;
+            this.loginStreak = loginstreak;
+            this.loyaltyTier = loyaltytier;
+            this.totalDiscount = totaldiscount;
+            this.bonusCredits = bonuscredits;
+            this.membershipTier = membershiptier;
+            this.creditBalance = creditbalance;
+            this.remainBonusDays = remainbonusdays;
+            this.loggedInLog = loggedinlog;
+            this.loggedInDate = loggedindate;
+        }
+        public Reward(int id, int logincount, int loginstreak, string loyaltytier, int totaldiscount, int bonuscredits, string membershiptier, int creditbalance, int remainbonusdays, bool loggedinlog, DateTime loggedindate, bool newdatecheck)
+        {
+            this.Id = id;
+            this.loginCount = logincount;
+            this.loginStreak = loginstreak;
+            this.loyaltyTier = loyaltytier;
+            this.totalDiscount = totaldiscount;
+            this.bonusCredits = bonuscredits;
+            this.membershipTier = membershiptier;
+            this.creditBalance = creditbalance;
+            this.remainBonusDays = remainbonusdays;
+            this.loggedInLog = loggedinlog;
+            this.loggedInDate = loggedindate;
+            this.newDateCheck = newdatecheck;
         }
 
         public Reward GetRewardById(string userId)
@@ -81,5 +117,15 @@ namespace TouristHelp.BLL
             RewardDAO userId = new RewardDAO();
             userId.insertNewReward(this);
         }
+
+
+        public void updateLoggedIn(int userId, int loginCount, int loginStreak, int creditBalance, bool loggedInLog, DateTime loggedInDate, bool newDateCheck)
+        {
+            RewardDAO dao = new RewardDAO();
+            dao.updateLogIn(userId,loginCount, loginStreak, creditBalance, loggedInLog, loggedInDate, newDateCheck);
+        }
+
+
+
     }
 }
