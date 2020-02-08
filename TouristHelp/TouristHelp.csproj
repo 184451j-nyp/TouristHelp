@@ -376,6 +376,7 @@
     <Content Include="TourDetailsPage.aspx" />
     <Content Include="TourGuideDetails.aspx" />
     <Content Include="TourGuideListPage.aspx" />
+    <Content Include="TourGuideRequestsPage.aspx" />
     <Content Include="TourGuideUpdateDetails.aspx" />
     <Content Include="TourGuideUpdateTour.aspx" />
     <Content Include="TouristBookingsPage.aspx" />
@@ -625,6 +626,13 @@
     </Compile>
     <Compile Include="TourGuideListPage.aspx.designer.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TourGuideRequestsPage.aspx.cs">
+      <DependentUpon>TourGuideRequestsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideRequestsPage.aspx.designer.cs">
+      <DependentUpon>TourGuideRequestsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TourGuideUpdateDetails.aspx.cs">
       <DependentUpon>TourGuideUpdateDetails.aspx</DependentUpon>
