@@ -16,7 +16,7 @@
                     </p>
                     <p>
                         Attraction Name: 
-                            <asp:TextBox ID="TbName" runat="server" CausesValidation="True"></asp:TextBox>
+                            <asp:TextBox ID="TbName" runat="server"></asp:TextBox>
                     &nbsp;<asp:RequiredFieldValidator ID="RfvName" runat="server" ControlToValidate="TbName" ForeColor="Red">*Please Enter a Name</asp:RequiredFieldValidator>
                     </p>
                     <p>
@@ -42,10 +42,12 @@
                     <p>
                        Attraction Latitude:
                             <asp:TextBox ID="TbLat" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvLat" runat="server" ControlToValidate="TbLat" ForeColor="Red">*Please Fill in this Field</asp:RequiredFieldValidator>
                     </p>
                     <p>
                        Attraction Longitude:
                             <asp:TextBox ID="TbLong" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvLong" runat="server" ControlToValidate="TbLong" ForeColor="Red">*Please Fill in this Field</asp:RequiredFieldValidator>
                     </p>
                     <p>
                        Attraction Interest:

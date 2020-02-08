@@ -148,6 +148,15 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.TextBox TbLat;
         
         /// <summary>
+        /// RfvLat control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvLat;
+        
+        /// <summary>
         /// TbLong control.
         /// </summary>
         /// <remarks>
@@ -155,6 +164,15 @@ namespace TouristHelp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TbLong;
+        
+        /// <summary>
+        /// RfvLong control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RfvLong;
         
         /// <summary>
         /// DdlInterest control.

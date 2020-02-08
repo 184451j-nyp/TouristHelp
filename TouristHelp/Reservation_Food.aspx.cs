@@ -31,6 +31,7 @@ namespace TouristHelp
             if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
             {
                 BtnConfirm.Text = "Login to reserve";
+                BtnConfirm.CausesValidation = false;
             }
         }
 

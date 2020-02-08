@@ -96,6 +96,12 @@ namespace TouristHelp.BLL
             AttractionDAO attDao = new AttractionDAO();
             attDao.InsertNewAttraction(att);
         }
-        
+
+        public void UpdateAttraction(Attraction att)
+        {
+            AttractionDAO attDao = new AttractionDAO();
+            attDao.UpdateAttraction(att);
+        }
+
     }
 }

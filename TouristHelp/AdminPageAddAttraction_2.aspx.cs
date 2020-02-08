@@ -20,7 +20,7 @@ namespace TouristHelp
         {
             string folderPath = Server.MapPath("~/Images/");
 
-            //save file name to check box
+            //save file name to invisible label
             LbImage.Text = "Images/" + FileUpload1.FileName;
 
             //Save the file to dictionary (Folder)

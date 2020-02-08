@@ -22,13 +22,19 @@
                             <asp:Label runat="server" ID="lbPlace"></asp:Label></div>
                         <div>
                             Timing:
-                            <asp:TextBox ID="tbDate" runat="server">Click to pick a date</asp:TextBox>
+                            <asp:TextBox ID="tbDate" runat="server"></asp:TextBox>
 
                             <ajaxToolkit:PopupControlExtender ID="tbDate_PopupControlExtender" runat="server" BehaviorID="tbDate_PopupControlExtender" DynamicServicePath="" ExtenderControlID="" PopupControlID="Panel1" Position="Bottom" TargetControlID="tbDate">
                             </ajaxToolkit:PopupControlExtender>
 
                             &nbsp; :&nbsp;
                             <asp:TextBox ID="TbTime" runat="server" TextMode="Time" Width="120px"></asp:TextBox>
+
+                            <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:RequiredFieldValidator ID="RfvDate" runat="server" ControlToValidate="tbDate" ForeColor="Red">*Please Input a Date*</asp:RequiredFieldValidator>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <asp:RequiredFieldValidator ID="RfvTime" runat="server" ControlToValidate="TbTime" ForeColor="Red">*Please Input a Time*</asp:RequiredFieldValidator>
 
                             <br />
                             <asp:Panel ID="Panel1" runat="server">
@@ -42,6 +48,7 @@
                         <div>
                             Pax:
                             <asp:TextBox ID="TbPax" runat="server"></asp:TextBox>
+                        &nbsp;<asp:RequiredFieldValidator ID="RfvPax" runat="server" ControlToValidate="TbPax" ForeColor="Red">*Please Input a Time</asp:RequiredFieldValidator>
                         </div>
                         <asp:Button ID="BtnConfirm" runat="server" CssClass="btn btn-default" Style="float: right" Text="Confirm Reservation" OnClick="BtnConfirm_Click" />
                     </div>

@@ -290,5 +290,33 @@ namespace TouristHelp.DAL
             sqlCmd.ExecuteNonQuery();
             myConn.Close();
         }
+
+        public void UpdateAttraction(Attraction att) //Update the attraction details into db
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Attraction SET attractionName = @paraName, attractionPrice = @paraPrice, dateTime = @paraDate, attractionDesc = @paraDesc, attractionLocation = @paraLoc, attractionLatitude = @paraLat, attractionLongitude = @paraLong, attractionInterest = @paraInt, attractionType = @paraType, attractionTransaction = @paraTran, attractionImage = @paraImage WHERE attractionId = @paraId";
+                             
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraId", att.Id);
+            sqlCmd.Parameters.AddWithValue("@paraName", att.Name);
+            sqlCmd.Parameters.AddWithValue("@paraPrice", att.Price);
+            sqlCmd.Parameters.AddWithValue("@paraDate", att.DateTime);
+            sqlCmd.Parameters.AddWithValue("@paraDesc", att.Description);
+            sqlCmd.Parameters.AddWithValue("@paraLoc", att.Location);
+            sqlCmd.Parameters.AddWithValue("@paraLat", att.Latitude);
+            sqlCmd.Parameters.AddWithValue("@paraLong", att.Longitude);
+            sqlCmd.Parameters.AddWithValue("@paraInt", att.Interest);
+            sqlCmd.Parameters.AddWithValue("@paraType", att.Type);
+            sqlCmd.Parameters.AddWithValue("@paraTran", att.Transaction);
+            sqlCmd.Parameters.AddWithValue("@paraImage", att.Image);
+
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+        }
     }
 }

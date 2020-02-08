@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPageAddAttraction.aspx" />
+    <Content Include="AdminPageUpdateAttraction.aspx" />
     <Content Include="AdminPageHotel.aspx" />
     <Content Include="AdminPageHotel2.aspx" />
     <Content Include="AdminPageRewardSystem.aspx" />
@@ -394,6 +395,13 @@
     </Compile>
     <Compile Include="AdminPageAddAttraction.aspx.designer.cs">
       <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPageUpdateAttraction.aspx.cs">
+      <DependentUpon>AdminPageUpdateAttraction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageUpdateAttraction.aspx.designer.cs">
+      <DependentUpon>AdminPageUpdateAttraction.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPageHotel.aspx.cs">
       <DependentUpon>AdminPageHotel.aspx</DependentUpon>
