@@ -25,7 +25,7 @@ namespace TouristHelp
                 tourguideemailLabel.Text = tg.Email;
                 tourguideidLabel.Text = tg.TourGuideId.ToString();
                 tourguideuseridLabel.Text = tg.UserId.ToString();
-
+                tourguidepasswordLabel.Text = tg.Password.ToString();
 
 
             }

@@ -1,33 +1,34 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using System.Web.Services;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TouristHelp.DAL;
 using TouristHelp.Models;
-using Newtonsoft.Json;
 
 namespace TouristHelp
 {
     public partial class Planner : System.Web.UI.Page
     {
-        List<Direction> places;
+        private List<Direction> places;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Session["tourist_id"] != null)
+            if (Session["tourist_id"] != null)
             {
-                LoadData(int.Parse(Session["tourist_id"].ToString()));                
-
-                AttractionDAO attractions = new AttractionDAO();
-                foreach(var i in attractions.SelectAll().OrderBy(a => a.Name).ToList())
+                LoadData(int.Parse(Session["tourist_id"].ToString()));
+                if (!Page.IsPostBack)
                 {
-                    DropDownListAttractions.Items.Add(new ListItem(i.Name, i.Id.ToString()));
+                    AttractionDAO attractions = new AttractionDAO();
+                    foreach (var i in attractions.SelectAll().OrderBy(a => a.Name).ToList())
+                    {
+                        DropDownListAttractions.Items.Add(new ListItem(i.Name, i.Id.ToString()));
+                    }
+                    DropDownListAttractions.DataBind();
                 }
-                DropDownListAttractions.DataBind();
             }
-            else if(Session["tourguide_id"] != null)
+            else if (Session["tourguide_id"] != null)
             {
                 Response.Redirect("blank.aspx");
             }
@@ -53,14 +54,15 @@ namespace TouristHelp
                 List<Direction> random = DirectionDAO.GetRandomPoI();
                 gvDirections.DataSource = random;
                 gvDirections.DataBind();
-                geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.ParseGeoJsonFromList(random));
+                GeoJsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.ParseGeoJsonFromList(random));
             }
             else
             {
-                geojsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
+                GeoJsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
                 gvDirections.DataSource = places;
                 gvDirections.DataBind();
-                foreach(Direction i in places)
+                DropDownListSaved.Items.Clear();
+                foreach (Direction i in places)
                 {
                     DropDownListSaved.Items.Add(i.Name);
                 }
@@ -75,6 +77,16 @@ namespace TouristHelp
             int attraction = int.Parse(row.Cells[0].Text);
             DirectionDAO.RemoveOneDirByUser(attraction, int.Parse(Session["tourist_id"].ToString()));
             LoadData(int.Parse(Session["tourist_id"].ToString()));
+        }
+
+        protected void BtnPrint_Click(object sender, EventArgs e)
+        {
+            if(DirectionsURLHidden.Value != "" && MarkersDirectionsHidden.Value != "")
+            {
+                Session["DirUrl"] = DirectionsURLHidden.Value;
+                Session["MarkersDir"] = MarkersDirectionsHidden.Value;
+                Response.Redirect("PrintPlanner.aspx");
+            }
         }
     }
 }

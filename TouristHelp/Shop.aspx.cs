@@ -374,7 +374,7 @@ namespace TouristHelp
             voucherStatus = getVoucherStatus.Text;
 
 
-            if (validatePurchase() == true && voucherStatus == "Available")
+            if (validatePurchase() == true && voucherStatus == "Available" || voucherStatus == "Active")
             {
 
 

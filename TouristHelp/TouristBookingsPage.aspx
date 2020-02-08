@@ -21,15 +21,23 @@
                             <span class="icon-link"></span>
                         </div>
                     </a>
-                    <div class="text p-3">
-                        <h3 id="TouristId"><%#Eval("TouristId") %></h3>
-                        <div class="one">
-                        </div>
-                        <div class="two">
-                        </div>
-                        <hr>
-                        <%--<asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="More info" Style="float: right" />--%>
+                    <div class="two">
+                        <span class="tgname" id="tourguidename">Tour Guide Name: <%#Eval("Name") %></span>
                     </div>
+                    <div class="three">
+                        <span class="tourtitle" id="TourTitle">Tour Title: <%#Eval("TourTitle") %></span>
+                    </div>
+
+                    <div class="four">
+                        <span class="tourtiming" id="TourTiming">Tour Date: <%#Eval("Timing") %></span>
+                    </div>
+
+                    <div class="five">
+                        <span class="tourstatus" id="TourStatus">Tour Status: <%#Eval("Status") %></span>
+                    </div>
+                    <hr>
+                    <%--<asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="More info" Style="float: right" />--%>
+                </div>
                 </div>
             </ItemTemplate>
         </asp:Repeater>

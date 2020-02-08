@@ -5,8 +5,8 @@
     [dateTime]            VARCHAR (50)    NULL,
     [attractionDesc]      VARCHAR (MAX)   NOT NULL,
     [attractionLocation]  VARCHAR (50)    NOT NULL,
-    [attractionLatitude]  DECIMAL (18, 8) NULL,
-    [attractionLongitude] DECIMAL (18, 8) NULL,
+    [attractionLatitude]  DECIMAL (12, 6) NULL,
+    [attractionLongitude] DECIMAL (12, 6) NULL,
     [attractionInterest]  VARCHAR (50)    NOT NULL,
     [attractionType]      VARCHAR (50)    NOT NULL,
     [attractionTransaction] VARCHAR(50) NOT NULL, 
@@ -73,6 +73,7 @@ CREATE TABLE [dbo].[TourGuides] (
     [description]  VARCHAR (50)  NULL,
     [languages]    VARCHAR (50)  NULL,
     [credentials]  VARCHAR (255) NULL,
+    [profile_img] IMAGE NULL, 
     PRIMARY KEY CLUSTERED ([tourguide_id] ASC),
     CONSTRAINT [FK_TourGuides_ToUsers] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Users] ([user_id])
 );
@@ -113,7 +114,7 @@ CREATE TABLE [dbo].[Transaction] (
     [voucherQuantity]  INT          NOT NULL,
     [voucherName]      VARCHAR (50) NOT NULL,
     CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC),
-    CONSTRAINT [FK_Transaction_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Reward] ([user_id])
+    --CONSTRAINT [FK_Transaction_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Reward] ([user_id])
 );
 
 

@@ -14,9 +14,9 @@ namespace TouristHelp.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string Details { get; set; }
-        public decimal Price { get; set; }
+        public string Price { get; set; }
 
-        public Tours(int id, int tourguide, string title, string desc, string details, decimal price)
+        public Tours(int id, int tourguide, string title, string desc, string details, string price)
         {
             Id = id;
             TourGuide = tourguide;
@@ -54,7 +54,10 @@ namespace TouristHelp.Models
             return TouristBookingDAO.SelectTourByTouristId(userId);
         }
 
-
+        public static List<TouristBooking> GetAllTourBookingsOfTourGuide(int userId)
+        {
+            return TouristBookingDAO.SelectTourByTourGuideId(userId);
+        }
 
     }
 }
