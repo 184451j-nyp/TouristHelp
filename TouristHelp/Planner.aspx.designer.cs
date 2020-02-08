@@ -69,15 +69,6 @@ namespace TouristHelp
         protected global::System.Web.UI.WebControls.DropDownList DropDownListSaved;
 
         /// <summary>
-        /// BtnPrint control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnPrint;
-
-        /// <summary>
         /// GeoJsonHidden control.
         /// </summary>
         /// <remarks>
@@ -85,23 +76,5 @@ namespace TouristHelp
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField GeoJsonHidden;
-
-        /// <summary>
-        /// DirectionsURLHidden control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField DirectionsURLHidden;
-
-        /// <summary>
-        /// MarkersDirectionsHidden control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField MarkersDirectionsHidden;
     }
 }

@@ -140,11 +140,7 @@ namespace TouristHelp.DAL
 
             myConn.Open();
 
-
-
             sqlCmd.ExecuteNonQuery();
-
-
 
             myConn.Close();
         }

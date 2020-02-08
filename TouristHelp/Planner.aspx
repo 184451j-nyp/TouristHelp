@@ -103,13 +103,10 @@
                         </div>
                         <br />
                         <button type="button" class="btn btn-success" onclick="getDirections();">Get directions</button>
-                        <asp:Button ID="BtnPrint" runat="server" Text="Print" CssClass="btn btn-success" OnClick="BtnPrint_Click" />
                     </div>
                 </div>
 
                 <asp:HiddenField ID="GeoJsonHidden" runat="server" Value="" />
-                <asp:HiddenField ID="DirectionsURLHidden" runat="server" Value="" />
-                <asp:HiddenField ID="MarkersDirectionsHidden" runat="server" Value="" />
             </form>
         </div>
         <div class="col-6">
@@ -245,9 +242,6 @@
 
             map.setCenter(coords[0]);
             map.setZoom(14);
-
-            $("#<%= DirectionsURLHidden %>").val(url);
-            $("#<%= MarkersDirectionsHidden %>").val(JSON.stringify(coords));
         }
     </script>
 </asp:Content>

@@ -78,15 +78,5 @@ namespace TouristHelp
             DirectionDAO.RemoveOneDirByUser(attraction, int.Parse(Session["tourist_id"].ToString()));
             LoadData(int.Parse(Session["tourist_id"].ToString()));
         }
-
-        protected void BtnPrint_Click(object sender, EventArgs e)
-        {
-            if(DirectionsURLHidden.Value != "" && MarkersDirectionsHidden.Value != "")
-            {
-                Session["DirUrl"] = DirectionsURLHidden.Value;
-                Session["MarkersDir"] = MarkersDirectionsHidden.Value;
-                Response.Redirect("PrintPlanner.aspx");
-            }
-        }
     }
 }

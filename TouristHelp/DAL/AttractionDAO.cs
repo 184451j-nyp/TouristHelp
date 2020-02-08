@@ -73,7 +73,7 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                string image = row["attractionImage"].ToString();
+                //string image = row["attractionImage"].ToString();
                 string price = row["attractionPrice"].ToString();
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
@@ -84,7 +84,7 @@ namespace TouristHelp.DAL
                 string type = row["attractionType"].ToString();
                 string transaction = row["attractionTransaction"].ToString();
 
-                Attraction obj = new Attraction(id, name, image, price, date, desc, loc, lat, lon, interest, type, transaction);
+                Attraction obj = new Attraction(id, name, null, price, date, desc, loc, lat, lon, interest, type, transaction);
                 empList.Add(obj);
             }
             return empList;
