@@ -101,8 +101,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPageAddAttraction.aspx" />
+    <Content Include="AdminPageUpdateAttraction.aspx" />
     <Content Include="AdminPageHotel.aspx" />
     <Content Include="AdminPageHotel2.aspx" />
+    <Content Include="AdminPageRewardSystem.aspx" />
+    <Content Include="AdminPageShop.aspx" />
     <Content Include="App_Data\db_reconstruct.sql" />
     <Content Include="App_Data\TouristHelp.mdf" />
     <Content Include="App_Data\TouristHelp_log.ldf">
@@ -394,6 +397,13 @@
     <Compile Include="AdminPageAddAttraction.aspx.designer.cs">
       <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminPageUpdateAttraction.aspx.cs">
+      <DependentUpon>AdminPageUpdateAttraction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageUpdateAttraction.aspx.designer.cs">
+      <DependentUpon>AdminPageUpdateAttraction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminPageHotel.aspx.cs">
       <DependentUpon>AdminPageHotel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -407,6 +417,20 @@
     </Compile>
     <Compile Include="AdminPageHotel2.aspx.designer.cs">
       <DependentUpon>AdminPageHotel2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPageRewardSystem.aspx.cs">
+      <DependentUpon>AdminPageRewardSystem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageRewardSystem.aspx.designer.cs">
+      <DependentUpon>AdminPageRewardSystem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPageShop.aspx.cs">
+      <DependentUpon>AdminPageShop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageShop.aspx.designer.cs">
+      <DependentUpon>AdminPageShop.aspx</DependentUpon>
     </Compile>
     <Compile Include="blank.aspx.cs">
       <DependentUpon>blank.aspx</DependentUpon>

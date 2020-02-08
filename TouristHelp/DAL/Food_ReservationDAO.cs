@@ -11,18 +11,19 @@ namespace TouristHelp.DAL
 {
     public class Food_ReservationDAO
     {
-        public void InsertReservation(string Name, string Time, int Pax, int UserId) //Insert the reservation details into db
+        public void InsertReservation(string Name, string Date, string Time, int Pax, int UserId) //Insert the reservation details into db
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationTime, reservationPax, reservationState, userId)" +
-                             "VALUES (@paraName, @paraTime, @paraPax, @paraStatus ,@paraId)";
+            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationDate, reservationTime, reservationPax, reservationState, userId)" +
+                             "VALUES (@paraName, @paraDate, @paraTime, @paraPax, @paraStatus ,@paraId)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
             sqlCmd.Parameters.AddWithValue("@paraName", Name);
+            sqlCmd.Parameters.AddWithValue("@paraDate", Date);
             sqlCmd.Parameters.AddWithValue("@paraTime", Time);
             sqlCmd.Parameters.AddWithValue("@paraPax", Pax);
             sqlCmd.Parameters.AddWithValue("@paraStatus", "Active");
@@ -55,10 +56,11 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[i];
                 int id = int.Parse(row["reservationId"].ToString());
                 string name = row["reservationName"].ToString();
+                string date = row["reservationDate"].ToString();
                 string time = row["reservationTime"].ToString();
                 int pax = int.Parse(row["reservationPax"].ToString());
                 string state = row["reservationState"].ToString();
-                Food_Reservation obj = new Food_Reservation(id, name, time, pax, state);
+                Food_Reservation obj = new Food_Reservation(id, name, date, time, pax, state);
                 empList.Add(obj);
             }
             return empList;
@@ -70,10 +72,6 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             string sqlStmt = "UPDATE ReservationFood SET reservationState = 'Inactive' WHERE reservationId = @paraId";
-
-            //UPDATE Customers
-            //SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
-            //WHERE CustomerID = 1;
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 

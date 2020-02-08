@@ -10,7 +10,7 @@
         <asp:Button ID="ButtonAdd" runat="server" Text="Add Attraction" Width="124px" OnClick="ButtonAdd_Click" />
         <br />
         <br />
-        <asp:Repeater ID="RepeaterAttraction" runat="server">
+        <asp:Repeater ID="RepeaterAttraction" runat="server" OnItemCommand="ButtonUpdate_Click">
             <ItemTemplate>
                 <div class="col-sm col-md-6 col-lg-12" style="border-style: solid; border-width: 1px; margin-bottom: 10px">
                     <%-- Proto Box --%>
