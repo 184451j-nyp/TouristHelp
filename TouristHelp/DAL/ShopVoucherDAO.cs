@@ -91,6 +91,36 @@ namespace TouristHelp.DAL
         }
 
 
+        public void addNewShopVoucher(ShopVoucher shop) //Insert the hotel details into db
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO ShopVoucher (voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherCost, shopImage, shopDesc, voucherName)" +
+                             "VALUES (@paravoucherqty, @paravouchertype, @paravoucherstatus, @membershipcategory, @foodcategory, @namefilter, @vouchercost, @shopimage, @shopdesc, @vouchername)";
+
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paravoucherqty", shop.voucherQty);
+            sqlCmd.Parameters.AddWithValue("@paravouchertype", shop.voucherType);
+            sqlCmd.Parameters.AddWithValue("@paravoucherstatus", shop.voucherStatus);
+            sqlCmd.Parameters.AddWithValue("@membershipcategory", shop.membershipCategory);
+            sqlCmd.Parameters.AddWithValue("@foodcategory", shop.foodCategory);
+            sqlCmd.Parameters.AddWithValue("@namefilter", shop.nameFilter);
+            sqlCmd.Parameters.AddWithValue("@vouchercost", shop.voucherCost);
+            sqlCmd.Parameters.AddWithValue("@shopimage", shop.shopImage);
+            sqlCmd.Parameters.AddWithValue("@shopdesc", shop.shopDesc);
+            sqlCmd.Parameters.AddWithValue("@vouchername", shop.voucherName);
+
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+        }
+
+
+
 
     }
 }

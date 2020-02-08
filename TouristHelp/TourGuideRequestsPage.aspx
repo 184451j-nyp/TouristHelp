@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TouristBookingsPage.aspx.cs" Inherits="TouristHelp.TouristBookingsPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TourGuideRequestsPage.aspx.cs" Inherits="TouristHelp.TourGuideRequestsPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -6,7 +6,7 @@
     <form runat="server">
 
         <div>
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="text-align: center; transform: translateZ(0px) translateY(10.929%);">Your Tour Guide Bookings</h1>
+            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="text-align: center; transform: translateZ(0px) translateY(10.929%);">Your Tourist Bookings</h1>
         </div>
         <br />
         <br />
@@ -21,6 +21,11 @@
                             <span class="icon-link"></span>
                         </div>
                     </a>
+                    <div class="text p-3">
+                        <div class="one">
+                            <span class="tgid" id="tourguideid">Tour Guide Id: <%#Eval("Id") %></span>
+                        </div>
+                    </div>
                     <div class="two">
                         <span class="tgname" id="tourguidename">Tour Guide Name: <%#Eval("Name") %></span>
                     </div>
