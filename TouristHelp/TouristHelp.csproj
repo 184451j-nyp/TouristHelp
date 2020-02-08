@@ -282,6 +282,8 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="libman.json" />
     <Content Include="DLL\QRCoder.dll.refresh" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200208051613 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200208080154 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -370,6 +372,7 @@
     <Content Include="Styles\navbar.css" />
     <Content Include="Styles\themify-icons.css" />
     <Content Include="Styles\Ticketing\style.css" />
+    <Content Include="TicketConfirm.aspx" />
     <Content Include="TicketDetail.aspx" />
     <Content Include="Ticketing.aspx" />
     <Content Include="TicketList.aspx" />
@@ -583,6 +586,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TicketConfirm.aspx.cs">
+      <DependentUpon>TicketConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketConfirm.aspx.designer.cs">
+      <DependentUpon>TicketConfirm.aspx</DependentUpon>
     </Compile>
     <Compile Include="TicketDetail.aspx.cs">
       <DependentUpon>TicketDetail.aspx</DependentUpon>

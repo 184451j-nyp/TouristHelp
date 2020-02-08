@@ -66,11 +66,10 @@ namespace TouristHelp
                 {
                     int Count = productQuantity - 1;
                     int i = 0;
-                    while(i < Count)
+                    Ticket dupeTix = new Ticket();
+                    dupeTix = dupeTix.getTicketDetail(productId, user_id);
+                    while (i < Count)
                     {
-                        Ticket dupeTix = new Ticket();
-                        dupeTix = dupeTix.getTicketDetail(productId, user_id);
-
                         string itemName = dupeTix.attractionName;
                         string itemDesc = dupeTix.attractionDesc;
                         double itemPrice = dupeTix.price;

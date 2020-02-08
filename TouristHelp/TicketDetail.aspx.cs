@@ -15,12 +15,8 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnGenerate_Click(object sender, EventArgs e)
-        {
-            string code = txtQRCode.Text;
+            string ticketCode = Request.QueryString["Code"];
+            string code = "touristhelp20200208080154.azurewebsites.net/TicketConfirm.aspx?Code=" + ticketCode;
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeGenerator.QRCode qrCode = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
             System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
@@ -36,6 +32,11 @@ namespace TouristHelp
                 }
                 PlaceHolder1.Controls.Add(imgBarCode);
             }
+        }
+
+        protected void btnGenerate_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

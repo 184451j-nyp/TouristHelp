@@ -87,5 +87,17 @@ namespace TouristHelp.BLL
             TicketDAO dao = new TicketDAO();
             dao.UpdateTicket(cartId, userId);
         }
+
+        public Ticket getTicketById(int ticketId)
+        {
+            TicketDAO dao = new TicketDAO();
+            return dao.GetTicketById(ticketId);
+        }
+
+        public void ClaimTicket(string ticketCode)
+        {
+            TicketDAO dao = new TicketDAO();
+            dao.ClaimTicket(ticketCode);
+        }
     }
 }
