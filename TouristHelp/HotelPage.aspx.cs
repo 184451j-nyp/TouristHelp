@@ -292,13 +292,13 @@ namespace TouristHelp
      
 
             Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id);
-            cart.InsertCartTicket();
-
-            var cartId = cart.GetCartId(attName, user_id);
+            cart.InsertHotel();
 
 
+            Cart newCart = new Cart();
+            newCart.GetCartId(attName, user_id);
 
-            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid,cartId, reservedate);
+            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid,newCart.productId, reservedate);
             hotel.AddNewHotel();
 
 

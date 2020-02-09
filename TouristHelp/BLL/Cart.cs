@@ -77,6 +77,20 @@ namespace TouristHelp.BLL
             cart.InsertTicket(this);
         }
 
+
+
+        public void InsertHotel()
+        {
+            CartDAO cart = new CartDAO();
+            cart.InsertHotel(this);
+        }
+
+        public void InsertHotelReservation()
+        {
+            CartDAO cart = new CartDAO();
+            cart.InsertHotel(this);
+        }
+
         public void ItemPay(int userId)
         {
             CartDAO cart = new CartDAO();

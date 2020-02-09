@@ -99,8 +99,8 @@ namespace TouristHelp
 
                     if (loginStreak % 10 == 0)
                     {
-                        creditBalance = td.creditBalance + td.bonusCredits;
-                        remainBonusDays = td.remainBonusDays + 10;
+                        creditBalance = td.creditBalance + td.bonusCredits + 5;
+                        remainBonusDays = td.remainBonusDays + 9;
 
 
                         td.updateBonus(userId, loginStreak, creditBalance, remainBonusDays);

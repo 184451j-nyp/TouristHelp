@@ -64,7 +64,7 @@ namespace TouristHelp
 
             {
 
-                loadRepeater();
+                filterRepeater();
 
                 if (Session["labelSuccess"] != null)
                 {
@@ -85,6 +85,19 @@ namespace TouristHelp
 
 
             }
+
+
+            else if (Page.IsPostBack)
+
+            {
+
+                filterRepeater();
+
+
+
+
+            }
+
 
 
 
@@ -113,14 +126,68 @@ namespace TouristHelp
 
 
 
-        private void loadRepeater()
-        {
-            ShopVoucher shop = new ShopVoucher();
-            shopList = shop.GetAllShop();
 
-            Repeat1.DataSource = shopList;
-            Repeat1.DataBind();
+
+
+        private void filterRepeater()
+        {
+
+            if (filterSearch.SelectedItem.Value == "Search By Category")
+            {
+                ShopVoucher shop = new ShopVoucher();
+                shopList = shop.GetAllShop();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+            }
+            else if (filterSearch.SelectedItem.Value == "Popular")
+            {
+                ShopVoucher filter = new ShopVoucher();
+                shopList = filter.getPopularFilter();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+
+            }
+            else if (filterSearch.SelectedItem.Value == "Newest")
+            {
+                ShopVoucher filter = new ShopVoucher();
+                shopList = filter.getNewFilter();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+
+            }
+            else if (filterSearch.SelectedItem.Value == "Low Price")
+            {
+                ShopVoucher filter = new ShopVoucher();
+                shopList = filter.getLowFilter();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+
+            }
+
+            else if (filterSearch.SelectedItem.Value == "High Price")
+            {
+                ShopVoucher filter = new ShopVoucher();
+                shopList = filter.getHighFilter();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+            }
         }
+
+
+
+        //private void loadRepeater()
+        //{
+        //    ShopVoucher shop = new ShopVoucher();
+        //    shopList = shop.GetAllShop();
+
+        //    Repeat1.DataSource = shopList;
+        //    Repeat1.DataBind();
+        //}
 
 
         protected void NextPage(object sender, EventArgs e)
@@ -335,6 +402,46 @@ namespace TouristHelp
 
             int genId;
 
+
+            //DropDownList filterSearch = (DropDownList)item1.FindControl("filterSearch");
+
+            //if (filterSearch.SelectedItem.Value == "Popular")
+            //{
+            //    ShopVoucher filter = new ShopVoucher();
+            //    shopList = filter.getPopularFilter();
+
+            //    Repeat1.DataSource = shopList;
+            //    Repeat1.DataBind();
+
+            //}
+            //else if (filterSearch.SelectedItem.Value == "Newest")
+            //{
+            //    ShopVoucher filter = new ShopVoucher();
+            //    shopList = filter.getNewFilter();
+
+            //    Repeat1.DataSource = shopList;
+            //    Repeat1.DataBind();
+
+            //}
+            //else if (filterSearch.SelectedItem.Value == "Low Price")
+            //{
+            //    ShopVoucher filter = new ShopVoucher();
+            //    shopList = filter.getLowFilter();
+
+            //    Repeat1.DataSource = shopList;
+            //    Repeat1.DataBind();
+
+            //}
+
+            //else if (filterSearch.SelectedItem.Value == "High Price")
+            //{
+            //    ShopVoucher filter = new ShopVoucher();
+            //    shopList = filter.getHighFilter();
+
+            //    Repeat1.DataSource = shopList;
+            //    Repeat1.DataBind();
+
+            //}
 
             Session["user_id"] = Session["tourist_id"].ToString();
             string user_id = Session["user_id"].ToString();

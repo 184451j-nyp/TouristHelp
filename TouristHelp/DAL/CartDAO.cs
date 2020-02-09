@@ -40,7 +40,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             string sqlStmt = "INSERT INTO Cart (productName, productPrice, productQuantity, user_id, productDesc, active, itemType) " +
-                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active', 'Hotel)";
+                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active', 'Hotel') ";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);

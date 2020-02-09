@@ -314,7 +314,24 @@
 
                             <div>
 
-                                <asp:Repeater ID="Repeat1" runat="server" OnItemCommand="Repeat1_ItemCommand">
+
+                                       <div class="form-group">
+                                                                         
+                                 <asp:DropDownList ID="filterSearch"  class="form-control"  placeholder="Search By Category"   runat="server" AutoPostBack="True">
+                                                            <asp:ListItem Selected="False" Value="Search By Category"></asp:ListItem>
+                                                            <asp:ListItem>Popular</asp:ListItem>
+                                                            <asp:ListItem>Newest</asp:ListItem>
+                                                            <asp:ListItem>Low Price</asp:ListItem>
+                                                            <asp:ListItem>High Price</asp:ListItem>
+  
+                                                        </asp:DropDownList>
+
+
+                                                                      
+
+                                                                        </div>
+
+                                <asp:Repeater ID="Repeat1" runat="server" EnableViewState="false" OnItemCommand="Repeat1_ItemCommand">
 
                                     <ItemTemplate>
 
@@ -402,21 +419,24 @@
                                                                 <form action="#">
 
                                                                     <div class="fields">
-                                                                        <div class="form-group">
+                                                                   <%--     <div class="form-group">
                                                                             <input type="text" class="form-control" placeholder="Search for specific item">
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <div class="select-wrap one-third">
-                                                                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                                                <select name="" id="" class="form-control">
-                                                                                    <option value="">Search By Category</option>
-                                                                                    <option value="">Popular</option>
-                                                                                    <option value="">Newest</option>
-                                                                                    <option value="">Low Price</option>
-                                                                                    <option value="">High Price</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
+                                                                        </div>--%>
+                                                                 <%--       <div class="form-group">
+                                                                         
+                                 <asp:DropDownList ID="filterSearch"  class="form-control"  placeholder="Search By Category"   runat="server" AutoPostBack="True">
+                                                            <asp:ListItem Selected="False" Value="Search By Category"></asp:ListItem>
+                                                            <asp:ListItem>Popular</asp:ListItem>
+                                                            <asp:ListItem>Newest</asp:ListItem>
+                                                            <asp:ListItem>Low Price</asp:ListItem>
+                                                            <asp:ListItem>High Price</asp:ListItem>
+  
+                                                        </asp:DropDownList>
+
+
+                                                                      
+
+                                                                        </div>--%>
 
                                                                         <style>
                                                                             .form-control {
@@ -424,9 +444,9 @@
                                                                             }
                                                                         </style>
 
-                                                                        <div class="form-group">
+                                                                      <%--  <div class="form-group">
                                                                             <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-                                                                        </div>
+                                                                        </div>--%>
                                                                     </div>
                                                                 </form>
                                                             </div>

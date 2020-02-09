@@ -76,9 +76,7 @@ namespace TouristHelp
                 int productQuantity = Convert.ToInt32(prodQuantity.Text);
 
 
-                HotelTrans updateHotelBook = new HotelTrans();
-                updateHotelBook.hotelPay(productId, user_id);
-                
+               
 
                 Cart newItem = new Cart();
                 newItem.GetCartId(productName, user_id);
@@ -121,6 +119,8 @@ namespace TouristHelp
                     
                 }
                 //your stuff here Michael
+                HotelTrans updateHotelBook = new HotelTrans();
+                updateHotelBook.hotelPay(productId, user_id);
 
             }
 

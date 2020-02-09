@@ -86,5 +86,34 @@ namespace TouristHelp.BLL
             getUpdateVoucher.updateVoucherStatus(shopId ,voucherQty, voucherStatus, voucherPopularity);
         }
 
+
+
+
+        public List<ShopVoucher> getPopularFilter()
+        {
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.popularFilter();
+        }
+
+
+        public List<ShopVoucher> getNewFilter()
+        {
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.newFilter();
+        }
+
+        public List<ShopVoucher> getLowFilter()
+        {
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.lowFilter();
+        }
+
+        public List<ShopVoucher> getHighFilter()
+        {
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.highFilter();
+        }
+
+
     }
 }

@@ -42,9 +42,36 @@ namespace TouristHelp
         protected void dailyReward_Click(object sender, EventArgs e)
         {
 
+            Session["user_id"] = Session["tourist_id"];
+
+            string user_id = Session["user_id"].ToString();
+
+            int userId = Convert.ToInt32(user_id);
+            // Retrieve TDMaster records by account
+            Reward td = new Reward();
+            td = td.GetRewardById(user_id);
+
+            int loginCount = td.loginCount + 1;
+            int loginStreak = td.loginStreak + 1;
+            int creditBalance = td.creditBalance + 5;
+            bool loggedInLog = true;
+            DateTime loggedInDate = DateTime.Now;
+            bool newDateCheck = true;
+            int remainBonusDays = td.remainBonusDays - 1;
+
+            td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, remainBonusDays, loggedInLog, loggedInDate, newDateCheck);
+
+            if (loginStreak % 10 == 0)
+            {
+                creditBalance = td.creditBalance + td.bonusCredits + 5;
+                remainBonusDays = td.remainBonusDays + 9;
+
+
+                td.updateBonus(userId, loginStreak, creditBalance, remainBonusDays);
+            }
+
+
+
         }
-
-
-
     }
 }
