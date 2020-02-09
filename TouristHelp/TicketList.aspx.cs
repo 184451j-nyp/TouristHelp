@@ -21,6 +21,19 @@ namespace TouristHelp
 
                 Repeater1.DataSource = tixList;
                 Repeater1.DataBind();
+
+                List<Ticket> TicketList = new List<Ticket>();
+                Ticket tix = new Ticket();
+                TicketList = tix.GetAllTicket(user_id);
+
+                for(int i = 0; i < TicketList.Count; i++)
+                {
+                    DateTime currentDate = DateTime.Today;
+                    if (TicketList[i].dateExpire < currentDate)
+                    {
+                        tix.TicketExpire(TicketList[i].ticketId);
+                    }
+                }
             }
         }
 

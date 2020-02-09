@@ -64,7 +64,7 @@ namespace TouristHelp
 
             {
 
-                loadRepeater();
+                filterRepeater();
 
                 if (Session["labelSuccess"] != null)
                 {
@@ -85,6 +85,19 @@ namespace TouristHelp
 
 
             }
+
+
+            else if (Page.IsPostBack)
+
+            {
+
+                filterRepeater();
+
+
+
+
+            }
+
 
 
 
@@ -113,14 +126,68 @@ namespace TouristHelp
 
 
 
-        private void loadRepeater()
-        {
-            ShopVoucher shop = new ShopVoucher();
-            shopList = shop.GetAllShop();
 
-            Repeat1.DataSource = shopList;
-            Repeat1.DataBind();
+
+
+        private void filterRepeater()
+        {
+
+            if (filterSearch.SelectedItem.Value == "Search By Category")
+            {
+                ShopVoucher shop = new ShopVoucher();
+                shopList = shop.GetAllShop();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+            }
+            else if (filterSearch.SelectedItem.Value == "Popular")
+            {
+                ShopVoucher filter = new ShopVoucher();
+                shopList = filter.getPopularFilter();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+
+            }
+            else if (filterSearch.SelectedItem.Value == "Newest")
+            {
+                ShopVoucher filter = new ShopVoucher();
+                shopList = filter.getNewFilter();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+
+            }
+            else if (filterSearch.SelectedItem.Value == "Low Price")
+            {
+                ShopVoucher filter = new ShopVoucher();
+                shopList = filter.getLowFilter();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+
+            }
+
+            else if (filterSearch.SelectedItem.Value == "High Price")
+            {
+                ShopVoucher filter = new ShopVoucher();
+                shopList = filter.getHighFilter();
+
+                Repeat1.DataSource = shopList;
+                Repeat1.DataBind();
+            }
         }
+
+
+
+        //private void loadRepeater()
+        //{
+        //    ShopVoucher shop = new ShopVoucher();
+        //    shopList = shop.GetAllShop();
+
+        //    Repeat1.DataSource = shopList;
+        //    Repeat1.DataBind();
+        //}
 
 
         protected void NextPage(object sender, EventArgs e)
@@ -336,6 +403,46 @@ namespace TouristHelp
             int genId;
 
 
+            //DropDownList filterSearch = (DropDownList)item1.FindControl("filterSearch");
+
+            //if (filterSearch.SelectedItem.Value == "Popular")
+            //{
+            //    ShopVoucher filter = new ShopVoucher();
+            //    shopList = filter.getPopularFilter();
+
+            //    Repeat1.DataSource = shopList;
+            //    Repeat1.DataBind();
+
+            //}
+            //else if (filterSearch.SelectedItem.Value == "Newest")
+            //{
+            //    ShopVoucher filter = new ShopVoucher();
+            //    shopList = filter.getNewFilter();
+
+            //    Repeat1.DataSource = shopList;
+            //    Repeat1.DataBind();
+
+            //}
+            //else if (filterSearch.SelectedItem.Value == "Low Price")
+            //{
+            //    ShopVoucher filter = new ShopVoucher();
+            //    shopList = filter.getLowFilter();
+
+            //    Repeat1.DataSource = shopList;
+            //    Repeat1.DataBind();
+
+            //}
+
+            //else if (filterSearch.SelectedItem.Value == "High Price")
+            //{
+            //    ShopVoucher filter = new ShopVoucher();
+            //    shopList = filter.getHighFilter();
+
+            //    Repeat1.DataSource = shopList;
+            //    Repeat1.DataBind();
+
+            //}
+
             Session["user_id"] = Session["tourist_id"].ToString();
             string user_id = Session["user_id"].ToString();
             int user_idInt = Convert.ToInt32(user_id);
@@ -350,6 +457,17 @@ namespace TouristHelp
             HiddenField getId = (HiddenField)item1.FindControl("voucher_id");
             Session["voucher_id"] = getId.Value;
             voucher_id = Convert.ToInt32(getId.Value);
+
+
+            HiddenField getMembershipCategory = (HiddenField)item1.FindControl("membershipCategory");
+            Session["getMembershipCategory"] = getMembershipCategory.Value;
+            string MembershipCategory = getMembershipCategory.Value;
+
+
+            HiddenField getFoodCategory = (HiddenField)item1.FindControl("foodCategory");
+            Session["getFoodCategory"] = getFoodCategory.Value;
+            string foodCategory = getFoodCategory.Value;
+
 
             DropDownList getDropDown = (DropDownList)item1.FindControl("voucherQuantity");
             Session["voucherQuantity"] = getDropDown.SelectedValue;
@@ -443,7 +561,35 @@ namespace TouristHelp
 
                 string name = voucherName;
 
-                Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name);
+                string voucherCategory;
+
+                    
+                ShopVoucher ts = new ShopVoucher();
+
+                if (MembershipCategory == "True")
+                {
+                    voucherCategory = "Membership";
+                    int totalDiscount = 5;
+                    string membershipTier = "Silver";
+                    Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name, voucherCategory);
+                    trans.insertTrans();
+                    td.membershipSubscription(userId, totalDiscount, membershipTier);
+
+
+                }
+                else if (foodCategory == "True")
+                {
+                    voucherCategory = "Food";
+                    Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name, voucherCategory);
+                    trans.insertTrans();
+                }
+
+                else
+                {
+                    voucherCategory = "Others";
+                    Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name, voucherCategory);
+                    trans.insertTrans();
+                }
 
                 int newVoucherQty = voucherStock - quantity;
 
@@ -467,7 +613,6 @@ namespace TouristHelp
                     updateShopVoucher.updateVoucherStatus(voucher_id, newVoucherQty, voucherStatus, newVoucherPopularity);
                 }
 
-                trans.insertTrans();
 
                 string labelS = "Purchase successful";
                 Session["labelSuccess"] = labelS;

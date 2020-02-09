@@ -17,6 +17,7 @@ namespace TouristHelp.BLL
         public int voucherTotalCost { get; set; }
         public int voucherQuantity { get; set; }
         public string voucherName { get; set; }
+        public string voucherCategory { get; set; }
 
 
         public Transactions()
@@ -25,7 +26,7 @@ namespace TouristHelp.BLL
 
 
 
-        public Transactions(int vouchergenid, string voucherstats, DateTime voucherexpiry, int confirmcode, int id, DateTime voucherdate, int vouchertotalcost, int voucherquantity, string vouchername)
+        public Transactions(int vouchergenid, string voucherstats, DateTime voucherexpiry, int confirmcode, int id, DateTime voucherdate, int vouchertotalcost, int voucherquantity, string vouchername, string vouchercategory)
         {
             this.voucherGen_id = vouchergenid;
             this.voucherStats = voucherstats;
@@ -36,6 +37,7 @@ namespace TouristHelp.BLL
             this.voucherTotalCost = vouchertotalcost;
             this.voucherQuantity = voucherquantity;
             this.voucherName = vouchername;
+            this.voucherCategory = vouchercategory;
         }
 
         public Transactions GetTransactionByid(string transId)

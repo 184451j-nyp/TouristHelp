@@ -131,6 +131,17 @@ namespace TouristHelp.BLL
             dao.updateBonus(userId,  loginStreak,  creditBalance, remainBonusDays);
         }
 
+        public void updateLoyaltyBonus(int userId, string loyaltyTier, int bonusCredits)
+        {
+            RewardDAO dao = new RewardDAO();
+            dao.loyaltyBonus(userId, loyaltyTier, bonusCredits);
+        }
 
+
+        public void membershipSubscription(int userId, int totalDiscount, string membershipTier)
+        {
+            RewardDAO dao = new RewardDAO();
+            dao.membershipSubscription(userId, totalDiscount, membershipTier);
+        }
     }
 }

@@ -99,8 +99,8 @@ namespace TouristHelp
 
                     if (loginStreak % 10 == 0)
                     {
-                        creditBalance = td.creditBalance + td.bonusCredits;
-                        remainBonusDays = td.remainBonusDays + 10;
+                        creditBalance = td.creditBalance + td.bonusCredits + 5;
+                        remainBonusDays = td.remainBonusDays + 9;
 
 
                         td.updateBonus(userId, loginStreak, creditBalance, remainBonusDays);
@@ -125,9 +125,23 @@ namespace TouristHelp
 
             }
 
+            if (td.loginCount == 100)
+            {
+                string loyaltyTier = "Gold";
+                int bonuscredits = 15;
+
+                td.updateLoyaltyBonus(userId, loyaltyTier, bonuscredits);
+            }
 
 
 
+            if (td.loginCount == 200)
+            {
+                string loyaltyTier = "Diamond";
+                int bonuscredits = 20;
+
+                td.updateLoyaltyBonus(userId, loyaltyTier, bonuscredits);
+            }
 
 
 

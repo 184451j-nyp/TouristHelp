@@ -216,5 +216,73 @@ namespace TouristHelp.DAL
         }
 
 
+
+
+
+
+
+
+
+        public void loyaltyBonus(int userId, string loyaltyTier, int bonusCredits)
+        {
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Instantiate SqlCommand instance to add record 
+            //          with INSERT statement
+            string sqlStmt = "UPDATE Reward SET loyaltyTier = @paraloyaltytier, bonusCredits = @parabonuscredits " +
+                                "WHERE user_id = @parauserid ";
+
+            sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@parauserid", userId);
+
+            sqlCmd.Parameters.AddWithValue("@paraloyaltytier", loyaltyTier);
+            sqlCmd.Parameters.AddWithValue("@parabonuscredits", bonusCredits);
+        
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+        }
+
+
+
+        public void membershipSubscription(int userId, int totalDiscount, string membershipTier)
+        {
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Instantiate SqlCommand instance to add record 
+            //          with INSERT statement
+            string sqlStmt = "UPDATE Reward SET totalDiscount = @paratotaldiscount, membershipTier = @paramembershiptier " +
+                                "WHERE user_id = @parauserid ";
+
+            sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@parauserid", userId);
+
+            sqlCmd.Parameters.AddWithValue("@paratotaldiscount", totalDiscount);
+            sqlCmd.Parameters.AddWithValue("@paramembershiptier", membershipTier);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+        }
+
+
     }
 }

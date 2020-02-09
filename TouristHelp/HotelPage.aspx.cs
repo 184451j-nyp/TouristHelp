@@ -276,7 +276,7 @@ namespace TouristHelp
             totalCost = Convert.ToDecimal(price * quantity * stayDuration);
 
 
-            Boolean hotelPaid = false;
+            String hotelPaid = "Not paid";
             //Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id);
             //tkt.AddNewTicket();
 
@@ -288,16 +288,17 @@ namespace TouristHelp
             double cartPrice = Convert.ToDouble(price) * Convert.ToDouble(stayDuration);
 
 
+            DateTime reservedate = DateTime.Now;
      
 
             Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id);
-            cart.InsertCartTicket();
-
-            var cartId = cart.GetCartId(attName, user_id);
+            cart.InsertHotel();
 
 
+            Cart newCart = new Cart();
+            newCart.GetCartId(attName, user_id);
 
-            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid,cartId);
+            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid,newCart.productId, reservedate);
             hotel.AddNewHotel();
 
 

@@ -39,11 +39,12 @@ namespace TouristHelp.DAL
                 int voucherTotalCost = Convert.ToInt32(row["voucherTotalCost"]);
                 int voucherQuantity = Convert.ToInt32(row["voucherQuantity"]);
                 string voucherName = row["voucherName"].ToString();
+                string voucherCategory = row["voucherCategory"].ToString();
 
 
 
 
-                td = new Transactions(voucherGen_id, voucherStats, voucherExpiry,confirmCode,user_id, voucherDate, voucherTotalCost, voucherQuantity, voucherName);
+                td = new Transactions(voucherGen_id, voucherStats, voucherExpiry,confirmCode,user_id, voucherDate, voucherTotalCost, voucherQuantity, voucherName, voucherCategory);
             }
             return td;
         }
@@ -57,8 +58,8 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO [Transaction] (voucherGen_id, voucherStats, voucherExpiry, confirmCode, user_id, voucherDate, voucherTotalCost, voucherQuantity, voucherName) " +
-                             "VALUES (@paraVoucherGenId, @paraVoucherStats, @paraVoucherExpiry, @paraConfirmCode, @paraUserId, @paraVoucherDate, @paraVoucherTotalCost, @paraVoucherQuantity, @paraVoucherName)";
+            string sqlStmt = "INSERT INTO [Transaction] (voucherGen_id, voucherStats, voucherExpiry, confirmCode, user_id, voucherDate, voucherTotalCost, voucherQuantity, voucherName, voucherCategory) " +
+                             "VALUES (@paraVoucherGenId, @paraVoucherStats, @paraVoucherExpiry, @paraConfirmCode, @paraUserId, @paraVoucherDate, @paraVoucherTotalCost, @paraVoucherQuantity, @paraVoucherName, @paravouchercategory)";
                             
 
 
@@ -74,6 +75,7 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraVoucherTotalCost", transId.voucherTotalCost);
             sqlCmd.Parameters.AddWithValue("@paraVoucherQuantity", transId.voucherQuantity);
             sqlCmd.Parameters.AddWithValue("@paraVoucherName", transId.voucherName);
+            sqlCmd.Parameters.AddWithValue("@paravouchercategory", transId.voucherCategory);
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();
@@ -118,8 +120,9 @@ namespace TouristHelp.DAL
                     int voucherTotalCost = Convert.ToInt32(row["voucherTotalCost"]);
                     int voucherQuantity = Convert.ToInt32(row["voucherQuantity"]);
                     string voucherName = row["voucherName"].ToString();
+                    string voucherCategory = row["voucherCategory"].ToString();
 
-                    Transactions objRate = new Transactions(voucherGen_id, voucherStats, voucherExpiry, confirmCode, userId, voucherDate, voucherTotalCost, voucherQuantity, voucherName);
+                    Transactions objRate = new Transactions(voucherGen_id, voucherStats, voucherExpiry, confirmCode, userId, voucherDate, voucherTotalCost, voucherQuantity, voucherName, voucherCategory);
                     intList.Add(objRate);
                 }
             }
