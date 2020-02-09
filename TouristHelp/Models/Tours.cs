@@ -34,30 +34,60 @@ namespace TouristHelp.Models
     {
         public int TouristId { get; set; }
         public string Name { get; set; }
-        public int Id { get; set; }
+        public int TourId { get; set; }
         public string TourTitle { get; set; }
         public string Timing { get; set; }
         public string Status { get; set; }
+        public int TourGuideId { get; set; }
 
-        public TouristBooking(int touristid, string name, int id, string title, string timing, string status)
+        public TouristBooking(int touristid, string name, int tourid, string title, string timing, string status, int tourguideid)
         {
             TouristId = touristid;
             Name = name;
-            Id = id;
+            TourId = tourid;
             TourTitle = title;
             Timing = timing;
             Status = status;
+            TourGuideId = tourguideid;
         }
 
-        public static List<TouristBooking> GetAllToursOfTourist(int userId)
+
+
+
+
+
+
+        public TouristBooking(int touristid, string name, string title, string timing, string status, int tourguideid)
         {
-            return TouristBookingDAO.SelectTourByTouristId(userId);
+            TouristId = touristid;
+            Name = name;
+            TourTitle = title;
+            Timing = timing;
+            Status = status;
+            TourGuideId = tourguideid;
         }
 
-        public static List<TouristBooking> GetAllTourBookingsOfTourGuide(int userId)
+
+
+        public TouristBooking(int id, string status)
         {
-            return TouristBookingDAO.SelectTourByTourGuideId(userId);
+            TourId = id;
+            Status = status;
         }
 
+        public static List<TouristBooking> GetAllToursOfTourist(int id)
+        {
+            return TouristBookingDAO.SelectTourByTouristId(id);
+        }
+
+        public static List<TouristBooking> GetAllTourBookingsOfTourGuide(int id)
+        {
+            return TouristBookingDAO.SelectTourByTourGuideId(id);
+        }
+
+        public static void UpdateTourGuideBooking(TouristBooking tg)
+        {
+            TouristBookingDAO.UpdateTourBooking(tg);
+        }
     }
 }

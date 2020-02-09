@@ -26,7 +26,7 @@ namespace TouristHelp
                 if (pass1 == pass2 && name != "" && email != "" && pass1 != "")
                 {
                     string hash = SHA256Hash.GenerateSHA256(pass1);
-                    TourGuide obj = new TourGuide(name, email, hash, desc, lang, "");
+                    TourGuide obj = new TourGuide(name, email, hash, desc, lang, "", "");
                     TourGuideDAO.InsertTourGuide(obj);
 
                     Response.Redirect("Login.aspx");

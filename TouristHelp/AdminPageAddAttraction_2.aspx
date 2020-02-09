@@ -7,10 +7,17 @@
         <table class="table">
             <tr>
                 <td class="auto-style1">
+                     <p>
+                        Attraction Image:
+                        <asp:FileUpload ID="FileUpload1" runat="server" />
+                        <asp:Button ID="btnUplaod" Text="Upload" runat="server" OnClick="UploadFile" CausesValidation="False" />&nbsp;&nbsp;
+                        <asp:Label ID="LbImage" runat="server" Visible="false" Text=''></asp:Label>
+                        <asp:Image ID="Image1" Height="100" Width="100" runat="server" />
+                    </p>
                     <p>
                         Attraction Name: 
-                            <asp:TextBox ID="TbName" runat="server" CausesValidation="True"></asp:TextBox>
-                    &nbsp;<asp:RequiredFieldValidator ID="RfvName" runat="server" ControlToValidate="TbPrice" ForeColor="Red">*Please Enter a Name</asp:RequiredFieldValidator>
+                            <asp:TextBox ID="TbName" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvName" runat="server" ControlToValidate="TbName" ForeColor="Red">*Please Enter a Name</asp:RequiredFieldValidator>
                     </p>
                     <p>
                         Attraction Description:
@@ -20,7 +27,7 @@
                     <p>
                         Attraction Price:
                             <asp:TextBox ID="TbPrice" runat="server"></asp:TextBox>
-                    &nbsp;<asp:RequiredFieldValidator ID="RfvPrice" runat="server" ControlToValidate="TbName" ForeColor="Red">*Please Enter a Price</asp:RequiredFieldValidator>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvPrice" runat="server" ControlToValidate="TbPrice" ForeColor="Red">*Please Enter a Price</asp:RequiredFieldValidator>
                     </p>
                     <p>
                         Attraction Location:
@@ -35,10 +42,12 @@
                     <p>
                        Attraction Latitude:
                             <asp:TextBox ID="TbLat" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvLat" runat="server" ControlToValidate="TbLat" ForeColor="Red">*Please Fill in this Field</asp:RequiredFieldValidator>
                     </p>
                     <p>
                        Attraction Longitude:
                             <asp:TextBox ID="TbLong" runat="server"></asp:TextBox>
+                    &nbsp;<asp:RequiredFieldValidator ID="RfvLong" runat="server" ControlToValidate="TbLong" ForeColor="Red">*Please Fill in this Field</asp:RequiredFieldValidator>
                     </p>
                     <p>
                        Attraction Interest:

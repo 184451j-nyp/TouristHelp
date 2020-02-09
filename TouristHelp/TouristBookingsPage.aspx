@@ -21,6 +21,9 @@
                             <span class="icon-link"></span>
                         </div>
                     </a>
+                    <div class="one">
+                        <span class="tgid" id="tourguideid">Tour Guide Id: <%#Eval("TourGuideId") %></span>
+                    </div>
                     <div class="two">
                         <span class="tgname" id="tourguidename">Tour Guide Name: <%#Eval("Name") %></span>
                     </div>
@@ -35,8 +38,14 @@
                     <div class="five">
                         <span class="tourstatus" id="TourStatus">Tour Status: <%#Eval("Status") %></span>
                     </div>
+                    <div class="six">
+                        <span class="touristid" id="TouristId">Tourist Id: <%#Eval("TouristId") %></span>
+                    </div>
+                    <div class="seven">
+                        <span class="id" id="Id">Tour Id: <%#Eval("TourId") %></span>
+
+                    </div>
                     <hr>
-                    <%--<asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="More info" Style="float: right" />--%>
                 </div>
                 </div>
             </ItemTemplate>

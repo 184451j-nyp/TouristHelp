@@ -34,7 +34,8 @@
                 <div class="col-sm col-md-6 col-lg-12 ftco-animate fadeInUp ftco-animated">
                     <div class="destination">
                         <a>
-                            <img border="0" width="160" height="150" alt="Private tour guide Walter" class="lazy" src="https://www.toursbylocals.com/images/guides/7/7385/2013094184902530.jpg" style="display: block;">
+                            <asp:Image ID="tourguideImage" Style="height: 300px; width: 350px;"
+                                ImageUrl='<%#Eval("tourguideimage") %>' runat="server" />
                         </a>
                         &nbsp;&nbsp;&nbsp;<div class="text p-3">
                             <div class="d-flex">

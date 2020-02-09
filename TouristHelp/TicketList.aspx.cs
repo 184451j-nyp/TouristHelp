@@ -26,7 +26,14 @@ namespace TouristHelp
 
         protected void Repeater1_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
+            RepeaterItem selTix = e.Item;
 
+            Label ticketId = (Label)selTix.FindControl("lbTixId");
+            Ticket tix = new Ticket();
+            tix = tix.getTicketById(Convert.ToInt32(ticketId.Text));
+            string code = tix.ticketCode;
+            string url = "TicketDetail.aspx?Code="+code;
+            Response.Redirect(url);
         }
     }
 }

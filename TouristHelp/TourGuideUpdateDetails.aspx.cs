@@ -33,7 +33,9 @@ namespace TouristHelp
 
         protected void BtnSubmit_Click(object sender, EventArgs e)
         {
-            TourGuide tg = new TourGuide(int.Parse(tourguideidLabel.Text), int.Parse(tourguideuseridLabel.Text), tourguidenameTextBox.Text, tourguideemailLabel.Text, tourguidepasswordLabel.Text, tourguidedescriptionTextBox.Text, tourguidelanguagesTextBox.Text, tourguidecredentialsTextBox.Text);
+            string tourguideImage = "Images/" + FileUpload1.FileName;
+
+            TourGuide tg = new TourGuide(int.Parse(tourguideidLabel.Text), int.Parse(tourguideuseridLabel.Text), tourguidenameTextBox.Text, tourguideemailLabel.Text, tourguidepasswordLabel.Text, tourguidedescriptionTextBox.Text, tourguidelanguagesTextBox.Text, tourguidecredentialsTextBox.Text, tourguideImage);
             TourGuide.UpdateTourGuide(tg);
 
 
@@ -41,20 +43,16 @@ namespace TouristHelp
 
         protected void UploadFile(object sender, EventArgs e)
         {
-            string folderPath = Server.MapPath("~/Files/");
 
-            //Check whether Directory (Folder) exists.
-            if (!Directory.Exists(folderPath))
-            {
-                //If Directory (Folder) does not exists Create it.
-                Directory.CreateDirectory(folderPath);
-            }
 
-            //Save the File to the Directory (Folder).
-            FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName));
+            string folderPath = Server.MapPath("~/Images/");
 
-            //Display the Picture in Image control.
-            Image1.ImageUrl = "~/Files/" + Path.GetFileName(FileUpload1.FileName);
+
+            FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName).ToString());
+
+
+            Image1.ImageUrl = "~/Images/" + Path.GetFileName(FileUpload1.FileName).ToString();
+
         }
 
     }
