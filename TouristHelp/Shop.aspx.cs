@@ -458,6 +458,17 @@ namespace TouristHelp
             Session["voucher_id"] = getId.Value;
             voucher_id = Convert.ToInt32(getId.Value);
 
+
+            HiddenField getMembershipCategory = (HiddenField)item1.FindControl("membershipCategory");
+            Session["getMembershipCategory"] = getMembershipCategory.Value;
+            string MembershipCategory = getMembershipCategory.Value;
+
+
+            HiddenField getFoodCategory = (HiddenField)item1.FindControl("foodCategory");
+            Session["getFoodCategory"] = getFoodCategory.Value;
+            string foodCategory = getFoodCategory.Value;
+
+
             DropDownList getDropDown = (DropDownList)item1.FindControl("voucherQuantity");
             Session["voucherQuantity"] = getDropDown.SelectedValue;
             quantity = Convert.ToInt32(getDropDown.SelectedValue);
@@ -550,7 +561,35 @@ namespace TouristHelp
 
                 string name = voucherName;
 
-                Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name);
+                string voucherCategory;
+
+                    
+                ShopVoucher ts = new ShopVoucher();
+
+                if (MembershipCategory == "True")
+                {
+                    voucherCategory = "Membership";
+                    int totalDiscount = 5;
+                    string membershipTier = "Silver";
+                    Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name, voucherCategory);
+                    trans.insertTrans();
+                    td.membershipSubscription(userId, totalDiscount, membershipTier);
+
+
+                }
+                else if (foodCategory == "True")
+                {
+                    voucherCategory = "Food";
+                    Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name, voucherCategory);
+                    trans.insertTrans();
+                }
+
+                else
+                {
+                    voucherCategory = "Others";
+                    Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name, voucherCategory);
+                    trans.insertTrans();
+                }
 
                 int newVoucherQty = voucherStock - quantity;
 
@@ -574,7 +613,6 @@ namespace TouristHelp
                     updateShopVoucher.updateVoucherStatus(voucher_id, newVoucherQty, voucherStatus, newVoucherPopularity);
                 }
 
-                trans.insertTrans();
 
                 string labelS = "Purchase successful";
                 Session["labelSuccess"] = labelS;

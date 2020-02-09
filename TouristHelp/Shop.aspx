@@ -369,6 +369,8 @@
 
 
                                                           <asp:HiddenField runat="server" ID="voucherPopularity" Value='<%#Eval("voucherPopularity") %>' />
+                                                              <asp:HiddenField runat="server" ID="membershipCategory" Value='<%#Eval("membershipCategory") %>' />
+                                                             <asp:HiddenField runat="server" ID="foodCategory" Value='<%#Eval("foodCategory") %>' />
 
 
                                                         <asp:DropDownList ID="voucherQuantity" runat="server" AutoPostBack="False">

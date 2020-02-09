@@ -70,6 +70,23 @@ namespace TouristHelp
                 td.updateBonus(userId, loginStreak, creditBalance, remainBonusDays);
             }
 
+            if (td.loginCount == 100)
+            {
+                string loyaltyTier = "Gold";
+                int bonuscredits = 15;
+
+                td.updateLoyaltyBonus(userId, loyaltyTier, bonuscredits);
+            }
+
+
+
+            if (td.loginCount == 200)
+            {
+                string loyaltyTier = "Diamond";
+                int bonuscredits = 20;
+
+                td.updateLoyaltyBonus(userId, loyaltyTier, bonuscredits);
+            }
 
 
         }
