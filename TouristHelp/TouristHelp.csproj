@@ -284,6 +284,7 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="libman.json" />
     <Content Include="DLL\QRCoder.dll.refresh" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200209024920 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

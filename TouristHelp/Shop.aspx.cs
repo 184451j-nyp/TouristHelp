@@ -347,7 +347,7 @@ namespace TouristHelp
 
             int creditBalance = Convert.ToInt32(td.creditBalance);
 
-            HiddenField getId = (HiddenField)item1.FindControl("shop_Id");
+            HiddenField getId = (HiddenField)item1.FindControl("voucher_id");
             Session["voucher_id"] = getId.Value;
             voucher_id = Convert.ToInt32(getId.Value);
 
@@ -365,17 +365,44 @@ namespace TouristHelp
 
 
 
-            HiddenField getVoucherStock = (HiddenField)item1.FindControl("voucherQty");
-            Session["voucherName"] = getVoucherStock.Value;
-            voucherStock = Convert.ToInt32(getVoucherStock.Value);
+            Label getVoucherStock = (Label)item1.FindControl("voucherQty");
+            Session["voucherName"] = getVoucherStock.Text;
+            voucherStock = Convert.ToInt32(getVoucherStock.Text);
+
+            HiddenField getVoucherPopularity = (HiddenField)item1.FindControl("voucherPopularity");
+            Session["voucherPopularity"] = getVoucherPopularity.Value;
+            int voucherPopularity = Convert.ToInt32(getVoucherPopularity.Value);
 
             Label getVoucherStatus = (Label)item1.FindControl("voucherStatus");
             Session["voucherStatus"] = getVoucherStatus.Text;
             voucherStatus = getVoucherStatus.Text;
 
 
-            if (validatePurchase() == true && voucherStatus == "Available" || voucherStatus == "Active")
+            if (td.creditBalance < (voucherCost * quantity) || voucherStatus != "Available" || voucherStock < quantity )
             {
+
+
+
+
+                string labelF = "Purchase Failed";
+                Session["labelFail"] = labelF;
+
+                Response.Redirect("Shop.aspx");
+
+
+
+
+
+
+            }
+
+            else
+            {
+
+
+
+                Label1.Visible = false;
+
 
 
 
@@ -397,10 +424,10 @@ namespace TouristHelp
 
 
 
-              
+
                 genId = new Random().Next(100000, 999999);
 
-                
+
 
 
 
@@ -418,30 +445,38 @@ namespace TouristHelp
 
                 Transactions trans = new Transactions(genId, stats, expiry, confirmcode, userId, date, totalcost, quantity, name);
 
+                int newVoucherQty = voucherStock - quantity;
+
+                int newVoucherPopularity = voucherPopularity + 1;
+
+
+                ShopVoucher updateShopVoucher = new ShopVoucher();
+
+                if ( newVoucherQty <= 0)
+                {
+                    voucherStatus = "Not Available";
+
+                    updateShopVoucher.updateVoucherStatus(voucher_id, newVoucherQty, voucherStatus, newVoucherPopularity);
+
+                }
+
+                else if (newVoucherQty > 0)
+                {
+                    voucherStatus = "Available";
+
+                    updateShopVoucher.updateVoucherStatus(voucher_id, newVoucherQty, voucherStatus, newVoucherPopularity);
+                }
 
                 trans.insertTrans();
 
                 string labelS = "Purchase successful";
                 Session["labelSuccess"] = labelS;
-               
+
                 Response.Redirect("Shop.aspx");
                 return;
 
 
 
-
-
-
-
-
-            }
-
-            else
-            {
-                string labelF = "Purchase Failed";
-                Session["labelFail"] = labelF;
-
-                Response.Redirect("Shop.aspx");
             }
 
 

@@ -119,8 +119,10 @@ CREATE TABLE [dbo].[Transaction] (
 
 
 
+
+
 CREATE TABLE [dbo].[ShopVoucher] (
-    [voucher_id]         INT          IDENTITY (1, 1)  NOT NULL,
+    [voucher_id]         INT           IDENTITY (1, 1) NOT NULL,
     [voucherQty]         INT           NOT NULL,
     [voucherType]        VARCHAR (50)  NOT NULL,
     [voucherStatus]      VARCHAR (50)  NOT NULL,
@@ -131,6 +133,7 @@ CREATE TABLE [dbo].[ShopVoucher] (
     [shopImage]          NVARCHAR (50) NULL,
     [shopDesc]           NVARCHAR (50) NULL,
     [voucherName]        NVARCHAR (50) NOT NULL,
+    [voucherPopularity] INT NULL, 
     PRIMARY KEY CLUSTERED ([voucher_id] ASC)
 );
 
@@ -152,7 +155,6 @@ CREATE TABLE [dbo].[HotelBook] (
 );
 
 
-
 CREATE TABLE [dbo].[ReservationHotel] (
     [hotelGen_Id]  INT             NOT NULL,
     [totalCost]    DECIMAL (18, 2) NOT NULL,
@@ -162,9 +164,9 @@ CREATE TABLE [dbo].[ReservationHotel] (
     [hotelName]    NVARCHAR (50)   NOT NULL,
     [verifyHotel]  INT             NOT NULL,
     [hotelPaid]    BIT             NOT NULL,
+    [cartId]       INT             NOT NULL,
     PRIMARY KEY CLUSTERED ([hotelGen_Id] ASC)
 );
-
 
 CREATE TABLE [dbo].[TouristBooking] (
     [tourist_id] INT          NOT NULL,

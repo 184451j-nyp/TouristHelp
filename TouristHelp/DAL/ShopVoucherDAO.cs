@@ -40,9 +40,11 @@ namespace TouristHelp.DAL
                 string shopImage = row["shopImage"].ToString();
                 string shopDesc = row["shopDesc"].ToString();
                 string voucherName = row["voucherName"].ToString();
+                int voucherPopularity = Convert.ToInt32(row["voucherPopularity"]);
 
 
-                td = new ShopVoucher(voucher_id, voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherCost, shopImage, shopDesc, voucherName);
+
+                td = new ShopVoucher(voucher_id, voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherCost, shopImage, shopDesc, voucherName, voucherPopularity);
             }
             return td;
         }
@@ -83,7 +85,9 @@ namespace TouristHelp.DAL
                 string shopImage = row["shopImage"].ToString();
                 string shopDesc = row["shopDesc"].ToString();
                 string voucherName = row["voucherName"].ToString();
-                ShopVoucher obj = new ShopVoucher(voucher_id, voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherCost, shopImage, shopDesc, voucherName);
+                int voucherPopularity = Convert.ToInt32(row["voucherPopularity"]);
+
+                ShopVoucher obj = new ShopVoucher(voucher_id, voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherCost, shopImage, shopDesc, voucherName, voucherPopularity);
                 empList.Add(obj);
             }
 
@@ -96,8 +100,8 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO ShopVoucher (voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherCost, shopImage, shopDesc, voucherName)" +
-                             "VALUES (@paravoucherqty, @paravouchertype, @paravoucherstatus, @membershipcategory, @foodcategory, @namefilter, @vouchercost, @shopimage, @shopdesc, @vouchername)";
+            string sqlStmt = "INSERT INTO ShopVoucher (voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherCost, shopImage, shopDesc, voucherName, voucherPopularity)" +
+                             "VALUES (@paravoucherqty, @paravouchertype, @paravoucherstatus, @membershipcategory, @foodcategory, @namefilter, @paravouchercost, @shopimage, @shopdesc, @vouchername, @voucherpopularity)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -108,10 +112,12 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@membershipcategory", shop.membershipCategory);
             sqlCmd.Parameters.AddWithValue("@foodcategory", shop.foodCategory);
             sqlCmd.Parameters.AddWithValue("@namefilter", shop.nameFilter);
-            sqlCmd.Parameters.AddWithValue("@vouchercost", shop.voucherCost);
+            sqlCmd.Parameters.AddWithValue("@paravouchercost", shop.voucherCost);
             sqlCmd.Parameters.AddWithValue("@shopimage", shop.shopImage);
             sqlCmd.Parameters.AddWithValue("@shopdesc", shop.shopDesc);
             sqlCmd.Parameters.AddWithValue("@vouchername", shop.voucherName);
+            sqlCmd.Parameters.AddWithValue("@voucherpopularity", shop.voucherPopularity);
+
 
 
             myConn.Open();
@@ -121,6 +127,44 @@ namespace TouristHelp.DAL
 
 
 
+        public void updateVoucherStatus(int voucherId , int voucherQty, string voucherStatus,  int voucherPopularity)
+        {
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE ShopVoucher SET voucherQty = @paravoucherqty, voucherStatus = @voucherstatus, voucherPopularity = @paravoucherpopularity " +
+                             "WHERE voucher_id = @paravoucherid ";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+         
+         
+            sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@paravoucherid", voucherId);
+
+
+            sqlCmd.Parameters.AddWithValue("@paravoucherqty", voucherQty);
+
+            sqlCmd.Parameters.AddWithValue("@voucherstatus", voucherStatus);
+
+            sqlCmd.Parameters.AddWithValue("@paravoucherpopularity", voucherPopularity);
+
+
+
+
+            // Step 4 Open connection the execute NonQuery of sql command   
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+        }
 
     }
 }

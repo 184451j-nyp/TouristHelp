@@ -24,12 +24,14 @@ namespace TouristHelp.BLL
 
         public bool hotelPaid { get; set; }
 
+        public int cartId { get; set; }
+
         public HotelTrans()
         {
 
         }
 
-        public HotelTrans(int hotelgen_id, decimal totalcost, int roomqty, DateTime stayduration, int userid, string hotelname, int verifyhotel, bool hotelpaid)
+        public HotelTrans(int hotelgen_id, decimal totalcost, int roomqty, DateTime stayduration, int userid, string hotelname, int verifyhotel, bool hotelpaid, int cartid)
         {
             this.hotelGen_Id = hotelgen_id;
             this.totalCost = totalcost;
@@ -39,6 +41,7 @@ namespace TouristHelp.BLL
             this.hotelName = hotelname;
             this.verifyHotel = verifyhotel;
             this.hotelPaid = hotelpaid;
+            this.cartId = cartid;
         }
 
         public void AddNewHotel()
@@ -55,6 +58,15 @@ namespace TouristHelp.BLL
         {
             HotelTransDAO dao = new HotelTransDAO();
             return dao.showHotelPaid(user_id);
+        }
+
+
+
+
+        public void hotelPay(int cartId, int userId)
+        {
+            HotelTransDAO dao = new HotelTransDAO();
+            dao.updateHotelBook(cartId, userId);
         }
     }
 }

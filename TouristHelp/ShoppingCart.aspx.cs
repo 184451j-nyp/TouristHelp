@@ -60,6 +60,10 @@ namespace TouristHelp
                 Ticket updateItem = new Ticket();
                 updateItem.TicketPay(productId, user_id);
 
+                HotelTrans updateHotelBook = new HotelTrans();
+                updateHotelBook.hotelPay(productId, user_id);
+                
+
                 Cart newItem = new Cart();
                 int cart_id = newItem.GetCartId(productName, user_id);
                 if(cart_id != 0)
