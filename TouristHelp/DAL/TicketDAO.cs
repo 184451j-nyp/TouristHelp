@@ -117,7 +117,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             string sqlstmt = "SELECT * From Ticket where user_id = @paraUserId " +
-                            "and cartId = @paraCartId";
+                            "and cartId = @paraCartId and paid = 'paid'";
             SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
 
             da.SelectCommand.Parameters.AddWithValue("@paraCartId", cartId);
@@ -156,8 +156,62 @@ namespace TouristHelp.DAL
 
             sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
 
-            sqlCmd.Parameters.AddWithValue("@parauserId", userId);
+            sqlCmd.Parameters.AddWithValue("@paraUserId", userId);
             sqlCmd.Parameters.AddWithValue("@paraCartId", cartId);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+
+        }
+
+        public Ticket GetTicketById(int ticket_id)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "SELECT * From Ticket where ticketId = @paraTicketId " +
+                            "and paid = 'paid'";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraTicketId", ticket_id);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            Ticket ti = null;
+
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt == 1)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                int ticketId = Convert.ToInt32(row["ticketId"].ToString());
+                string attractionName = row["attractionName"].ToString();
+                string attractionDesc = row["attractionDesc"].ToString();
+                DateTime dateExpire = Convert.ToDateTime(row["dateExpire"].ToString());
+                string ticketCode = row["ticketCode"].ToString();
+
+                //string ticketImg = row["ticketImg"].ToString();
+                ti = new Ticket(ticketId, attractionName, attractionDesc, dateExpire, ticketCode);
+            }
+            return ti;
+        }
+
+        public void ClaimTicket(string code)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Ticket SET paid = 'claimed' where ticketCode = @paraTicketCode ";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraTicketCode", code);
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();

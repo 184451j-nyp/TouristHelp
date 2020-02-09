@@ -18,7 +18,7 @@
        <section class="ftco-section">
            <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" >
            <ItemTemplate>
-         <div class="container">
+         <div class="container" style="margin-bottom: 25px;">
              <div class="row">
                  <div class="col-lg-2">
                      <img style="width: 150px; height: 150px;" src="Images/uss.jpg" />
@@ -26,12 +26,12 @@
                  <div class="col-lg-8">
                      <div class="row">
                          <div class="col-lg-12">
-                             <%--<h2>Ticket Name</h2>--%>
+                             
                              <asp:Label ID="lbTixName" runat="server" Font-Bold="True" Text='<%#Eval("attractionName") %>'></asp:Label>
                               <asp:Label ID="lbTixId" runat="server" Visible ="false" Text='<%#Eval("ticketId") %>'></asp:Label>
                          </div>
                          <div class="col-lg-12">
-                             <%--<h4>Ticket Desc</h4>--%>
+                             
                              <asp:Label ID="lbTixDesc" runat="server" Text='<%#Eval("attractionDesc") %>'></asp:Label>
                          </div>
                          <div class="col-lg-12">
@@ -41,9 +41,7 @@
                      </div>
                  </div>
                  <div class="col-lg-2">
-                     <a href="Main.aspx">Link here :D</a>
-                     <%--send them to the QR code or ticket code here--%>
-                     <%--<asp:HyperLink--%>
+                     <asp:Button ID="btnClaim" runat="server" Text="Delete" />
                  </div>
              </div>
          </div>

@@ -39,8 +39,11 @@ namespace TouristHelp.DAL
                 string membershipTier = row["membershipTier"].ToString();
                 int creditBalance = Convert.ToInt32(row["creditBalance"]);
                 int remainBonusDays = Convert.ToInt32(row["remainBonusDays"]);
+                bool loggedinLog = Convert.ToBoolean(row["loggedInLog"]);
+                DateTime loggedInDate = Convert.ToDateTime(row["loggedInDate"]);
+                bool newDateCheck = Convert.ToBoolean(row["newDateCheck"]);
 
-                td = new Reward(user_id, loginCount, loginStreak, loyaltyTier,totalDiscount,bonusCredits, membershipTier, creditBalance, remainBonusDays);
+                td = new Reward(user_id, loginCount, loginStreak, loyaltyTier,totalDiscount,bonusCredits, membershipTier, creditBalance, remainBonusDays, loggedinLog, loggedInDate, newDateCheck);
             }
             return td;
         }
@@ -115,8 +118,8 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Reward (user_id ,loginCount, loginStreak, loyaltyTier, totalDiscount, bonusCredits, membershipTier, creditbalance, remainBonusDays) " +
-                             "VALUES (@paraUser, @paraLoginCount, @paraLoginStreak, @paraLoyaltyTier, @paraTotalDiscount, @paraBonusCredits, @paraMembershipTier, @paraCreditBalance, @paraRemainBonuaDays)";
+            string sqlStmt = "INSERT INTO Reward (user_id ,loginCount, loginStreak, loyaltyTier, totalDiscount, bonusCredits, membershipTier, creditbalance, remainBonusDays, loggedInLog, loggedInDate,  newDateCheck) " +
+                             "VALUES (@paraUser, @paraLoginCount, @paraLoginStreak, @paraLoyaltyTier, @paraTotalDiscount, @paraBonusCredits, @paraMembershipTier, @paraCreditBalance, @paraRemainBonuaDays, @paraloggedinlog, @paraloggedindate, @paranewdatecheck)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -131,16 +134,50 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraMembershipTier", newUser.membershipTier);
             sqlCmd.Parameters.AddWithValue("@paraCreditBalance", newUser.creditBalance);
             sqlCmd.Parameters.AddWithValue("@paraRemainBonuaDays", newUser.remainBonusDays);
+            sqlCmd.Parameters.AddWithValue("@paraloggedinlog", newUser.loggedInLog);
+            sqlCmd.Parameters.AddWithValue("@paraloggedindate", newUser.loggedInDate);
+            sqlCmd.Parameters.AddWithValue("@paranewdatecheck", newUser.newDateCheck);
 
             myConn.Open();
 
-
-
             sqlCmd.ExecuteNonQuery();
 
-
-
             myConn.Close();
+        }
+
+
+        public void updateLogIn(int userId, int loginCount, int loginStreak, int creditBalance, bool loggedInLog, DateTime loggedInDate, bool newDateCheck)
+        {
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Instantiate SqlCommand instance to add record 
+            //          with INSERT statement
+            string sqlStmt = "UPDATE Reward SET loginCount = @paralogincount, loginStreak = @paraloginstreak, creditBalance = @paracreditbalance, loggedInLog = @paraloggedinlog, loggedInDate = @paraloggedindate, newDateCheck = @paranewdatecheck " +
+                                "WHERE user_id = @parauserid ";
+
+            sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@parauserid", userId);
+
+            sqlCmd.Parameters.AddWithValue("@paralogincount", loginCount);
+            sqlCmd.Parameters.AddWithValue("@paraloginstreak", loginStreak);
+            sqlCmd.Parameters.AddWithValue("@paracreditbalance", creditBalance);
+            sqlCmd.Parameters.AddWithValue("@paraloggedinlog", loggedInLog);
+
+            sqlCmd.Parameters.AddWithValue("@paraloggedindate", loggedInDate);
+            sqlCmd.Parameters.AddWithValue("@paranewdatecheck", newDateCheck);
+            // Step 4 Open connection the execute NonQuery of sql command   
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
         }
 
 

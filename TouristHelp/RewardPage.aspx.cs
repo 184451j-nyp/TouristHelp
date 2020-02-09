@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using TouristHelp.BLL;
+using TouristHelp.DAL;
+
 
 
 namespace TouristHelp
@@ -34,10 +36,16 @@ namespace TouristHelp
 
             }
 
+            
+            
+
+   
+
             Session["user_id"] = Session["tourist_id"];
 
             string user_id = Session["user_id"].ToString();
 
+            int userId = Convert.ToInt32(user_id);
             // Retrieve TDMaster records by account
             Reward td = new Reward();
             td = td.GetRewardById(user_id);
@@ -50,10 +58,71 @@ namespace TouristHelp
             remainBonusDays.Text = td.remainBonusDays.ToString();
             bonusCredits.Text = td.bonusCredits.ToString();
 
-            
+            DateTime dateNow = DateTime.Now;
+
+            //DateTime NextDayDate = dateNow.AddHours(24);
+
+            if (td.loggedInLog == true && td.loggedInDate.Date !=  DateTime.Now.Date )
+            {
+
+                int loginCount = td.loginCount;
+                int loginStreak = td.loginStreak;
+                int creditBalance = td.creditBalance;
+                bool renewLogIn = false;
+                DateTime loggedInDate = td.loggedInDate;
+                bool newDateCheck = false;
+
+                td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, renewLogIn, loggedInDate, newDateCheck);
+
+            }
+
+
+            if (td.loggedInLog == false)
+            {
+
+                int timeDifference = DateTime.Compare(td.loggedInDate, dateNow);
+
+                if (dateNow.Subtract(td.loggedInDate) <= TimeSpan.FromHours(24))
+                {
+                    int loginCount = td.loginCount + 1;
+                    int loginStreak = td.loginStreak + 1;
+                    int creditBalance = td.creditBalance + 5;
+                    bool loggedInLog = true;
+                    DateTime loggedInDate = DateTime.Now;
+                    bool newDateCheck = true;
+
+                    td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, loggedInLog, loggedInDate, newDateCheck);
+
+                }
+
+                else if (dateNow.Subtract(td.loggedInDate) > TimeSpan.FromHours(24))
+                {
+                    int loginCount = td.loginCount + 1;
+                    int loginStreak = 0;
+                    int creditBalance = td.creditBalance + 5;
+                    bool loggedInLog = true;
+                    DateTime loggedInDate = DateTime.Now;
+                    bool newDateCheck = true;
+
+                    td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, loggedInLog, loggedInDate, newDateCheck);
+
+                }
+
+
+            }
+
+
+
+
+
+
+
+
+
+
 
         }
 
-       
+
     }
 }

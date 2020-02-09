@@ -32,7 +32,8 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[0];
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                float price = float.Parse(row["attractionPrice"].ToString());
+                string image = row["attractionImage"].ToString();
+                string price = row["attractionPrice"].ToString();
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
                 string loc = row["attractionLocation"].ToString();
@@ -42,7 +43,7 @@ namespace TouristHelp.DAL
                 string type = row["attractionType"].ToString();
                 string transaction = row["attractionTransaction"].ToString();
 
-                td = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                td = new Attraction(id, name, image, price, date, desc, loc, lat, lon, interest, type, transaction);
             }
             return td;
         }
@@ -72,7 +73,8 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[i];  // Sql command returns only one record
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                float price = float.Parse(row["attractionPrice"].ToString());
+                //string image = row["attractionImage"].ToString();
+                string price = row["attractionPrice"].ToString();
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
                 string loc = row["attractionLocation"].ToString();
@@ -82,7 +84,7 @@ namespace TouristHelp.DAL
                 string type = row["attractionType"].ToString();
                 string transaction = row["attractionTransaction"].ToString();
 
-                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                Attraction obj = new Attraction(id, name, null, price, date, desc, loc, lat, lon, interest, type, transaction);
                 empList.Add(obj);
             }
             return empList;
@@ -105,10 +107,11 @@ namespace TouristHelp.DAL
             int rec_cnt = ds.Tables[0].Rows.Count;
             for (int i = 0; i < rec_cnt; i++)
             {
-                DataRow row = ds.Tables[0].Rows[i]; 
+                DataRow row = ds.Tables[0].Rows[i];
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                float price = float.Parse(row["attractionPrice"].ToString());
+                string image = row["attractionImage"].ToString();
+                string price = row["attractionPrice"].ToString();
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
                 string loc = row["attractionLocation"].ToString();
@@ -118,7 +121,7 @@ namespace TouristHelp.DAL
                 string type = row["attractionType"].ToString();
                 string transaction = row["attractionTransaction"].ToString();
 
-                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                Attraction obj = new Attraction(id, name, image, price, date, desc, loc, lat, lon, interest, type, transaction);
                 empList.Add(obj);
             }
             return empList;
@@ -153,7 +156,8 @@ namespace TouristHelp.DAL
                 DataRow row = ds1.Tables[0].Rows[i];
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                float price = float.Parse(row["attractionPrice"].ToString());
+                string image = row["attractionImage"].ToString();
+                string price = row["attractionPrice"].ToString();
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
                 string loc = row["attractionLocation"].ToString();
@@ -163,7 +167,7 @@ namespace TouristHelp.DAL
                 string type = row["attractionType"].ToString();
                 string transaction = row["attractionTransaction"].ToString();
 
-                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                Attraction obj = new Attraction(id, name, image, price, date, desc, loc, lat, lon, interest, type, transaction);
                 empList.Add(obj);
             }
 
@@ -173,7 +177,8 @@ namespace TouristHelp.DAL
                 DataRow row = ds2.Tables[0].Rows[i];
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                float price = float.Parse(row["attractionPrice"].ToString());
+                string image = row["attractionImage"].ToString();
+                string price = row["attractionPrice"].ToString();
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
                 string loc = row["attractionLocation"].ToString();
@@ -183,7 +188,7 @@ namespace TouristHelp.DAL
                 string type = row["attractionType"].ToString();
                 string transaction = row["attractionTransaction"].ToString();
 
-                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                Attraction obj = new Attraction(id, name, image, price, date, desc, loc, lat, lon, interest, type, transaction);
                 empList.Add(obj);
             }
             return empList;
@@ -219,7 +224,8 @@ namespace TouristHelp.DAL
                 DataRow row = ds1.Tables[0].Rows[i];
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                float price = float.Parse(row["attractionPrice"].ToString());
+                string image = row["attractionImage"].ToString();
+                string price = row["attractionPrice"].ToString();
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
                 string loc = row["attractionLocation"].ToString();
@@ -229,7 +235,7 @@ namespace TouristHelp.DAL
                 string type = row["attractionType"].ToString();
                 string transaction = row["attractionTransaction"].ToString();
 
-                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                Attraction obj = new Attraction(id, name, image, price, date, desc, loc, lat, lon, interest, type, transaction);
                 empList.Add(obj);
             }
 
@@ -239,7 +245,8 @@ namespace TouristHelp.DAL
                 DataRow row = ds2.Tables[0].Rows[i];
                 int id = int.Parse(row["attractionId"].ToString());
                 string name = row["attractionName"].ToString();
-                float price = float.Parse(row["attractionPrice"].ToString());
+                string image = row["attractionImage"].ToString();
+                string price = row["attractionPrice"].ToString();
                 string date = row["DateTime"].ToString();
                 string desc = row["attractionDesc"].ToString();
                 string loc = row["attractionLocation"].ToString();
@@ -249,7 +256,7 @@ namespace TouristHelp.DAL
                 string type = row["attractionType"].ToString();
                 string transaction = row["attractionTransaction"].ToString();
 
-                Attraction obj = new Attraction(id, name, price, date, desc, loc, lat, lon, interest, type, transaction);
+                Attraction obj = new Attraction(id, name, image, price, date, desc, loc, lat, lon, interest, type, transaction);
                 empList.Add(obj);
             }
             return empList;
@@ -260,8 +267,8 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Attraction (attractionName, attractionPrice, dateTime, attractionDesc, attractionLocation, attractionLatitude, attractionLongitude, attractionInterest, attractionType, attractionTransaction)" +
-                             "VALUES (@paraName, @paraPrice, @paraDate, @paraDesc, @paraLoc, @paraLat, @paraLong, @paraInt, @paraType, @paraTran)";
+            string sqlStmt = "INSERT INTO Attraction (attractionName, attractionPrice, dateTime, attractionDesc, attractionLocation, attractionLatitude, attractionLongitude, attractionInterest, attractionType, attractionTransaction, attractionImage)" +
+                             "VALUES (@paraName, @paraPrice, @paraDate, @paraDesc, @paraLoc, @paraLat, @paraLong, @paraInt, @paraType, @paraTran, @paraImage)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -276,6 +283,35 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraInt", att.Interest);
             sqlCmd.Parameters.AddWithValue("@paraType", att.Type);
             sqlCmd.Parameters.AddWithValue("@paraTran", att.Transaction);
+            sqlCmd.Parameters.AddWithValue("@paraImage", att.Image);
+
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+            myConn.Close();
+        }
+
+        public void UpdateAttraction(Attraction att) //Update the attraction details into db
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Attraction SET attractionName = @paraName, attractionPrice = @paraPrice, dateTime = @paraDate, attractionDesc = @paraDesc, attractionLocation = @paraLoc, attractionLatitude = @paraLat, attractionLongitude = @paraLong, attractionInterest = @paraInt, attractionType = @paraType, attractionTransaction = @paraTran, attractionImage = @paraImage WHERE attractionId = @paraId";
+                             
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraId", att.Id);
+            sqlCmd.Parameters.AddWithValue("@paraName", att.Name);
+            sqlCmd.Parameters.AddWithValue("@paraPrice", att.Price);
+            sqlCmd.Parameters.AddWithValue("@paraDate", att.DateTime);
+            sqlCmd.Parameters.AddWithValue("@paraDesc", att.Description);
+            sqlCmd.Parameters.AddWithValue("@paraLoc", att.Location);
+            sqlCmd.Parameters.AddWithValue("@paraLat", att.Latitude);
+            sqlCmd.Parameters.AddWithValue("@paraLong", att.Longitude);
+            sqlCmd.Parameters.AddWithValue("@paraInt", att.Interest);
+            sqlCmd.Parameters.AddWithValue("@paraType", att.Type);
+            sqlCmd.Parameters.AddWithValue("@paraTran", att.Transaction);
+            sqlCmd.Parameters.AddWithValue("@paraImage", att.Image);
 
 
             myConn.Open();

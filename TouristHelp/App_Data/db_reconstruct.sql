@@ -1,4 +1,21 @@
-﻿CREATE TABLE [dbo].[Attraction] (
+﻿DROP TABLE [dbo].Tours;
+DROP TABLE [dbo].ReservationFood;
+DROP TABLE [dbo].TouristBooking;
+DROP TABLE [dbo].ReservationHotel;
+DROP TABLE [dbo].HotelBook;
+DROP TABLE [dbo].ShopVoucher;
+DROP TABLE [dbo].[Transaction];
+DROP TABLE [dbo].Reward;
+DROP TABLE [dbo].Directions;
+DROP TABLE [dbo].TourGuides;
+DROP TABLE [dbo].Tourists;
+DROP TABLE [dbo].Users;
+DROP TABLE [dbo].Cart;
+DROP TABLE [dbo].Interest;
+DROP TABLE [dbo].Ticket;
+DROP TABLE [dbo].Attraction;
+
+CREATE TABLE [dbo].[Attraction] (
     [attractionId]        INT             IDENTITY (1, 1) NOT NULL,
     [attractionName]      VARCHAR (50)    NOT NULL,
     [attractionPrice]     MONEY           NOT NULL,
@@ -9,7 +26,7 @@
     [attractionLongitude] DECIMAL (12, 6) NULL,
     [attractionInterest]  VARCHAR (50)    NOT NULL,
     [attractionType]      VARCHAR (50)    NOT NULL,
-    [attractionTransaction] VARCHAR(50) NOT NULL, 
+    [attractionTransaction] VARCHAR(50) NULL, 
     CONSTRAINT [PK_Attraction] PRIMARY KEY CLUSTERED ([attractionId] ASC)
 );
 
@@ -89,7 +106,7 @@ CREATE TABLE [dbo].[Directions] (
 
 
 CREATE TABLE [dbo].[Reward] (
-    [user_id]         INT          NULL,
+    [user_id]         INT          NOT NULL,
     [loginCount]      INT          DEFAULT ((0)) NOT NULL,
     [loginStreak]     INT          DEFAULT ((0)) NOT NULL,
     [loyaltyTier]     VARCHAR (50) NOT NULL,
@@ -97,7 +114,11 @@ CREATE TABLE [dbo].[Reward] (
     [bonusCredits]    INT          NOT NULL,
     [membershipTier]  VARCHAR (50) NOT NULL,
     [creditBalance]   INT          NOT NULL,
-    [remainBonusDays] INT          NOT NULL
+    [remainBonusDays] INT          NOT NULL,
+    [loggedInLog]     BIT          NOT NULL,
+    [loggedInDate]    DATETIME     NOT NULL,
+    [newDateCheck]    BIT          NOT NULL,
+    CONSTRAINT [PK_Reward] PRIMARY KEY CLUSTERED ([user_id] ASC)
 );
 
 
@@ -112,7 +133,7 @@ CREATE TABLE [dbo].[Transaction] (
     [voucherQuantity]  INT          NOT NULL,
     [voucherName]      VARCHAR (50) NOT NULL,
     CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC),
-    CONSTRAINT [FK_Transaction_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Reward] ([user_id])
+    --CONSTRAINT [FK_Transaction_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Reward] ([user_id])
 );
 
 

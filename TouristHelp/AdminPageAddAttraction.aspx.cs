@@ -33,5 +33,14 @@ namespace TouristHelp
         {
             Response.Redirect("AdminPageAddAttraction_2.aspx");
         }
+
+        protected void ButtonUpdate_Click(object sender, RepeaterCommandEventArgs e)
+        {
+            RepeaterItem item1 = e.Item;
+            Label attId = (Label)item1.FindControl("LbId");
+
+            Session["AttractionId"] = attId.Text;
+            Response.Redirect("AdminPageUpdateAttraction.aspx");
+        }
     }
 }

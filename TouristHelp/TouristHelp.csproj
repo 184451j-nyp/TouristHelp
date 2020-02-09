@@ -61,12 +61,6 @@
     <Reference Include="AjaxControlToolkit, Version=19.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>..\packages\AjaxControlToolkit.19.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="IronPdf, Version=2020.0.1.24570, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
-      <HintPath>..\packages\IronPdf.2020.1.0\lib\net40\IronPdf.dll</HintPath>
-    </Reference>
-    <Reference Include="IronPdf.Assets.Rendering.Windows, Version=16.0.0.0, Culture=neutral, PublicKeyToken=94e1c31412563c75, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iron.Assets.Rendering.Windows.16.0.0\lib\net40\IronPdf.Assets.Rendering.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
@@ -101,8 +95,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminPageAddAttraction.aspx" />
+    <Content Include="AdminPageUpdateAttraction.aspx" />
     <Content Include="AdminPageHotel.aspx" />
     <Content Include="AdminPageHotel2.aspx" />
+    <Content Include="AdminPageRewardSystem.aspx" />
+    <Content Include="AdminPageShop.aspx" />
     <Content Include="App_Data\db_reconstruct.sql" />
     <Content Include="App_Data\TouristHelp.mdf" />
     <Content Include="App_Data\TouristHelp_log.ldf">
@@ -282,6 +279,8 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="libman.json" />
     <Content Include="DLL\QRCoder.dll.refresh" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200208051613 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200208080154 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -370,6 +369,7 @@
     <Content Include="Styles\navbar.css" />
     <Content Include="Styles\themify-icons.css" />
     <Content Include="Styles\Ticketing\style.css" />
+    <Content Include="TicketConfirm.aspx" />
     <Content Include="TicketDetail.aspx" />
     <Content Include="Ticketing.aspx" />
     <Content Include="TicketList.aspx" />
@@ -393,6 +393,13 @@
     <Compile Include="AdminPageAddAttraction.aspx.designer.cs">
       <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminPageUpdateAttraction.aspx.cs">
+      <DependentUpon>AdminPageUpdateAttraction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageUpdateAttraction.aspx.designer.cs">
+      <DependentUpon>AdminPageUpdateAttraction.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminPageHotel.aspx.cs">
       <DependentUpon>AdminPageHotel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -406,6 +413,20 @@
     </Compile>
     <Compile Include="AdminPageHotel2.aspx.designer.cs">
       <DependentUpon>AdminPageHotel2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPageRewardSystem.aspx.cs">
+      <DependentUpon>AdminPageRewardSystem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageRewardSystem.aspx.designer.cs">
+      <DependentUpon>AdminPageRewardSystem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPageShop.aspx.cs">
+      <DependentUpon>AdminPageShop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPageShop.aspx.designer.cs">
+      <DependentUpon>AdminPageShop.aspx</DependentUpon>
     </Compile>
     <Compile Include="blank.aspx.cs">
       <DependentUpon>blank.aspx</DependentUpon>
@@ -584,6 +605,13 @@
     </Compile>
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TicketConfirm.aspx.cs">
+      <DependentUpon>TicketConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketConfirm.aspx.designer.cs">
+      <DependentUpon>TicketConfirm.aspx</DependentUpon>
     </Compile>
     <Compile Include="TicketDetail.aspx.cs">
       <DependentUpon>TicketDetail.aspx</DependentUpon>

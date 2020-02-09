@@ -48,8 +48,11 @@ namespace TouristHelp
                     string membershiptier = "normal";
                     int creditbalance = 0;
                     int remainbonusdays = 0;
+                    bool loggedInLog = false;
+                    DateTime loggedInDate = DateTime.Now;
+                    bool newDateCheck = true;
 
-                    Reward insertReward = new Reward(id, logincount, loginstreak, loyaltytier, totaldiscount, bonuscredits, membershiptier, creditbalance, remainbonusdays);
+                    Reward insertReward = new Reward(id, logincount, loginstreak, loyaltytier, totaldiscount, bonuscredits, membershiptier, creditbalance, remainbonusdays, loggedInLog, loggedInDate, newDateCheck);
 
                     insertReward.insertNewReward();
 
