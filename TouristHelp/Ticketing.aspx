@@ -47,7 +47,7 @@
                          <asp:Panel ID="Panel1" runat="server">
                              <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                  <ContentTemplate>
-                                     <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged2"></asp:Calendar>
+                                     <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged2" BackColor="White"></asp:Calendar>
                                  </ContentTemplate>
                              </asp:UpdatePanel>
                  </asp:Panel>

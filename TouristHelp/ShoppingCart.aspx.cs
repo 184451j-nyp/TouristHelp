@@ -11,6 +11,7 @@ namespace TouristHelp
     public partial class ShoppingCart : System.Web.UI.Page
     {
         List<Cart> prodList;
+        const double gst = 0.07;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -21,6 +22,22 @@ namespace TouristHelp
 
                 Repeater1.DataSource = prodList;
                 Repeater1.DataBind();
+
+                double subTotal = 0;
+                double grandTotal = 0;
+
+                foreach (RepeaterItem ri in Repeater1.Items)
+                {
+                    Label price = (Label)ri.FindControl("lbPrice");
+                    TextBox quantity = (TextBox)ri.FindControl("tbQuantity");
+
+                    subTotal += Math.Round((Convert.ToDouble(price.Text) * Convert.ToInt32(quantity.Text)), 2);
+                }
+
+                lbGst.Text = Convert.ToString(subTotal * gst);
+                lbSubTotal.Text = subTotal.ToString();
+                grandTotal = subTotal + (subTotal * gst);
+                lbGrandTotal.Text = grandTotal.ToString();
             }
                 
         }
@@ -57,20 +74,20 @@ namespace TouristHelp
                 int productId = Convert.ToInt32(prodId.Text);
                 string productName = prodName.Text.ToString();
                 int productQuantity = Convert.ToInt32(prodQuantity.Text);
-                Ticket updateItem = new Ticket();
-                updateItem.TicketPay(productId, user_id);
+
 
                 HotelTrans updateHotelBook = new HotelTrans();
                 updateHotelBook.hotelPay(productId, user_id);
                 
 
                 Cart newItem = new Cart();
-                int cart_id = newItem.GetCartId(productName, user_id);
-                if(cart_id != 0)
+                newItem.GetCartId(productName, user_id);
+                if(newItem.productId != 0 && newItem.itemType == "Ticket")
                 {
                     int Count = productQuantity - 1;
                     int i = 0;
                     Ticket dupeTix = new Ticket();
+                    dupeTix.TicketPay(productId, user_id);
                     dupeTix = dupeTix.getTicketDetail(productId, user_id);
                     while (i < Count)
                     {
@@ -78,6 +95,7 @@ namespace TouristHelp
                         string itemDesc = dupeTix.attractionDesc;
                         double itemPrice = dupeTix.price;
                         DateTime itemExp = dupeTix.dateExpire;
+                        int cart_id = newItem.productId;
                         //string itemImg = dupeTix.AttImg;
 
                         string code = random.Next(1000000, 9999999).ToString();
@@ -102,6 +120,7 @@ namespace TouristHelp
                     }
                     
                 }
+                //your stuff here Michael
 
             }
 

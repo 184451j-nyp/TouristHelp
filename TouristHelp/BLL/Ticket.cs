@@ -99,5 +99,11 @@ namespace TouristHelp.BLL
             TicketDAO dao = new TicketDAO();
             dao.ClaimTicket(ticketCode);
         }
+
+        public void TicketExpire(int ticketId)
+        {
+            TicketDAO dao = new TicketDAO();
+            dao.TicketExp(ticketId);
+        }
     }
 }
