@@ -11,13 +11,13 @@ namespace TouristHelp.DAL
 {
     public class Food_ReservationDAO
     {
-        public void InsertReservation(string Name, string Date, string Time, int Pax, int UserId) //Insert the reservation details into db
+        public void InsertReservation(string Name, string Date, string Time, int Pax, int UserId, string qr) //Insert the reservation details into db
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationDate, reservationTime, reservationPax, reservationState, userId)" +
-                             "VALUES (@paraName, @paraDate, @paraTime, @paraPax, @paraStatus ,@paraId)";
+            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationDate, reservationTime, reservationPax, reservationState, userId, reservationQR)" +
+                             "VALUES (@paraName, @paraDate, @paraTime, @paraPax, @paraStatus ,@paraId, @paraQR)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -28,6 +28,7 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraPax", Pax);
             sqlCmd.Parameters.AddWithValue("@paraStatus", "Active");
             sqlCmd.Parameters.AddWithValue("@paraId", UserId);
+            sqlCmd.Parameters.AddWithValue("@paraQR", qr);
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();
@@ -60,10 +61,70 @@ namespace TouristHelp.DAL
                 string time = row["reservationTime"].ToString();
                 int pax = int.Parse(row["reservationPax"].ToString());
                 string state = row["reservationState"].ToString();
-                Food_Reservation obj = new Food_Reservation(id, name, date, time, pax, state);
+                string qr = row["reservationQR"].ToString();
+                Food_Reservation obj = new Food_Reservation(id, name, date, time, pax, state, qr);
                 empList.Add(obj);
             }
             return empList;
+        }
+
+        public Food_Reservation SelectByIdSingle(int resId) //get all reservations under an id from Reservation db and put into list
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+
+            string sqlStmt = "Select * from ReservationFood where reservationId = @paraId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraId", resId);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds);
+            
+            DataRow row = ds.Tables[0].Rows[0];
+            int id = int.Parse(row["reservationId"].ToString());
+            string name = row["reservationName"].ToString();
+            string date = row["reservationDate"].ToString();
+            string time = row["reservationTime"].ToString();
+            int pax = int.Parse(row["reservationPax"].ToString());
+            string state = row["reservationState"].ToString();
+            string qr = row["reservationQR"].ToString();
+            Food_Reservation obj = new Food_Reservation(id, name, date, time, pax, state, qr);
+            
+            return obj;
+        }
+
+        public List<string> GetAllCode()
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            String sqlstmt = "SELECT reservationQR From ReservationFood";
+
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<String> codeList = new List<String>();
+
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt == 0)
+            {
+                codeList = null;
+            }
+            else
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    string QRCode = row["reservationQR"].ToString();
+
+                    codeList.Add(QRCode);
+                }
+            }
+            return codeList;
         }
 
         public void ReservationStatusDisable(int resId) //set status to disabled

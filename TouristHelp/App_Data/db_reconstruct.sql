@@ -16,17 +16,18 @@ DROP TABLE [dbo].Ticket;
 DROP TABLE [dbo].Attraction;
 
 CREATE TABLE [dbo].[Attraction] (
-    [attractionId]        INT             IDENTITY (1, 1) NOT NULL,
-    [attractionName]      VARCHAR (50)    NOT NULL,
-    [attractionPrice]     MONEY           NOT NULL,
-    [dateTime]            VARCHAR (50)    NULL,
-    [attractionDesc]      VARCHAR (MAX)   NOT NULL,
-    [attractionLocation]  VARCHAR (50)    NOT NULL,
-    [attractionLatitude]  DECIMAL (12, 6) NULL,
-    [attractionLongitude] DECIMAL (12, 6) NULL,
-    [attractionInterest]  VARCHAR (50)    NOT NULL,
-    [attractionType]      VARCHAR (50)    NOT NULL,
-    [attractionTransaction] VARCHAR(50) NULL, 
+    [attractionId]          INT             IDENTITY (1, 1) NOT NULL,
+    [attractionName]        VARCHAR (MAX)   NOT NULL,
+    [attractionPrice]       NVARCHAR (50)   NOT NULL,
+    [dateTime]              VARCHAR (50)    NULL,
+    [attractionDesc]        VARCHAR (MAX)   NOT NULL,
+    [attractionLocation]    VARCHAR (50)    NOT NULL,
+    [attractionLatitude]    DECIMAL (18, 8) NULL,
+    [attractionLongitude]   DECIMAL (18, 8) NULL,
+    [attractionInterest]    VARCHAR (50)    NOT NULL,
+    [attractionType]        VARCHAR (50)    NOT NULL,
+    [attractionTransaction] VARCHAR (50)    NOT NULL,
+    [attractionImage]       VARCHAR (50)    NOT NULL,
     CONSTRAINT [PK_Attraction] PRIMARY KEY CLUSTERED ([attractionId] ASC)
 );
 
@@ -201,12 +202,13 @@ CREATE TABLE [dbo].[TouristBooking] (
 
 
 CREATE TABLE [dbo].[ReservationFood] (
-    [reservationId]   INT          IDENTITY (1, 1) NOT NULL,
-    [reservationName] VARCHAR (50) NOT NULL,
-    [reservationTime] VARCHAR (50) NOT NULL,
-    [reservationPax]  INT          NOT NULL,
-    [reservationState]  VARCHAR(50) NOT NULL, 
-    [userId] INT NOT NULL
+    [reservationId]    INT          IDENTITY (1, 1) NOT NULL,
+    [reservationName]  VARCHAR (50) NOT NULL,
+    [reservationDate]  VARCHAR (50) NOT NULL,
+    [reservationTime]  VARCHAR (50) NOT NULL,
+    [reservationPax]   INT          NOT NULL,
+    [reservationState] VARCHAR (50) NOT NULL,
+    [userId]           INT          NOT NULL
 );
 
 CREATE TABLE [dbo].[Tours] (
