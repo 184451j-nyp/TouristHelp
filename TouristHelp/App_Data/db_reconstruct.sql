@@ -132,8 +132,8 @@ CREATE TABLE [dbo].[Transaction] (
     [voucherTotalCost] INT          NOT NULL,
     [voucherQuantity]  INT          NOT NULL,
     [voucherName]      VARCHAR (50) NOT NULL,
-    CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC),
-    --CONSTRAINT [FK_Transaction_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Reward] ([user_id])
+    CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC)
+   
 );
 
 
@@ -182,10 +182,12 @@ CREATE TABLE [dbo].[ReservationHotel] (
     [user_id]      INT             NOT NULL,
     [hotelName]    NVARCHAR (50)   NOT NULL,
     [verifyHotel]  INT             NOT NULL,
-    [hotelPaid]    BIT             NOT NULL,
+    [hotelPaid]    NVARCHAR (50) NOT NULL,
     [cartId]       INT             NOT NULL,
     PRIMARY KEY CLUSTERED ([hotelGen_Id] ASC)
 );
+
+
 
 CREATE TABLE [dbo].[TouristBooking] (
     [tourist_id]   INT          NOT NULL,

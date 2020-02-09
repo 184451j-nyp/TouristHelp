@@ -276,7 +276,7 @@ namespace TouristHelp
             totalCost = Convert.ToDecimal(price * quantity * stayDuration);
 
 
-            Boolean hotelPaid = false;
+            String hotelPaid = "Not paid";
             //Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id);
             //tkt.AddNewTicket();
 

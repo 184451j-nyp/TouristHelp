@@ -81,12 +81,19 @@ namespace TouristHelp
 
 
             // using gridview to bind to the list of employee objects
-            GvEmployee.Visible = true;
-            GvEmployee.DataSource = eList;
-            GvEmployee.DataBind();
+            repeatHotelTrans.Visible = true;
+            repeatHotelTrans.DataSource = eList;
+            repeatHotelTrans.DataBind();
 
             paidRepeater.DataSource = eList;
             paidRepeater.DataBind();
+        }
+
+      
+
+        protected void repeatHotelTrans_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

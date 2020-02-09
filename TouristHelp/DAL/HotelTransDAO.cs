@@ -56,7 +56,7 @@ namespace TouristHelp.DAL
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
             string sqlStmt = "Select * from ReservationHotel " +
                               "WHERE user_id =  @paraUserId " +
-                               "AND hotelPaid = 1";
+                               "AND hotelPaid = 'Paid' OR hotelPaid = 'Verified' ";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
             da.SelectCommand.Parameters.AddWithValue("@paraUserId", getUserId);
@@ -81,7 +81,7 @@ namespace TouristHelp.DAL
                     DateTime stayDuration = Convert.ToDateTime(row["stayDuration"]);
                     string hotelName = row["hotelName"].ToString();
                     int verifyHotel = Convert.ToInt32(row["verifyHotel"]);
-                    bool hotelPaid = Convert.ToBoolean(row["hotelPaid"]);
+                    string hotelPaid = row["hotelPaid"].ToString();
                     int cartId = Convert.ToInt32(row["cartId"]);
 
                     HotelTrans objRate = new HotelTrans(hotelGen_Id, totalCost, roomQty, stayDuration, getUserId, hotelName, verifyHotel, hotelPaid, cartId);
@@ -100,7 +100,7 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE ReservationHotel SET hotelPaid = 1 where user_id = @paraUserId AND cartId = @paraCartId ";
+            string sqlStmt = "UPDATE ReservationHotel SET hotelPaid = 'Paid' where user_id = @paraUserId AND cartId = @paraCartId ";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
@@ -117,5 +117,29 @@ namespace TouristHelp.DAL
 
 
         }
+
+
+
+        //public void hotelVerified(string code)
+        //{
+        //    string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        //    SqlConnection myConn = new SqlConnection(DBConnect);
+
+        //    string sqlStmt = "UPDATE Ticket SET paid = 'claimed' where ticketCode = @paraTicketCode ";
+
+        //    SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+        //    sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+        //    sqlCmd.Parameters.AddWithValue("@paraTicketCode", code);
+
+        //    myConn.Open();
+        //    sqlCmd.ExecuteNonQuery();
+
+        //    myConn.Close();
+
+
+        //}
     }
 }

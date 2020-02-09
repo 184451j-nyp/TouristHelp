@@ -75,9 +75,9 @@
       <table>
 <tr>
 <td>
-    <asp:GridView ID="GvEmployee"  ShowHeader="True" 
+    <asp:GridView ID="repeatHotelTrans"  ShowHeader="True" 
         GridLines="None" AutoGenerateColumns="false"
-        runat="server">
+        runat="server" OnSelectedIndexChanged="repeatHotelTrans_SelectedIndexChanged">
 
 
         <Columns>
@@ -103,8 +103,13 @@
 
                                         <asp:Label ID="stayDurationLbl" CssClass="col-2" runat="server" Text='<%#Eval("stayDuration") %>'></asp:Label>
 
+                                     
 
-                                      <asp:Label ID="verifyHotelLbl" CssClass="col-1" runat="server" Text='<%#Eval("verifyHotel") %>'></asp:Label>
+                                           <asp:Label ID="hotelStatus" CssClass="col-2" runat="server" Text='<%#Eval("hotelPaid") %>'></asp:Label>
+
+
+                                             <asp:Button ID="getQRcode"  CssClass="col-1"  runat="server" Text="Get QR Code" />
+
 
 
                                   
@@ -131,8 +136,11 @@
                                         <asp:Label ID="stayDurationLbl" CssClass="col-2" runat="server" Text="Duration:"></asp:Label>
 
 
-                              <asp:Label ID="verifyHotelLbl" CssClass="col-1" runat="server" Text="Verification Code"></asp:Label>
 
+                              <asp:Label ID="hotelStatus" CssClass="col-2" runat="server" Text="Status"></asp:Label>
+
+                              <asp:Label ID="verifyHotelLbl" CssClass="col-1" runat="server" Text="Verification Code"></asp:Label>
+                                
 
                                      
 

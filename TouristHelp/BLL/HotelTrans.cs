@@ -22,7 +22,7 @@ namespace TouristHelp.BLL
 
         public int verifyHotel { get; set; }
 
-        public bool hotelPaid { get; set; }
+        public string hotelPaid { get; set; }
 
         public int cartId { get; set; }
 
@@ -31,7 +31,7 @@ namespace TouristHelp.BLL
 
         }
 
-        public HotelTrans(int hotelgen_id, decimal totalcost, int roomqty, DateTime stayduration, int userid, string hotelname, int verifyhotel, bool hotelpaid, int cartid)
+        public HotelTrans(int hotelgen_id, decimal totalcost, int roomqty, DateTime stayduration, int userid, string hotelname, int verifyhotel, string hotelpaid, int cartid)
         {
             this.hotelGen_Id = hotelgen_id;
             this.totalCost = totalcost;
