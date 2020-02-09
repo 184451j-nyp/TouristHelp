@@ -60,22 +60,26 @@
                         
 
                     <div>
+                          Shop Voucher Description::
 
                         <asp:TextBox ID="TbVoucherDesc" TextMode="MultiLine" runat="server"></asp:TextBox>
                         </div>
                  
-                  
+                  <div>
+                                                Shop Voucher Category:
+
+
                         <asp:CheckBoxList ID="CBVoucherCategory" RepeatDirection="Horizontal" runat="server" >
                             <asp:ListItem Selected="True">Membership</asp:ListItem>
                             <asp:ListItem>Food</asp:ListItem>
                             <asp:ListItem>Others</asp:ListItem>
 
-
                         </asp:CheckBoxList>
 
-                   
+                                               </div>
+
                   
-                    <asp:Button ID="BtnAdd" runat="server" CssClass="btn btn-default" Style="float: right" Text="Add Hotel" OnClick="BtnAdd_Click" />
+                    <asp:Button ID="BtnAdd" runat="server" CssClass="btn btn-default" Style="float: right" Text="Add Shop Voucher" OnClick="BtnAdd_Click" />
                     <asp:Button ID="BtnCancel" runat="server" CssClass="btn btn-default" Style="float: right; margin-right:20px" Text="Go back" OnClick="BtnBack_Click" />
                 </td>
             </tr>

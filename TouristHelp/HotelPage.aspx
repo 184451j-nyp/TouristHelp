@@ -308,6 +308,19 @@
 
                                 <asp:Repeater ID="RepeatHotel" runat="server" EnableViewState="false"  OnItemCommand="RepeatHotel_ItemCommand" >
 
+
+
+
+
+
+
+                                      <HeaderTemplate>
+
+               
+
+		
+                          
+                                    </HeaderTemplate>
                                     <ItemTemplate>
 
                                         <div class="size1of3">
@@ -424,20 +437,19 @@
 
 
                                     </ItemTemplate>
-                                    <HeaderTemplate>
-
-           
-
-		
-                          
-                                    </HeaderTemplate>
+                                                  
                                     <SeparatorTemplate>   </SeparatorTemplate>
                                     <FooterTemplate></FooterTemplate>
                                 </asp:Repeater>
 
+                <asp:Label ID="Label2" Visible="false"  runat="server" Text="No records found"></asp:Label>
 
-                                
+                                <style>
 
+                                    #ContentPlaceHolder1_Label2 {
+                                        text-align:center;
+                                    }
+                                </style>
 
 
 

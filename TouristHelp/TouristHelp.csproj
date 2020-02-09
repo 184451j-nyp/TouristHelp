@@ -116,6 +116,8 @@
     <Content Include="DLL\QRCoder.dll" />
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
+    <Content Include="HotelConfirm.aspx" />
+    <Content Include="HotelDetail.aspx" />
     <Content Include="HotelPage.aspx" />
     <Content Include="HotelReservation.aspx" />
     <Content Include="Images\banner_blog\banner_blog_1.png" />
@@ -281,6 +283,8 @@
     <Content Include="DLL\QRCoder.dll.refresh" />
     <None Include="Properties\PublishProfiles\TouristHelp20200208051613 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TouristHelp20200208080154 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200209023102 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200209024920 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -475,6 +479,20 @@
     </Compile>
     <Compile Include="Guidebook.aspx.designer.cs">
       <DependentUpon>Guidebook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HotelConfirm.aspx.cs">
+      <DependentUpon>HotelConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelConfirm.aspx.designer.cs">
+      <DependentUpon>HotelConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HotelDetail.aspx.cs">
+      <DependentUpon>HotelDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelDetail.aspx.designer.cs">
+      <DependentUpon>HotelDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="HotelPage.aspx.cs">
       <DependentUpon>HotelPage.aspx</DependentUpon>

@@ -31,7 +31,8 @@ namespace TouristHelp
             DateTime expDate = Convert.ToDateTime(TourDate.Text);
             string statuscheck = "Pending";
 
-            TouristBookingDAO.InsertBooking(int.Parse(gettouristid.Text), gettourguidename.Text, int.Parse(gettourguideid.Text), tourguidetitleLabel.Text, expDate.ToString(), statuscheck);
+            TouristBooking obj = new TouristBooking(int.Parse(gettouristid.Text), gettourguidename.Text, tourguidetitleLabel.Text, expDate.ToString(), statuscheck, int.Parse(gettourguideid.Text));
+            TouristBookingDAO.InsertBooking(obj);
         }
 
         protected void DropDownListCurrency_SelectedIndexChanged(object sender, EventArgs e)

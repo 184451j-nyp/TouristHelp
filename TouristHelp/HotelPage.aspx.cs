@@ -8,7 +8,7 @@ using TouristHelp.BLL;
 using System.Drawing;
 using TouristHelp.DAL;
 using System.Data.SqlClient;
-
+using System.Web.UI.HtmlControls;
 
 namespace TouristHelp
 {
@@ -39,6 +39,7 @@ namespace TouristHelp
 
             //}
 
+          
             if (!Page.IsPostBack)
 
             {
@@ -69,9 +70,18 @@ namespace TouristHelp
 
 
 
+            if (RepeatHotel.Items.Count < 1)
+            {
+                Label2.Visible = true;
+            }
 
 
-          
+            if (RepeatHotel.Items.Count >= 1)
+            {
+                Label2.Visible = false;
+            }
+
+
 
 
 
@@ -93,6 +103,9 @@ namespace TouristHelp
 
                 RepeatHotel.DataSource = hotelList;
                 RepeatHotel.DataBind();
+
+
+                
 
             }
 
@@ -192,6 +205,20 @@ namespace TouristHelp
         {
             RepeaterItem hotels = e.Item;
 
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
             string attName;
             string attDesc = "Item price cost consists of base price of hotel with the check in duration";
             double price;
@@ -218,9 +245,9 @@ namespace TouristHelp
 
             expDate = date.Add(duration);
 
+            int hotelId = new Random().Next(100000, 999999);
+
             code = new Random().Next(100000, 999999);
-
-
 
             DropDownList hotelQty = (DropDownList)hotels.FindControl("roomQty");
             Session["roomQty"] = hotelQty.SelectedValue;
@@ -249,7 +276,7 @@ namespace TouristHelp
             totalCost = Convert.ToDecimal(price * quantity * stayDuration);
 
 
-            Boolean hotelPaid = false;
+            String hotelPaid = "Not paid";
             //Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id);
             //tkt.AddNewTicket();
 
@@ -261,11 +288,17 @@ namespace TouristHelp
             double cartPrice = Convert.ToDouble(price) * Convert.ToDouble(stayDuration);
 
 
-            HotelTrans hotel = new HotelTrans(code, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid);
-            hotel.AddNewHotel();
+     
 
             Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id);
             cart.InsertCartTicket();
+
+            var cartId = cart.GetCartId(attName, user_id);
+
+
+
+            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid,cartId);
+            hotel.AddNewHotel();
 
 
             string hotelAdded = getHotelName.Text + " " + "(rooms: " + quantity.ToString()  + ")" + "(duration: " + stayDuration.ToString() + "days" + ")" + "has been added to shop Cart";

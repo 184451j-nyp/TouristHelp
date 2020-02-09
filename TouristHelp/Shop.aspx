@@ -327,7 +327,7 @@
                                                     ImageUrl='<%# Eval("shopImage")%>'
                                                     runat="server" />
 
-                                                <asp:HiddenField runat="server" ID="shop_Id" Value='<%#Eval("voucher_id") %>' />
+                                                <asp:HiddenField runat="server" ID="voucher_id" Value='<%#Eval("voucher_id") %>' />
 
 
                                                 <div class="text p-3">
@@ -345,10 +345,13 @@
 
                                                         <asp:Label ID="shopDesc" runat="server" Style="margin-left: 10px;" ForeColor="Black" Text='<%#Eval("shopDesc") %>'></asp:Label>
                                                         <asp:Label ID="voucherStatus" runat="server" Style="margin-left: 10px;" ForeColor="Green" Text='<%#Eval("voucherStatus") %>'></asp:Label>
-                                                        <asp:HiddenField runat="server" ID="voucherQty" Value='<%#Eval("voucherQty") %>' />
+                                                        <asp:Label ID="voucherQty" runat="server" Text='<%#Eval("voucherQty") %>'></asp:Label>
                                                     </span>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
+
+
+                                                          <asp:HiddenField runat="server" ID="voucherPopularity" Value='<%#Eval("voucherPopularity") %>' />
 
 
                                                         <asp:DropDownList ID="voucherQuantity" runat="server" AutoPostBack="False">

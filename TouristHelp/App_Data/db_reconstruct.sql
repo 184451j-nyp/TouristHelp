@@ -88,15 +88,13 @@ CREATE TABLE [dbo].[Tourists] (
     CONSTRAINT [FK_Tourist_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Users] ([user_id])
 );
 
-
 CREATE TABLE [dbo].[TourGuides] (
-    [tourguide_id] INT           IDENTITY (1, 1) NOT NULL,
-    [user_id]      INT           NOT NULL,
-    [tours]        VARCHAR (255) NULL,
-    [description]  VARCHAR (50)  NULL,
-    [languages]    VARCHAR (50)  NULL,
-    [credentials]  VARCHAR (255) NULL,
-    [profile_img] IMAGE NULL, 
+    [tourguide_id]   INT           IDENTITY (1, 1) NOT NULL,
+    [user_id]        INT           NOT NULL,
+    [description]    VARCHAR (50)  NULL,
+    [languages]      VARCHAR (50)  NULL,
+    [credentials]    VARCHAR (255) NULL,
+    [tourguideimage] NVARCHAR (50) NULL,
     PRIMARY KEY CLUSTERED ([tourguide_id] ASC),
     CONSTRAINT [FK_TourGuides_ToUsers] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Users] ([user_id])
 );
@@ -140,14 +138,16 @@ CREATE TABLE [dbo].[Transaction] (
     [voucherTotalCost] INT          NOT NULL,
     [voucherQuantity]  INT          NOT NULL,
     [voucherName]      VARCHAR (50) NOT NULL,
-    CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC),
-    --CONSTRAINT [FK_Transaction_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Reward] ([user_id])
+    CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC)
+   
 );
 
 
 
+
+
 CREATE TABLE [dbo].[ShopVoucher] (
-    [voucher_id]         INT          IDENTITY (1, 1)  NOT NULL,
+    [voucher_id]         INT           IDENTITY (1, 1) NOT NULL,
     [voucherQty]         INT           NOT NULL,
     [voucherType]        VARCHAR (50)  NOT NULL,
     [voucherStatus]      VARCHAR (50)  NOT NULL,
@@ -158,6 +158,7 @@ CREATE TABLE [dbo].[ShopVoucher] (
     [shopImage]          NVARCHAR (50) NULL,
     [shopDesc]           NVARCHAR (50) NULL,
     [voucherName]        NVARCHAR (50) NOT NULL,
+    [voucherPopularity] INT NULL, 
     PRIMARY KEY CLUSTERED ([voucher_id] ASC)
 );
 
@@ -179,7 +180,6 @@ CREATE TABLE [dbo].[HotelBook] (
 );
 
 
-
 CREATE TABLE [dbo].[ReservationHotel] (
     [hotelGen_Id]  INT             NOT NULL,
     [totalCost]    DECIMAL (18, 2) NOT NULL,
@@ -188,21 +188,26 @@ CREATE TABLE [dbo].[ReservationHotel] (
     [user_id]      INT             NOT NULL,
     [hotelName]    NVARCHAR (50)   NOT NULL,
     [verifyHotel]  INT             NOT NULL,
-    [hotelPaid]    BIT             NOT NULL,
+    [hotelPaid]    NVARCHAR (50) NOT NULL,
+    [cartId]       INT             NOT NULL,
     PRIMARY KEY CLUSTERED ([hotelGen_Id] ASC)
 );
 
 
+
 CREATE TABLE [dbo].[TouristBooking] (
-    [tourist_id] INT          NOT NULL,
-    [name]       VARCHAR (50) NULL,
-    [id]         INT          NOT NULL,
-    [tourtitle]  VARCHAR (50) NULL,
-    [timing]     VARCHAR (50) NULL,
-    [status]     VARCHAR (50) NULL,
-    CONSTRAINT [PK_TouristBooking] PRIMARY KEY CLUSTERED ([id] ASC),
+    [tourist_id]   INT          NOT NULL,
+    [name]         VARCHAR (50) NULL,
+    [tour_id]      INT          IDENTITY (1, 1) NOT NULL,
+    [tourtitle]    VARCHAR (50) NULL,
+    [timing]       VARCHAR (50) NULL,
+    [status]       VARCHAR (50) NULL,
+    [tourguide_id] INT          NOT NULL,
+    CONSTRAINT [PK_TouristBooking] PRIMARY KEY CLUSTERED ([tour_id] ASC),
     CONSTRAINT [FK_TouristBooking_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [dbo].[Tourists] ([tourist_id])
 );
+
+
 
 
 CREATE TABLE [dbo].[ReservationFood] (
@@ -215,12 +220,13 @@ CREATE TABLE [dbo].[ReservationFood] (
 );
 
 CREATE TABLE [dbo].[Tours] (
-    [Id]           INT             NOT NULL,
-    [tourguide_id] INT             NOT NULL,
-    [title]        VARCHAR (50)    NULL,
-    [description]  VARCHAR (50)    NULL,
-    [details]      VARCHAR (50)    NULL,
-    [price]        DECIMAL (18, 2) NULL,
+    [Id]           INT           NOT NULL,
+    [tourguide_id] INT           NOT NULL,
+    [title]        VARCHAR (50)  NULL,
+    [description]  VARCHAR (200) NULL,
+    [details]      VARCHAR (200) NULL,
+    [price]        VARCHAR (50)  NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Tours_ToTourGuides] FOREIGN KEY ([tourguide_id]) REFERENCES [dbo].[TourGuides] ([tourguide_id])
 );
+

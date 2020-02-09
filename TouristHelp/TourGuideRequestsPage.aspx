@@ -11,7 +11,7 @@
         <br />
         <br />
 
-        <asp:Repeater ID="RepeaterBookings" runat="server">
+        <asp:Repeater ID="RepeaterBookings" runat="server" OnItemCommand="RepeaterBookings_ItemCommand">
             <ItemTemplate>
                 <div class="col-sm col-md-6 col-lg-12" style="border-style: solid; border-width: 1px; margin-bottom: 10px">
                     <%-- Proto Box --%>
@@ -21,10 +21,8 @@
                             <span class="icon-link"></span>
                         </div>
                     </a>
-                    <div class="text p-3">
-                        <div class="one">
-                            <span class="tgid" id="tourguideid">Tour Guide Id: <%#Eval("Id") %></span>
-                        </div>
+                    <div class="one">
+                        <asp:Label ID="tourguideid" runat="server" Font-Size="15" Text='<%#Eval("TourGuideId") %>'></asp:Label>
                     </div>
                     <div class="two">
                         <span class="tgname" id="tourguidename">Tour Guide Name: <%#Eval("Name") %></span>
@@ -40,8 +38,20 @@
                     <div class="five">
                         <span class="tourstatus" id="TourStatus">Tour Status: <%#Eval("Status") %></span>
                     </div>
+                    <div class="six">
+                        <span class="touristid" id="TouristId">Tourist Id: <%#Eval("TouristId") %></span>
+                    </div>
+
+                    <div class="seven">
+                        <asp:Label ID="Label1" runat="server" Font-Size="15" Text='<%#Eval("TourId") %>'></asp:Label>
+
+                    </div>
+
                     <hr>
-                    <%--<asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="More info" Style="float: right" />--%>
+                    <td>
+                        <asp:LinkButton ID="RejectButton" runat="server" Font-Size="15">Reject Request</asp:LinkButton>
+
+                    </td>
                 </div>
                 </div>
             </ItemTemplate>

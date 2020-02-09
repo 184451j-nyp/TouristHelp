@@ -35,20 +35,24 @@ namespace TouristHelp.Models
         public string Description { get; set; }
         public string Languages { get; set; }
         public string Credentials { get; set; }
+        public string TourGuideImage { get; set; }
 
-        public TourGuide(string name, string email, string pswd, string description, string languages, string credentials) : base(name, email, pswd)
+        public TourGuide(string name, string email, string pswd, string description, string languages, string credentials, string tourguideimage) : base(name, email, pswd)
         {
             TourGuideId = null;
             Description = description;
             Languages = languages;
             Credentials = credentials;
+            TourGuideImage = tourguideimage;
         }
-        public TourGuide(int tourguide_id, int user_id, string name, string email, string pswd, string description, string languages, string credentials) : base(user_id, name, email, pswd)
+        public TourGuide(int tourguide_id, int user_id, string name, string email, string pswd, string description, string languages, string credentials, string tourguideimage) : base(user_id, name, email, pswd)
         {
             TourGuideId = tourguide_id;
             Description = description;
             Languages = languages;
             Credentials = credentials;
+            TourGuideImage = tourguideimage;
+
         }
 
 
