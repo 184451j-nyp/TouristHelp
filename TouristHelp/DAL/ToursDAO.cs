@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
+using System;
 using System.Data.SqlClient;
 using TouristHelp.Models;
 
@@ -127,11 +128,13 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[i];
                 int tourist_id = int.Parse(row["tourist_id"].ToString());
                 string name = row["name"].ToString();
+                int tour_id = int.Parse(row["tour_id"].ToString());
                 string tourtitle = row["tourtitle"].ToString();
                 string timing = row["timing"].ToString();
                 string status = row["status"].ToString();
+                int tourguide_id = int.Parse(row["tourguide_id"].ToString());
 
-                TouristBooking obj = new TouristBooking(tourist_id, name, id, tourtitle, timing, status);
+                TouristBooking obj = new TouristBooking(tourist_id, name, tour_id, tourtitle, timing, status, tourguide_id);
                 personalTourList.Add(obj);
             }
             return personalTourList;
@@ -144,7 +147,7 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "Select * from TouristBooking where id = @paraId";
+            string sqlStmt = "Select * from TouristBooking where tourguide_id = @paraId and status = 'Pending'";
 
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
@@ -162,36 +165,59 @@ namespace TouristHelp.DAL
                 DataRow row = ds.Tables[0].Rows[i];
                 int tourist_id = int.Parse(row["tourist_id"].ToString());
                 string name = row["name"].ToString();
+                int tour_id = int.Parse(row["tour_id"].ToString());
                 string tourtitle = row["tourtitle"].ToString();
                 string timing = row["timing"].ToString();
                 string status = row["status"].ToString();
+                int tourguide_id = int.Parse(row["tourguide_id"].ToString());
 
-                TouristBooking obj = new TouristBooking(tourist_id, name, id, tourtitle, timing, status);
+
+                TouristBooking obj = new TouristBooking(tourist_id, name, tour_id, tourtitle, timing, status, tourguide_id);
                 personalTourList.Add(obj);
             }
             return personalTourList;
         }
 
 
-
-
-
-        public static void InsertBooking(int TouristId, string Name, int TourGuideId, string TourTitle, string Timing, string Status)
+        public static void UpdateTourBooking(TouristBooking tg)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO TouristBooking (tourist_id, name, id, tourtitle, timing, status)" +
-                             "VALUES (@paraTouristId, @paraName, @paraId, @paraTourTitle, @paraTiming, @paraStatus)";
+            string sqlStmt = "Update TouristBooking Set status = @paraStatus Where tour_id = @paraId;"; 
+
+            SqlCommand cmd = new SqlCommand(sqlStmt, myConn);
+            cmd.Parameters.AddWithValue("@paraStatus", tg.Status);
+            cmd.Parameters.AddWithValue("@paraId", tg.TourId);
+            try
+            {
+                myConn.Open();
+                cmd.ExecuteNonQuery();
+                myConn.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
+        }
+
+
+        public static void InsertBooking(TouristBooking tb)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO TouristBooking (tourist_id, name, tourtitle, timing, status, tourguide_id)" +
+                             "VALUES (@paraTouristId, @paraName, @paraTourTitle, @paraTiming, @paraStatus, @paraTourGuideId)";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
-            sqlCmd.Parameters.AddWithValue("@paraTouristId", TouristId);
-            sqlCmd.Parameters.AddWithValue("@paraName", Name);
-            sqlCmd.Parameters.AddWithValue("@paraId", TourGuideId);
-            sqlCmd.Parameters.AddWithValue("@paraTourTitle", TourTitle);
-            sqlCmd.Parameters.AddWithValue("@paraTiming", Timing);
-            sqlCmd.Parameters.AddWithValue("@paraStatus", Status);
+            sqlCmd.Parameters.AddWithValue("@paraTouristId", tb.TouristId);
+            sqlCmd.Parameters.AddWithValue("@paraName", tb.Name);
+            sqlCmd.Parameters.AddWithValue("@paraTourTitle", tb.TourTitle);
+            sqlCmd.Parameters.AddWithValue("@paraTiming", tb.Timing);
+            sqlCmd.Parameters.AddWithValue("@paraStatus", tb.Status);
+            sqlCmd.Parameters.AddWithValue("@paraTourGuideId", tb.TourGuideId);
 
 
             myConn.Open();

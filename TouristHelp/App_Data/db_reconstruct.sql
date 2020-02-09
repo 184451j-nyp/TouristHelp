@@ -65,15 +65,13 @@ CREATE TABLE [dbo].[Tourists] (
     CONSTRAINT [FK_Tourist_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Users] ([user_id])
 );
 
-
 CREATE TABLE [dbo].[TourGuides] (
-    [tourguide_id] INT           IDENTITY (1, 1) NOT NULL,
-    [user_id]      INT           NOT NULL,
-    [tours]        VARCHAR (255) NULL,
-    [description]  VARCHAR (50)  NULL,
-    [languages]    VARCHAR (50)  NULL,
-    [credentials]  VARCHAR (255) NULL,
-    [profile_img] IMAGE NULL, 
+    [tourguide_id]   INT           IDENTITY (1, 1) NOT NULL,
+    [user_id]        INT           NOT NULL,
+    [description]    VARCHAR (50)  NULL,
+    [languages]      VARCHAR (50)  NULL,
+    [credentials]    VARCHAR (255) NULL,
+    [tourguideimage] NVARCHAR (50) NULL,
     PRIMARY KEY CLUSTERED ([tourguide_id] ASC),
     CONSTRAINT [FK_TourGuides_ToUsers] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Users] ([user_id])
 );
@@ -167,15 +165,18 @@ CREATE TABLE [dbo].[ReservationHotel] (
 
 
 CREATE TABLE [dbo].[TouristBooking] (
-    [tourist_id] INT          NOT NULL,
-    [name]       VARCHAR (50) NULL,
-    [id]         INT          NOT NULL,
-    [tourtitle]  VARCHAR (50) NULL,
-    [timing]     VARCHAR (50) NULL,
-    [status]     VARCHAR (50) NULL,
-    CONSTRAINT [PK_TouristBooking] PRIMARY KEY CLUSTERED ([id] ASC),
+    [tourist_id]   INT          NOT NULL,
+    [name]         VARCHAR (50) NULL,
+    [tour_id]      INT          IDENTITY (1, 1) NOT NULL,
+    [tourtitle]    VARCHAR (50) NULL,
+    [timing]       VARCHAR (50) NULL,
+    [status]       VARCHAR (50) NULL,
+    [tourguide_id] INT          NOT NULL,
+    CONSTRAINT [PK_TouristBooking] PRIMARY KEY CLUSTERED ([tour_id] ASC),
     CONSTRAINT [FK_TouristBooking_ToTourists] FOREIGN KEY ([tourist_id]) REFERENCES [dbo].[Tourists] ([tourist_id])
 );
+
+
 
 
 CREATE TABLE [dbo].[ReservationFood] (
@@ -188,12 +189,13 @@ CREATE TABLE [dbo].[ReservationFood] (
 );
 
 CREATE TABLE [dbo].[Tours] (
-    [Id]           INT             NOT NULL,
-    [tourguide_id] INT             NOT NULL,
-    [title]        VARCHAR (50)    NULL,
-    [description]  VARCHAR (50)    NULL,
-    [details]      VARCHAR (50)    NULL,
-    [price]        DECIMAL (18, 2) NULL,
+    [Id]           INT           NOT NULL,
+    [tourguide_id] INT           NOT NULL,
+    [title]        VARCHAR (50)  NULL,
+    [description]  VARCHAR (200) NULL,
+    [details]      VARCHAR (200) NULL,
+    [price]        VARCHAR (50)  NULL,
     PRIMARY KEY CLUSTERED ([Id] ASC),
     CONSTRAINT [FK_Tours_ToTourGuides] FOREIGN KEY ([tourguide_id]) REFERENCES [dbo].[TourGuides] ([tourguide_id])
 );
+

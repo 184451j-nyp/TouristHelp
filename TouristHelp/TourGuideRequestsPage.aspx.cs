@@ -24,5 +24,20 @@ namespace TouristHelp
             RepeaterBookings.DataSource = touristbookingList;
             RepeaterBookings.DataBind();
         }
+
+        protected void RepeaterBookings_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            RepeaterItem item1 = e.Item;
+           Label theTourId = (Label)item1.FindControl("Label1");
+            //Label theTourGuideName = (Label)item1.FindControl("tourguidename");
+            //Label theTourTitle = (Label)item1.FindControl("TourTitle");
+
+           // Label theTourTiming = (Label)item1.FindControl("TourTiming");
+            //Label theTourStatus = (Label)item1.FindControl("TourStatus");
+            string statusput = "Rejected";
+
+            TouristBooking tg = new TouristBooking(int.Parse(theTourId.Text), statusput);
+            TouristBooking.UpdateTourGuideBooking(tg);
+        }
     }
 }
