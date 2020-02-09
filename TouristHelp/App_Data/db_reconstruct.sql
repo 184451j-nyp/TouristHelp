@@ -16,19 +16,21 @@ DROP TABLE [dbo].Ticket;
 DROP TABLE [dbo].Attraction;
 
 CREATE TABLE [dbo].[Attraction] (
-    [attractionId]        INT             IDENTITY (1, 1) NOT NULL,
-    [attractionName]      VARCHAR (50)    NOT NULL,
-    [attractionPrice]     MONEY           NOT NULL,
-    [dateTime]            VARCHAR (50)    NULL,
-    [attractionDesc]      VARCHAR (MAX)   NOT NULL,
-    [attractionLocation]  VARCHAR (50)    NOT NULL,
-    [attractionLatitude]  DECIMAL (12, 6) NULL,
-    [attractionLongitude] DECIMAL (12, 6) NULL,
-    [attractionInterest]  VARCHAR (50)    NOT NULL,
-    [attractionType]      VARCHAR (50)    NOT NULL,
-    [attractionTransaction] VARCHAR(50) NULL, 
+    [attractionId]          INT             IDENTITY (1, 1) NOT NULL,
+    [attractionName]        VARCHAR (50)    NOT NULL,
+    [attractionPrice]       MONEY           NOT NULL,
+    [dateTime]              VARCHAR (50)    NULL,
+    [attractionDesc]        VARCHAR (MAX)   NOT NULL,
+    [attractionLocation]    VARCHAR (50)    NOT NULL,
+    [attractionLatitude]    DECIMAL (12, 6) NULL,
+    [attractionLongitude]   DECIMAL (12, 6) NULL,
+    [attractionInterest]    VARCHAR (50)    NOT NULL,
+    [attractionType]        VARCHAR (50)    NOT NULL,
+    [attractionTransaction] VARCHAR (50)    NULL,
+    [attractionImage]       VARCHAR (50)    NULL,
     CONSTRAINT [PK_Attraction] PRIMARY KEY CLUSTERED ([attractionId] ASC)
 );
+
 
 
 CREATE TABLE [dbo].[Ticket] (
@@ -60,8 +62,12 @@ CREATE TABLE [dbo].[Cart] (
     [user_id]         INT             NULL,
     [productDesc]     VARCHAR (MAX)   NULL,
     [active]          VARCHAR (50)    NULL,
+    [productExpiry]   DATETIME        NULL,
+    [itemType]        NVARCHAR (50)   NULL,
     PRIMARY KEY CLUSTERED ([cartId] ASC)
 );
+
+
 
 
 

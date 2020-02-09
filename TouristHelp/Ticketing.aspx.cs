@@ -121,8 +121,9 @@ namespace TouristHelp
             Cart cart = new Cart(attName, attDesc, price, quantity, user_id);
             cart.InsertCartTicket();
 
-            var cart_id = cart.GetCartId(attName, user_id);
-            Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id, cart_id);
+            Cart newCart = new Cart();
+            newCart.GetCartId(attName, user_id);
+            Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id, newCart.productId);
             tkt.AddNewTicket();
 
 
