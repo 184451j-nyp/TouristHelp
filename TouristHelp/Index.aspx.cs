@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using TouristHelp.DAL;
 
 namespace TouristHelp
 {
@@ -11,7 +7,27 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["tourguide_id"] != null || Session["tourist_id"] != null)
+            {
+                string name = "";
+                int id = int.Parse(Session["tourist_id"].ToString());
+                try
+                {
+                    name = TouristDAO.SelectTouristById(id).Name;
+                }
+                catch
+                {
+                    name = TourGuideDAO.SelectTourGuideById(id).Name;
+                }
+                finally
+                {
+                    LblName.Text = name;
+                }
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }
