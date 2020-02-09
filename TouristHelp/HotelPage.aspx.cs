@@ -288,6 +288,7 @@ namespace TouristHelp
             double cartPrice = Convert.ToDouble(price) * Convert.ToDouble(stayDuration);
 
 
+            DateTime reservedate = DateTime.Now;
      
 
             Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id);
@@ -297,7 +298,7 @@ namespace TouristHelp
 
 
 
-            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid,cartId);
+            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid,cartId, reservedate);
             hotel.AddNewHotel();
 
 

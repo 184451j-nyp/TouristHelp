@@ -22,6 +22,15 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
         /// transactionLabel control.
         /// </summary>
         /// <remarks>
@@ -46,15 +55,6 @@ namespace TouristHelp {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView repeatHotelTrans;
-        
-        /// <summary>
-        /// paidRepeater control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater paidRepeater;
+        protected global::System.Web.UI.WebControls.Repeater repeatHotelTrans;
     }
 }

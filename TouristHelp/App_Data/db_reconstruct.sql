@@ -182,12 +182,11 @@ CREATE TABLE [dbo].[ReservationHotel] (
     [user_id]      INT             NOT NULL,
     [hotelName]    NVARCHAR (50)   NOT NULL,
     [verifyHotel]  INT             NOT NULL,
-    [hotelPaid]    NVARCHAR (50) NOT NULL,
+    [hotelPaid]    NVARCHAR (50)   NOT NULL,
     [cartId]       INT             NOT NULL,
+    [reserveDate] DATETIME NOT NULL, 
     PRIMARY KEY CLUSTERED ([hotelGen_Id] ASC)
 );
-
-
 
 CREATE TABLE [dbo].[TouristBooking] (
     [tourist_id]   INT          NOT NULL,
