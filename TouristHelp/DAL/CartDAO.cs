@@ -16,8 +16,31 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Cart (productName, productPrice, productQuantity, user_id, productDesc, active) " +
-                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active')";
+            string sqlStmt = "INSERT INTO Cart (productName, productPrice, productQuantity, user_id, productDesc, active, itemType) " +
+                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active', 'Ticket')";
+
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraProductName", cart.productName);
+            sqlCmd.Parameters.AddWithValue("@paraProductPrice", cart.productPrice);
+            sqlCmd.Parameters.AddWithValue("@paraProductQuantity", cart.productQuantity);
+            sqlCmd.Parameters.AddWithValue("@paraProductDesc", cart.productDesc);
+            sqlCmd.Parameters.AddWithValue("@paraUserId", cart.userId);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+        }
+
+        public void InsertHotel(Cart cart)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "INSERT INTO Cart (productName, productPrice, productQuantity, user_id, productDesc, active, itemType) " +
+                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active', 'Hotel)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -141,7 +164,7 @@ namespace TouristHelp.DAL
 
         }
 
-        public int GetCartId(string attName, int userId)
+        public Cart GetCartId(string attName, int userId)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
@@ -156,16 +179,17 @@ namespace TouristHelp.DAL
             DataSet ds = new DataSet();
             da.Fill(ds);
 
-            int cartId = 0;
+            Cart cart = null;
 
             int rec_cnt = ds.Tables[0].Rows.Count;
             if (rec_cnt == 1)
             {
                 DataRow row = ds.Tables[0].Rows[0];
-                cartId = Convert.ToInt32(row["cartId"].ToString());
-
+                int cartId = Convert.ToInt32(row["cartId"].ToString());
+                string itemType = row["cartId"].ToString();
+                cart = new Cart(cartId, itemType);
             }
-            return cartId;
+            return cart;
         }
 
     }
