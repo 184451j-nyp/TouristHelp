@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace TouristHelp {
+namespace TouristHelp.DefaultPages {
     
     
-    public partial class Ticketing {
+    public partial class TicketingLO {
         
         /// <summary>
         /// Label1 control.

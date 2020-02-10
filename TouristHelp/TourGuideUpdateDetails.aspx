@@ -39,7 +39,6 @@
             <asp:Label ID="tourguideidLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
             <asp:Label ID="tourguideuseridLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
 
-            <p>
                 Your Image:
                 <asp:FileUpload ID="FileUpload1" runat="server" />
                 <asp:Button ID="btnUpload" Text="Upload" runat="server" OnClick="UploadFile" CausesValidation="false" Visible="false" />
@@ -48,7 +47,6 @@
                 <asp:Image ID="Image1" runat="server" Height="100" Width="100" Visible="false" />
 
                 <asp:Button ID="BtnSubmit" runat="server" OnClick="BtnSubmit_Click" Text="Update" Width="80px" />
-            </p>
 
 
 

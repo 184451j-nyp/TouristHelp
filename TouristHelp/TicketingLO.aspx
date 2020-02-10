@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Ticketing.aspx.cs" Inherits="TouristHelp.Ticketing" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="TicketingLO.aspx.cs" Inherits="TouristHelp.DefaultPages.TicketingLO" %>
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -28,6 +28,7 @@
                        
                  <br />
                  <asp:Label ID="lbTicketDesc" runat="server" Font-Size="Large"></asp:Label>
+
                          <br />
                          <br />
                          <br />

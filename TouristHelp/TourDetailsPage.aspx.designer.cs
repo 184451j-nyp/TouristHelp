@@ -76,6 +76,15 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.Label tourdetailsLabel;
         
         /// <summary>
+        /// tourpriceLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label tourpriceLabel;
+        
+        /// <summary>
         /// DropDownListCurrency control.
         /// </summary>
         /// <remarks>
@@ -92,15 +101,6 @@ namespace TouristHelp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ConvertCurrency;
-        
-        /// <summary>
-        /// tourpriceLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label tourpriceLabel;
         
         /// <summary>
         /// convertedtourpriceLabel control.
