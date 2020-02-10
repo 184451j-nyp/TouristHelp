@@ -41,49 +41,13 @@
                             id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Guidebook.aspx">Guidebook</a>
+                                    <a class="nav-link" href="AdminPageAddAttraction.aspx">Add Attraction</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Interest.aspx">Interests</a>
+                                    <a class="nav-link" href="AdminPageHotel.aspx">Add Hotel</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Planner.aspx">Journey Planner</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="HotelPage.aspx">Hotel</a>
-                                </li>
-                                   <li class="nav-item">
-                                    <a class="nav-link" href="TourGuideListPage.aspx">Tour Guides</a>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="RewardPage.aspx" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reward
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="RewardPage.aspx">Reward</a>
-                                        <a class="dropdown-item" href="Shop.aspx">Shop</a>
-                                        <a class="dropdown-item" href="TransactionPage.aspx">Transaction</a>
-                                    </div>
-                                </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reservations
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="List_Reservation_Food.aspx">Food Reservation</a>
-                                        <a class="dropdown-item" href="HotelReservation.aspx">Hotel Reservation</a>
-                                    </div>
-                                </li>
-
-                                       <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" id="navbarDropdown4" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Admin Page
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="AdminPageHotel.aspx">Admin Hotel</a>
-                                        <a class="dropdown-item" href="AdminPageRewardSystem.aspx">Admin Reward</a>
-                                    </div>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" href="ShoppingCart.aspx">Cart</a>
+                                    <a class="nav-link" href="AdminPageRewardSystem.aspx">Reward</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Login.aspx">Logout</a>
