@@ -15,6 +15,7 @@ namespace TouristHelp
         protected void Page_Load(object sender, EventArgs e)
         {
             txtTo.Text = (string)Session["SSEmail"];
+
         }
 
         protected void Sendbtn_Click(object sender, EventArgs e)

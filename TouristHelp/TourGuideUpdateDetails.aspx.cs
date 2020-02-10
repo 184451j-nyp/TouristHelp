@@ -43,11 +43,11 @@ namespace TouristHelp
 
         protected void UploadFile(object sender, EventArgs e)
         {
-
-
+        
             string folderPath = Server.MapPath("~/Images/");
 
-
+            LbImage.Text = "Images/" + FileUpload1.FileName;
+             
             FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName).ToString());
 
 

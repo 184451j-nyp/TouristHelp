@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="SendMailToTourGuide.aspx.cs" Inherits="TouristHelp.SendMailToTourGuide" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+   
     <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_1.jpg');">
         <div class="overlay"></div>
         <div class="container">
@@ -17,14 +19,14 @@
     <form id="form" runat="server">
         <div class="row">
             <asp:Label CssClass="col-1" runat="server" Text="Send To:"></asp:Label>
-            <asp:TextBox ID="txtTo" CssClass="col-1" runat="server" ReadOnly="true"></asp:TextBox>
+            <asp:TextBox ID="txtTo" CssClass="col-2" runat="server" ReadOnly="true"></asp:TextBox>
 
             <asp:Label CssClass="col-1" runat="server" Text="Subject:"></asp:Label>
-            <asp:TextBox ID="txtSub" CssClass="col-1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtSub" CssClass="col-2" runat="server"></asp:TextBox>
 
 
             <asp:Label CssClass="col-1" runat="server" Text="Body:"></asp:Label>
-            <asp:TextBox ID="txtBody" CssClass="col-1" TextMode="MultiLine" runat="server"></asp:TextBox>
+            <asp:TextBox ID="txtBody" CssClass="col-2" TextMode="MultiLine" runat="server"></asp:TextBox>
 
             <asp:Button ID="Sendbtn" runat="server" OnClick="Sendbtn_Click" Text="Send Mail" Width="80px" />
 
