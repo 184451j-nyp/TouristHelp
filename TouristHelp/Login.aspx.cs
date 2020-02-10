@@ -21,7 +21,7 @@ namespace TouristHelp
                 if(tbEmail.Text == "admin@touristhelp.com")
                 {
                     Session["admin"] = true;
-                    Response.Redirect("");
+                    Response.Redirect("IndexAdmin.aspx");
                     return;
                 }
 
@@ -44,6 +44,17 @@ namespace TouristHelp
                     else if (Session["tourist_id"] != null)
                     {
                         Response.Redirect("Index.aspx");
+
+
+
+
+
+
+
+
+
+
+
                     }
                 }
             }

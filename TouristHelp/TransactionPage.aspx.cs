@@ -82,18 +82,55 @@ namespace TouristHelp
         {
 
             int userId = Convert.ToInt32(Session["tourist_id"]);
-            Transactions getHotel = new Transactions();
-            List<Transactions> transList = getHotel.getTransaction(userId);
+           
 
 
 
-            // using gridview to bind to the list of employee objects
-            repeatTrans.Visible = true;
-            repeatTrans.DataSource = transList;
-            repeatTrans.DataBind();
 
-            repeatTrans.DataSource = transList;
-            repeatTrans.DataBind();
+
+
+
+
+
+
+
+
+
+            if (filterTrans.SelectedItem.Value == "Newest")
+            {
+                Transactions getHotel = new Transactions();
+                List<Transactions> transList = getHotel.getTransaction(userId);
+
+
+
+                // using gridview to bind to the list of employee objects
+                repeatTrans.Visible = true;
+                repeatTrans.DataSource = transList;
+                repeatTrans.DataBind();
+
+                repeatTrans.DataSource = transList;
+                repeatTrans.DataBind();
+
+
+
+            }
+
+            else if (filterTrans.SelectedItem.Value == "Oldest")
+            {
+                Transactions getHotel = new Transactions();
+                List<Transactions> transList = getHotel.getTransactionOldest(userId);
+
+
+
+                // using gridview to bind to the list of employee objects
+                repeatTrans.Visible = true;
+                repeatTrans.DataSource = transList;
+                repeatTrans.DataBind();
+
+                repeatTrans.DataSource = transList;
+                repeatTrans.DataBind();
+
+            }
         }
 
 

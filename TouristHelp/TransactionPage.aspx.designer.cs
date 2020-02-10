@@ -31,15 +31,6 @@ namespace TouristHelp {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// transactionLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label transactionLabel;
-        
-        /// <summary>
         /// frm control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace TouristHelp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm frm;
+        
+        /// <summary>
+        /// filterTrans control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList filterTrans;
         
         /// <summary>
         /// repeatTrans control.

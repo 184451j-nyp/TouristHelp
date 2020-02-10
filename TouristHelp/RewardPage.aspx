@@ -144,7 +144,7 @@
               <div class="icon"><span class="flaticon-around"></span></div>
               <div class="media-body">
                 <h3 class="heading mb-3">Get rewarded</h3>
-                <p>Credits can be used to vouchers and membership to get special offers and discounts</p>
+                <p>Credits can be used to purchase vouchers and membership to get special offers and discounts</p>
               </div>
             </div>    
           </div>
