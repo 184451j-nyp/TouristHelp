@@ -220,5 +220,27 @@ namespace TouristHelp.DAL
 
 
         }
+
+        public void TicketExp(int ticketId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE Ticket SET paid = 'expired' where ticketId = @paraTicketId ";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paraTicketId", ticketId);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+
+        }
     }
 }

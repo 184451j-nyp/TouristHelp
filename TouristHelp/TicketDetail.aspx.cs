@@ -15,8 +15,27 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            else
+            {
+
+                try
+                {
+                    Label1.Text = Session["tourist_id"].ToString();
+                }
+                catch (NullReferenceException)
+                {
+                    Label1.Text = Session["tourguide_id"].ToString();
+                }
+
+            }
+
             string ticketCode = Request.QueryString["Code"];
-            string code = "touristhelp20200208080154.azurewebsites.net/TicketConfirm.aspx?Code=" + ticketCode;
+            string code = "touristhelp20200208080154.azurewebsites.net/TicketClaim.aspx?Code=" + ticketCode;
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeGenerator.QRCode qrCode = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
             System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();

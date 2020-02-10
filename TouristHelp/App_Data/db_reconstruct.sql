@@ -16,19 +16,21 @@ DROP TABLE [dbo].Ticket;
 DROP TABLE [dbo].Attraction;
 
 CREATE TABLE [dbo].[Attraction] (
-    [attractionId]        INT             IDENTITY (1, 1) NOT NULL,
-    [attractionName]      VARCHAR (50)    NOT NULL,
-    [attractionPrice]     MONEY           NOT NULL,
-    [dateTime]            VARCHAR (50)    NULL,
-    [attractionDesc]      VARCHAR (MAX)   NOT NULL,
-    [attractionLocation]  VARCHAR (50)    NOT NULL,
-    [attractionLatitude]  DECIMAL (12, 6) NULL,
-    [attractionLongitude] DECIMAL (12, 6) NULL,
-    [attractionInterest]  VARCHAR (50)    NOT NULL,
-    [attractionType]      VARCHAR (50)    NOT NULL,
-    [attractionTransaction] VARCHAR(50) NULL, 
+    [attractionId]          INT             IDENTITY (1, 1) NOT NULL,
+    [attractionName]        VARCHAR (MAX)   NOT NULL,
+    [attractionPrice]       NVARCHAR (50)   NOT NULL,
+    [dateTime]              VARCHAR (50)    NULL,
+    [attractionDesc]        VARCHAR (MAX)   NOT NULL,
+    [attractionLocation]    VARCHAR (50)    NOT NULL,
+    [attractionLatitude]    DECIMAL (18, 8) NULL,
+    [attractionLongitude]   DECIMAL (18, 8) NULL,
+    [attractionInterest]    VARCHAR (50)    NOT NULL,
+    [attractionType]        VARCHAR (50)    NOT NULL,
+    [attractionTransaction] VARCHAR (50)    NOT NULL,
+    [attractionImage]       VARCHAR (50)    NOT NULL,
     CONSTRAINT [PK_Attraction] PRIMARY KEY CLUSTERED ([attractionId] ASC)
 );
+
 
 
 CREATE TABLE [dbo].[Ticket] (
@@ -60,8 +62,12 @@ CREATE TABLE [dbo].[Cart] (
     [user_id]         INT             NULL,
     [productDesc]     VARCHAR (MAX)   NULL,
     [active]          VARCHAR (50)    NULL,
+    [productExpiry]   DATETIME        NULL,
+    [itemType]        NVARCHAR (50)   NULL,
     PRIMARY KEY CLUSTERED ([cartId] ASC)
 );
+
+
 
 
 
@@ -132,14 +138,16 @@ CREATE TABLE [dbo].[Transaction] (
     [voucherTotalCost] INT          NOT NULL,
     [voucherQuantity]  INT          NOT NULL,
     [voucherName]      VARCHAR (50) NOT NULL,
-    CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC),
-    --CONSTRAINT [FK_Transaction_ToUser] FOREIGN KEY ([user_id]) REFERENCES [dbo].[Reward] ([user_id])
+    CONSTRAINT [PK_Transaction] PRIMARY KEY CLUSTERED ([voucherGen_id] ASC)
+   
 );
 
 
 
+
+
 CREATE TABLE [dbo].[ShopVoucher] (
-    [voucher_id]         INT          IDENTITY (1, 1)  NOT NULL,
+    [voucher_id]         INT           IDENTITY (1, 1) NOT NULL,
     [voucherQty]         INT           NOT NULL,
     [voucherType]        VARCHAR (50)  NOT NULL,
     [voucherStatus]      VARCHAR (50)  NOT NULL,
@@ -150,6 +158,7 @@ CREATE TABLE [dbo].[ShopVoucher] (
     [shopImage]          NVARCHAR (50) NULL,
     [shopDesc]           NVARCHAR (50) NULL,
     [voucherName]        NVARCHAR (50) NOT NULL,
+    [voucherPopularity] INT NULL, 
     PRIMARY KEY CLUSTERED ([voucher_id] ASC)
 );
 
@@ -171,7 +180,6 @@ CREATE TABLE [dbo].[HotelBook] (
 );
 
 
-
 CREATE TABLE [dbo].[ReservationHotel] (
     [hotelGen_Id]  INT             NOT NULL,
     [totalCost]    DECIMAL (18, 2) NOT NULL,
@@ -180,10 +188,11 @@ CREATE TABLE [dbo].[ReservationHotel] (
     [user_id]      INT             NOT NULL,
     [hotelName]    NVARCHAR (50)   NOT NULL,
     [verifyHotel]  INT             NOT NULL,
-    [hotelPaid]    BIT             NOT NULL,
+    [hotelPaid]    NVARCHAR (50)   NOT NULL,
+    [cartId]       INT             NOT NULL,
+    [reserveDate] DATETIME NOT NULL, 
     PRIMARY KEY CLUSTERED ([hotelGen_Id] ASC)
 );
-
 
 CREATE TABLE [dbo].[TouristBooking] (
     [tourist_id]   INT          NOT NULL,
@@ -201,12 +210,13 @@ CREATE TABLE [dbo].[TouristBooking] (
 
 
 CREATE TABLE [dbo].[ReservationFood] (
-    [reservationId]   INT          IDENTITY (1, 1) NOT NULL,
-    [reservationName] VARCHAR (50) NOT NULL,
-    [reservationTime] VARCHAR (50) NOT NULL,
-    [reservationPax]  INT          NOT NULL,
-    [reservationState]  VARCHAR(50) NOT NULL, 
-    [userId] INT NOT NULL
+    [reservationId]    INT          IDENTITY (1, 1) NOT NULL,
+    [reservationName]  VARCHAR (50) NOT NULL,
+    [reservationDate]  VARCHAR (50) NOT NULL,
+    [reservationTime]  VARCHAR (50) NOT NULL,
+    [reservationPax]   INT          NOT NULL,
+    [reservationState] VARCHAR (50) NOT NULL,
+    [userId]           INT          NOT NULL
 );
 
 CREATE TABLE [dbo].[Tours] (

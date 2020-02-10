@@ -45,7 +45,6 @@ namespace TouristHelp
                         res.CancelReservation(resList[i].Id);
                     }
                 }
-
                 loadRepeater();
             }
         }
@@ -64,15 +63,15 @@ namespace TouristHelp
             RepeaterReserves.DataBind();
         }
 
-        protected void CancelRes(object source, RepeaterCommandEventArgs e)
+        protected void DetailsRes(object source, RepeaterCommandEventArgs e)
         {
             RepeaterItem item1 = e.Item;
             Label resId = (Label)item1.FindControl("LbId");
 
             Food_Reservation res = new Food_Reservation();
-            res.CancelReservation(int.Parse(resId.Text));
+            Session["ResId"] = resId.Text;
 
-            Response.Redirect("List_Reservation_Food.aspx");
+            Response.Redirect("Reservation_Food_QR.aspx");
         }
     }
 }

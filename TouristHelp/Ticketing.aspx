@@ -28,11 +28,8 @@
                        
                  <br />
                  <asp:Label ID="lbTicketDesc" runat="server" Font-Size="Large"></asp:Label>
-
                          <br />
                          <br />
-
-                         <asp:Label ID="Label2" runat="server" Text="Select a Package:" Font-Size="X-Large"></asp:Label>
                          <br />
                          <br />
                          <br />
@@ -47,7 +44,7 @@
                          <asp:Panel ID="Panel1" runat="server">
                              <asp:UpdatePanel ID="UpdatePanel1" runat="server">
                                  <ContentTemplate>
-                                     <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged2"></asp:Calendar>
+                                     <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged2" BackColor="White"></asp:Calendar>
                                  </ContentTemplate>
                              </asp:UpdatePanel>
                  </asp:Panel>
@@ -56,7 +53,7 @@
                          <br />
                          <div class="row">
                              <span class="col-lg-6">
-                                   <asp:Label ID="lblCategory" runat="server" Font-Size="Medium" Text="Adult/Person/Child"></asp:Label>
+                                   <asp:Label ID="lblCategory" runat="server" Font-Size="Medium" Text="Person"></asp:Label>
                              </span>
                              <span class="col-lg-3">
                                  <asp:Label ID="dollar" runat="server" Font-Size="Medium" Text="$"></asp:Label>

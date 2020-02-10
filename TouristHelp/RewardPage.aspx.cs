@@ -60,6 +60,8 @@ namespace TouristHelp
 
             DateTime dateNow = DateTime.Now;
 
+          
+
             //DateTime NextDayDate = dateNow.AddHours(24);
 
             if (td.loggedInLog == true && td.loggedInDate.Date !=  DateTime.Now.Date )
@@ -71,8 +73,9 @@ namespace TouristHelp
                 bool renewLogIn = false;
                 DateTime loggedInDate = td.loggedInDate;
                 bool newDateCheck = false;
+                int remainBonusDays = td.remainBonusDays;
 
-                td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, renewLogIn, loggedInDate, newDateCheck);
+                td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, remainBonusDays, renewLogIn, loggedInDate, newDateCheck);
 
             }
 
@@ -90,8 +93,18 @@ namespace TouristHelp
                     bool loggedInLog = true;
                     DateTime loggedInDate = DateTime.Now;
                     bool newDateCheck = true;
+                    int remainBonusDays = td.remainBonusDays - 1;
 
-                    td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, loggedInLog, loggedInDate, newDateCheck);
+                    td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, remainBonusDays, loggedInLog, loggedInDate, newDateCheck);
+
+                    if (loginStreak % 10 == 0)
+                    {
+                        creditBalance = td.creditBalance + td.bonusCredits + 5;
+                        remainBonusDays = td.remainBonusDays + 9;
+
+
+                        td.updateBonus(userId, loginStreak, creditBalance, remainBonusDays);
+                    }
 
                 }
 
@@ -103,17 +116,32 @@ namespace TouristHelp
                     bool loggedInLog = true;
                     DateTime loggedInDate = DateTime.Now;
                     bool newDateCheck = true;
+                    int remainBonusDays = 10;
 
-                    td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, loggedInLog, loggedInDate, newDateCheck);
+                    td.updateLoggedIn(userId, loginCount, loginStreak, creditBalance, remainBonusDays, loggedInLog, loggedInDate, newDateCheck);
 
                 }
 
 
             }
 
+            if (td.loginCount == 100)
+            {
+                string loyaltyTier = "Gold";
+                int bonuscredits = 15;
+
+                td.updateLoyaltyBonus(userId, loyaltyTier, bonuscredits);
+            }
 
 
 
+            if (td.loginCount == 200)
+            {
+                string loyaltyTier = "Diamond";
+                int bonuscredits = 20;
+
+                td.updateLoyaltyBonus(userId, loyaltyTier, bonuscredits);
+            }
 
 
 

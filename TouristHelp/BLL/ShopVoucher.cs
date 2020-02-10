@@ -20,13 +20,14 @@ namespace TouristHelp.BLL
         public string shopImage { get; set; }
         public string shopDesc { get; set; }
         public string voucherName { get; set; }
+        public int voucherPopularity { get; set; }
 
 
         public ShopVoucher()
         {
         }
 
-        public ShopVoucher(int shop_id,int voucherqty, string vouchertype, string voucherstatus, bool membershipcategory, bool foodcategory, string namefilter, int vouchercost, string shopimage, string shopdesc, string vouchername)
+        public ShopVoucher(int shop_id,int voucherqty, string vouchertype, string voucherstatus, bool membershipcategory, bool foodcategory, string namefilter, int vouchercost, string shopimage, string shopdesc, string vouchername, int voucherpopularity)
         {
             this.voucher_id = shop_id;
             this.voucherQty = voucherqty;
@@ -39,10 +40,11 @@ namespace TouristHelp.BLL
             this.shopImage = shopimage;
             this.shopDesc = shopdesc;
             this.voucherName = vouchername;
+            this.voucherPopularity = voucherpopularity;
         }
 
 
-        public ShopVoucher(int voucherqty, string vouchertype, string voucherstatus, bool membershipcategory, bool foodcategory, string namefilter, int vouchercost, string shopimage, string shopdesc, string vouchername)
+        public ShopVoucher(int voucherqty, string vouchertype, string voucherstatus, bool membershipcategory, bool foodcategory, string namefilter, int vouchercost, string shopimage, string shopdesc, string vouchername, int voucherpopularity)
         {
             this.voucherQty = voucherqty;
             this.voucherType = vouchertype;
@@ -50,10 +52,11 @@ namespace TouristHelp.BLL
             this.membershipCategory = membershipcategory;
             this.foodCategory = foodcategory;
             this.nameFilter = namefilter;
-            this.voucherCost = voucherCost;
+            this.voucherCost = vouchercost;
             this.shopImage = shopimage;
             this.shopDesc = shopdesc;
             this.voucherName = vouchername;
+            this.voucherPopularity = voucherpopularity;
         }
         public ShopVoucher GetShopById(string shopId)
         {
@@ -77,6 +80,39 @@ namespace TouristHelp.BLL
             shop.addNewShopVoucher(shopVoucher);
         }
 
+        public void updateVoucherStatus(int shopId, int voucherQty, string voucherStatus, int voucherPopularity)
+        {
+            ShopVoucherDAO getUpdateVoucher = new ShopVoucherDAO();
+            getUpdateVoucher.updateVoucherStatus(shopId ,voucherQty, voucherStatus, voucherPopularity);
+        }
+
+
+
+
+        public List<ShopVoucher> getPopularFilter()
+        {
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.popularFilter();
+        }
+
+
+        public List<ShopVoucher> getNewFilter()
+        {
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.newFilter();
+        }
+
+        public List<ShopVoucher> getLowFilter()
+        {
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.lowFilter();
+        }
+
+        public List<ShopVoucher> getHighFilter()
+        {
+            ShopVoucherDAO dao = new ShopVoucherDAO();
+            return dao.highFilter();
+        }
 
 
     }

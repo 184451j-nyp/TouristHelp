@@ -58,10 +58,27 @@ namespace TouristHelp
                 Session["ResDate"] = tbDate.Text.ToString();
                 Session["ResTime"] = TbTime.Text.ToString();
                 Session["ResPax"] = TbPax.Text.ToString();
+
+                Random random = new Random();
+
+                //check whether a code exists already
+                string code = random.Next(1000000, 9999999).ToString();
+                Food_Reservation res = new Food_Reservation();
+                List<String> codeList = res.GetQRCodesList();
+                while (true && codeList != null)
+                {
+                    if (codeList.Contains(code))
+                    {
+                        code = random.Next(1000000, 9999999).ToString();
+                    }
+                    else
+                    {
+                        break;
+                    }
+                }
+
                 Food_Reservation td = new Food_Reservation();
-                td.InsertReservation(lbName.Text, tbDate.Text, TbTime.Text, int.Parse(TbPax.Text), int.Parse(Session["tourist_id"].ToString()));
-                Cart cr = new Cart(lbName.Text, "Reservation at " + lbName.Text, 0, 1, 1);
-                cr.InsertCartReservation();
+                td.InsertReservation(lbName.Text, tbDate.Text, TbTime.Text, int.Parse(TbPax.Text), int.Parse(Session["tourist_id"].ToString()), code);
                 Response.Redirect("Reservation_Food_Confirmed.aspx");
             }
             

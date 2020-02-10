@@ -30,7 +30,7 @@ namespace TouristHelp
                 }
                 finally
                 {
-                    Response.Redirect("blank.aspx");
+                    Response.Redirect("/TouristPages/Index.aspx");
                 }
             }
         }

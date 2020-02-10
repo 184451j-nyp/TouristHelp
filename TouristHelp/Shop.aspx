@@ -314,7 +314,24 @@
 
                             <div>
 
-                                <asp:Repeater ID="Repeat1" runat="server" OnItemCommand="Repeat1_ItemCommand">
+
+                                       <div class="form-group">
+                                                                         
+                                 <asp:DropDownList ID="filterSearch"  class="form-control"  placeholder="Search By Category"   runat="server" AutoPostBack="True">
+                                                            <asp:ListItem Selected="False" Value="Search By Category"></asp:ListItem>
+                                                            <asp:ListItem>Popular</asp:ListItem>
+                                                            <asp:ListItem>Newest</asp:ListItem>
+                                                            <asp:ListItem>Low Price</asp:ListItem>
+                                                            <asp:ListItem>High Price</asp:ListItem>
+  
+                                                        </asp:DropDownList>
+
+
+                                                                      
+
+                                                                        </div>
+
+                                <asp:Repeater ID="Repeat1" runat="server" EnableViewState="false" OnItemCommand="Repeat1_ItemCommand">
 
                                     <ItemTemplate>
 
@@ -327,7 +344,7 @@
                                                     ImageUrl='<%# Eval("shopImage")%>'
                                                     runat="server" />
 
-                                                <asp:HiddenField runat="server" ID="shop_Id" Value='<%#Eval("voucher_id") %>' />
+                                                <asp:HiddenField runat="server" ID="voucher_id" Value='<%#Eval("voucher_id") %>' />
 
 
                                                 <div class="text p-3">
@@ -345,10 +362,15 @@
 
                                                         <asp:Label ID="shopDesc" runat="server" Style="margin-left: 10px;" ForeColor="Black" Text='<%#Eval("shopDesc") %>'></asp:Label>
                                                         <asp:Label ID="voucherStatus" runat="server" Style="margin-left: 10px;" ForeColor="Green" Text='<%#Eval("voucherStatus") %>'></asp:Label>
-                                                        <asp:HiddenField runat="server" ID="voucherQty" Value='<%#Eval("voucherQty") %>' />
+                                                        <asp:Label ID="voucherQty" runat="server" Text='<%#Eval("voucherQty") %>'></asp:Label>
                                                     </span>
                                                     <hr>
                                                     <p class="bottom-area d-flex">
+
+
+                                                          <asp:HiddenField runat="server" ID="voucherPopularity" Value='<%#Eval("voucherPopularity") %>' />
+                                                              <asp:HiddenField runat="server" ID="membershipCategory" Value='<%#Eval("membershipCategory") %>' />
+                                                             <asp:HiddenField runat="server" ID="foodCategory" Value='<%#Eval("foodCategory") %>' />
 
 
                                                         <asp:DropDownList ID="voucherQuantity" runat="server" AutoPostBack="False">
@@ -399,21 +421,24 @@
                                                                 <form action="#">
 
                                                                     <div class="fields">
-                                                                        <div class="form-group">
+                                                                   <%--     <div class="form-group">
                                                                             <input type="text" class="form-control" placeholder="Search for specific item">
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <div class="select-wrap one-third">
-                                                                                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                                                                                <select name="" id="" class="form-control">
-                                                                                    <option value="">Search By Category</option>
-                                                                                    <option value="">Popular</option>
-                                                                                    <option value="">Newest</option>
-                                                                                    <option value="">Low Price</option>
-                                                                                    <option value="">High Price</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
+                                                                        </div>--%>
+                                                                 <%--       <div class="form-group">
+                                                                         
+                                 <asp:DropDownList ID="filterSearch"  class="form-control"  placeholder="Search By Category"   runat="server" AutoPostBack="True">
+                                                            <asp:ListItem Selected="False" Value="Search By Category"></asp:ListItem>
+                                                            <asp:ListItem>Popular</asp:ListItem>
+                                                            <asp:ListItem>Newest</asp:ListItem>
+                                                            <asp:ListItem>Low Price</asp:ListItem>
+                                                            <asp:ListItem>High Price</asp:ListItem>
+  
+                                                        </asp:DropDownList>
+
+
+                                                                      
+
+                                                                        </div>--%>
 
                                                                         <style>
                                                                             .form-control {
@@ -421,9 +446,9 @@
                                                                             }
                                                                         </style>
 
-                                                                        <div class="form-group">
+                                                                      <%--  <div class="form-group">
                                                                             <input type="submit" value="Search" class="btn btn-primary py-3 px-5">
-                                                                        </div>
+                                                                        </div>--%>
                                                                     </div>
                                                                 </form>
                                                             </div>

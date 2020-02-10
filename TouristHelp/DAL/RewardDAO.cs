@@ -146,7 +146,7 @@ namespace TouristHelp.DAL
         }
 
 
-        public void updateLogIn(int userId, int loginCount, int loginStreak, int creditBalance, bool loggedInLog, DateTime loggedInDate, bool newDateCheck)
+        public void updateLogIn(int userId, int loginCount, int loginStreak, int creditBalance, int remainBonusdays, bool loggedInLog, DateTime loggedInDate, bool newDateCheck)
         {
 
             SqlCommand sqlCmd = new SqlCommand();
@@ -156,7 +156,7 @@ namespace TouristHelp.DAL
 
             // Step 2 - Instantiate SqlCommand instance to add record 
             //          with INSERT statement
-            string sqlStmt = "UPDATE Reward SET loginCount = @paralogincount, loginStreak = @paraloginstreak, creditBalance = @paracreditbalance, loggedInLog = @paraloggedinlog, loggedInDate = @paraloggedindate, newDateCheck = @paranewdatecheck " +
+            string sqlStmt = "UPDATE Reward SET loginCount = @paralogincount, loginStreak = @paraloginstreak, creditBalance = @paracreditbalance, remainBonusDays = @pararemainbonusdays, loggedInLog = @paraloggedinlog, loggedInDate = @paraloggedindate, newDateCheck = @paranewdatecheck " +
                                 "WHERE user_id = @parauserid ";
 
             sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -167,11 +167,114 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paralogincount", loginCount);
             sqlCmd.Parameters.AddWithValue("@paraloginstreak", loginStreak);
             sqlCmd.Parameters.AddWithValue("@paracreditbalance", creditBalance);
+            sqlCmd.Parameters.AddWithValue("@pararemainbonusdays", remainBonusdays);
+
             sqlCmd.Parameters.AddWithValue("@paraloggedinlog", loggedInLog);
 
             sqlCmd.Parameters.AddWithValue("@paraloggedindate", loggedInDate);
             sqlCmd.Parameters.AddWithValue("@paranewdatecheck", newDateCheck);
             // Step 4 Open connection the execute NonQuery of sql command   
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+        }
+
+
+
+        public void updateBonus(int userId, int loginStreak, int creditBalance, int remainBonusDays)
+        {
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Instantiate SqlCommand instance to add record 
+            //          with INSERT statement
+            string sqlStmt = "UPDATE Reward SET loginStreak = @paraloginstreak,  creditBalance = @paracreditbalance, remainBonusDays = @remainbonusdays " +
+                                "WHERE user_id = @parauserid ";
+
+            sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@parauserid", userId);
+
+            sqlCmd.Parameters.AddWithValue("@paraloginstreak", loginStreak);
+            sqlCmd.Parameters.AddWithValue("@paracreditbalance", creditBalance);
+            sqlCmd.Parameters.AddWithValue("@remainbonusdays", remainBonusDays);
+
+            // Step 4 Open connection the execute NonQuery of sql command   
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+        }
+
+
+
+
+
+
+
+
+
+        public void loyaltyBonus(int userId, string loyaltyTier, int bonusCredits)
+        {
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Instantiate SqlCommand instance to add record 
+            //          with INSERT statement
+            string sqlStmt = "UPDATE Reward SET loyaltyTier = @paraloyaltytier, bonusCredits = @parabonuscredits " +
+                                "WHERE user_id = @parauserid ";
+
+            sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@parauserid", userId);
+
+            sqlCmd.Parameters.AddWithValue("@paraloyaltytier", loyaltyTier);
+            sqlCmd.Parameters.AddWithValue("@parabonuscredits", bonusCredits);
+        
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            // Step 5 :Close connection
+            myConn.Close();
+
+        }
+
+
+
+        public void membershipSubscription(int userId, int totalDiscount, string membershipTier)
+        {
+
+            SqlCommand sqlCmd = new SqlCommand();
+
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            // Step 2 - Instantiate SqlCommand instance to add record 
+            //          with INSERT statement
+            string sqlStmt = "UPDATE Reward SET totalDiscount = @paratotaldiscount, membershipTier = @paramembershiptier " +
+                                "WHERE user_id = @parauserid ";
+
+            sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+            // Step 3 : Add each parameterised variable with value
+            sqlCmd.Parameters.AddWithValue("@parauserid", userId);
+
+            sqlCmd.Parameters.AddWithValue("@paratotaldiscount", totalDiscount);
+            sqlCmd.Parameters.AddWithValue("@paramembershiptier", membershipTier);
+
             myConn.Open();
             sqlCmd.ExecuteNonQuery();
 

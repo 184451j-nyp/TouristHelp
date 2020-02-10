@@ -10,7 +10,7 @@
     <br />
     <br />
     <asp:Label ID="Label1" Visible="false" runat="server" Text=""></asp:Label>
-        <asp:Repeater ID="RepeaterReserves" runat="server" OnItemCommand="CancelRes">
+        <asp:Repeater ID="RepeaterReserves" runat="server" OnItemCommand="DetailsRes">
             <ItemTemplate>
                 <div class="col-sm col-md-6 col-lg-12" style="border-style: solid; border-width: 1px; margin-bottom: 10px">
 
@@ -28,7 +28,7 @@
                             <span class="price" id="time">Timing: <%#Eval("Date") %> : <%#Eval("Time") %></span></div>
                         <div><span><%#Eval("Pax") %> People</span></div>
                         <hr>
-                            <asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="Cancel Reservation" Style="float: right" />
+                            <asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="More Details" Style="float: right" />
                         <br />
                         <br />
                     </div>

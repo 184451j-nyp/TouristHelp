@@ -19,7 +19,7 @@ namespace TouristHelp
 
         protected void BtnBack_Click(object sender, EventArgs e)
         {
-            Response.Redirect("AdminPageRewardSytem.aspx");
+            Response.Redirect("AdminPageRewardSystem.aspx");
 
         }
 
@@ -47,17 +47,18 @@ namespace TouristHelp
             bool membershipCategory;
             bool foodCategory;
             string nameFilter;
-            int voucherPrice;
+            int voucherPrice = 0;
             string shopImage = "Images/" + FileUpload1.FileName;
             string shopDesc;
             string voucherName;
+            int voucherPopularity = 0;
 
-            if (TbVoucherStock.Text != "" && TbVoucherType.Text != "" && CBVoucherCategory.SelectedIndex != -1 && TbPrice.Text != "" && TbName.Text != "")
+            if (TbVoucherStock.Text != "" && TbVoucherType.Text != "" && CBVoucherCategory.SelectedIndex != -1 && TbPrice.Text != "0" && TbName.Text != "")
             {
 
                 voucherQty = Convert.ToInt32(TbVoucherStock.Text);
                 voucherType = TbVoucherType.Text;
-                voucherStatus = "Active";
+                voucherStatus = "Available";
                 shopDesc = TbVoucherDesc.Text;
                 voucherName = TbName.Text;
                 nameFilter = "";
@@ -68,7 +69,7 @@ namespace TouristHelp
                     membershipCategory = true;
                     foodCategory = true;
 
-                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, shopImage, shopDesc, voucherName);
+                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, shopImage, shopDesc, voucherName, voucherPopularity);
                     shop.addShopVoucher(shop);
                     Response.Redirect("AdminPageRewardSystem.aspx");
 
@@ -80,7 +81,7 @@ namespace TouristHelp
                     foodCategory = false;
                     membershipCategory = true;
 
-                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, shopImage, shopDesc, voucherName);
+                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, shopImage, shopDesc, voucherName, voucherPopularity);
                     shop.addShopVoucher(shop);
                     Response.Redirect("AdminPageRewardSystem.aspx");
                 }
@@ -90,17 +91,95 @@ namespace TouristHelp
                     foodCategory = true;
                     membershipCategory = false;
 
-                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, shopImage, shopDesc, voucherName);
+                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, shopImage, shopDesc, voucherName, voucherPopularity);
                     shop.addShopVoucher(shop);
                     Response.Redirect("AdminPageRewardSystem.aspx");
                 }
+            }
 
-               
 
 
-           
+            else
+            {
+
+                if (TbName.Text != "")
+                {
+                    LblMsgName.Visible = false;
+                    LblMsgName.Text = "";
+                }
+
+                if (TbPrice.Text != "0")
+                {
+
+                    LblMsgPrice.Visible = false;
+                    LblMsgPrice.Text = "";
+                }
+
+                if (TbVoucherStock.Text != "")
+                {
+                    LblMsgQty.Visible = false;
+                    LblMsgQty.Text = "";
+                }
+
+
+                if (TbVoucherType.Text != "")
+                {
+                    LblMsgVoucherType.Visible = false;
+                    LblMsgVoucherType.Text = "";
+                }
+
+                if (CBVoucherCategory.SelectedIndex != -1)
+                {
+                    LblMsgVoucherCategory.Visible = false;
+                    LblMsgVoucherType.Text = "";
+                }
+
+                if (TbName.Text == "")
+                {
+                    LblMsgName.Visible = true;
+                    LblMsgName.ForeColor = Color.Red;
+                    LblMsgName.Text = "Voucher Name cannot be empty" + Environment.NewLine;
+                }
+
+                if (TbPrice.Text == "0")
+                {
+
+                    LblMsgPrice.Visible = true;
+                    LblMsgPrice.ForeColor = Color.Red;
+                    LblMsgPrice.Text = "Voucher Price cannot be 0" + Environment.NewLine;
+                }
+
+                if (TbVoucherStock.Text == "")
+                {
+                    LblMsgQty.Visible = true;
+                    LblMsgQty.ForeColor = Color.Red;
+                    LblMsgQty.Text = "Voucher quantity cannot be empty" + Environment.NewLine;
+                }
+
+
+                if (TbVoucherType.Text == "")
+                {
+                    LblMsgVoucherType.Visible = true;
+                    LblMsgVoucherType.ForeColor = Color.Red;
+                    LblMsgVoucherType.Text = "Voucher type cannot be empty" + Environment.NewLine;
+
+                }
+
+                if (CBVoucherCategory.SelectedIndex == -1)
+                {
+                    LblMsgVoucherCategory.Visible = true;
+                    LblMsgVoucherCategory.ForeColor = Color.Red;
+                    LblMsgVoucherCategory.Text = "Please select at least one of the voucher category" + Environment.NewLine;
+                }
 
             }
+
+
+
+
+
+
+            
 
 
         }

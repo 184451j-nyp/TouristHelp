@@ -12,10 +12,9 @@ namespace TouristHelp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            string ticketCode = Request.QueryString["Code"];
-            Ticket ticket = new Ticket();
-            ticket.ClaimTicket(ticketCode);
-            lbTixCode.Text = ticketCode;
+            string resId = Request.QueryString["ResId"];
+            Food_Reservation ticket = new Food_Reservation();
+            ticket.CancelReservation(int.Parse(resId));
         }
     }
 }

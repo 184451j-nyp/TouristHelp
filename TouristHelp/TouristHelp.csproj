@@ -105,7 +105,6 @@
     <Content Include="App_Data\TouristHelp_log.ldf">
       <DependentUpon>TouristHelp.mdf</DependentUpon>
     </Content>
-    <Content Include="blank.aspx" />
     <Content Include="CheckoutPage.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
@@ -113,12 +112,15 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="TicketClaim.aspx" />
+    <Content Include="TicketingLO.aspx" />
     <Content Include="DLL\QRCoder.dll" />
     <Content Include="Global.asax" />
     <Content Include="Guidebook.aspx" />
+    <Content Include="HotelConfirm.aspx" />
+    <Content Include="HotelDetail.aspx" />
     <Content Include="HotelPage.aspx" />
     <Content Include="HotelReservation.aspx" />
-    <Content Include="Images\20190713_235044.jpg" />
     <Content Include="Images\banner_blog\banner_blog_1.png" />
     <Content Include="Images\banner_blog\banner_blog_2.png" />
     <Content Include="Images\banner_blog\banner_blog_3.png" />
@@ -136,7 +138,6 @@
     <Content Include="Images\blog\slide_thumb_1.png" />
     <Content Include="Images\breadcrumb_bg.png" />
     <Content Include="Images\Carlton.jpg" />
-    <Content Include="Images\China_Restraunt.jpg" />
     <Content Include="Images\comment\comment_1.png" />
     <Content Include="Images\comment\comment_2.png" />
     <Content Include="Images\comment\comment_3.png" />
@@ -185,7 +186,6 @@
     <Content Include="Images\gallery\service_bg_2.png" />
     <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\goldMember.jpg" />
-    <Content Include="Images\highTea%40Fullerton.jfif" />
     <Content Include="Images\hiltonGarden.jpg" />
     <Content Include="Images\iconicFood.jpg" />
     <Content Include="Images\icon\left.svg" />
@@ -193,8 +193,6 @@
     <Content Include="Images\icon\play.svg" />
     <Content Include="Images\icon\quate.svg" />
     <Content Include="Images\icon\right.svg" />
-    <Content Include="Images\IIPzQC2.png" />
-    <Content Include="Images\il_570xN.1940458229_5vrc.jpg" />
     <Content Include="Images\insta\instagram_1.png" />
     <Content Include="Images\insta\instagram_2.png" />
     <Content Include="Images\insta\instagram_3.png" />
@@ -235,7 +233,6 @@
     <Content Include="Images\post\post_8.png" />
     <Content Include="Images\post\post_9.png" />
     <Content Include="Images\post\preview.png" />
-    <Content Include="Images\Senko_step.png" />
     <Content Include="Images\Sentosa.png" />
     <Content Include="Images\sidebar\sidebar_1.png" />
     <Content Include="Images\sidebar\sidebar_2.png" />
@@ -243,7 +240,7 @@
     <Content Include="Images\signin-image.jpg" />
     <Content Include="Images\signup-image.jpg" />
     <Content Include="Images\silverMember.png" />
-    <Content Include="Images\Singapore_Zoo.jpg" />
+    <Content Include="Images\splash.jpg" />
     <Content Include="Images\starbucks.jpg" />
     <Content Include="Images\uss.jpg" />
     <Content Include="Index.aspx" />
@@ -254,6 +251,8 @@
     <Content Include="RegisterTG.aspx" />
     <Content Include="RegisterTourist.aspx" />
     <Content Include="AdminPageAddAttraction_2.aspx" />
+    <Content Include="Reservation_Food_QR_Claim.aspx" />
+    <Content Include="Reservation_Food_QR.aspx" />
     <Content Include="Reservation_Food.aspx" />
     <Content Include="Reservation_Food_Confirmed.aspx" />
     <Content Include="RewardPage.aspx" />
@@ -286,8 +285,12 @@
     <Content Include="Scripts\esm\popper-utils.js.map" />
     <Content Include="libman.json" />
     <Content Include="DLL\QRCoder.dll.refresh" />
+    <Content Include="Default.Master" />
     <None Include="Properties\PublishProfiles\TouristHelp20200208051613 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TouristHelp20200208080154 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200209023102 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200209024920 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200209044754 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -435,13 +438,6 @@
     <Compile Include="AdminPageShop.aspx.designer.cs">
       <DependentUpon>AdminPageShop.aspx</DependentUpon>
     </Compile>
-    <Compile Include="blank.aspx.cs">
-      <DependentUpon>blank.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="blank.aspx.designer.cs">
-      <DependentUpon>blank.aspx</DependentUpon>
-    </Compile>
     <Compile Include="BLL\Attraction.cs" />
     <Compile Include="BLL\Cart.cs" />
     <Compile Include="BLL\HotelBook.cs" />
@@ -473,6 +469,27 @@
     <Compile Include="DAL\ToursDAO.cs" />
     <Compile Include="DAL\TransactionDAO.cs" />
     <Compile Include="DAL\UserDAO.cs" />
+    <Compile Include="Default.Master.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.Master.designer.cs">
+      <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="TicketClaim.aspx.cs">
+      <DependentUpon>TicketClaim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketClaim.aspx.designer.cs">
+      <DependentUpon>TicketClaim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TicketingLO.aspx.cs">
+      <DependentUpon>TicketingLO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TicketingLO.aspx.designer.cs">
+      <DependentUpon>TicketingLO.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -482,6 +499,20 @@
     </Compile>
     <Compile Include="Guidebook.aspx.designer.cs">
       <DependentUpon>Guidebook.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HotelConfirm.aspx.cs">
+      <DependentUpon>HotelConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelConfirm.aspx.designer.cs">
+      <DependentUpon>HotelConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HotelDetail.aspx.cs">
+      <DependentUpon>HotelDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelDetail.aspx.designer.cs">
+      <DependentUpon>HotelDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="HotelPage.aspx.cs">
       <DependentUpon>HotelPage.aspx</DependentUpon>
@@ -563,6 +594,20 @@
     </Compile>
     <Compile Include="AdminPageAddAttraction_2.aspx.designer.cs">
       <DependentUpon>AdminPageAddAttraction_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation_Food_QR_Claim.aspx.cs">
+      <DependentUpon>Reservation_Food_QR_Claim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservation_Food_QR_Claim.aspx.designer.cs">
+      <DependentUpon>Reservation_Food_QR_Claim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation_Food_QR.aspx.cs">
+      <DependentUpon>Reservation_Food_QR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservation_Food_QR.aspx.designer.cs">
+      <DependentUpon>Reservation_Food_QR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservation_Food.aspx.cs">
       <DependentUpon>Reservation_Food.aspx</DependentUpon>
@@ -662,13 +707,6 @@
     <Compile Include="TourGuideListPage.aspx.designer.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="TourGuideLoggedIn.Master.cs">
-      <DependentUpon>TourGuideLoggedIn.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TourGuideLoggedIn.Master.designer.cs">
-      <DependentUpon>TourGuideLoggedIn.Master</DependentUpon>
-    </Compile>
     <Compile Include="TourGuideRequestsPage.aspx.cs">
       <DependentUpon>TourGuideRequestsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -720,7 +758,6 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
-    <Content Include="TourGuideLoggedIn.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -44,10 +44,10 @@ namespace TouristHelp
                     int loginstreak = 0;
                     string loyaltytier = "none";
                     int totaldiscount = 0;
-                    int bonuscredits = 0;
+                    int bonuscredits = 10;
                     string membershiptier = "normal";
                     int creditbalance = 0;
-                    int remainbonusdays = 0;
+                    int remainbonusdays = 10;
                     bool loggedInLog = false;
                     DateTime loggedInDate = DateTime.Now;
                     bool newDateCheck = true;

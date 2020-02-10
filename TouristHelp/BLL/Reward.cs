@@ -119,13 +119,29 @@ namespace TouristHelp.BLL
         }
 
 
-        public void updateLoggedIn(int userId, int loginCount, int loginStreak, int creditBalance, bool loggedInLog, DateTime loggedInDate, bool newDateCheck)
+        public void updateLoggedIn(int userId, int loginCount, int loginStreak, int creditBalance, int remainBonusDays, bool loggedInLog, DateTime loggedInDate, bool newDateCheck)
         {
             RewardDAO dao = new RewardDAO();
-            dao.updateLogIn(userId,loginCount, loginStreak, creditBalance, loggedInLog, loggedInDate, newDateCheck);
+            dao.updateLogIn(userId,loginCount, loginStreak, creditBalance,remainBonusDays, loggedInLog, loggedInDate, newDateCheck);
+        }
+
+        public void updateBonus(int userId, int loginStreak, int creditBalance, int remainBonusDays)
+        {
+            RewardDAO dao = new RewardDAO();
+            dao.updateBonus(userId,  loginStreak,  creditBalance, remainBonusDays);
+        }
+
+        public void updateLoyaltyBonus(int userId, string loyaltyTier, int bonusCredits)
+        {
+            RewardDAO dao = new RewardDAO();
+            dao.loyaltyBonus(userId, loyaltyTier, bonusCredits);
         }
 
 
-
+        public void membershipSubscription(int userId, int totalDiscount, string membershipTier)
+        {
+            RewardDAO dao = new RewardDAO();
+            dao.membershipSubscription(userId, totalDiscount, membershipTier);
+        }
     }
 }
