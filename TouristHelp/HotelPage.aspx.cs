@@ -396,7 +396,7 @@ namespace TouristHelp
 
             HiddenField getHotelId = (HiddenField)hotels.FindControl("hotelId");
             Session["voucher_id"] = getHotelId.Value;
-
+            int giveHotelId = Convert.ToInt32(getHotelId.Value);
 
             
 
@@ -453,11 +453,16 @@ namespace TouristHelp
 
             double cartPrice = Convert.ToDouble(price) * Convert.ToDouble(stayDuration);
 
-            System.Web.UI.WebControls.Image hotelImage = (System.Web.UI.WebControls.Image)hotels.FindControl("hotelImage");
-            DateTime reservedate = DateTime.Now;
-            string imageurl = hotelImage.ToString();
+            HotelBook td = new HotelBook();
+            td = td.getHotelById(giveHotelId);
 
-            Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id, imageurl);
+            string getImage = td.hotelImage;
+
+            //System.Web.UI.WebControls.Image hotelImage = (System.Web.UI.WebControls.Image)hotels.FindControl("hotelImage");
+            DateTime reservedate = DateTime.Now;
+            //string imageurl = hotelImage.ToString();
+
+            Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id, getImage);
             cart.InsertHotel();
 
 
