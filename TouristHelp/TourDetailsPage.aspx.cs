@@ -15,24 +15,42 @@ namespace TouristHelp
         decimal convert = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Tours smth = ToursDAO.SelectTourByTourGuideId(int.Parse(Session["SSTourGuideId"].ToString()));
-            tourguidetitleLabel.Text = smth.Title;
-            tourdescriptionLabel.Text = smth.Description;
-            tourdetailsLabel.Text = smth.Details;
-            tourpriceLabel.Text = smth.Price.ToString();
+            if (!IsPostBack)
+            {
+                if (Session["tourist_id"] == null)
+                {
+                    Response.Redirect("TourGuideDetails.aspx");
+                }
+                else
+                {
+                    Tours smth = ToursDAO.SelectTourByTourGuideId(int.Parse(Session["SSTourGuideId"].ToString()));
+                    tourguidetitleLabel.Text = smth.Title;
+                    tourdescriptionLabel.Text = smth.Description;
+                    tourdetailsLabel.Text = smth.Details;
+                    tourpriceLabel.Text = smth.Price.ToString();
 
-            gettouristid.Text = Session["tourist_id"].ToString();
-            gettourguidename.Text = Session["SSName"].ToString();
-            gettourguideid.Text = Session["SSTourGuideId"].ToString();
+                    gettouristid.Text = Session["tourist_id"].ToString();
+                    gettourguidename.Text = Session["SSName"].ToString();
+                    gettourguideid.Text = Session["SSTourGuideId"].ToString();
+                }
+            }
         }
 
         protected void BtnConfirm_Click(object sender, EventArgs e)
         {
-            DateTime expDate = Convert.ToDateTime(TourDate.Text);
-            string statuscheck = "Pending";
+            if (DateTime.Parse(TourDate.Text) < DateTime.Now)
+            {
+                Response.Write("Date Is Not Valid!");
+            }
+            else
+            {
 
-            TouristBooking obj = new TouristBooking(int.Parse(gettouristid.Text), gettourguidename.Text, tourguidetitleLabel.Text, expDate.ToString(), statuscheck, int.Parse(gettourguideid.Text));
-            TouristBookingDAO.InsertBooking(obj);
+                DateTime expDate = Convert.ToDateTime(TourDate.Text);
+                string statuscheck = "Pending";
+
+                TouristBooking obj = new TouristBooking(int.Parse(gettouristid.Text), gettourguidename.Text, tourguidetitleLabel.Text, expDate.ToString(), statuscheck, int.Parse(gettourguideid.Text));
+                TouristBookingDAO.InsertBooking(obj);
+            }
         }
 
         protected void DropDownListCurrency_SelectedIndexChanged(object sender, EventArgs e)

@@ -26,7 +26,8 @@
 
 
         <div class="col-lg-12">
-            <h2>Tours Title</h2>
+            <h2>Tour Title</h2>
+            <hr />
             <asp:Label Font-Size="15" ID="tourguidetitleLabel" CssClass="col-2" runat="server" Text="Title:"></asp:Label>
             <asp:Label ID="tourguideidLabel" Visible="false" CssClass="col-2" runat="server" Text="Tour Guide Id:"></asp:Label>
             <asp:Label ID="useridLabel" Visible="false" CssClass="col-2" runat="server" Text="User Id:"></asp:Label>
@@ -34,7 +35,8 @@
             <br />
             <br />
             <h2>Tour Description</h2>
-            <asp:Label Font-Size="12" ID="tourdescriptionLabel" CssClass="col-2" runat="server" Text=""></asp:Label>
+            <hr />
+            <asp:Label Font-Size="15" ID="tourdescriptionLabel" CssClass="col-2" runat="server" Text=""></asp:Label>
 
         </div>
         <br />
@@ -43,8 +45,8 @@
 
         <div class="col-lg-12">
             <h2>Tour Details</h2>
-
-            <asp:Label Font-Size="12" ID="tourdetailsLabel" CssClass="col-2" runat="server" Text=""></asp:Label>
+            <hr />
+            <asp:Label Font-Size="15" ID="tourdetailsLabel" CssClass="col-2" runat="server" Text=""></asp:Label>
 
         </div>
 
@@ -54,9 +56,16 @@
         <div class="col-lg-12">
 
             <h2>Book this tour</h2>
+            <hr />
+            <b>Payment Will Be Made On The Day Itself</b>
         </div>
 
         <div class="col-lg-12">
+
+            <b>Tour Price (SGD):</b>
+
+            <asp:Label Font-Size="15" ID="tourpriceLabel" CssClass="col-2" runat="server" Text=""></asp:Label>
+            <br />
 
             <asp:DropDownList ID="DropDownListCurrency" runat="server" OnSelectedIndexChanged="DropDownListCurrency_SelectedIndexChanged">
                 <asp:ListItem>-</asp:ListItem>
@@ -71,16 +80,16 @@
 
             <br />
             <br />
-            <b>Tour Price (SGD):</b>
 
-            <asp:Label Font-Size="12" ID="tourpriceLabel" CssClass="col-2" runat="server" Text=""></asp:Label>
-            <br />
             <b>Converted Tour Price:</b>
-            <asp:Label Font-Size="12" ID="convertedtourpriceLabel" CssClass="col-2" runat="server" Text="-"></asp:Label>
+            <asp:Label Font-Size="15" ID="convertedtourpriceLabel" CssClass="col-2" runat="server" Text="-"></asp:Label>
 
 
 
             <br />
+
+            <b>Please Select A Date For The Tour:</b>
+
 
             <asp:TextBox ID="TourDate" runat="server">Click to pick a date</asp:TextBox>
 
@@ -102,9 +111,9 @@
 
 
 
-                    <asp:Label ID="gettouristid" Visible="false" CssClass="col-2" runat="server" Text="Tour Guide Id:"></asp:Label>
-                    <asp:Label ID="gettourguidename" Visible="false" CssClass="col-2" runat="server" Text="Tour Guide Id:"></asp:Label>
-                    <asp:Label ID="gettourguideid" Visible="false" CssClass="col-2" runat="server" Text="Tour Guide Id:"></asp:Label>
+        <asp:Label ID="gettouristid" Visible="false" CssClass="col-2" runat="server" Text="Tour Guide Id:"></asp:Label>
+        <asp:Label ID="gettourguidename" Visible="false" CssClass="col-2" runat="server" Text="Tour Guide Id:"></asp:Label>
+        <asp:Label ID="gettourguideid" Visible="false" CssClass="col-2" runat="server" Text="Tour Guide Id:"></asp:Label>
 
     </form>
 

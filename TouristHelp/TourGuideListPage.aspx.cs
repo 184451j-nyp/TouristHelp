@@ -16,23 +16,31 @@ namespace TouristHelp
         {
             if (!Page.IsPostBack)
             {
-                if (Session["LanguageSelect"] == null)
+                if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
                 {
-                    loadRepeater("All");
+                    Response.Redirect("Login.aspx");
                 }
                 else
                 {
-                    DropDownListLanguage.SelectedValue = Session["LanguageSelect"].ToString();
-                    loadRepeater(Session["LanguageSelect"].ToString());
+                    if (Session["LanguageSelect"] == null)
+                    {
+                        loadRepeater("All");
+                    }
+                    else
+                    {
+                        DropDownListLanguage.SelectedValue = Session["LanguageSelect"].ToString();
+                        loadRepeater(Session["LanguageSelect"].ToString());
+                    }
                 }
+
+
             }
-
-
         }
 
         private void loadRepeater(string language)
         {
-          
+            tourguideList = TourGuide.GetAllTourGuidesByLanguage(language);
+
 
             if (language == "All")
             {
@@ -74,9 +82,6 @@ namespace TouristHelp
             Session["SSDescription"] = theDescription.Text;
             Session["SSLanguages"] = theLanguages.Text;
             Session["SSCredentials"] = theCredentials.Text;
-       
-
-
 
             Response.Redirect("TourGuideDetails.aspx");
         }

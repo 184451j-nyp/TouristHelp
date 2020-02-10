@@ -99,7 +99,7 @@ namespace TouristHelp.DAL
             string sqlStmt = "Select TourGuides.tourguide_id, TourGuides.user_id, Users.name, Users.password, Users.email, TourGuides.description, TourGuides.languages, TourGuides.credentials, TourGuides.tourguideimage " +
                 "From [TourGuides] " +
                 "Inner Join [Users] On TourGuides.user_id = Users.user_id " +
-            "Where TourGuides.languages = @paralanguage";
+            "Where TourGuides.languages LIKE @paralanguage";
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 

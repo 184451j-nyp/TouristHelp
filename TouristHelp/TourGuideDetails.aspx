@@ -14,6 +14,7 @@
         </div>
     </div>
 
+    <hr>
 
 
 
@@ -58,7 +59,7 @@
             </div>
 
 
-            <div class="row">
+            <div class="row"  Style="float: right" >
                 <asp:Button ID="ButtonRedirect"
                     Text="View Tours"
                     Font-Size="15"

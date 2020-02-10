@@ -16,12 +16,19 @@ namespace TouristHelp
         {
             if (!IsPostBack)
             {
-                tourguidenameLabel2.Text = (string)Session["SSName"];
-                tourguidedescriptionLabel2.Text = (string)Session["SSDescription"];
-                tourguidelanguagesLabel2.Text = (string)Session["SSLanguages"];
-                tourguideidLabel2.Text = (string)Session["SSTourGuideId"];
-                tourguidecredentialsLabel2.Text = (string)Session["SSCredentials"];
-                tourguideuserid.Text = (string)Session["SSUserId"];
+                if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+                else
+                {
+                    tourguidenameLabel2.Text = (string)Session["SSName"];
+                    tourguidedescriptionLabel2.Text = (string)Session["SSDescription"];
+                    tourguidelanguagesLabel2.Text = (string)Session["SSLanguages"];
+                    tourguideidLabel2.Text = (string)Session["SSTourGuideId"];
+                    tourguidecredentialsLabel2.Text = (string)Session["SSCredentials"];
+                    tourguideuserid.Text = (string)Session["SSUserId"];
+                }
             }
         }
 

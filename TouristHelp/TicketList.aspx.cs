@@ -13,6 +13,24 @@ namespace TouristHelp
         List<Ticket> tixList;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
+            else
+            {
+
+                try
+                {
+                    Label1.Text = Session["tourist_id"].ToString();
+                }
+                catch (NullReferenceException)
+                {
+                    Label1.Text = Session["tourguide_id"].ToString();
+                }
+
+            }
             if (!Page.IsPostBack)
             {
                 int user_id = Convert.ToInt32(Session["tourist_id"]);
