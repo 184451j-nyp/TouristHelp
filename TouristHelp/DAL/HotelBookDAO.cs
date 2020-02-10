@@ -392,5 +392,43 @@ namespace TouristHelp.DAL
         }
 
 
+
+
+
+
+
+        public HotelBook selectByHotelId(int hotelId)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlstmt = "Select * from HotelBook where hotelId = @paraId";
+            SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
+            da.SelectCommand.Parameters.AddWithValue("@paraId", hotelId);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            int rec_cnt = ds.Tables[0].Rows.Count;
+
+            HotelBook td = null;
+            if (rec_cnt > 0)
+            {
+                DataRow row = ds.Tables[0].Rows[0];
+                decimal hotelPrice = Convert.ToDecimal(row["hotelPrice"]);
+                string hotelImage = row["hotelImage"].ToString();
+                bool centralFilter = Convert.ToBoolean(row["centralFilter"]);
+                bool northFilter = Convert.ToBoolean(row["northFilter"]);
+                bool southFilter = Convert.ToBoolean(row["southFilter"]);
+                bool westFilter = Convert.ToBoolean(row["westFilter"]);
+                bool eastFilter = Convert.ToBoolean(row["eastFilter"]);
+                string hotelName = row["hotelName"].ToString();
+
+
+                td = new HotelBook(hotelId, hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+            }
+            return td;
+        }
+
+
     }
 }

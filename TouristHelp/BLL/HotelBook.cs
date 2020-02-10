@@ -114,5 +114,14 @@ namespace TouristHelp.BLL
             HotelBookDAO attDao = new HotelBookDAO();
             attDao.addNewHotel(hotel);
         }
+
+
+        public HotelBook getHotelById(int hotelId)
+        {
+            HotelBookDAO dao = new HotelBookDAO();
+            return dao.selectByHotelId(hotelId);
+
+
+        }
     }
 }
