@@ -112,6 +112,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="IndexAdmin.aspx" />
     <Content Include="IndexLO.aspx" />
     <Content Include="TicketClaim.aspx" />
     <Content Include="TicketingLO.aspx" />
@@ -287,6 +288,7 @@
     <Content Include="libman.json" />
     <Content Include="DLL\QRCoder.dll.refresh" />
     <Content Include="Default.Master" />
+    <Content Include="Admin.Master" />
     <None Include="Properties\PublishProfiles\TouristHelp20200208051613 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TouristHelp20200208080154 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TouristHelp20200209023102 - Web Deploy.pubxml" />
@@ -399,6 +401,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
     <Compile Include="AdminPageAddAttraction.aspx.cs">
       <DependentUpon>AdminPageAddAttraction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -478,6 +487,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="IndexAdmin.aspx.cs">
+      <DependentUpon>IndexAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndexAdmin.aspx.designer.cs">
+      <DependentUpon>IndexAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="IndexLO.aspx.cs">
       <DependentUpon>IndexLO.aspx</DependentUpon>
