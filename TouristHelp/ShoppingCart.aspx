@@ -127,11 +127,12 @@
     <form runat="server">
         <section class="ftco-section">
             <div class="container">
+                <div class="container" style="background-color:burlywood">
 
                 <table class="w-100" style="margin-top: 15px;">
                     <tr>
                         <td class="auto-style25"></td>
-                        <td class="auto-style24">Product</td>
+                        <td class="auto-style24" style="">Product</td>
                         <td class="auto-style16">Item Price</td>
                         <td class="auto-style15">Quantity</td>
                         <td class="auto-style13">Total Price</td>
@@ -140,7 +141,10 @@
                     <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand">
                         <ItemTemplate>
                             <tr>
-                                <td class="auto-style1 borderline">&nbsp;
+                                <td class="auto-style1 borderline">
+                                    <asp:Image ID="cartImage" class="img img-2 d-flex justify-content-center align-items-center" Style="height: 200px; width: 250px;"
+                                                    ImageUrl='<%# Eval("productImage")%>'
+                                                    runat="server" />
                                 </td>
                                 <td class="auto-style2 borderline">
                                     <div>
@@ -169,6 +173,7 @@
                         </ItemTemplate>
                     </asp:Repeater>
                 </table>
+                    </div>
                 <br />
                 <br />
                 <div>

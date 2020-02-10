@@ -16,13 +16,14 @@ namespace TouristHelp.BLL
         public double productTotalPrice { get; set; }
         public int userId { get; set; }
         public string itemType { get; set; }
+        public string productImage { get; set; }
 
         public Cart()
         {
 
         }
 
-        public Cart(int productid, string productname, string productdesc, double productprice, int productquantity, double producttotalprice)
+        public Cart(int productid, string productname, string productdesc, double productprice, int productquantity, double producttotalprice, string cartImg)
         {
             productId = productid;
             productName = productname;
@@ -30,15 +31,17 @@ namespace TouristHelp.BLL
             productPrice = productprice;
             productQuantity = productquantity;
             productTotalPrice = producttotalprice;
+            productImage = cartImg;
         }
 
-        public Cart(string productname, string productdesc, double productprice, int productquantity, int user_Id)
+        public Cart(string productname, string productdesc, double productprice, int productquantity, int user_Id, string cartImg)
         {
             productName = productname;
             productDesc = productdesc;
             productPrice = productprice;
             productQuantity = productquantity;
             userId = user_Id;
+            productImage = cartImg;
         }
 
         public Cart(int productid, string itemtype)
