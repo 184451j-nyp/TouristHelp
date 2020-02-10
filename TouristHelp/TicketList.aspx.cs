@@ -43,7 +43,10 @@ namespace TouristHelp
                 List<Ticket> TicketList = new List<Ticket>();
                 Ticket tix = new Ticket();
                 TicketList = tix.GetAllTicket(user_id);
-
+                if(TicketList == null)
+                {
+                    Response.Redirect("ShoppingCart.aspx");
+                }
                 for(int i = 0; i < TicketList.Count; i++)
                 {
                     DateTime currentDate = DateTime.Today;

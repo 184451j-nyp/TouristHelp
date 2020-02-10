@@ -43,7 +43,7 @@
                                     <a class="nav-link" href="Guidebook.aspx">Guidebook</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Interest.aspx">Interests</a>
+                                    <a class="nav-link" href="InterestSelect.aspx">Interest Select</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Planner.aspx">Journey Planner</a>
@@ -76,6 +76,7 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="List_Reservation_Food.aspx">Food Reservation</a>
                                         <a class="dropdown-item" href="HotelReservation.aspx">Hotel Reservation</a>
+                                        <a class="dropdown-item" href="TicketList.aspx">Your Tickets</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">

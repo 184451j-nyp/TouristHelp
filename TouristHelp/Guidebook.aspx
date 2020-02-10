@@ -43,7 +43,6 @@
                         <%--<div class="col-6">--%>
                         <div class="one">
                             <h3 id="Name"><%#Eval("Name") %>
-                            <asp:Button ID="ButtonFav" runat="server" CssClass="btn btn-default" Text="Favourite" Style="float: right; margin:0px" />
                             </h3>
                         </div>
                         <div class="two">
