@@ -9,6 +9,7 @@
         <table class="table">
             <tr>
                 <td class="auto-style1">
+                    <asp:Label ID="LbImg" runat="server" Visible="false" Text=''></asp:Label>
                     <p>
                         Make Reservation: 
                         <asp:Label runat="server" ID="lbName"></asp:Label>

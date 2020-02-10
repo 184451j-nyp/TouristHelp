@@ -36,6 +36,12 @@ namespace TouristHelp
                 }
                    
             }
+
+
+
+
+
+           
         }
 
         private void loadRepeater(string type, string interest)
