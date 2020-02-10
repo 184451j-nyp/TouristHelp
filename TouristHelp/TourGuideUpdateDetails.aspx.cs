@@ -47,8 +47,11 @@ namespace TouristHelp
 
             string folderPath = Server.MapPath("~/Images/");
 
-            //Save the file to dictionary (Folder)
+            LbImage.Text = "Images/" + FileUpload1.FileName;
             FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName).ToString());
+
+            //Save the file to dictionary (Folder)
+            Image1.ImageUrl = "~/Images/" + Path.GetFileName(FileUpload1.FileName).ToString();
 
         }
 
