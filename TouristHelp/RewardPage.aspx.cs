@@ -39,7 +39,7 @@ namespace TouristHelp
             
             
 
-   
+             //Michaels daily reward check, remove if causing error
 
             Session["user_id"] = Session["tourist_id"];
 
@@ -146,6 +146,7 @@ namespace TouristHelp
 
 
 
+            //Michaels daily reward check, remove if causing error
 
 
 
