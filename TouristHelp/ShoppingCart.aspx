@@ -191,6 +191,15 @@
                                 <asp:Label ID="lbGst" runat="server" Text=""></asp:Label>
                             </td>
                         </tr>
+                          <tr>
+                            <td class="auto-style17">
+                                <asp:Label ID="Label7" runat="server" Text="Member Discount:"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="Label8" runat="server" Text="$"></asp:Label>
+                                <asp:Label ID="discountLbl" runat="server" Text=""></asp:Label>
+                            </td>
+                        </tr>
                         <tr>
                             <td class="auto-style17">
                                 <asp:Label ID="Label3" runat="server" Text="Grand Total:"></asp:Label>
