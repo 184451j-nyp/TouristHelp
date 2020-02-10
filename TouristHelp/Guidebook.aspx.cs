@@ -49,14 +49,46 @@ namespace TouristHelp
             {
                 if (type == "All")
                 {
-
-                    var userInt = "Food";
-                    acttList = actt.ListAttractionAll_Personal(userInt);
+                    Interest i = new Interest();
+                    string userInt = null;
+                    try
+                    {
+                        userInt = i.checkInterests(int.Parse(Session["tourist_id"].ToString()))[0].InterestName;
+                    }
+                    catch
+                    {
+                        
+                    }
+                    if (userInt == null)
+                    {
+                        acttList = actt.ListAttractionAll();
+                    }
+                    else
+                    {
+                        acttList = actt.ListAttractionAll_Personal(userInt);
+                    }
+                    
                 }
                 else
                 {
-                    var userInt = "Food";
-                    acttList = actt.ListAttraction_Personal(type, userInt);
+                    Interest i = new Interest();
+                    string userInt = null;
+                    try
+                    {
+                        userInt = i.checkInterests(int.Parse(Session["tourist_id"].ToString()))[0].InterestName;
+                    }
+                    catch
+                    {
+
+                    }
+                    if (userInt == null)
+                    {
+                        acttList = actt.ListAttraction(type);
+                    }
+                    else
+                    {
+                        acttList = actt.ListAttraction_Personal(type, userInt);
+                    }
                 }
             }
 

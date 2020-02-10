@@ -30,14 +30,7 @@ namespace TouristHelp
                 }
                 finally
                 {
-                    if (Session["tourguide_id"] != null)
-                    {
-                        Response.Redirect("TourGuideRequestsPage.aspx");
-                    }
-                    else if(Session["tourist_id"] != null)
-                    {
-                        Response.Redirect("Index.aspx");
-                    }
+                    Response.Redirect("Index.aspx");
                 }
             }
         }

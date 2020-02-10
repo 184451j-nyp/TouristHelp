@@ -142,7 +142,7 @@ namespace TouristHelp
 
             else
             {
-                Response.Redirect("https://touristhelp20200209023102.azurewebsites.net/HotelDetail.aspx?code=" + code);
+                Response.Redirect("/HotelDetail.aspx?code=" + code);
             }
 
             //if (hotelStatus)

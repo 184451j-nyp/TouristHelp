@@ -112,6 +112,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="IndexLO.aspx" />
     <Content Include="TicketClaim.aspx" />
     <Content Include="TicketingLO.aspx" />
     <Content Include="DLL\QRCoder.dll" />
@@ -390,6 +391,8 @@
     <Content Include="TourGuideUpdateDetails.aspx" />
     <Content Include="TourGuideUpdateTour.aspx" />
     <Content Include="TouristBookingsPage.aspx" />
+    <Content Include="TransactionConfirm.aspx" />
+    <Content Include="TransactionDetail.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -475,6 +478,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="IndexLO.aspx.cs">
+      <DependentUpon>IndexLO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndexLO.aspx.designer.cs">
+      <DependentUpon>IndexLO.aspx</DependentUpon>
     </Compile>
     <Compile Include="TicketClaim.aspx.cs">
       <DependentUpon>TicketClaim.aspx</DependentUpon>
@@ -741,6 +751,20 @@
     </Compile>
     <Compile Include="TouristBookingsPage.aspx.designer.cs">
       <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionConfirm.aspx.cs">
+      <DependentUpon>TransactionConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionConfirm.aspx.designer.cs">
+      <DependentUpon>TransactionConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionDetail.aspx.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionDetail.aspx.designer.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransactionPage.aspx.cs">
       <DependentUpon>TransactionPage.aspx</DependentUpon>
