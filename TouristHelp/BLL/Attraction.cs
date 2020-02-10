@@ -75,7 +75,7 @@ namespace TouristHelp.BLL
             return dao.SelectByType(type);
         }
 
-        ///////// pog /////////
+        ///////// breaker /////////
 
         public List<Attraction> ListAttractionAll_Personal(string arrange)// un-filter, personal arrange
         {

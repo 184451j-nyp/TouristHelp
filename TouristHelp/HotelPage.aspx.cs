@@ -296,9 +296,9 @@ namespace TouristHelp
 
 
             Cart newCart = new Cart();
-            newCart.GetCartId(attName, user_id);
+            newCart = newCart.GetCartId(attName, user_id);
 
-            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid,newCart.productId, reservedate);
+            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid, newCart.productId, reservedate);
             hotel.AddNewHotel();
 
 
