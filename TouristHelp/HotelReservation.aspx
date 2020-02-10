@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-    User ID: <asp:Label ID="Label1" Visible="false" runat="server" Text=""></asp:Label>
+     <asp:Label ID="Label1" Visible="false" runat="server" Text=""></asp:Label>
 
       <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg align-items-center">
@@ -29,7 +29,8 @@
 
 
     
-     
+               <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
+
 
 
     <span class="select-wrap one-third">
@@ -71,67 +72,66 @@
 
 
 
-
       <table>
 <tr>
 <td>
-    <asp:GridView ID="repeatHotelTrans"  ShowHeader="True" 
-        GridLines="None" AutoGenerateColumns="false"
-        runat="server" OnSelectedIndexChanged="repeatHotelTrans_SelectedIndexChanged">
+                                  <asp:Repeater ID="repeatHotelTrans" runat="server" EnableViewState="false" OnItemCommand="repeatHotelTrans_ItemCommand" >
 
 
-        <Columns>
-
-
-            <asp:TemplateField>
-
-               
-                <ItemTemplate>
-                    
+                                      <ItemTemplate>
                                        <div class="row">
                                                      
 
-                                     <asp:Label ID="hotelGenIdLbl" CssClass="col-2" runat="server" Text='<%#Eval("hotelGen_Id") %>'></asp:Label>
+                                     <asp:Label ID="hotelGenIdLbl" CssClass="col-1" runat="server" Text='<%#Eval("hotelGen_Id") %>'></asp:Label>
                                      
                                            <asp:Label ID="hotelNameLbl" CssClass="col-2" runat="server" Text='<%#Eval("hotelName") %>'></asp:Label>
 
 
-                                          <asp:Label ID="totalCostLbl" CssClass="col-2" runat="server" Text='<%#Eval("totalCost") %>'></asp:Label>
+                                          <asp:Label ID="totalCostLbl" CssClass="col-1" runat="server" Text='<%#Eval("totalCost") %>'></asp:Label>
 
 
                                         <asp:Label ID="roomQtyLbl" CssClass="col-1" runat="server" Text='<%#Eval("roomQty") %>'></asp:Label>
 
-                                        <asp:Label ID="stayDurationLbl" CssClass="col-2" runat="server" Text='<%#Eval("stayDuration") %>'></asp:Label>
+                                              <asp:Label ID="reserveDurationLbl" CssClass="col-2" runat="server" Text='<%#Eval("reserveDate") %>'></asp:Label>
+
+
 
                                      
 
                                            <asp:Label ID="hotelStatus" CssClass="col-2" runat="server" Text='<%#Eval("hotelPaid") %>'></asp:Label>
 
 
-                                             <asp:Button ID="getQRcode"  CssClass="col-1"  runat="server" Text="Get QR Code" />
+
+                                             <asp:Button ID="getQRcode"  CssClass="col-2"  runat="server" Text="Get QR Code" />
+
+                                                                       <asp:HiddenField runat="server" ID="HiddenField1" Value='<%#Eval("stayDuration") %>' />
+
+                                            <asp:HiddenField runat="server" ID="getCode" Value='<%#Eval("verifyHotel") %>' />
 
 
+
+                                           </div>
+                                           </ItemTemplate>
 
                                   
 
 
 
                          
-                </ItemTemplate>
 
 
-
-                 <HeaderTemplate>    
+                                      <HeaderTemplate>
                     <div class="row">
 
-                                     <asp:Label ID="hotelGenIdLbl" CssClass="col-2" runat="server" Text="Hotel Id:"></asp:Label>
+                                     <asp:Label ID="hotelGenIdLbl" CssClass="col-1" runat="server" Text="Hotel Id:"></asp:Label>
                                               
                                     <asp:Label ID="hotelNameLbl" CssClass="col-2" runat="server" Text="Hotel Name:"></asp:Label>
 
-                                        <asp:Label ID="totalCostLbl" CssClass="col-2" runat="server" Text="Total Cost:"></asp:Label>
+                                        <asp:Label ID="totalCostLbl" CssClass="col-1" runat="server" Text="Total Cost:"></asp:Label>
 
 
                                         <asp:Label ID="roomQtyLbl" CssClass="col-1" runat="server" Text="Room quantity:"></asp:Label>
+
 
                                         <asp:Label ID="stayDurationLbl" CssClass="col-2" runat="server" Text="Duration:"></asp:Label>
 
@@ -139,37 +139,19 @@
 
                               <asp:Label ID="hotelStatus" CssClass="col-2" runat="server" Text="Status"></asp:Label>
 
-                              <asp:Label ID="verifyHotelLbl" CssClass="col-1" runat="server" Text="Verification Code"></asp:Label>
+                              <asp:Label ID="verifyHotelLbl" CssClass="col-2" runat="server" Text="Verification Code"></asp:Label>
                                 
 
                                      
 
               
-                                                            </div></HeaderTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
+                                                            </div>
+                                          </HeaderTemplate>
+
+                                           </asp:Repeater>
 </td>
 
 
-<td>
-    <asp:Repeater ID="paidRepeater"  runat="server">
-        <ItemTemplate>
-            
-           
-                                    
-                                                      
-
-                                                                                        </div>
-
-
-        </ItemTemplate>
-        <SeparatorTemplate>
-        
-
-        </SeparatorTemplate>
-    </asp:Repeater>
-</td>
 </tr>
 </table>
 

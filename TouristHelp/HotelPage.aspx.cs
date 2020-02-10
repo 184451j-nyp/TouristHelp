@@ -288,16 +288,17 @@ namespace TouristHelp
             double cartPrice = Convert.ToDouble(price) * Convert.ToDouble(stayDuration);
 
 
+            DateTime reservedate = DateTime.Now;
      
 
             Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id);
-            cart.InsertCartTicket();
-
-            var cartId = cart.GetCartId(attName, user_id);
+            cart.InsertHotel();
 
 
+            Cart newCart = new Cart();
+            newCart = newCart.GetCartId(attName, user_id);
 
-            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid,cartId);
+            HotelTrans hotel = new HotelTrans(hotelId, totalCost, quantity, expiryDate, user_id, attName, code, hotelPaid, newCart.productId, reservedate);
             hotel.AddNewHotel();
 
 

@@ -5,6 +5,6 @@
 
 
 
-        <h3>You have successfully claimed your ticket!</h3>
-    <asp:Label ID="lbTixCode" runat="server" Text=''></asp:Label>
+        <h3>Hotel Verified! Please show the details to the front desk hotel</h3>
+    <asp:Label ID="lblHotelCode" runat="server" Text=''></asp:Label>
 </asp:Content>
