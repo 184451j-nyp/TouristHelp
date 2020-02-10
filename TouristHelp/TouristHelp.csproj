@@ -387,6 +387,8 @@
     <Content Include="TourGuideUpdateDetails.aspx" />
     <Content Include="TourGuideUpdateTour.aspx" />
     <Content Include="TouristBookingsPage.aspx" />
+    <Content Include="TransactionConfirm.aspx" />
+    <Content Include="TransactionDetail.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -710,6 +712,20 @@
     </Compile>
     <Compile Include="TouristBookingsPage.aspx.designer.cs">
       <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionConfirm.aspx.cs">
+      <DependentUpon>TransactionConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionConfirm.aspx.designer.cs">
+      <DependentUpon>TransactionConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionDetail.aspx.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionDetail.aspx.designer.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="TransactionPage.aspx.cs">
       <DependentUpon>TransactionPage.aspx</DependentUpon>

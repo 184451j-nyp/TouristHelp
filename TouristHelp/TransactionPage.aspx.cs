@@ -12,7 +12,7 @@ namespace TouristHelp
 {
     public partial class Transaction : System.Web.UI.Page
     {
-        List<Transactions> eList;
+        List<Transactions> transList;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -48,8 +48,7 @@ namespace TouristHelp
             //List<Transactions> IntList = inter.getTransaction(userId);
 
 
-            RefreshGridView();
-
+            transFilter();
 
             // Retrieve Reward records by account
             //Reward td = new Reward();
@@ -75,22 +74,57 @@ namespace TouristHelp
 
         }
 
-        private void RefreshGridView()
+     
+
+
+
+        private void transFilter()
         {
 
             int userId = Convert.ToInt32(Session["tourist_id"]);
-            Transactions emp = new Transactions();
-            List<Transactions> eList = emp.getTransaction(userId);
+            Transactions getHotel = new Transactions();
+            List<Transactions> transList = getHotel.getTransaction(userId);
 
 
 
             // using gridview to bind to the list of employee objects
-            GvEmployee.Visible = true;
-            GvEmployee.DataSource = eList;
-            GvEmployee.DataBind();
+            repeatTrans.Visible = true;
+            repeatTrans.DataSource = transList;
+            repeatTrans.DataBind();
 
-            Repeater1.DataSource = eList;
-            Repeater1.DataBind();
+            repeatTrans.DataSource = transList;
+            repeatTrans.DataBind();
+        }
+
+
+        protected void repeatTrans_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            RepeaterItem transList = e.Item;
+
+            HiddenField getCode = (HiddenField)transList.FindControl("confirmCode");
+            Session["code"] = getCode.Value;
+            int code = Convert.ToInt32(getCode.Value);
+
+            Label getShopStatus = (Label)transList.FindControl("voucherStats");
+            Session["hotelStatus"] = getShopStatus.Text;
+            string shopStatus = getShopStatus.Text;
+
+            Button getButton = (Button)transList.FindControl("getQRcode");
+            Session["getButton"] = getButton;
+
+            if (shopStatus == "Expired" || shopStatus.ToString() == "Used")
+            {
+                Label2.Visible = true;
+                Label2.Text = "This hotel reservation has been active or used";
+                getButton.Enabled = false;
+                Response.Redirect("TransactionPage.aspx");
+            }
+
+            else
+            {
+                Response.Redirect("/TransactionDetail.aspx?code=" + code);
+            }
+
         }
     }
 }
