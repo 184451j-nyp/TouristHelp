@@ -48,7 +48,7 @@
                         <div>
                             Pax:
                             <asp:TextBox ID="TbPax" runat="server"></asp:TextBox>
-                        &nbsp;<asp:RequiredFieldValidator ID="RfvPax" runat="server" ControlToValidate="TbPax" ForeColor="Red">*Please Input a Time</asp:RequiredFieldValidator>
+                        &nbsp;<asp:RequiredFieldValidator ID="RfvPax" runat="server" ControlToValidate="TbPax" ForeColor="Red">*Please Input a the number of people coming</asp:RequiredFieldValidator>
                         </div>
                         <asp:Button ID="BtnConfirm" runat="server" CssClass="btn btn-default" Style="float: right" Text="Confirm Reservation" OnClick="BtnConfirm_Click" />
                     </div>
@@ -56,8 +56,8 @@
                 <td>
                     <asp:Label ID="LblCustId" runat="server">test</asp:Label>
                     <p style="font-size: 20px; font-weight: bold">How to use:</p>
-                    <p>- A Confirmation Code will be assidned to your account </p>
-                    <p>- Present the Conformation Code to the restraunt staff to be seated</p>
+                    <p>- A QR Code will be assigned to your account </p>
+                    <p>- Present the QR Code to the restraunt staff to be seated</p>
                 </td>
             </tr>
             <tr style="border-top-style: solid">
