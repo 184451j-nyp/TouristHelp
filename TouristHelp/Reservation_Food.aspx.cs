@@ -30,6 +30,7 @@ namespace TouristHelp
                 lbName.Text = td.Name;
                 lbDesc.Text = td.Description;
                 lbPlace.Text = td.Location;
+                LbImg.Text = td.Image;
             }
             else
             {
@@ -85,7 +86,7 @@ namespace TouristHelp
                 }
 
                 Food_Reservation td = new Food_Reservation();
-                td.InsertReservation(lbName.Text, tbDate.Text, TbTime.Text, int.Parse(TbPax.Text), int.Parse(Session["tourist_id"].ToString()), code);
+                td.InsertReservation(lbName.Text, tbDate.Text, TbTime.Text, int.Parse(TbPax.Text), int.Parse(Session["tourist_id"].ToString()), code, LbImg.Text);
                 Response.Redirect("Reservation_Food_Confirmed.aspx");
             }
             
