@@ -5,6 +5,6 @@
 
 
 
-            <h3>Hotel Verified! Please show the details to the front desk hotel</h3>
+            <h3>Shopvoucher Used!</h3>
     <asp:Label ID="lblShopCode" runat="server" Text=''></asp:Label>
 </asp:Content>

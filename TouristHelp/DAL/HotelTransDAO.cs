@@ -98,12 +98,12 @@ namespace TouristHelp.DAL
 
 
 
-        public void updateHotelBook(int cartId, int userId)
+        public void updateHotelBook(int cartId, int roomQty, int userId)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "UPDATE ReservationHotel SET hotelPaid = 'Paid' where user_id = @paraUserId AND cartId = @paraCartId ";
+            string sqlStmt = "UPDATE ReservationHotel SET hotelPaid = 'Paid', roomQty = @pararoomqty where user_id = @paraUserId AND cartId = @paraCartId ";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
@@ -111,7 +111,10 @@ namespace TouristHelp.DAL
             sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
 
             sqlCmd.Parameters.AddWithValue("@parauserId", userId);
+            sqlCmd.Parameters.AddWithValue("@pararoomqty", roomQty);
+
             sqlCmd.Parameters.AddWithValue("@paraCartId", cartId);
+
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();
