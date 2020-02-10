@@ -10,6 +10,14 @@ namespace TouristHelp
 {
     public partial class Guidebook : System.Web.UI.Page
     {
+        void Page_PreInit(Object sender, EventArgs e)
+        {
+            if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
+            {
+                this.MasterPageFile = "~/Default.master";
+            }
+        }
+
         List<Attraction> acttList;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -53,7 +61,7 @@ namespace TouristHelp
                     string userInt = null;
                     try
                     {
-                        userInt = i.checkInterests(int.Parse(Session["tourist_id"].ToString()))[0].InterestName;
+                        userInt = i.checkInterests(int.Parse(Session["tourist_id"].ToString())).InterestName;
                     }
                     catch
                     {
@@ -75,7 +83,7 @@ namespace TouristHelp
                     string userInt = null;
                     try
                     {
-                        userInt = i.checkInterests(int.Parse(Session["tourist_id"].ToString()))[0].InterestName;
+                        userInt = i.checkInterests(int.Parse(Session["tourist_id"].ToString())).InterestName;
                     }
                     catch
                     {

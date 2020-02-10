@@ -43,7 +43,7 @@
                                     <a class="nav-link" href="Guidebook.aspx">Guidebook</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="Interest.aspx">Interests</a>
+                                    <a class="nav-link" href="InterestSelect.aspx">Interest Select</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="Planner.aspx">Journey Planner</a>
