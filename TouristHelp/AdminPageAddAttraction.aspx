@@ -22,6 +22,7 @@
                     </a>
                     <div class="text p-3">
                         <asp:Label ID="LbId" runat="server" Visible="false" Text='<%#Eval("Id") %>'></asp:Label> <%--to put id for db retrieval--%>
+                        <asp:Image ID="AttractionImage" class="img img-2 d-flex justify-content-center align-items-center" Style="height: 300px; width: 350px;" ImageUrl='<%# Eval("Image")%>' runat="server" />
                         <div class="one">
                             <h3 id="Name"><%#Eval("Name") %></h3>
                         </div>
