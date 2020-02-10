@@ -16,7 +16,7 @@ namespace TouristHelp
         protected void Page_Load(object sender, EventArgs e)
         {
             string shopCode = Request.QueryString["Code"];
-            string code = "touristhelp20200209023102.azurewebsites.net/TransactionConfirm.aspx?Code=" + shopCode;
+            string code = "touristhelp20200208080154.azurewebsites.net/TransactionConfirm.aspx?Code=" + shopCode;
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeGenerator.QRCode qrCode = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
             System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
