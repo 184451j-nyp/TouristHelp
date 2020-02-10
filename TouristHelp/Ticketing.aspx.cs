@@ -122,7 +122,7 @@ namespace TouristHelp
             cart.InsertCartTicket();
 
             Cart newCart = new Cart();
-            newCart.GetCartId(attName, user_id);
+            newCart = newCart.GetCartId(attName, user_id);
             Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id, newCart.productId);
             tkt.AddNewTicket();
 

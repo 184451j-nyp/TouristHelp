@@ -169,7 +169,7 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlstmt = "SELECT cartId From Cart where user_id = @paraUserId " +
+            string sqlstmt = "SELECT cartId, itemType From Cart where user_id = @paraUserId " +
                             "and productName = @paraAttName";
             SqlDataAdapter da = new SqlDataAdapter(sqlstmt, myConn);
 
@@ -186,7 +186,7 @@ namespace TouristHelp.DAL
             {
                 DataRow row = ds.Tables[0].Rows[0];
                 int cartId = Convert.ToInt32(row["cartId"].ToString());
-                string itemType = row["cartId"].ToString();
+                string itemType = row["itemType"].ToString();
                 cart = new Cart(cartId, itemType);
             }
             return cart;
