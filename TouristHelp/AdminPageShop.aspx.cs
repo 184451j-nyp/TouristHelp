@@ -27,13 +27,25 @@ namespace TouristHelp
         {
 
 
+            //string folderPath = Server.MapPath("~/Images/");
+
+            ////Save the file to dictionary (Folder)
+            //FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName).ToString());
+
+            ////Display the Picture in Image Control
+
+            //Image1.ImageUrl = "~/Images/" + Path.GetFileName(FileUpload1.FileName).ToString();
+
+
             string folderPath = Server.MapPath("~/Images/");
+
+            //save file name to invisible label
+            LbImage.Text = "Images/" + FileUpload1.FileName;
 
             //Save the file to dictionary (Folder)
             FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName).ToString());
 
             //Display the Picture in Image Control
-
             Image1.ImageUrl = "~/Images/" + Path.GetFileName(FileUpload1.FileName).ToString();
 
         }
@@ -48,7 +60,7 @@ namespace TouristHelp
             bool foodCategory;
             string nameFilter;
             int voucherPrice = 0;
-            string shopImage = "Images/" + FileUpload1.FileName;
+            string attImage = LbImage.Text;
             string shopDesc;
             string voucherName;
             int voucherPopularity = 0;
@@ -69,7 +81,7 @@ namespace TouristHelp
                     membershipCategory = true;
                     foodCategory = true;
 
-                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, shopImage, shopDesc, voucherName, voucherPopularity);
+                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, attImage, shopDesc, voucherName, voucherPopularity);
                     shop.addShopVoucher(shop);
                     Response.Redirect("AdminPageRewardSystem.aspx");
 
@@ -81,7 +93,7 @@ namespace TouristHelp
                     foodCategory = false;
                     membershipCategory = true;
 
-                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, shopImage, shopDesc, voucherName, voucherPopularity);
+                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, attImage, shopDesc, voucherName, voucherPopularity);
                     shop.addShopVoucher(shop);
                     Response.Redirect("AdminPageRewardSystem.aspx");
                 }
@@ -91,7 +103,7 @@ namespace TouristHelp
                     foodCategory = true;
                     membershipCategory = false;
 
-                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, shopImage, shopDesc, voucherName, voucherPopularity);
+                    ShopVoucher shop = new ShopVoucher(voucherQty, voucherType, voucherStatus, membershipCategory, foodCategory, nameFilter, voucherPrice, attImage, shopDesc, voucherName, voucherPopularity);
                     shop.addShopVoucher(shop);
                     Response.Redirect("AdminPageRewardSystem.aspx");
                 }
