@@ -79,7 +79,7 @@ namespace TouristHelp
                
 
                 Cart newItem = new Cart();
-                newItem.GetCartId(productName, user_id);
+                newItem = newItem.GetCartId(productName, user_id);
                 if(newItem.productId != 0 && newItem.itemType == "Ticket")
                 {
                     int Count = productQuantity - 1;
@@ -94,7 +94,7 @@ namespace TouristHelp
                         double itemPrice = dupeTix.price;
                         DateTime itemExp = dupeTix.dateExpire;
                         int cart_id = newItem.productId;
-                        //string itemImg = dupeTix.AttImg;
+                        string itemImg = dupeTix.ticketImage;
 
                         string code = random.Next(1000000, 9999999).ToString();
                         Ticket ticket = new Ticket();
@@ -111,16 +111,20 @@ namespace TouristHelp
                             }
                         }
 
-                        Ticket newTix = new Ticket(itemName, itemDesc, itemPrice, itemExp, code, "paid", user_id, cart_id);
+                        Ticket newTix = new Ticket(itemName, itemDesc, itemPrice, itemExp, code, "paid", user_id, cart_id, itemImg);
                         newTix.AddNewTicket();
 
                         i++;
                     }
-                    
+
                 }
-                //your stuff here Michael
-                HotelTrans updateHotelBook = new HotelTrans();
-                updateHotelBook.hotelPay(productId, user_id);
+                else
+                {
+                    //your stuff here Michael
+                    HotelTrans updateHotelBook = new HotelTrans();
+                    updateHotelBook.hotelPay(productId, user_id);
+                }
+                
 
             }
 
