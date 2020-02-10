@@ -17,7 +17,7 @@ namespace TouristHelp
 
 
             string hotelCode = Request.QueryString["Code"];
-            string code = "touristhelp20200209023102.azurewebsites.net/HotelConfirm.aspx?Code=" + hotelCode;
+            string code = "touristhelp20200208080154.azurewebsites.net/HotelConfirm.aspx?Code=" + hotelCode;
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeGenerator.QRCode qrCode = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
             System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
