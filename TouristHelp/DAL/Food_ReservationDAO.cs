@@ -11,13 +11,13 @@ namespace TouristHelp.DAL
 {
     public class Food_ReservationDAO
     {
-        public void InsertReservation(string Name, string Date, string Time, int Pax, int UserId, string qr) //Insert the reservation details into db
+        public void InsertReservation(string Name, string Date, string Time, int Pax, int UserId, string qr, string image) //Insert the reservation details into db
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationDate, reservationTime, reservationPax, reservationState, userId, reservationQR)" +
-                             "VALUES (@paraName, @paraDate, @paraTime, @paraPax, @paraStatus ,@paraId, @paraQR)";
+            string sqlStmt = "INSERT INTO ReservationFood (reservationName, reservationDate, reservationTime, reservationPax, reservationState, userId, reservationQR, reservationImage)" +
+                             "VALUES (@paraName, @paraDate, @paraTime, @paraPax, @paraStatus ,@paraId, @paraQR, @paraImage)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -29,6 +29,7 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraStatus", "Active");
             sqlCmd.Parameters.AddWithValue("@paraId", UserId);
             sqlCmd.Parameters.AddWithValue("@paraQR", qr);
+            sqlCmd.Parameters.AddWithValue("@paraImage", image);
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();
@@ -62,7 +63,8 @@ namespace TouristHelp.DAL
                 int pax = int.Parse(row["reservationPax"].ToString());
                 string state = row["reservationState"].ToString();
                 string qr = row["reservationQR"].ToString();
-                Food_Reservation obj = new Food_Reservation(id, name, date, time, pax, state, qr);
+                string image = row["reservationImage"].ToString();
+                Food_Reservation obj = new Food_Reservation(id, name, date, time, pax, state, qr, image);
                 empList.Add(obj);
             }
             return empList;
@@ -90,8 +92,9 @@ namespace TouristHelp.DAL
             int pax = int.Parse(row["reservationPax"].ToString());
             string state = row["reservationState"].ToString();
             string qr = row["reservationQR"].ToString();
-            Food_Reservation obj = new Food_Reservation(id, name, date, time, pax, state, qr);
-            
+            string image = row["reservationImage"].ToString();
+            Food_Reservation obj = new Food_Reservation(id, name, date, time, pax, state, qr, image);
+
             return obj;
         }
 
