@@ -118,6 +118,7 @@
     <Content Include="Images\index\rewards.jpg" />
     <Content Include="Images\index\tickets.jpg" />
     <Content Include="Images\index\tourguide.jpg" />
+    <Content Include="IndexAdmin.aspx" />
     <Content Include="IndexLO.aspx" />
     <Content Include="TicketClaim.aspx" />
     <Content Include="TicketingLO.aspx" />
@@ -389,6 +390,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="IndexAdmin.aspx.cs">
+      <DependentUpon>IndexAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndexAdmin.aspx.designer.cs">
+      <DependentUpon>IndexAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="IndexLO.aspx.cs">
       <DependentUpon>IndexLO.aspx</DependentUpon>
