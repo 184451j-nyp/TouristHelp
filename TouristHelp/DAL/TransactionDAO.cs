@@ -133,6 +133,32 @@ namespace TouristHelp.DAL
 
 
 
+        public void shopUsed(string shopCode)
+        {
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            string sqlStmt = "UPDATE [Transaction] SET voucherStats = 'Used' where voucherGen_id = @paravouchergenid ";
+
+            SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
+
+
+            sqlCmd = new SqlCommand(sqlStmt.ToString(), myConn);
+
+            sqlCmd.Parameters.AddWithValue("@paravouchergenid", shopCode);
+
+            myConn.Open();
+            sqlCmd.ExecuteNonQuery();
+
+            myConn.Close();
+
+
+        }
+
+
+
+
+
 
 
 

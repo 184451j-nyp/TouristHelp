@@ -63,7 +63,12 @@ namespace TouristHelp
                 regionRepeater();
 
 
-               
+                if (Session["hotelAdded"] != null)
+                {
+                    hotelAddedLbl.Text = null;
+                    hotelAddedLbl.Visible = true;
+                    hotelAddedLbl.ForeColor = Color.Green;
+                }
 
             }
 

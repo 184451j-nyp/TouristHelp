@@ -43,7 +43,7 @@
                                     <td>
                                         <label></label>
                                         <asp:Label runat="server" Font-Size="15">Name:</asp:Label>
-                                        <asp:Label ID="LbName" runat="server" Font-Size="15" Text='<%#Eval("TourGuideImage") %>'></asp:Label></td>
+                                        <asp:Label ID="LbName" runat="server" Font-Size="15" Text='<%#Eval("Name") %>'></asp:Label></td>
                                     <asp:Label ID="LbEmail" runat="server" Visible="false" Text='<%#Eval("Email") %>'></asp:Label></td>
                                            <asp:Label ID="LbuserId" runat="server" Visible="false" Text='<%#Eval("UserId") %>'></asp:Label></td>
                                          <asp:Label ID="LbtourguideId" runat="server" Visible="false" Text='<%#Eval("TourGuideId") %>'></asp:Label></td>

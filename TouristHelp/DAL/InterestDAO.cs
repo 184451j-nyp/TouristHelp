@@ -16,8 +16,10 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Interest (InterestName, user_id) " +
-                             "VALUES (@paraInterestName,@paraUserId)";
+            string sqlStmt = "IF EXISTS(select * from Interest where user_id = @paraUserId) " +
+                             "UPDATE Interest set InterestName = @paraInterestName where user_id = @paraUserId " +
+                             "ELSE " +
+                             "INSERT INTO Interest (InterestName, user_id) values(@paraInterestName, @paraUserId)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -31,7 +33,7 @@ namespace TouristHelp.DAL
             myConn.Close();
         }
 
-        public List<Interest> SelectInterestById(int userId)
+        public Interest SelectInterestById(int userId)
         {
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
@@ -45,24 +47,19 @@ namespace TouristHelp.DAL
 
             DataSet ds = new DataSet();
             da.Fill(ds);
-
-            List<Interest> intList = new List<Interest>();
-
+            
             int rec_cnt = ds.Tables[0].Rows.Count;
+
             if (rec_cnt == 0)
             {
-                intList = null;
+                return null;
             }
-            else
-            {
-                foreach (DataRow row in ds.Tables[0].Rows)
-                {
-                    string interestName = row["InterestName"].ToString();
-                    Interest objRate = new Interest(interestName, userId);
-                    intList.Add(objRate);
-                }
-            }
-            return intList;
+            
+            DataRow row = ds.Tables[0].Rows[0];
+            string interestName = row["InterestName"].ToString();
+            Interest objRate = new Interest(interestName, userId);
+            
+            return objRate;
         }
 
         public void RemoveInterest(string InterestName, int userId)
@@ -70,12 +67,11 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "DELETE FROM Interest where InterestName = @paraInterestName AND user_id = @paraUserId";
+            string sqlStmt = "DELETE FROM Interest where user_id = @paraUserId";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
-
-            sqlCmd.Parameters.AddWithValue("@paraInterestName", InterestName);
+            
             sqlCmd.Parameters.AddWithValue("@paraUserId", userId);
 
             myConn.Open();

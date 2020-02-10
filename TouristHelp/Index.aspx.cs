@@ -11,13 +11,14 @@ namespace TouristHelp
             {
                 string name = "";
                 int id = int.Parse(Session["tourist_id"].ToString());
+                //int tourguideId = int.Parse(Session["tourguide_id"].ToString());
                 try
                 {
                     name = TouristDAO.SelectTouristById(id).Name;
                 }
                 catch
                 {
-                    name = TourGuideDAO.SelectTourGuideById(id).Name;
+                  //  name = TourGuideDAO.SelectTourGuideById(tourguideId).Name;
                 }
                 finally
                 {
