@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TourGuideUpdateDetails.aspx.cs" Inherits="TouristHelp.TourGuideUpdateDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TourGuideLoggedIn.Master" AutoEventWireup="true" CodeBehind="TourGuideUpdateDetails.aspx.cs" Inherits="TouristHelp.TourGuideUpdateDetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -14,23 +14,26 @@
             </div>
         </div>
     </div>
+    <hr />
     <form id="form" runat="server">
         <div class="row">
             <asp:Label ID="tourguidenameLabel" CssClass="col-1" runat="server" Text="Name:"></asp:Label>
-            <asp:TextBox ID="tourguidenameTextBox" CssClass="col-1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tourguidenameTextBox" CssClass="col-2" runat="server"></asp:TextBox>
 
 
 
             <asp:Label ID="tourguidedescriptionLabel" CssClass="col-1" runat="server" Text="Description:"></asp:Label>
-            <asp:TextBox ID="tourguidedescriptionTextBox" CssClass="col-1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tourguidedescriptionTextBox" CssClass="col-2" runat="server"></asp:TextBox>
 
             <asp:Label ID="tourguidelanguagesLabel" CssClass="col-1" runat="server" Text="Languages:"></asp:Label>
-            <asp:TextBox ID="tourguidelanguagesTextBox" CssClass="col-1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tourguidelanguagesTextBox" CssClass="col-2" runat="server"></asp:TextBox>
 
 
             <asp:Label ID="tourguidecredentialsLabel" CssClass="col-1" runat="server" Text="Credentials:"></asp:Label>
-            <asp:TextBox ID="tourguidecredentialsTextBox" CssClass="col-1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tourguidecredentialsTextBox" CssClass="col-2" runat="server"></asp:TextBox>
+        </div>
 
+        <div class="row">
 
 
             <asp:Label ID="tourguideemailLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
@@ -39,14 +42,12 @@
             <asp:Label ID="tourguideidLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
             <asp:Label ID="tourguideuseridLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
 
-                Your Image:
-                <asp:FileUpload ID="FileUpload1" runat="server" />
-                <asp:Button ID="btnUpload" Text="Upload" runat="server" OnClick="UploadFile" CausesValidation="false" Visible="false" />
-                <asp:Label ID="LbImage" runat="server" Visible="false" Text=""></asp:Label>
+            <div>
+                Choose Your Image To Upload:
+                 <asp:FileUpload ID="FileUpload1" runat="server" />
+            </div>
 
-                <asp:Image ID="Image1" runat="server" Height="100" Width="100" Visible="false" />
-
-                <asp:Button ID="BtnSubmit" runat="server" OnClick="BtnSubmit_Click" Text="Update" Width="80px" />
+            <asp:Button ID="BtnSubmit" runat="server" OnClick="BtnSubmit_Click" Text="Update" Width="100px" />
 
 
 

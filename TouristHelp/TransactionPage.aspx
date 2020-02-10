@@ -30,7 +30,7 @@
 
 
 
-    
+    <asp:Label ID="Label2" runat="server" Text=""></asp:Label>
      
 
         <section>
@@ -94,23 +94,18 @@
       <table>
 <tr>
 <td>
-    <asp:GridView ID="GvEmployee"  ShowHeader="True" 
-        GridLines="None" AutoGenerateColumns="false"
-        runat="server">
+
+     <asp:Repeater ID="repeatTrans" runat="server" EnableViewState="false" OnItemCommand="repeatTrans_ItemCommand" >
 
 
-        <Columns>
 
+                                                     <ItemTemplate>
 
-            <asp:TemplateField>
-
-               
-                <ItemTemplate>
                     
                                        <div class="row">
                                                      
 
-                                     <asp:Label ID="voucherGen_id" CssClass="col-2" runat="server" Text='<%#Eval("voucherGen_id") %>'></asp:Label>
+                                     <asp:Label ID="voucherGen_id" CssClass="col-1" runat="server" Text='<%#Eval("voucherGen_id") %>'></asp:Label>
 
 
                                           <asp:Label ID="voucherName" CssClass="col-2" runat="server" Text='<%#Eval("voucherName") %>'></asp:Label>
@@ -122,25 +117,38 @@
 
                                       <asp:Label ID="voucherExpiry" CssClass="col-2" runat="server" Text='<%#Eval("voucherExpiry") %>'></asp:Label>
 
+
+                                                                <asp:Label ID="voucherStats" CssClass="col-1" runat="server" Text='<%#Eval("voucherStats") %>'></asp:Label>
+
                               <asp:Label ID="voucherTotalCost" CssClass="col-1" runat="server" Text='<%#Eval("voucherTotalCost") %>'></asp:Label>
 
 
-                                         <asp:Label ID="voucherStats" CssClass="col-1" runat="server" Text='<%#Eval("voucherStats") %>'></asp:Label>
+
+                                   
+                                           
+                                     <asp:Button ID="getQRcode"  CssClass="col-2"  runat="server" Text="Get QR Code" />
+
+                                           
+                                           <asp:HiddenField runat="server" ID="confirmCode" Value='<%#Eval("confirmCode") %>' />
 
 
-                               <asp:Label ID="confirmCode" CssClass="col-1" runat="server" Text='<%#Eval("confirmCode") %>'></asp:Label>
 
-
-
+                                           </div>
                          
-                </ItemTemplate>
+
+                                           </ItemTemplate>
 
 
 
-                 <HeaderTemplate>    
+
+
+
+                                               <HeaderTemplate>
+
+
                     <div class="row">
 
-                                     <asp:Label ID="voucherIdLabel" CssClass="col-2" runat="server" Text="Product Id:"></asp:Label>
+                                     <asp:Label ID="voucherIdLabel" CssClass="col-1" runat="server" Text="Product Id:"></asp:Label>
 
                                         <asp:Label ID="voucherNameLabel" CssClass="col-2" runat="server" Text="Product Name:"></asp:Label>
 
@@ -151,41 +159,34 @@
 
                                       <asp:Label ID="expiryDateLabel" CssClass="col-2" runat="server" Text="Expiry Date"></asp:Label>
 
+                                                                 <asp:Label ID="voucherStatusLabel" CssClass="col-1" runat="server" Text="Status"></asp:Label>
+
+
                               <asp:Label ID="shopPriceLabel" CssClass="col-1" runat="server" Text="Total Cost"></asp:Label>
 
 
-                                         <asp:Label ID="voucherStatusLabel" CssClass="col-1" runat="server" Text="Status"></asp:Label>
 
 
-                               <asp:Label ID="confirmCodeLabel" CssClass="col-1" runat="server" Text="Code Verification"></asp:Label>
+                               <asp:Label ID="confirmCodeLabel" CssClass="col-2" runat="server" Text="Code Verification"></asp:Label>
+                     
+                        </div>
+                        
+                        </HeaderTemplate>
 
-
-
+                        </asp:Repeater>
               
-                                                            </div></HeaderTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
 </td>
+
+    
+    
+
+
+
+
 
 
 <td>
-    <asp:Repeater ID="Repeater1"  runat="server">
-        <ItemTemplate>
-            
-           
-                                    
-                                                      
 
-                                                                                        </div>
-
-
-        </ItemTemplate>
-        <SeparatorTemplate>
-        
-
-        </SeparatorTemplate>
-    </asp:Repeater>
 </td>
 </tr>
 </table>

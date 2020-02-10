@@ -391,6 +391,8 @@
     <Content Include="TourGuideUpdateDetails.aspx" />
     <Content Include="TourGuideUpdateTour.aspx" />
     <Content Include="TouristBookingsPage.aspx" />
+    <Content Include="TransactionConfirm.aspx" />
+    <Content Include="TransactionDetail.aspx" />
     <Content Include="TransactionPage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -715,6 +717,13 @@
     <Compile Include="TourGuideListPage.aspx.designer.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TourGuideLoggedIn.Master.cs">
+      <DependentUpon>TourGuideLoggedIn.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideLoggedIn.Master.designer.cs">
+      <DependentUpon>TourGuideLoggedIn.Master</DependentUpon>
+    </Compile>
     <Compile Include="TourGuideRequestsPage.aspx.cs">
       <DependentUpon>TourGuideRequestsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -743,6 +752,20 @@
     <Compile Include="TouristBookingsPage.aspx.designer.cs">
       <DependentUpon>TouristBookingsPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TransactionConfirm.aspx.cs">
+      <DependentUpon>TransactionConfirm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionConfirm.aspx.designer.cs">
+      <DependentUpon>TransactionConfirm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TransactionDetail.aspx.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TransactionDetail.aspx.designer.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="TransactionPage.aspx.cs">
       <DependentUpon>TransactionPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -766,6 +789,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="TourGuideLoggedIn.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

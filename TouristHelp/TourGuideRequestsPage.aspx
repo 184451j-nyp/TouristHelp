@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TourGuideRequestsPage.aspx.cs" Inherits="TouristHelp.TourGuideRequestsPage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TourGuideLoggedIn.Master" AutoEventWireup="true" CodeBehind="TourGuideRequestsPage.aspx.cs" Inherits="TouristHelp.TourGuideRequestsPage" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -21,31 +21,41 @@
                             <span class="icon-link"></span>
                         </div>
                     </a>
-                    <div class="one">
-                        <asp:Label ID="tourguideid" runat="server" Font-Size="15" Text='<%#Eval("TourGuideId") %>'></asp:Label>
+                    <div class="seven">
+                        <asp:Label runat="server" Font-Size="15">Tour Id:</asp:Label>
+                        <asp:Label ID="LbName" runat="server" Font-Size="15" Text='<%#Eval("TourId") %>'></asp:Label></td>
                     </div>
+
+                    <div class="six">
+                        <asp:Label runat="server" Font-Size="15">Id Of Tourist Who Requested:</asp:Label>
+                        <asp:Label ID="Label1" runat="server" Font-Size="15" Text='<%#Eval("TouristId") %>'></asp:Label></td>
+                    </div>
+
                     <div class="two">
-                        <span class="tgname" id="tourguidename">Tour Guide Name: <%#Eval("Name") %></span>
+                        <asp:Label runat="server" Font-Size="15">Tour Guide Name:</asp:Label>
+
+                        <asp:Label ID="Label2" runat="server" Font-Size="15" Text='<%#Eval("Name") %>'></asp:Label></td>
                     </div>
                     <div class="three">
-                        <span class="tourtitle" id="TourTitle">Tour Title: <%#Eval("TourTitle") %></span>
+                        <asp:Label runat="server" Font-Size="15">Tour Title:</asp:Label>
+
+                        <asp:Label ID="Label3" runat="server" Font-Size="15" Text='<%#Eval("TourTitle") %>'></asp:Label></td>
                     </div>
 
                     <div class="four">
-                        <span class="tourtiming" id="TourTiming">Tour Date: <%#Eval("Timing") %></span>
+                        <asp:Label runat="server" Font-Size="15">Tour Date And Time:</asp:Label>
+
+                        <asp:Label ID="Label4" runat="server" Font-Size="15" Text='<%#Eval("Timing") %>'></asp:Label></td>
                     </div>
 
                     <div class="five">
-                        <span class="tourstatus" id="TourStatus">Tour Status: <%#Eval("Status") %></span>
-                    </div>
-                    <div class="six">
-                        <span class="touristid" id="TouristId">Tourist Id: <%#Eval("TouristId") %></span>
+                        <asp:Label runat="server" Font-Size="15">Tour Status:</asp:Label>
+
+                        <asp:Label ID="Label5" runat="server" Font-Size="15" Text='<%#Eval("Status") %>'></asp:Label></td>
                     </div>
 
-                    <div class="seven">
-                        <asp:Label ID="Label1" runat="server" Font-Size="15" Text='<%#Eval("TourId") %>'></asp:Label>
 
-                    </div>
+
 
                     <hr>
                     <td>

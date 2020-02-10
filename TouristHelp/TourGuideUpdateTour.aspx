@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="TourGuideUpdateTour.aspx.cs" Inherits="TouristHelp.TourGuideUpdateTour" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/TourGuideLoggedIn.Master" AutoEventWireup="true" CodeBehind="TourGuideUpdateTour.aspx.cs" Inherits="TouristHelp.TourGuideUpdateTour" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -18,8 +18,8 @@
             <asp:Label ID="tourpriceLabel" CssClass="col-1" runat="server" Text="Tour Price:"></asp:Label>
             <asp:TextBox ID="tourpriceTextBox" CssClass="col-1" runat="server"></asp:TextBox>
 
-            <asp:Label ID="tourguideidLabel" CssClass="col-1" runat="server" Visible="true" Text="Credentials:"></asp:Label>
-            <asp:Label ID="tourguideuseridLabel" CssClass="col-1" runat="server" Visible="true" Text="Credentials:"></asp:Label>
+            <asp:Label ID="tourguideidLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
+            <asp:Label ID="tourguideuseridLabel" CssClass="col-1" runat="server" Visible="false" Text="Credentials:"></asp:Label>
 
 
 

@@ -59,6 +59,15 @@ namespace TouristHelp.BLL
             TransactionDAO dao = new TransactionDAO();
             return dao.getTransactionById(userId);
         }
+
+
+
+
+        public void shopVerify(string shopCode)
+        {
+            TransactionDAO dao = new TransactionDAO();
+            dao.shopUsed(shopCode);
+        }
     }
 
     

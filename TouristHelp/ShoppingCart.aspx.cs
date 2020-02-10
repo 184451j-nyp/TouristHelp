@@ -34,10 +34,20 @@ namespace TouristHelp
                     subTotal += Math.Round((Convert.ToDouble(price.Text) * Convert.ToInt32(quantity.Text)), 2);
                 }
 
+                Session["user_id"] = Session["tourist_id"];
+
+                string userId = Session["user_id"].ToString();
+
+                Reward td = new Reward();
+                td = td.GetRewardById(userId);
+
+                double getDiscount = (subTotal / 100) * td.totalDiscount;
+
                 lbGst.Text = Convert.ToString(subTotal * gst);
                 lbSubTotal.Text = subTotal.ToString();
-                grandTotal = subTotal + (subTotal * gst);
+                grandTotal = (subTotal + (subTotal * gst) ) - getDiscount;
                 lbGrandTotal.Text = grandTotal.ToString();
+                discountLbl.Text = "-" + getDiscount.ToString();
             }
                 
         }

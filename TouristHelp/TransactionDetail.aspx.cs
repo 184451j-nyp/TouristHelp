@@ -8,16 +8,15 @@ using System.Drawing;
 using System.IO;
 using QRCoder;
 
+
 namespace TouristHelp
 {
-    public partial class HotelDetail : System.Web.UI.Page
+    public partial class TransactionDetail : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-
-            string hotelCode = Request.QueryString["Code"];
-            string code = "touristhelp20200209023102.azurewebsites.net/HotelConfirm.aspx?Code=" + hotelCode;
+            string shopCode = Request.QueryString["Code"];
+            string code = "touristhelp20200209023102.azurewebsites.net/TransactionConfirm.aspx?Code=" + shopCode;
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeGenerator.QRCode qrCode = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
             System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();

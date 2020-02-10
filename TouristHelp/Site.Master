@@ -51,9 +51,16 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="HotelPage.aspx">Hotel</a>
                                 </li>
-                                   <li class="nav-item">
-                                    <a class="nav-link" href="TourGuideListPage.aspx">Tour Guides</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="TourGuideListPage.aspx" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Find Tour Guide
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="TourGuideListPage.aspx">Tour Guides</a>
+                                        <a class="dropdown-item" href="TouristBookingsPage.aspx">Your Guide Bookings</a>
+                                    </div>
                                 </li>
+
+
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="RewardPage.aspx" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Reward
                                     </a>
@@ -69,7 +76,6 @@
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="List_Reservation_Food.aspx">Food Reservation</a>
                                         <a class="dropdown-item" href="HotelReservation.aspx">Hotel Reservation</a>
-                                        <a class="dropdown-item" href="HotelReservation.aspx">Hotel Reservation</a>
                                     </div>
                                 </li>
                                 <li class="nav-item">
@@ -80,9 +86,9 @@
                                 </li>
                             </ul>
                         </div>
-                </nav>
+                    </nav>
+                </div>
             </div>
-        </div>
         </div>
     </header>
     <!-- Header part end-->
