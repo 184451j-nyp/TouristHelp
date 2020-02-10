@@ -251,6 +251,8 @@
     <Content Include="RegisterTG.aspx" />
     <Content Include="RegisterTourist.aspx" />
     <Content Include="AdminPageAddAttraction_2.aspx" />
+    <Content Include="Reservation_Food_QR_Claim.aspx" />
+    <Content Include="Reservation_Food_QR.aspx" />
     <Content Include="Reservation_Food.aspx" />
     <Content Include="Reservation_Food_Confirmed.aspx" />
     <Content Include="RewardPage.aspx" />
@@ -288,6 +290,7 @@
     <None Include="Properties\PublishProfiles\TouristHelp20200208080154 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TouristHelp20200209023102 - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\TouristHelp20200209024920 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\TouristHelp20200209044754 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -591,6 +594,20 @@
     </Compile>
     <Compile Include="AdminPageAddAttraction_2.aspx.designer.cs">
       <DependentUpon>AdminPageAddAttraction_2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation_Food_QR_Claim.aspx.cs">
+      <DependentUpon>Reservation_Food_QR_Claim.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservation_Food_QR_Claim.aspx.designer.cs">
+      <DependentUpon>Reservation_Food_QR_Claim.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reservation_Food_QR.aspx.cs">
+      <DependentUpon>Reservation_Food_QR.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservation_Food_QR.aspx.designer.cs">
+      <DependentUpon>Reservation_Food_QR.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reservation_Food.aspx.cs">
       <DependentUpon>Reservation_Food.aspx</DependentUpon>
