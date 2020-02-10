@@ -58,6 +58,7 @@ namespace TouristHelp
             }
             else
             {
+                lblNoEntry.Visible = false;
                 GeoJsonHidden.Value = JsonConvert.SerializeObject(DirectionDAO.GetGeoJsonsByUser(tourist_id));
                 gvDirections.DataSource = places;
                 gvDirections.DataBind();
