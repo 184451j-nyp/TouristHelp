@@ -118,6 +118,7 @@
     <Content Include="Guidebook.aspx" />
     <Content Include="HotelPage.aspx" />
     <Content Include="HotelReservation.aspx" />
+    <Content Include="Images\20190713_235044.jpg" />
     <Content Include="Images\banner_blog\banner_blog_1.png" />
     <Content Include="Images\banner_blog\banner_blog_2.png" />
     <Content Include="Images\banner_blog\banner_blog_3.png" />
@@ -135,6 +136,7 @@
     <Content Include="Images\blog\slide_thumb_1.png" />
     <Content Include="Images\breadcrumb_bg.png" />
     <Content Include="Images\Carlton.jpg" />
+    <Content Include="Images\China_Restraunt.jpg" />
     <Content Include="Images\comment\comment_1.png" />
     <Content Include="Images\comment\comment_2.png" />
     <Content Include="Images\comment\comment_3.png" />
@@ -183,6 +185,7 @@
     <Content Include="Images\gallery\service_bg_2.png" />
     <Content Include="Images\gbtb.jpg" />
     <Content Include="Images\goldMember.jpg" />
+    <Content Include="Images\highTea%40Fullerton.jfif" />
     <Content Include="Images\hiltonGarden.jpg" />
     <Content Include="Images\iconicFood.jpg" />
     <Content Include="Images\icon\left.svg" />
@@ -190,6 +193,8 @@
     <Content Include="Images\icon\play.svg" />
     <Content Include="Images\icon\quate.svg" />
     <Content Include="Images\icon\right.svg" />
+    <Content Include="Images\IIPzQC2.png" />
+    <Content Include="Images\il_570xN.1940458229_5vrc.jpg" />
     <Content Include="Images\insta\instagram_1.png" />
     <Content Include="Images\insta\instagram_2.png" />
     <Content Include="Images\insta\instagram_3.png" />
@@ -230,6 +235,7 @@
     <Content Include="Images\post\post_8.png" />
     <Content Include="Images\post\post_9.png" />
     <Content Include="Images\post\preview.png" />
+    <Content Include="Images\Senko_step.png" />
     <Content Include="Images\Sentosa.png" />
     <Content Include="Images\sidebar\sidebar_1.png" />
     <Content Include="Images\sidebar\sidebar_2.png" />
@@ -237,6 +243,7 @@
     <Content Include="Images\signin-image.jpg" />
     <Content Include="Images\signup-image.jpg" />
     <Content Include="Images\silverMember.png" />
+    <Content Include="Images\Singapore_Zoo.jpg" />
     <Content Include="Images\starbucks.jpg" />
     <Content Include="Images\uss.jpg" />
     <Content Include="Index.aspx" />
@@ -655,6 +662,13 @@
     <Compile Include="TourGuideListPage.aspx.designer.cs">
       <DependentUpon>TourGuideListPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="TourGuideLoggedIn.Master.cs">
+      <DependentUpon>TourGuideLoggedIn.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TourGuideLoggedIn.Master.designer.cs">
+      <DependentUpon>TourGuideLoggedIn.Master</DependentUpon>
+    </Compile>
     <Compile Include="TourGuideRequestsPage.aspx.cs">
       <DependentUpon>TourGuideRequestsPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -706,6 +720,7 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="TourGuideLoggedIn.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
