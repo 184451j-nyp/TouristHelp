@@ -28,11 +28,8 @@
                        
                  <br />
                  <asp:Label ID="lbTicketDesc" runat="server" Font-Size="Large"></asp:Label>
-
                          <br />
                          <br />
-
-                         <asp:Label ID="Label2" runat="server" Text="Select a Package:" Font-Size="X-Large"></asp:Label>
                          <br />
                          <br />
                          <br />
@@ -56,7 +53,7 @@
                          <br />
                          <div class="row">
                              <span class="col-lg-6">
-                                   <asp:Label ID="lblCategory" runat="server" Font-Size="Medium" Text="Adult/Person/Child"></asp:Label>
+                                   <asp:Label ID="lblCategory" runat="server" Font-Size="Medium" Text="Person"></asp:Label>
                              </span>
                              <span class="col-lg-3">
                                  <asp:Label ID="dollar" runat="server" Font-Size="Medium" Text="$"></asp:Label>

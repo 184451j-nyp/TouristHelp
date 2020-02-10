@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-
+    <asp:Label ID="Label1" Visible="false" runat="server" Text=""></asp:Label>
     <form runat="server">
        <section class="ftco-section">
            <asp:Repeater ID="Repeater1" runat="server" OnItemCommand="Repeater1_ItemCommand" >
