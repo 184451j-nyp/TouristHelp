@@ -62,6 +62,16 @@ namespace TouristHelp.BLL
 
 
 
+        public List<Transactions> getTransactionOldest(int userId)
+        {
+            TransactionDAO dao = new TransactionDAO();
+            return dao.getTransactionByIdOldest(userId);
+        }
+
+
+
+
+
 
         public void shopVerify(string shopCode)
         {

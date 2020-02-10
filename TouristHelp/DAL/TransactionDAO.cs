@@ -131,6 +131,51 @@ namespace TouristHelp.DAL
 
 
 
+        public List<Transactions> getTransactionByIdOldest(int userId)
+        {
+            //Step 1 -  Define a connection to the database by getting
+            //          the connection string from web.config
+            string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+            SqlConnection myConn = new SqlConnection(DBConnect);
+
+            //Step 2 -  Create a DataAdapter to retrieve data from the database table
+            string sqlStmt = "Select * from [Transaction] " +
+                              "WHERE user_id =  @paraUserId " +
+                               "ORDER BY voucherDate ";
+            SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
+
+            da.SelectCommand.Parameters.AddWithValue("@paraUserId", userId);
+
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+
+            List<Transactions> intList = new List<Transactions>();
+
+            int rec_cnt = ds.Tables[0].Rows.Count;
+            if (rec_cnt == 0)
+            {
+                intList = null;
+            }
+            else
+            {
+                foreach (DataRow row in ds.Tables[0].Rows)
+                {
+                    int voucherGen_id = Convert.ToInt32(row["voucherGen_id"]);
+                    string voucherStats = row["voucherStats"].ToString();
+                    DateTime voucherExpiry = Convert.ToDateTime(row["voucherExpiry"].ToString());
+                    int confirmCode = Convert.ToInt32(row["confirmCode"]);
+                    DateTime voucherDate = Convert.ToDateTime(row["voucherDate"].ToString());
+                    int voucherTotalCost = Convert.ToInt32(row["voucherTotalCost"]);
+                    int voucherQuantity = Convert.ToInt32(row["voucherQuantity"]);
+                    string voucherName = row["voucherName"].ToString();
+                    string voucherCategory = row["voucherCategory"].ToString();
+
+                    Transactions objRate = new Transactions(voucherGen_id, voucherStats, voucherExpiry, confirmCode, userId, voucherDate, voucherTotalCost, voucherQuantity, voucherName, voucherCategory);
+                    intList.Add(objRate);
+                }
+            }
+            return intList;
+        }
 
 
         public void shopUsed(string shopCode)
