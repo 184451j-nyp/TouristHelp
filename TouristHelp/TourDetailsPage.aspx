@@ -96,6 +96,8 @@
             <ajaxToolkit:PopupControlExtender ID="TourDate_PopupControlExtender" runat="server" BehaviorID="TourDate_PopupControlExtender" DynamicServicePath="" ExtenderControlID="" PopupControlID="Panel1" Position="Bottom" TargetControlID="TourDate">
             </ajaxToolkit:PopupControlExtender>
 
+            <asp:TextBox ID="TourTime" runat="server" TextMode="Time"></asp:TextBox>
+
             <br />
             <asp:Panel ID="Panel1" runat="server">
                 <asp:UpdatePanel ID="UpdatePanel1" runat="server">

@@ -45,10 +45,10 @@ namespace TouristHelp
             else
             {
 
-                DateTime expDate = Convert.ToDateTime(TourDate.Text);
-                string statuscheck = "Pending";
+                string timeanddate = TourDate.Text + " " + TourTime.Text;
+                string statuscheck = "-";
 
-                TouristBooking obj = new TouristBooking(int.Parse(gettouristid.Text), gettourguidename.Text, tourguidetitleLabel.Text, expDate.ToString(), statuscheck, int.Parse(gettourguideid.Text));
+                TouristBooking obj = new TouristBooking(int.Parse(gettouristid.Text), gettourguidename.Text, tourguidetitleLabel.Text, timeanddate, statuscheck, int.Parse(gettourguideid.Text));
                 TouristBookingDAO.InsertBooking(obj);
             }
         }

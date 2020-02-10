@@ -43,15 +43,12 @@ namespace TouristHelp
 
         protected void UploadFile(object sender, EventArgs e)
         {
-        
+
+
             string folderPath = Server.MapPath("~/Images/");
 
-            LbImage.Text = "Images/" + FileUpload1.FileName;
-             
+            //Save the file to dictionary (Folder)
             FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName).ToString());
-
-
-            Image1.ImageUrl = "~/Images/" + Path.GetFileName(FileUpload1.FileName).ToString();
 
         }
 
