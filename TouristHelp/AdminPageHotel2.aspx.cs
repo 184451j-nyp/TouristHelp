@@ -25,7 +25,9 @@ namespace TouristHelp
         {
 
             decimal hotelPrice = 0;
-            string hotelImage = "Images/" + FileUpload1.FileName;
+            //string hotelImage = "Images/" + FileUpload1.FileName;
+
+            string attImage = LbImage.Text;
             bool centralFilter;
             bool northFilter;
             bool southFilter;
@@ -51,7 +53,7 @@ namespace TouristHelp
                     LblMsgRegion.Visible = false;
 
 
-                    HotelBook addHotel = new HotelBook(hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                    HotelBook addHotel = new HotelBook(hotelPrice, attImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
                     addHotel.addHotel(addHotel);
                     Response.Redirect("AdminPageHotel.aspx");
 
@@ -73,7 +75,7 @@ namespace TouristHelp
                     westFilter = false;
                     eastFilter = false;
 
-                    HotelBook addHotel = new HotelBook(hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                    HotelBook addHotel = new HotelBook(hotelPrice, attImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
                     addHotel.addHotel(addHotel);
                     Response.Redirect("AdminPageHotel.aspx");
 
@@ -100,7 +102,7 @@ namespace TouristHelp
                     westFilter = false;
                     eastFilter = false;
 
-                    HotelBook addHotel = new HotelBook(hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                    HotelBook addHotel = new HotelBook(hotelPrice, attImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
                     addHotel.addHotel(addHotel);
                     Response.Redirect("AdminPageHotel.aspx");
 
@@ -128,7 +130,7 @@ namespace TouristHelp
                     centralFilter = false;
                     eastFilter = false;
 
-                    HotelBook addHotel = new HotelBook(hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                    HotelBook addHotel = new HotelBook(hotelPrice, attImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
                     addHotel.addHotel(addHotel);
                     Response.Redirect("AdminPageHotel.aspx");
 
@@ -153,7 +155,7 @@ namespace TouristHelp
                     northFilter = false;
                     centralFilter = false;
 
-                    HotelBook addHotel = new HotelBook(hotelPrice, hotelImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
+                    HotelBook addHotel = new HotelBook(hotelPrice, attImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
                     addHotel.addHotel(addHotel);
                     Response.Redirect("AdminPageHotel.aspx");
 
@@ -222,14 +224,27 @@ namespace TouristHelp
         protected void UploadFile(object sender, EventArgs e)
         {
 
-          
+
+            //string folderPath = Server.MapPath("~/Images/");
+
+            ////Save the file to dictionary (Folder)
+            //FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName).ToString());
+
+            ////Display the Picture in Image Control
+
+            //Image1.ImageUrl = "~/Images/" + Path.GetFileName(FileUpload1.FileName).ToString();
+
+
+
             string folderPath = Server.MapPath("~/Images/");
+
+            //save file name to invisible label
+            LbImage.Text = "Images/" + FileUpload1.FileName;
 
             //Save the file to dictionary (Folder)
             FileUpload1.SaveAs(folderPath + Path.GetFileName(FileUpload1.FileName).ToString());
 
             //Display the Picture in Image Control
-
             Image1.ImageUrl = "~/Images/" + Path.GetFileName(FileUpload1.FileName).ToString();
 
         }
