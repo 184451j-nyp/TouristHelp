@@ -24,7 +24,7 @@ namespace TouristHelp.BLL
 
         }
 
-        public Ticket(string attName, string attDesc, double attPrice, DateTime expDate, string attCode, string statPaid, int user_id, int cart_id)
+        public Ticket(string attName, string attDesc, double attPrice, DateTime expDate, string attCode, string statPaid, int user_id, int cart_id, string attImg)
         {
             attractionName = attName;
             attractionDesc = attDesc;
@@ -34,19 +34,20 @@ namespace TouristHelp.BLL
             paid = statPaid;
             userId = user_id;
             cartId = cart_id;
+            ticketImage = attImg;
         }
 
-        public Ticket(int attId, string attName, string attDesc, DateTime expDate, string attCode/*, string attImg*/)
+        public Ticket(int attId, string attName, string attDesc, DateTime expDate, string attCode, string attImg)
         {
             ticketId = attId;
             attractionName = attName;
             attractionDesc = attDesc;
             dateExpire = expDate;
             ticketCode = attCode;
-            //ticketImage = attImg;
+            ticketImage = attImg;
         }
 
-        public Ticket(string attName, string attDesc, double attPrice, DateTime expDate, int user_id/*, string attImg*/)
+        public Ticket(string attName, string attDesc, double attPrice, DateTime expDate, int user_id, string attImg)
         {
 
             attractionName = attName;
@@ -54,7 +55,7 @@ namespace TouristHelp.BLL
             price = attPrice;
             dateExpire = expDate;
             userId = user_id;
-            //ticketImage = attImg;
+            ticketImage = attImg;
 
         }
 

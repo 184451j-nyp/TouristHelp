@@ -71,8 +71,8 @@ namespace TouristHelp.DAL
                     string ticketDesc = row["attractionDesc"].ToString();
                     string ticketCode = row["ticketCode"].ToString();
                     DateTime dateExpire = Convert.ToDateTime(row["dateExpire"]);
-
-                    Ticket tix = new Ticket(ticketId, ticketName, ticketDesc, dateExpire, ticketCode);
+                    string ticketImg = row["ticketImage"].ToString();
+                    Ticket tix = new Ticket(ticketId, ticketName, ticketDesc, dateExpire, ticketCode, ticketImg);
                     ticketList.Add(tix);
                 }
             }
@@ -138,8 +138,8 @@ namespace TouristHelp.DAL
                 double price = Convert.ToDouble(row["price"].ToString());
                 DateTime dateExpire = Convert.ToDateTime(row["dateExpire"].ToString());
                 int user_id = Convert.ToInt32(row["user_id"].ToString());
-                //string ticketImg = row["ticketImg"].ToString();
-                ti = new Ticket(attractionName, attractionDesc, price, dateExpire, user_id);
+                string ticketImg = row["ticketImage"].ToString();
+                ti = new Ticket(attractionName, attractionDesc, price, dateExpire, user_id, ticketImg);
             }   
             return ti;
         }
@@ -193,8 +193,8 @@ namespace TouristHelp.DAL
                 DateTime dateExpire = Convert.ToDateTime(row["dateExpire"].ToString());
                 string ticketCode = row["ticketCode"].ToString();
 
-                //string ticketImg = row["ticketImg"].ToString();
-                ti = new Ticket(ticketId, attractionName, attractionDesc, dateExpire, ticketCode);
+                string ticketImg = row["ticketImage"].ToString();
+                ti = new Ticket(ticketId, attractionName, attractionDesc, dateExpire, ticketCode, ticketImg);
             }
             return ti;
         }

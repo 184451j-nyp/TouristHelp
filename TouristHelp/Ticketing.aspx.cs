@@ -18,6 +18,7 @@ namespace TouristHelp
             lbTicketName.Text = newTix.Name;
             lbTicketDesc.Text = newTix.Description;
             lblPrice.Text = newTix.Price.ToString();
+            AttractionImage.ImageUrl = newTix.Image.ToString();
         }
         protected void Btn_TypeSel(object sender, EventArgs e)
         {
@@ -123,7 +124,7 @@ namespace TouristHelp
 
             Cart newCart = new Cart();
             newCart = newCart.GetCartId(attName, user_id);
-            Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id, newCart.productId);
+            Ticket tkt = new Ticket(attName, attDesc, price, expDate, code, "not paid", user_id, newCart.productId, AttractionImage.ImageUrl);
             tkt.AddNewTicket();
 
 
