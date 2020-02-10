@@ -10,6 +10,13 @@ namespace TouristHelp
 {
     public partial class Reservation_Food : System.Web.UI.Page
     {
+        void Page_PreInit(Object sender, EventArgs e)
+        {
+            if (Session["tourist_id"] == null && Session["tourguide_id"] == null)
+            {
+                this.MasterPageFile = "~/Default.master";
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["AttractionId"] != null)

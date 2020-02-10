@@ -147,7 +147,7 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "Select * from TouristBooking where tourguide_id = @paraId and status = 'Pending'";
+            string sqlStmt = "Select * from TouristBooking where tourguide_id = @paraId and status = '-'";
 
 
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);

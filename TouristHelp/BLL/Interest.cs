@@ -27,7 +27,7 @@ namespace TouristHelp.BLL
             InterestDAO dao = new InterestDAO();
             dao.Insert(this);
         }
-        public List<Interest> checkInterests(int userId)
+        public Interest checkInterests(int userId)
         {
             InterestDAO dao = new InterestDAO();
             return dao.SelectInterestById(userId);
