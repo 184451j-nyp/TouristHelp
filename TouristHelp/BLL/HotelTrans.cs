@@ -93,10 +93,10 @@ namespace TouristHelp.BLL
 
 
 
-        public void hotelPay(int cartId, int userId)
+        public void hotelPay(int cartId,int roomQty, int userId)
         {
             HotelTransDAO dao = new HotelTransDAO();
-            dao.updateHotelBook(cartId, userId);
+            dao.updateHotelBook(cartId, roomQty, userId);
         }
 
 

@@ -17,9 +17,9 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             string sqlStmt = "INSERT INTO Ticket (attractionName, attractionDesc, price, " +
-                                    "dateExpire, ticketCode, paid, user_id, cartId)" +
+                                    "dateExpire, ticketCode, paid, user_id, cartId, ticketImage)" +
                              "VALUES (@paraAttName,@paraAttDesc,@paraPrice,@paraDateExpire," +
-                                    "@paraTicketCode,@paraPaid,@paraUserId,@paraCartId)";
+                                    "@paraTicketCode,@paraPaid,@paraUserId,@paraCartId,@paraTicketImage)";
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
 
@@ -31,6 +31,7 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraPaid", tk.paid);
             sqlCmd.Parameters.AddWithValue("@paraUserId", tk.userId);
             sqlCmd.Parameters.AddWithValue("@paraCartId", tk.cartId);
+            sqlCmd.Parameters.AddWithValue("@paraTicketImage", tk.ticketImage);
 
 
             myConn.Open();

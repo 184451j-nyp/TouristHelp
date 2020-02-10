@@ -24,12 +24,11 @@
 
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
-                        <asp:Image ID="AttractionImage" class="img img-2 d-flex justify-content-center align-items-center" Style="height: 150px; width: 150px;" runat="server" />
+                        <asp:Image ID="AttractionImage" class="img img-2 d-flex justify-content-center align-items-center" runat="server" Width="192px" />
+                        <br />
                         <asp:Label ID="lbTicketName" runat="server" Font-Size="XX-Large"></asp:Label>
                         <br />
                         <asp:Label ID="lbTicketDesc" runat="server" Font-Size="Large"></asp:Label>
-                        <br />
-                        <br />
                         <br />
                         <br />
                         <br />
@@ -39,6 +38,8 @@
 
                         <ajaxToolkit:PopupControlExtender ID="tbDate_PopupControlExtender" runat="server" BehaviorID="tbDate_PopupControlExtender" DynamicServicePath="" ExtenderControlID="" PopupControlID="Panel1" Position="Bottom" TargetControlID="tbDate">
                         </ajaxToolkit:PopupControlExtender>
+
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="tbDate" ErrorMessage="Please pick a date" ForeColor="Red">*</asp:RequiredFieldValidator>
 
                         <br />
                         <asp:Panel ID="Panel1" runat="server">

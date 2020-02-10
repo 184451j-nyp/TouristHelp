@@ -45,6 +45,9 @@
             <div>
                 Choose Your Image To Upload:
                  <asp:FileUpload ID="FileUpload1" runat="server" />
+                <asp:Button ID="btnUplaod" Text="Upload" runat="server" OnClick="UploadFile" CausesValidation="False" />&nbsp;&nbsp;
+                        <asp:Label ID="LbImage" runat="server" Visible="false" Text=''></asp:Label>
+                <asp:Image ID="Image1" Height="100" Width="100" runat="server" />
             </div>
 
             <asp:Button ID="BtnSubmit" runat="server" OnClick="BtnSubmit_Click" Text="Update" Width="100px" />

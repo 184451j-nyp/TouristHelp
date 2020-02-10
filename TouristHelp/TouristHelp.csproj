@@ -112,6 +112,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="HotelPageLO.aspx" />
     <Content Include="Images\index\guidebook.jpg" />
     <Content Include="Images\index\hotel.jpg" />
     <Content Include="Images\index\planner.jpg" />
@@ -389,6 +390,13 @@
     </Compile>
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
+    </Compile>
+    <Compile Include="HotelPageLO.aspx.cs">
+      <DependentUpon>HotelPageLO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HotelPageLO.aspx.designer.cs">
+      <DependentUpon>HotelPageLO.aspx</DependentUpon>
     </Compile>
     <Compile Include="IndexLO.aspx.cs">
       <DependentUpon>IndexLO.aspx</DependentUpon>

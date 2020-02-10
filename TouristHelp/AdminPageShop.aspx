@@ -30,10 +30,12 @@
 
 
                     <div>
-                        Shop Voucher Image:
+                          Hotel Image:
                  <asp:FileUpload ID="FileUpload1" runat="server" />
+                        <asp:Button ID="btnUplaod" Text="Upload" runat="server" OnClick="UploadFile" />
+                          <asp:Label ID="LbImage" runat="server" Visible="false" Text=''></asp:Label>
 
-                          <asp:Image ID="Image1" Height="100" Width="100"  runat="server" />
+                        <asp:Image ID="Image1" Height="100" Width="100" runat="server" />
 
                         </div>
                     <div>
