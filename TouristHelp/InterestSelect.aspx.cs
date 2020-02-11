@@ -37,7 +37,17 @@ namespace TouristHelp
                         BtnAddAP.Visible = false;
                         BtnRemAP.Visible = true;
                     }
-                
+                    else if (IntList.InterestName == "Culture")
+                    {
+                        BtnAddAP.Visible = false;
+                        BtnRemAP.Visible = true;
+                    }
+                    else if (IntList.InterestName == "Shopping")
+                    {
+                        BtnAddAP.Visible = false;
+                        BtnRemAP.Visible = true;
+                    }
+
             }
 
 
@@ -162,6 +172,10 @@ namespace TouristHelp
                 BtnRemNature.Visible = false;
                 BtnAddAP.Visible = true;
                 BtnRemAP.Visible = false;
+                BtnAddCulture.Visible = true;
+                BtnRemCulture.Visible = false;
+                BtnAddShopping.Visible = true;
+                BtnRemShopping.Visible = false;
             }
 
             if(b.ID == "BtnAddNature")
@@ -176,6 +190,10 @@ namespace TouristHelp
                 BtnRemFood.Visible = false;
                 BtnAddAP.Visible = true;
                 BtnRemAP.Visible = false;
+                BtnAddCulture.Visible = true;
+                BtnRemCulture.Visible = false;
+                BtnAddShopping.Visible = true;
+                BtnRemShopping.Visible = false;
             }
 
             if (b.ID == "BtnAddAP")
@@ -190,6 +208,46 @@ namespace TouristHelp
                 BtnRemNature.Visible = false;
                 BtnAddFood.Visible = true;
                 BtnRemFood.Visible = false;
+                BtnAddCulture.Visible = true;
+                BtnRemCulture.Visible = false;
+                BtnAddShopping.Visible = true;
+                BtnRemShopping.Visible = false;
+            }
+
+            if (b.ID == "BtnAddCulture")
+            {
+                string interestName = "Culture";
+
+                Interest inter = new Interest(interestName, userId);
+                inter.AddInterest();
+                BtnAddCulture.Visible = false;
+                BtnRemCulture.Visible = true;
+                BtnAddAP.Visible = true;
+                BtnRemAP.Visible = false;
+                BtnAddNature.Visible = true;
+                BtnRemNature.Visible = false;
+                BtnAddFood.Visible = true;
+                BtnRemFood.Visible = false;
+                BtnAddShopping.Visible = true;
+                BtnRemShopping.Visible = false;
+            }
+
+            if (b.ID == "BtnAddShopping")
+            {
+                string interestName = "Shopping";
+
+                Interest inter = new Interest(interestName, userId);
+                inter.AddInterest();
+                BtnAddShopping.Visible = false;
+                BtnRemShopping.Visible = true;
+                BtnAddAP.Visible = true;
+                BtnRemAP.Visible = false;
+                BtnAddNature.Visible = true;
+                BtnRemNature.Visible = false;
+                BtnAddFood.Visible = true;
+                BtnRemFood.Visible = false;
+                BtnAddCulture.Visible = true;
+                BtnRemCulture.Visible = false;
             }
         }
         protected void Btn_RemoveInt(object sender, EventArgs e)
@@ -216,7 +274,7 @@ namespace TouristHelp
                 BtnRemNature.Visible = false;
             }
 
-            if (b.ID == "BtnRemFood")
+            if (b.ID == "BtnRemAP")
             {
                 string interestName = "Amusement";
 
@@ -224,6 +282,26 @@ namespace TouristHelp
                 inter.RemoveInterest(interestName, userId);
                 BtnAddAP.Visible = true;
                 BtnRemAP.Visible = false;
+            }
+
+            if (b.ID == "BtnRemCulture")
+            {
+                string interestName = "Culture";
+
+                Interest inter = new Interest();
+                inter.RemoveInterest(interestName, userId);
+                BtnAddCulture.Visible = true;
+                BtnRemCulture.Visible = false;
+            }
+
+            if (b.ID == "BtnRemShopping")
+            {
+                string interestName = "Shopping";
+
+                Interest inter = new Interest();
+                inter.RemoveInterest(interestName, userId);
+                BtnAddShopping.Visible = true;
+                BtnRemShopping.Visible = false;
             }
         }
     }
