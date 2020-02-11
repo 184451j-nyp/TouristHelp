@@ -54,6 +54,8 @@
 
                 <asp:Button ID="addCreditBtn" CssClass="buttonPosition" runat="server" Text="Add Credits" OnClick="addCreditBtn_Click" />
 
+                
+                   <asp:Button ID="dailyReward"  runat="server" Text="Daily Reward" OnClick="dailyReward_Click" />
             </div>
 
 

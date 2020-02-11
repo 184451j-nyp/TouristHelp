@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminPageRewardSystem.aspx.cs" Inherits="TouristHelp.AdminPageRewardSystem" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AdminPageRewardSystem.aspx.cs" Inherits="TouristHelp.AdminPageRewardSystem" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -45,11 +45,10 @@
 
 
 
-        <asp:Label ID="shopSystemLbl" CssClass="col-6" runat="server" Text="Shop GUI"></asp:Label>
+        <asp:Label ID="shopSystemLbl" CssClass="col-12" runat="server" Text="Shop GUI"></asp:Label>
 
       
 
-           <asp:Label ID="dailyLbl" CssClass="col-6" runat="server" Text="Reward GUI"></asp:Label>
 
       
 
@@ -61,12 +60,11 @@
                   <div class="row">
 
                       
-                     <asp:Button ID="addShop" runat="server" CssClass="col-6" Text="Add shopVoucher" Width="124px" OnClick="ButtonAdd_Click" />
+                     <asp:Button ID="addShop" runat="server" CssClass="col-12" Text="Add shopVoucher" Width="124px" OnClick="ButtonAdd_Click" />
 
 
 
 
-                      <asp:Button ID="dailyReward" CssClass="col-6"  runat="server" Text="Daily Reward" OnClick="dailyReward_Click" />
 
 
                   </div>       
