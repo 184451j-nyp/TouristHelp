@@ -59,7 +59,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
-            string sqlStmt = "Select * from ShopVoucher";
+            string sqlStmt = "Select * from ShopVoucher WHERE voucherStatus = 'Available' ";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
             //Step 3 -  Create a DataSet to store the data to be retrieved
@@ -177,7 +177,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
-            string sqlStmt = "Select * from ShopVoucher " +
+            string sqlStmt = "Select * from ShopVoucher " + " WHERE voucherStatus = 'Available' " +
                                 "ORDER BY voucherPopularity DESC ";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
@@ -227,7 +227,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
-            string sqlStmt = "Select * from ShopVoucher " +
+            string sqlStmt = "Select * from ShopVoucher " + " WHERE  voucherStatus = 'Available' " +
                                 "ORDER BY voucherCost  ";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
@@ -275,7 +275,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
-            string sqlStmt = "Select * from ShopVoucher " +
+            string sqlStmt = "Select * from ShopVoucher " + " voucherStatus = 'Available' " +
                                 "ORDER BY voucherCost DESC";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
@@ -321,7 +321,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
-            string sqlStmt = "Select * from ShopVoucher " +
+            string sqlStmt = "Select * from ShopVoucher " + "  voucherStatus = 'Available' " +
                                 "ORDER BY voucher_id DESC ";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
