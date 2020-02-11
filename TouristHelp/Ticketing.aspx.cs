@@ -119,7 +119,7 @@ namespace TouristHelp
             }
             
 
-            Cart cart = new Cart(attName, attDesc, price, quantity, user_id);
+            Cart cart = new Cart(attName, attDesc, price, quantity, user_id, AttractionImage.ImageUrl);
             cart.InsertCartTicket();
 
             Cart newCart = new Cart();

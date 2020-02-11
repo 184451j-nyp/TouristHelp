@@ -86,6 +86,13 @@ namespace TouristHelp.BLL
 
 
 
+        public List<HotelTrans> showPaidHotelOldest(int user_id)
+        {
+            HotelTransDAO dao = new HotelTransDAO();
+            return dao.showHotelPaidOldest(user_id);
+        }
+
+
 
 
 

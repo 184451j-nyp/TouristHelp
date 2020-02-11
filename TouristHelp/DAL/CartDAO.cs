@@ -16,8 +16,8 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Cart (productName, productPrice, productQuantity, user_id, productDesc, active, itemType) " +
-                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active', 'Ticket')";
+            string sqlStmt = "INSERT INTO Cart (productName, productPrice, productQuantity, user_id, productDesc, active, itemType, cartImage) " +
+                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active', 'Ticket', @paraProductImage)";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -27,6 +27,7 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraProductQuantity", cart.productQuantity);
             sqlCmd.Parameters.AddWithValue("@paraProductDesc", cart.productDesc);
             sqlCmd.Parameters.AddWithValue("@paraUserId", cart.userId);
+            sqlCmd.Parameters.AddWithValue("@paraProductImage", cart.productImage);
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();
@@ -39,8 +40,8 @@ namespace TouristHelp.DAL
             string DBConnect = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
             SqlConnection myConn = new SqlConnection(DBConnect);
 
-            string sqlStmt = "INSERT INTO Cart (productName, productPrice, productQuantity, user_id, productDesc, active, itemType) " +
-                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active', 'Hotel') ";
+            string sqlStmt = "INSERT INTO Cart (productName, productPrice, productQuantity, user_id, productDesc, active, itemType, cartImage) " +
+                             "VALUES (@paraProductName, @paraProductPrice, @paraProductQuantity, @paraUserId, @paraProductDesc, 'active', 'Hotel', @paraProductImage) ";
 
 
             SqlCommand sqlCmd = new SqlCommand(sqlStmt, myConn);
@@ -50,6 +51,7 @@ namespace TouristHelp.DAL
             sqlCmd.Parameters.AddWithValue("@paraProductQuantity", cart.productQuantity);
             sqlCmd.Parameters.AddWithValue("@paraProductDesc", cart.productDesc);
             sqlCmd.Parameters.AddWithValue("@paraUserId", cart.userId);
+            sqlCmd.Parameters.AddWithValue("@paraProductImage", cart.productImage);
 
             myConn.Open();
             sqlCmd.ExecuteNonQuery();
@@ -89,7 +91,8 @@ namespace TouristHelp.DAL
                     int productQuantity = Convert.ToInt32(row["productQuantity"].ToString());
                     string productDesc = row["productDesc"].ToString();
                     double productTotalPrice = productPrice * productQuantity;
-                    Cart obj = new Cart(productId, productName, productDesc, productPrice, productQuantity, productTotalPrice);
+                    string productImage = row["cartImage"].ToString();
+                    Cart obj = new Cart(productId, productName, productDesc, productPrice, productQuantity, productTotalPrice, productImage);
                     cartList.Add(obj);
                 }
             }

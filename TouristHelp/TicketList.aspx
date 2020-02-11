@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <asp:Button ID="btnClaim" runat="server" Text="Delete" />
+                                <asp:Button ID="btnClaim" runat="server" Text="Claim" />
                             </div>
                         </div>
                     </div>

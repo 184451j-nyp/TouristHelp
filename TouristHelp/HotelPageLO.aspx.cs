@@ -296,10 +296,11 @@ namespace TouristHelp
             double cartPrice = Convert.ToDouble(price) * Convert.ToDouble(stayDuration);
 
 
+            System.Web.UI.WebControls.Image hotelImage = (System.Web.UI.WebControls.Image)hotels.FindControl("hotelImage");
             DateTime reservedate = DateTime.Now;
+            string imageurl = hotelImage.ToString();
 
-
-            Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id);
+            Cart cart = new Cart(attName, attDesc, cartPrice, quantity, user_id, imageurl);
             cart.InsertHotel();
 
 

@@ -48,6 +48,7 @@ namespace TouristHelp
 
                 double subTotal = 0;
                 double grandTotal = 0;
+                double gstAmt = 0;
 
                 foreach (RepeaterItem ri in Repeater1.Items)
                 {
@@ -66,9 +67,9 @@ namespace TouristHelp
 
                 double getDiscount = (subTotal / 100) * td.totalDiscount;
 
-                lbGst.Text = Convert.ToString(subTotal * gst);
+                lbGst.Text = Convert.ToString(Math.Round((subTotal * gst), 2));
                 lbSubTotal.Text = subTotal.ToString();
-                grandTotal = (subTotal + (subTotal * gst) ) - getDiscount;
+                grandTotal = Math.Round(((subTotal + (subTotal * gst) ) - getDiscount), 2);
                 lbGrandTotal.Text = grandTotal.ToString();
                 discountLbl.Text = "-" + getDiscount.ToString();
             }

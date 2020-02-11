@@ -36,16 +36,23 @@
     <span class="select-wrap one-third">
                <asp:Label ID="transactionLabel"   runat="server" Text="Your Hotel Transaction"></asp:Label>
                                 
-	                    <select name="" id="" style="width:unset;" class="form-control" >
-	                      <option value="">Newest</option>
-	                      <option value="">Oldest</option>
-	                    </select>
+	               <%--    <asp:DropDownList ID="region"  class="form-control" style="width:20%;margin-left:41%;" placeholder="Region"   runat="server" AutoPostBack="True">
+                                                            <asp:ListItem Selected="False" Value="Newest"></asp:ListItem>
+                                                            <asp:ListItem>Oldest</asp:ListItem>
+                                                       
+  
+                                                        </asp:DropDownList>--%>
 	                  </span>
 
 
       <form id="frm" runat="server">
                 
-
+           <asp:DropDownList ID="filterTrans"  class="form-control"   style="width:20%;margin-left:41%;"   placeholder="Newest"   runat="server" AutoPostBack="True">
+                                                            <asp:ListItem Selected="False" Value="Newest"></asp:ListItem>
+                                                            <asp:ListItem>Oldest</asp:ListItem>
+                                                       
+  
+                                                        </asp:DropDownList>
                             
 
 

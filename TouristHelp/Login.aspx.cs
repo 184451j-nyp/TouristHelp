@@ -44,6 +44,17 @@ namespace TouristHelp
                     else if (Session["tourist_id"] != null)
                     {
                         Response.Redirect("Index.aspx");
+
+
+
+
+
+
+
+
+
+
+
                     }
                 }
             }
