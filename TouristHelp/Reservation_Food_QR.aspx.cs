@@ -28,7 +28,7 @@ namespace TouristHelp
                 lbPax.Text = td.Pax.ToString();
 
                 int reservationId = td.Id;
-                string code = "touristhelp20200209044754.azurewebsites.net/Reservation_Food_QR_Claim.aspx?ResId=" + reservationId;
+                string code = "touristhelp20200208080154.azurewebsites.net/Reservation_Food_QR_Claim.aspx?ResId=" + reservationId;
                 QRCodeGenerator qrGenerator = new QRCodeGenerator();
                 QRCodeGenerator.QRCode qrCode = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
                 System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
