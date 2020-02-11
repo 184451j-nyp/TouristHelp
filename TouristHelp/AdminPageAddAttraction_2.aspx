@@ -21,7 +21,7 @@
                     </p>
                     <p>
                         Attraction Description:
-                            <asp:TextBox ID="TbDesc" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="TbDesc" runat="server" Height="64px" TextMode="MultiLine" Width="207px"></asp:TextBox>
                     &nbsp;<asp:RequiredFieldValidator ID="RfvDesc" runat="server" ControlToValidate="TbDesc" ForeColor="Red">*Please Enter a Description</asp:RequiredFieldValidator>
                     </p>
                     <p>
