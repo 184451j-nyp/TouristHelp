@@ -309,16 +309,24 @@ namespace TouristHelp
         private void filterRepeater()
         {
 
-            int getMinPrice = Convert.ToInt32(minpriceTB.Text);
+           
 
-            int getMaxPrice = Convert.ToInt32(maxPriceTB.Text);
 
-            if (getMinPrice.ToString() == "" || getMaxPrice.ToString() == "")
+            string checkMinPrice = minpriceTB.Text;
+
+            string checkMaxPrice = maxPriceTB.Text;
+
+            if (checkMinPrice == "" || checkMaxPrice == "")
             {
 
             }
             else
             {
+
+                int getMinPrice = Convert.ToInt32(minpriceTB.Text);
+
+                int getMaxPrice = Convert.ToInt32(maxPriceTB.Text);
+
                 HotelBook hotel = new HotelBook(getMinPrice, getMaxPrice);
                 hotelList = hotel.getHotelsByPrice();
 
