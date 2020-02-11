@@ -33,8 +33,8 @@
 		    						<p>Find out what local cuisines are left to be discovered, waiting to be savoured.</p>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<asp:Button ID="BtnAddFood" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" />
-                                        <asp:Button ID="BtnRemFood" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" Visible="False" />
+		    							<asp:Button ID="BtnAddFood" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" BackColor="Green" />
+                                        <asp:Button ID="BtnRemFood" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" BackColor="Red" Visible="False" />
 		    						</p>
 		    					</div>
 		    				</div>
@@ -52,8 +52,8 @@
 		    						<p>Experience the greenery and have a refreshing take on Singapore.</p>
 		    						<hr>
 		    						<p class="bottom-area d-flex">
-		    							<asp:Button ID="BtnAddNature" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" />
-                                        <asp:Button ID="BtnRemNature" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" Visible="False" />
+		    							<asp:Button ID="BtnAddNature" runat="server" class="ml-auto" Text="Add" OnClick="Btn_AddInt" BackColor="Green" />
+                                        <asp:Button ID="BtnRemNature" runat="server" class="ml-auto" Text="Remove" OnClick="Btn_RemoveInt" BackColor="Red" Visible="False" />
 		    						</p>
 		    					</div>
 		    				</div>
