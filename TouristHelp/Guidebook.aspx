@@ -59,7 +59,7 @@
                         </p>
 
                         
-                        <asp:Button ID="ButtonSelect" runat="server" CssClass="btn btn-default" Text="Make Reservation" Style="float: right" />
+                        <asp:Button ID="ButtonSelect" runat="server" Text="Make Reservation" Style="float: right; border-style:solid; border-width:1px; background-color:white" />
                         <br />
                         <br />
                     </div>
