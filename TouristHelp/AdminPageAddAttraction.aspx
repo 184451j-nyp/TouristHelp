@@ -1,5 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="AdminPageAddAttraction.aspx.cs" Inherits="TouristHelp.AdminPageAddAttraction" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .addBtn {
+            border: 0;
+            padding: 6px 25px;
+            background-color: #6b6;
+            color: #fff;
+            border-radius: 3px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <form id="form1" runat="server">
@@ -7,7 +16,7 @@
         <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style="text-align: center; transform: translateZ(0px) translateY(10.929%);">Guidebook</h1>
     </div>
     <div>
-        <asp:Button ID="ButtonAdd" runat="server" Text="Add Attraction" Width="124px" OnClick="ButtonAdd_Click" />
+        <asp:Button ID="ButtonAdd" runat="server" CssClass="addBtn" Text="Add Attraction" Width="140px" OnClick="ButtonAdd_Click" />
         <br />
         <br />
         <asp:Repeater ID="RepeaterAttraction" runat="server" OnItemCommand="ButtonUpdate_Click">
