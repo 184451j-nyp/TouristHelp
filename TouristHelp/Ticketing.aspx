@@ -34,7 +34,7 @@
                         <br />
                         <asp:Label ID="Label3" runat="server" Font-Size="X-Large" Text="Date:"></asp:Label>
                         <br />
-                        <asp:TextBox ID="tbDate" runat="server">Click to pick a date</asp:TextBox>
+                        <asp:TextBox ID="tbDate" runat="server"></asp:TextBox>
 
                         <ajaxToolkit:PopupControlExtender ID="tbDate_PopupControlExtender" runat="server" BehaviorID="tbDate_PopupControlExtender" DynamicServicePath="" ExtenderControlID="" PopupControlID="Panel1" Position="Bottom" TargetControlID="tbDate">
                         </ajaxToolkit:PopupControlExtender>

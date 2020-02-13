@@ -45,7 +45,7 @@ namespace TouristHelp
                 TicketList = tix.GetAllTicket(user_id);
                 if(TicketList == null)
                 {
-                    Response.Redirect("ShoppingCart.aspx");
+                    Response.Redirect("Guidebook.aspx");
                 }
                 for(int i = 0; i < TicketList.Count; i++)
                 {
