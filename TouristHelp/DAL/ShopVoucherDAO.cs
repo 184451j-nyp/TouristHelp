@@ -275,7 +275,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
-            string sqlStmt = "Select * from ShopVoucher " + " voucherStatus = 'Available' " +
+            string sqlStmt = "Select * from ShopVoucher " + "WHERE voucherStatus = 'Available' " +
                                 "ORDER BY voucherCost DESC";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
@@ -321,7 +321,7 @@ namespace TouristHelp.DAL
             SqlConnection myConn = new SqlConnection(DBConnect);
 
             //Step 2 -  Create a DataAdapter to retrieve data from the database table
-            string sqlStmt = "Select * from ShopVoucher " + "  voucherStatus = 'Available' " +
+            string sqlStmt = "Select * from ShopVoucher " + " WHERE voucherStatus = 'Available' " +
                                 "ORDER BY voucher_id DESC ";
             SqlDataAdapter da = new SqlDataAdapter(sqlStmt, myConn);
 
