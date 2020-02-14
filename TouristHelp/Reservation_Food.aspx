@@ -55,7 +55,7 @@
                     </div>
                 </td>
                 <td>
-                    <asp:Label ID="LblCustId" runat="server">test</asp:Label>
+                    <asp:Label ID="LblCustId" runat="server"></asp:Label>
                     <p style="font-size: 20px; font-weight: bold">How to use:</p>
                     <p>- A QR Code will be assigned to your account </p>
                     <p>- Present the QR Code to the restraunt staff to be seated</p>
