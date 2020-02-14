@@ -30,7 +30,7 @@ namespace TouristHelp.BLL
             this.hotelId = hotelid;
             this.hotelPrice = hotelprice;
             this.hotelImage = hotelimage;
-            this.centralFilter = centralFilter;
+            this.centralFilter = centralfilter;
             this.northFilter = northfilter;
             this.southFilter = southfilter;
             this.westFilter = westfilter;
@@ -48,7 +48,7 @@ namespace TouristHelp.BLL
         {
             this.hotelPrice = hotelprice;
             this.hotelImage = hotelimage;
-            this.centralFilter = centralFilter;
+            this.centralFilter = centralfilter;
             this.northFilter = northfilter;
             this.southFilter = southfilter;
             this.westFilter = westfilter;

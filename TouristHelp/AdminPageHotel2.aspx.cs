@@ -42,23 +42,22 @@ namespace TouristHelp
                 if (TbName.Text != "" && TbPrice.Text != "0" && regionSelect.SelectedItem.Value != "Region")
                 {
                     hotelPrice = Convert.ToDecimal(TbPrice.Text);
-                    centralFilter = true;
                     northFilter = false;
+                    centralFilter = true;
                     southFilter = false;
                     westFilter = false;
                     eastFilter = false;
-
-                    LblMsgName.Visible = false;
-                    LblMsgPrice.Visible = false;
-                    LblMsgRegion.Visible = false;
-
 
                     HotelBook addHotel = new HotelBook(hotelPrice, attImage, centralFilter, northFilter, southFilter, westFilter, eastFilter, hotelName);
                     addHotel.addHotel(addHotel);
                     Response.Redirect("AdminPageHotel.aspx");
 
+
+
+
+
                 }
-            
+
 
 
             }

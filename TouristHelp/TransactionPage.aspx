@@ -6,7 +6,7 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    User ID: <asp:Label ID="Label1" Visible="false" runat="server" Text=""></asp:Label>
+    <asp:Label ID="Label1" Visible="false" runat="server" Text=""></asp:Label>
     
     <!-- breadcrumb start-->
     <section class="breadcrumb breadcrumb_bg align-items-center">

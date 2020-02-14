@@ -190,7 +190,12 @@ namespace TouristHelp
                 filterRepeater();
 
 
-
+                if (Session["labelFail"] != null)
+                {
+                    notifyLabel.Text = null;
+                    notifyLabel.Visible = false;
+                    notifyLabel.ForeColor = Color.Red;
+                }
 
             }
 

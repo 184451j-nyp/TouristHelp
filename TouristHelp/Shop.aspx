@@ -419,7 +419,6 @@
 
                                                         <div class="col-lg-6">
                                                             <div class="sidebar-wrap ftco-animate">
-                                                                <h3 class="heading mb-4">Filter</h3>
                                                                 <form action="#">
 
                                                                     <div class="fields">
@@ -679,6 +678,9 @@
             margin-top: 200px;
         }
 
+          ul {
+            text-align:center;
+        }
         li.active {
             margin-left:150px;
         }
